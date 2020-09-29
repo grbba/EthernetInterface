@@ -47,7 +47,7 @@ public:
 
     uint8_t setup(int p, uint16_t port);
     void virtual loop();
-
+/*
     EthernetServer getServer()
     {
         return server;
@@ -56,7 +56,7 @@ public:
     {
         server = s;
     };
-
+*/
     EthernetTransport();
     ~EthernetTransport();
 };
