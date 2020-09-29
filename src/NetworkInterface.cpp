@@ -1,22 +1,15 @@
-#include "Arduino.h"
-#include "DIAG.h"
+#include <Arduino.h>
 
+#include "DIAG.h"
 #include "NetworkInterface.h"
 #include "WifiTransport.h"
 #include "EthernetTransport.h"
 
-protocolType NetworkInterface::p;
-transportType NetworkInterface::t;
-uint16_t NetworkInterface::port;
+Transport* NetworkInterface::transport;
 
-void NetworkInterface::setup(transportType tt, protocolType pt, uint16_t localPort)
+void NetworkInterface::setup(transportType tt, protocolType pt, uint16_t lp)
 {
     uint8_t ok = 0;
-
-    DIAG(F("\nNetwork Setup In Progress ...\n"));
-    port = localPort; // set port
-    p = pt;           // set protocol
-    t = tt;           // set transport
 
     DIAG(F("\n[%s] Transport Setup In Progress ...\n"), tt ? "Ethernet" : "Wifi");
 
@@ -41,13 +34,33 @@ void NetworkInterface::setup(transportType tt, protocolType pt, uint16_t localPo
     }
     }
 
-    if(ok) {  // continue
-        ok = transport->setup(p,port);
+    if(ok) {  // configure the Transport and get it up and running
+        transport->port = lp;
+        transport->protocol = pt;
+        // ok = transport->setup(pt,lp);
+        ok = transport->setup();
     }
 
-    DIAG(F("\n\n[%s] Transport %s ..."), tt ? "Ethernet" : "Wifi", ok ? "Succes" : "Failed");
-    DIAG(F("\nNetwork Setup done ..."));
+    DIAG(F("\n\n[%s] Transport %s ..."), tt ? "Ethernet" : "Wifi", ok ? "OK" : "Failed");
+    
 }
+
+void NetworkInterface::setup(transportType tt, protocolType pt)
+{
+    NetworkInterface::setup(tt, pt, LISTEN_PORT);
+}
+
+void NetworkInterface::setup(transportType tt)
+{
+    NetworkInterface::setup(tt, TCP, LISTEN_PORT);
+}
+
+void NetworkInterface::setup()
+{
+    NetworkInterface::setup(ETHERNET, TCP, LISTEN_PORT);
+}
+
+
 
 void NetworkInterface::loop() {
 
@@ -64,14 +77,4 @@ NetworkInterface::NetworkInterface()
 NetworkInterface::~NetworkInterface()
 {
     // DIAG(F("NetworkInterface destroyed"));
-}
-
-void NetworkInterface::setTest(uint8_t v)
-{
-    test = v;
-}
-
-uint8_t NetworkInterface::getTest()
-{
-    return test;
 }

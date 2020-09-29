@@ -1,6 +1,8 @@
-#include "Arduino.h"
-#include "DIAG.h"
+#include <Arduino.h>
 #include <WiFiEspAT.h>
+
+#include "DIAG.h"
+#include "StringFormatter.h"
 
 #include "NetworkInterface.h"
 #include "WifiTransport.h"
@@ -13,6 +15,8 @@ SoftwareSerial Serial1(6, 7); // RX, TX
 #else
 #define AT_BAUD_RATE 115200
 #endif
+
+WiFiServer WifiTransport::server = WiFiServer(LISTEN_PORT);
 
 void WifiTransport::udpHandler()
 {
@@ -27,8 +31,19 @@ void WifiTransport::udpHandler()
 
         // read the packet into packetBufffer
         Udp.read(packetBuffer, MAX_ETH_BUFFER);
+        // terminate buffer properly
+        packetBuffer[packetSize]='\0';
 
         DIAG(F("Command:                [%s]\n"), packetBuffer);
+        // execute the command via the parser
+        
+        // check if we have a response if yes then 
+        
+        // send the reply 
+        Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
+        parse(&Udp, (byte *)packetBuffer, true);
+        Udp.endPacket();
+
         /*
         streamer->flush();
 
@@ -48,7 +63,8 @@ void WifiTransport::udpHandler()
             Udp.endPacket();
         }
         */
-
+       
+        // clear out the PacketBuffer
         memset(packetBuffer, 0, MAX_ETH_BUFFER); // reset PacktBuffer
         return;
     }
@@ -57,7 +73,7 @@ void WifiTransport::udpHandler()
 void WifiTransport::tcpHandler()
 {
     // get client from the server
-    WiFiClient client = srv->accept();
+    WiFiClient client = server.accept();
 
     // check for new client
     if (client)
@@ -73,7 +89,6 @@ void WifiTransport::tcpHandler()
             }
         }
     }
-
     // check for incoming data from all possible clients
     for (byte i = 0; i < MAX_SOCK_NUM; i++)
     {
@@ -81,11 +96,13 @@ void WifiTransport::tcpHandler()
         {
             // read bytes from a client
             int count = clients[i].read(buffer, MAX_ETH_BUFFER);
-            IPAddress remote = client.remoteIP();
+            IPAddress remote = clients[i].remoteIP();
             buffer[count] = '\0'; // terminate the string properly
             DIAG(F("\nReceived packet of size:[%d] from [%d.%d.%d.%d]\n"), count, remote[0], remote[1], remote[2], remote[3]);
             DIAG(F("Client #:               [%d]\n"), i);
             DIAG(F("Command:                [%s]\n"), buffer);
+
+            parse(&(clients[i]), buffer, true);
 
             /*
             // as we use buffer for recv and send we have to reset the write position
@@ -120,11 +137,10 @@ void WifiTransport::tcpHandler()
     }
 }
 
-uint8_t WifiTransport::setup(int pt, uint16_t localPort)
+uint8_t WifiTransport::setup()
 {
-    // setup Wifi Connection
-    port = localPort;
-    p = (protocolType)pt;
+
+    p = (protocolType)protocol;
 
     Serial1.begin(AT_BAUD_RATE);
     WiFi.init(Serial1);
@@ -135,7 +151,7 @@ uint8_t WifiTransport::setup(int pt, uint16_t localPort)
         return 0;
     }
 
-    DIAG(F("\nWaiting for connection to WiFi"));
+    DIAG(F("Waiting for connection to WiFi "));
     while (WiFi.status() != WL_CONNECTED)
     {
         delay(1000);
@@ -143,7 +159,8 @@ uint8_t WifiTransport::setup(int pt, uint16_t localPort)
     }
 
     // Setup the protocol handler
-    DIAG(F("\nNetwork Protocol:      [%s]"), p ? "UDP" : "TCP");
+    DIAG(F("\n\nNetwork Protocol:      [%s]"), p ? "UDP" : "TCP");
+
     switch (p)
     {
     case UDP:
@@ -162,12 +179,10 @@ uint8_t WifiTransport::setup(int pt, uint16_t localPort)
     };
     case TCP:
     {
-        WiFiServer server = WiFiServer(port);
-        srv = &server;
+        server = WiFiServer(port);
         server.begin();
         connected = true;
         ip = WiFi.localIP();
-        // protocolHandler = tcpHandler;
         break;
     };
     default:
@@ -183,7 +198,7 @@ uint8_t WifiTransport::setup(int pt, uint16_t localPort)
         DIAG(F("\nLocal IP address:      [%d.%d.%d.%d]"), ip[0], ip[1], ip[2], ip[3]);
         DIAG(F("\nListening on port:     [%d]"), port);
         dnsip = WiFi.dnsServer1();
-        DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), ip[0], ip[1], ip[2], ip[3]);
+        DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
         return 1;
     }
     // something went wrong

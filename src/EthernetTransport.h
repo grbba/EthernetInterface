@@ -1,9 +1,11 @@
 #ifndef EthernetTransport_h
 #define EthernetTransport_h
 #include <Arduino.h>
-
-#include "Transport.h"
 #include <Ethernet.h>
+
+#include "Singelton.h"
+#include "Transport.h"
+
 
 /* some generated mac addresses as EthernetShields don't have one by default in HW.
  * Sometimes they come on a sticker on the EthernetShield then use this address otherwise
@@ -33,9 +35,12 @@ class EthernetTransport : public Singleton<EthernetTransport>, public Transport
     friend void Singleton<EthernetTransport>::kill();
 
 private:
+
+    EthernetTransport (const EthernetTransport&){};
+
     IPAddress dnsip;
     IPAddress ip;
-    EthernetServer server;
+    static EthernetServer server;
     EthernetUDP Udp;
     protocolType p;
     EthernetClient clients[MAX_SOCK_NUM];
@@ -45,18 +50,10 @@ public:
     void tcpHandler();
     void udpHandler();
 
-    uint8_t setup(int p, uint16_t port);
+
+    uint8_t setup();
     void virtual loop();
-/*
-    EthernetServer getServer()
-    {
-        return server;
-    };
-    void setServer(EthernetServer s)
-    {
-        server = s;
-    };
-*/
+
     EthernetTransport();
     ~EthernetTransport();
 };

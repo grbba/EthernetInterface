@@ -4,19 +4,15 @@
  *  This is a basic, no frills CVreader example of a DCC++ compatible setup.
  *  There are more advanced examples in the examples folder i
  */
-#include "Arduino.h"
+#include <Arduino.h>
+
 // #include "DCCEX.h"
-// #include "EthernetInterface.h"
+#include "MemoryFree.h"
+#include "DIAG.h"
 
-// EthernetInterface network;
-
-#include "Singelton.h"
 #include "NetworkInterface.h"
 
 // DCCEXParser  serialParser;
-
-NetworkInterface *nm = Singleton<NetworkInterface>::get();
-// NetworkInterface *nT = new NetworkInterface(); // Singleton<NetworkInterface>::get();
 
 void setup()
 {
@@ -26,12 +22,26 @@ void setup()
   {
     ; // wait for serial port to connect. just in case
   }
-  Serial.println("Starting ...");
   
   // DCC::begin(STANDARD_MOTOR_SHIELD);
 
-  //nm->setup(WIFI, TCP, 8888);                            // setup
-  nm->setup(ETHERNET, TCP, 8888);                     // setup
+  DIAG(F("\nNetwork Setup In Progress ...\n"));
+  NetworkInterface::setup(WIFI, UDP, 8888);       // specify WIFI or ETHERNET depending on if you have Wifi or an EthernetShield; Wifi has to be on Serial1 UDP or TCP for the protocol
+  // NetworkInterface::setup(WIFI, UDP);          // Setup without port will use the by default port 2560
+  // NetworkInterface::setup(WIFI);               // setup without port and protocol will use by default TCP on port 2560 
+  // NetworkInterface::setup();                   // all defaults ETHERNET, TCP on port 2560
+  DIAG(F("\nNetwork Setup done ..."));
+  
+  
+  DIAG(F("\nFree RAM after network init: [%d]\n"),freeMemory());
+  
+  /*
+  int freeNow=freeMemory();
+  if (freeNow<ramLowWatermark) {
+    ramLowWatermark=freeNow;
+    DIAG(F("\nFree RAM=%d\n"),ramLowWatermark;
+  }
+  */
 
   Serial.println("\nReady for DCC Commands ...");
 }
@@ -39,8 +49,8 @@ void setup()
 void loop()
 {
   // DCC::loop();
-  
-  nm->loop();
+  NetworkInterface::loop();
+  //nm->loop();
 
   // serialParser.loop(Serial);
 }

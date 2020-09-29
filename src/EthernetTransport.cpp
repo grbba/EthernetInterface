@@ -1,13 +1,11 @@
-#include "Arduino.h"
-#include "DIAG.h"
-#include "Ethernet.h"
-#include "EthernetUdp.h"
-#include "Singelton.h"
+#include <Arduino.h>
+#include <Ethernet.h>
 
+#include "DIAG.h"
 #include "NetworkInterface.h"
 #include "EthernetTransport.h"
 
-// EthernetServer srv;
+EthernetServer EthernetTransport::server = EthernetServer(LISTEN_PORT);
 
 void EthernetTransport::udpHandler()
 {
@@ -24,6 +22,12 @@ void EthernetTransport::udpHandler()
         Udp.read(packetBuffer, MAX_ETH_BUFFER);
 
         DIAG(F("Command:                [%s]\n"), packetBuffer);
+
+        Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
+        parse(&Udp, (byte *)packetBuffer, true);
+        Udp.endPacket();
+
+
         /*
         streamer->flush();
 
@@ -53,7 +57,7 @@ void EthernetTransport::tcpHandler()
 {
     // get client from the server
     EthernetClient client = server.accept();
-
+    
     // check for new client
     if (client)
     {
@@ -81,6 +85,7 @@ void EthernetTransport::tcpHandler()
             DIAG(F("Client #:               [%d]\n"), i);
             DIAG(F("Command:                [%s]\n"), buffer);
 
+            parse(&server, buffer, true);
 
         }
         // stop any clients which disconnect
@@ -95,14 +100,10 @@ void EthernetTransport::tcpHandler()
     }
 }
 
-uint8_t EthernetTransport::setup(int pt, uint16_t localPort)
+uint8_t EthernetTransport::setup()
 {
-    port = localPort;
-    p = (protocolType)pt;
-    EthernetServer server(port);
-    // server.server_port =
-    // s = &server;
-
+    p = (protocolType)protocol;
+    
     DIAG(F("\nInitialize Ethernet with DHCP"));
     if (Ethernet.begin(mac) == 0)
     {
@@ -144,8 +145,7 @@ uint8_t EthernetTransport::setup(int pt, uint16_t localPort)
     };
     case TCP:
     {
-
-        // setServer(server);
+        server = EthernetServer(port);
         server.begin();
         connected = true;
         
@@ -164,7 +164,7 @@ uint8_t EthernetTransport::setup(int pt, uint16_t localPort)
         DIAG(F("\nLocal IP address:      [%d.%d.%d.%d]"), ip[0], ip[1], ip[2], ip[3]);
         DIAG(F("\nListening on port:     [%d]"), port);
         dnsip = Ethernet.dnsServerIP();
-        DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), ip[0], ip[1], ip[2], ip[3]);
+        DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
         return 1;
     }
 
@@ -174,7 +174,7 @@ uint8_t EthernetTransport::setup(int pt, uint16_t localPort)
 
 void EthernetTransport::loop()
 {
-    
+    // DIAG(F("Loop .. "));
     switch (p)
     {
     case UDP:

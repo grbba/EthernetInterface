@@ -1,3 +1,9 @@
+// Singelton pattern but not thread nor copy safe
+// shouldn't be an issue for the thread but copy 
+// may have to be looked into
+// pattern shall apply for the Wifi/Ethernet connection only one of each at
+// any time allocated dynamically @runtime
+
 #ifndef Singelton_H
 #define Singelton_H
 #include "Arduino.h"

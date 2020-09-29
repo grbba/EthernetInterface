@@ -1,11 +1,12 @@
 #ifndef WifiTransport_h
 #define WifiTransport_h
 
-#include "Arduino.h"
-#include "Singelton.h"
-
-#include "Transport.h"
+#include <Arduino.h>
 #include <WiFiEspAT.h>
+
+#include "Singelton.h"
+#include "Transport.h"
+
 
 class WifiTransport: public Singleton<WifiTransport>, public Transport
 {
@@ -13,9 +14,12 @@ class WifiTransport: public Singleton<WifiTransport>, public Transport
     friend void Singleton<WifiTransport>::kill();
 
 private:
+
+    WifiTransport (const WifiTransport&){};
+
     IPAddress dnsip;
     IPAddress ip;
-    WiFiServer *srv;
+    static WiFiServer server;
     WiFiUDP Udp;
     protocolType p;
     WiFiClient clients[MAX_SOCK_NUM]; 
@@ -25,8 +29,8 @@ public:
    void tcpHandler();
    void udpHandler();
 
-   uint8_t setup(int p, uint16_t port);
-   void loop();
+    uint8_t setup();
+    void loop();
 
     WifiTransport(/* args */);
     ~WifiTransport();
