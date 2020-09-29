@@ -2,9 +2,12 @@
 #include "DIAG.h"
 #include "Ethernet.h"
 #include "EthernetUdp.h"
+#include "Singelton.h"
 
 #include "NetworkInterface.h"
 #include "EthernetTransport.h"
+
+// EthernetServer srv;
 
 void EthernetTransport::udpHandler()
 {
@@ -96,6 +99,9 @@ uint8_t EthernetTransport::setup(int pt, uint16_t localPort)
 {
     port = localPort;
     p = (protocolType)pt;
+    EthernetServer server(port);
+    // server.server_port =
+    // s = &server;
 
     DIAG(F("\nInitialize Ethernet with DHCP"));
     if (Ethernet.begin(mac) == 0)
@@ -138,8 +144,8 @@ uint8_t EthernetTransport::setup(int pt, uint16_t localPort)
     };
     case TCP:
     {
-        EthernetServer server(port);
-        setServer(server);
+
+        // setServer(server);
         server.begin();
         connected = true;
         
@@ -187,7 +193,7 @@ void EthernetTransport::loop()
 
 EthernetTransport::EthernetTransport()
 {
-    // DIAG(F("EthernetTransport created "));
+     // DIAG(F("EthernetTransport created "));
 }
 
 EthernetTransport::~EthernetTransport()
