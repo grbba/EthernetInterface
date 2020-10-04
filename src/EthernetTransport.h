@@ -47,8 +47,8 @@ private:
     uint8_t mac[6] = MAC_ADDRESS;
 
 public:
-    void tcpHandler();
-    void udpHandler();
+    // void tcpHandler();
+    // void udpHandler();
 
 
     uint8_t setup();

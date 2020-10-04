@@ -26,8 +26,8 @@ private:
 
 public:
   
-   void tcpHandler();
-   void udpHandler();
+   // void tcpHandler();
+   // void udpHandler();
 
     uint8_t setup();
     void loop();
