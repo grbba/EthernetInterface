@@ -26,8 +26,9 @@ void setup()
   // DCC::begin(STANDARD_MOTOR_SHIELD);
 
   DIAG(F("\nNetwork Setup In Progress ...\n"));
-  NetworkInterface::setup(WIFI, TCP, 8888);       // specify WIFI or ETHERNET depending on if you have Wifi or an EthernetShield; Wifi has to be on Serial1 UDP or TCP for the protocol
-  // NetworkInterface::setup(WIFI, UDP, 8888);          // Setup without port will use the by default port 2560
+  NetworkInterface::setup(ETHERNET, TCP, 8888);       // specify WIFI or ETHERNET depending on if you have Wifi or an EthernetShield; Wifi has to be on Serial1 UDP or TCP for the protocol
+  // NetworkInterface::setup(WIFI, MQTT, 8888);      // sending over MQTT. In this case TCP will be the default as it needs a connection oriented protocol. Enabled over Wifi or Ethernet
+  // NetworkInterface::setup(WIFI, UDP, 8888);    // Setup without port will use the by default port 2560
   // NetworkInterface::setup(WIFI);               // setup without port and protocol will use by default TCP on port 2560 
   // NetworkInterface::setup();                   // all defaults ETHERNET, TCP on port 2560
   DIAG(F("\nNetwork Setup done ..."));
@@ -41,6 +42,6 @@ void loop()
 {
   // DCC::loop();
   NetworkInterface::loop();
-  
+
   // serialParser.loop(Serial);
 }

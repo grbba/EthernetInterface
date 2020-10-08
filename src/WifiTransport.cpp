@@ -26,6 +26,8 @@ uint8_t WifiTransport::setup()
     Serial1.begin(AT_BAUD_RATE);
     WiFi.init(Serial1);
 
+    maxConnections = MAX_WIFI_SOCK;
+
     if (WiFi.status() == WL_NO_MODULE)
     {
         DIAG(F("Communication with WiFi module failed!\n"));
@@ -65,7 +67,11 @@ uint8_t WifiTransport::setup()
         server.begin();
         connected = true;
         ip = WiFi.localIP();
+        connectionPool(&server);
         break;
+    };
+    case MQTT: {
+        // do the MQTT setup stuff here 
     };
     default:
     {
@@ -81,6 +87,7 @@ uint8_t WifiTransport::setup()
         DIAG(F("\nListening on port:     [%d]"), port);
         dnsip = WiFi.dnsServer1();
         DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
+        DIAG(F("\nNumber of connections: [%d]"), maxConnections);
         return 1;
     }
     // something went wrong
@@ -100,6 +107,11 @@ void WifiTransport::loop()
     case TCP:
     {
         tcpHandler(&server);
+        break;
+    };
+    case MQTT:
+    {
+       // tcpHandler(&server);
         break;
     };
     }

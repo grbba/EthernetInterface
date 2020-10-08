@@ -1,16 +1,21 @@
 #include <Arduino.h>
 #include <Ethernet.h>
+#include <utility/w5100.h>
 
 #include "DIAG.h"
 #include "NetworkInterface.h"
 #include "EthernetTransport.h"
 
+
+#define MODE 1    // Mode 1 = stateless i.e. all connections get closed after handling 0 = connection get maintained open 
+
 EthernetServer EthernetTransport::server = EthernetServer(LISTEN_PORT);
+uint8_t Transport::maxConnections;
 
 uint8_t EthernetTransport::setup()
 {
     p = (protocolType)protocol;
-    
+
     DIAG(F("\nInitialize Ethernet with DHCP"));
     if (Ethernet.begin(mac) == 0)
     {
@@ -27,6 +32,20 @@ uint8_t EthernetTransport::setup()
             DIAG(F("\nEthernet cable is not connected."));
             return false;
         }
+    }
+    maxConnections = MAX_SOCK_NUM;
+    if (Ethernet.hardwareStatus() == EthernetW5100)
+    {
+        DIAG(F("\nW5100 Ethernet controller detected."));
+        maxConnections = 4;  // Max supported officaly by the W5100 but i have been running over 8 as well. Perf has to be evaluated though comparing 4 vs. 8 connections
+    }
+    else if (Ethernet.hardwareStatus() == EthernetW5200)
+    {
+        DIAG(F("\nW5200 Ethernet controller detected."));
+    }
+    else if (Ethernet.hardwareStatus() == EthernetW5500)
+    {
+        DIAG(F("W5500 Ethernet controller detected."));
     }
 
     // set the obtained ip address
@@ -56,8 +75,12 @@ uint8_t EthernetTransport::setup()
         server = EthernetServer(port);
         server.begin();
         connected = true;
-        
+        connectionPool(&server);
         break;
+    };
+    case MQTT:
+    {
+        // do the MQTT setup stuff ...
     };
     default:
     {
@@ -73,6 +96,7 @@ uint8_t EthernetTransport::setup()
         DIAG(F("\nListening on port:     [%d]"), port);
         dnsip = Ethernet.dnsServerIP();
         DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
+        DIAG(F("\nNumber of connections: [%d]"), maxConnections);
         return 1;
     }
 
@@ -92,17 +116,20 @@ void EthernetTransport::loop()
     };
     case TCP:
     {
-        // DIAG(F("TCP Loop %x"), &server);
         tcpHandler(&server);
         break;
     };
+    case MQTT:
+    {
+        // MQTT
+        break;
+    };
     }
-    
 }
 
 EthernetTransport::EthernetTransport()
 {
-     // DIAG(F("EthernetTransport created "));
+    // DIAG(F("EthernetTransport created "));
 }
 
 EthernetTransport::~EthernetTransport()

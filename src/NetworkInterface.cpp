@@ -60,8 +60,6 @@ void NetworkInterface::setup()
     NetworkInterface::setup(ETHERNET, TCP, LISTEN_PORT);
 }
 
-
-
 void NetworkInterface::loop() {
 
     transport->loop();

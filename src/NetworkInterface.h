@@ -7,14 +7,14 @@
 
 typedef enum {
     TCP,
-    UDP
+    UDP,
+    MQTT
 } protocolType;
 
 typedef enum  {
     WIFI,                   // using an AT (Version >= V1.7) command enabled ESP8266 not to be used in conjunction with the WifiInterface though! not tested for conflicts
-    ETHERNET                   // using the EthernetShield
+    ETHERNET                // using the EthernetShield
 } transportType;
-
 
 
 class NetworkInterface
