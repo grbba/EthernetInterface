@@ -42,10 +42,12 @@ uint8_t EthernetTransport::setup()
     else if (Ethernet.hardwareStatus() == EthernetW5200)
     {
         DIAG(F("\nW5200 Ethernet controller detected."));
+        maxConnections = 8;
     }
     else if (Ethernet.hardwareStatus() == EthernetW5500)
     {
         DIAG(F("W5500 Ethernet controller detected."));
+        maxConnections = 8;
     }
 
     // set the obtained ip address
@@ -116,7 +118,8 @@ void EthernetTransport::loop()
     };
     case TCP:
     {
-        tcpHandler(&server);
+        // tcpHandler(&server);         // for stateless coms
+        tcpSessionHandler(&server);     // for session oriented coms
         break;
     };
     case MQTT:

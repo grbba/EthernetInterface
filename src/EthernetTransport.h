@@ -43,7 +43,7 @@ private:
     static EthernetServer server;
     EthernetUDP Udp;
     protocolType p;
-    EthernetClient clients[MAX_SOCK_NUM];
+    EthernetClient eclients[MAX_SOCK_NUM];
     uint8_t mac[6] = MAC_ADDRESS;
 
 public:
