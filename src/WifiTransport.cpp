@@ -64,10 +64,14 @@ uint8_t WifiTransport::setup()
     case TCP:
     {
         server = WiFiServer(port);
-        server.begin();
-        connected = true;
-        ip = WiFi.localIP();
-        connectionPool(&server);
+        server.begin(MAX_WIFI_SOCK, 240);
+        if(server.status()) {
+            connected = true;
+            ip = WiFi.localIP();
+        } else {
+            DIAG(F("\nWiFi server failed to start"));
+            connected = false;
+        } // Connection pool not used for WiFi
         break;
     };
     case MQTT: {
@@ -106,12 +110,12 @@ void WifiTransport::loop()
     };
     case TCP:
     {
-        tcpHandler(&server);
+        // tcpHandler(&server);
+        tcpSessionHandler(&server);
         break;
     };
     case MQTT:
     {
-       // tcpHandler(&server);
         break;
     };
     }

@@ -7,15 +7,15 @@
 
 #include "MemStream.h"
 
-#define MAX_ETH_BUFFER 250
-#define MAX_SOCK_NUM 8
-#define MAX_WIFI_SOCK 15
-#define LISTEN_PORT 2560 // default listen port for the server
+#define MAX_ETH_BUFFER 128  // maximum length we read in one go from a TCP packet. Anything longer in one go send to the Arduino may result in unpredictable behaviour.
+                            // idealy the windowsize should be set accordingly so that the sender knows to produce only max 250 size packets. 
+#define MAX_SOCK_NUM 8      // Maximum number of sockets allowed for any WizNet based EthernetShield. The W5100 only supports 4
+#define MAX_WIFI_SOCK 5     // ESP8266 doesn't support more than 5 connections in //
+#define LISTEN_PORT 2560    // default listen port for the server
 
 class Transport
 {
 private:
-    uint8_t test;
     static EthernetClient eclients[MAX_SOCK_NUM];       // WizNet power Ethernet shields have 4 or 8 sockets depending on the version of the Chip
     static WiFiClient wclients[MAX_WIFI_SOCK];          // ESP should have 15(16?) sockets
 
@@ -39,6 +39,5 @@ public:
     void connectionPool(WiFiServer *server);
 
 };
-
 
 #endif // !Transport_h

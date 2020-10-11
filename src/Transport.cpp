@@ -14,12 +14,8 @@
 static uint8_t buffer[MAX_ETH_BUFFER];
 static uint8_t reply[MAX_ETH_BUFFER];
 
-// EthernetClient clients[MAX_SOCK_NUM] = {0};
 EthernetClient Transport::eclients[MAX_SOCK_NUM] = {0};
-
-
-#define MAX_WIFI_SOCK 15
-WiFiClient wclients[MAX_WIFI_SOCK];
+WiFiClient Transport::wclients[MAX_WIFI_SOCK];
 
 /**
  * @brief Sending a reply by using the StringFormatter (this will result in every byte send individually which may/will create an important Network overhead).
@@ -77,7 +73,6 @@ void Transport::connectionPool(WiFiServer *server)
  * UDP Section : same for Ethenet & Wifi
  */
 
-
 void Transport::udpHandler()
 {
     int packetSize = myudp->parsePacket();
@@ -108,6 +103,38 @@ void Transport::udpHandler()
     }
 }
 
+/**
+ * @brief Reads what is available on the incomming TCP stream copies it into the buffer. If count is bigger than MAX_ETH_BUFFER loop over the rest until count is < MAX_ETH_BUFFER to 
+ * empty the waiting messages
+ * 
+ * @param client    Pointer to the Client instance to read from 
+ * @param i         Client number 
+ */
+void readStream(Client *client, byte i)
+{
+    // read bytes from a client
+    int count = client->read(buffer, MAX_ETH_BUFFER - 1); // count is the amount of data ready for reading, -1 if there is no data, 0 is the connection has been closed
+    buffer[count] = 0;
+    IPAddress remote = client->remoteIP();
+    buffer[count] = '\0'; // terminate the string properly
+    DIAG(F("\nReceived packet of size:[%d] from [%d.%d.%d.%d]\n"), count, remote[0], remote[1], remote[2], remote[3]);
+    DIAG(F("Client #:               [%d]\n"), i);
+    DIAG(F("Command:                [%e]\n"), buffer);
+
+    // chop the buffer into CS / WiThrottle commands || assemble command across buffer read boundaries
+
+    // for each command identified send it to the CS parser ( or just send a mock reply for testing )
+    
+    // if the count is < MAX_ETH_BUFFER we are done
+
+    if (count > MAX_ETH_BUFFER) {
+        // we got more than we could read into our buffer so we have to redo it
+    }
+
+    // parse(client, buffer, true);
+    sendReply(client, (char *)buffer);
+}
+
 /*
  * WIFI/TCP Section 
  */
@@ -124,18 +151,7 @@ void Transport::tcpHandler(WiFiServer *server)
 
         if (wclients[i].connected() && wclients[i].available() > 0) // continue only if the client is connected and something is there to read
         {
-
-            int count = wclients[i].read(buffer, MAX_ETH_BUFFER);
-
-            IPAddress remote = wclients[i].remoteIP();
-            buffer[count] = '\0'; // terminate the string properly
-            DIAG(F("\nReceived packet of size:[%d] from [%d.%d.%d.%d]\n"), count, remote[0], remote[1], remote[2], remote[3]);
-            DIAG(F("Client #:               [%d:%x]\n"), i, eclients[i]);
-            DIAG(F("Command:                [%s]\n"), buffer);
-
-            // sendReply(&eclients[i], (char *)buffer);
-            parse(&wclients[i], (byte *)buffer, true); // test reply using StringFormatter (this will send byte by byte )
-
+            readStream(&(wclients[i]), i);
             wclients[i].stop();
         }
     }
@@ -151,7 +167,7 @@ void Transport::tcpSessionHandler(WiFiServer *server)
 {
     // get client from the server
     WiFiClient client = server->accept();
-    
+
     // check for new client
     if (client)
     {
@@ -172,17 +188,7 @@ void Transport::tcpSessionHandler(WiFiServer *server)
     {
         if (wclients[i] && wclients[i].available() > 0)
         {
-            // read bytes from a client
-            int count = wclients[i].read(buffer, MAX_ETH_BUFFER-1);
-            buffer[count]=0;
-            IPAddress remote = client.remoteIP();
-            buffer[count] = '\0'; // terminate the string properly
-            DIAG(F("\nReceived packet of size:[%d] from [%d.%d.%d.%d]\n"), count, remote[0], remote[1], remote[2], remote[3]);
-            DIAG(F("Client #:               [%d]\n"), i);
-            DIAG(F("Command:                [%e]\n"), buffer);
-
-           // parse(&(eclients[i]), buffer, true);
-            sendReply(&(wclients[i]), (char *)buffer);
+            readStream(&(wclients[i]), i);
         }
         // stop any clients which disconnect
         for (byte i = 0; i < Transport::maxConnections; i++)
@@ -222,21 +228,7 @@ void Transport::tcpHandler(EthernetServer *server)
 
         if (eclients[i] && eclients[i].available() > 0) // continue only if the client is connected and something is there to read
         {
-
-            int count = eclients[i].read(buffer, MAX_ETH_BUFFER);
-
-            IPAddress remote = eclients[i].remoteIP();
-            int remotePort = eclients[i].remotePort();
-            char remoteBuffer[7];
-            utoa(remotePort, remoteBuffer, 10);
-            buffer[count] = '\0'; // terminate the string properly
-            DIAG(F("\nReceived packet of size:[%d] from [%d.%d.%d.%d:%s]\n"), count, remote[0], remote[1], remote[2], remote[3], remoteBuffer);
-            DIAG(F("Client #:               [%d:%x]\n"), i, eclients[i]);
-            DIAG(F("Command:                [%e]\n"), buffer);
-
-            sendReply(&eclients[i], (char *)buffer);
-            // parse(&eclients[i], (byte *)buffer, true); // test reply using StringFormatter (this will send byte by byte )
-
+            readStream(&(eclients[i]), i);
             eclients[i].stop(); // close the connection once the reply has been send
         }
     }
@@ -252,7 +244,7 @@ void Transport::tcpSessionHandler(EthernetServer *server)
 {
     // get client from the server
     EthernetClient client = server->accept();
-    
+
     // check for new client
     if (client)
     {
@@ -273,18 +265,7 @@ void Transport::tcpSessionHandler(EthernetServer *server)
     {
         if (eclients[i] && eclients[i].available() > 0)
         {
-            // read bytes from a client
-            int count = eclients[i].read(buffer, MAX_ETH_BUFFER-1);
-            buffer[count]=0;
-            IPAddress remote = client.remoteIP();
-            buffer[count] = '\0'; // terminate the string properly
-            DIAG(F("\nReceived packet of size:[%d] from [%d.%d.%d.%d]\n"), count, remote[0], remote[1], remote[2], remote[3]);
-            DIAG(F("Client #:               [%d]\n"), i);
-            DIAG(F("Command:                [%e]\n"), buffer);
-
-           // parse(&(eclients[i]), buffer, true);
-            sendReply(&(eclients[i]), (char *)buffer);
-            
+            readStream(&(eclients[i]), i);
         }
         // stop any clients which disconnect
         for (byte i = 0; i < Transport::maxConnections; i++)
