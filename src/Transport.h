@@ -1,3 +1,21 @@
+
+/*
+ *  © 2020, Gregor Baues. All rights reserved.
+ *  
+ *  This is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  It is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with CommandStation.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 #ifndef Transport_h
 #define Transport_h
 
@@ -5,9 +23,7 @@
 #include <Ethernet.h>
 #include <WiFiEspAT.h>
 
-#include "MemStream.h"
-
-#define MAX_ETH_BUFFER 128                  // maximum length we read in one go from a TCP packet. Anything longer in one go send to the Arduino may result in unpredictable behaviour.
+#define MAX_ETH_BUFFER 64                  // maximum length we read in one go from a TCP packet. Anything longer in one go send to the Arduino may result in unpredictable behaviour.
                                             // idealy the windowsize should be set accordingly so that the sender knows to produce only max 250 size packets. 
 #define MAX_SOCK_NUM 8                      // Maximum number of sockets allowed for any WizNet based EthernetShield. The W5100 only supports 4
 #define MAX_WIFI_SOCK 5                     // ESP8266 doesn't support more than 5 connections in //

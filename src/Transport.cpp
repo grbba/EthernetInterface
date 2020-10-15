@@ -1,3 +1,20 @@
+/*
+ *  © 2020, Gregor Baues. All rights reserved.
+ *  
+ *  This is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  It is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with CommandStation.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 #include <Arduino.h>
 
 #include "DIAG.h"
@@ -5,7 +22,7 @@
 #include <WiFiEspAT.h>
 
 // #include "DCCEXParser.h"
-
+#include "NetworkInterface.h"
 #include "HttpRequest.h"
 #include "StringFormatter.h"
 #include "Transport.h"
@@ -18,10 +35,11 @@ static uint8_t reply[MAX_ETH_BUFFER];
 EthernetClient Transport::eclients[MAX_SOCK_NUM] = {0};
 WiFiClient Transport::wclients[MAX_WIFI_SOCK];
 HttpRequest httpReq;
+uint16_t _rseq[MAX_SOCK_NUM] = {0};
+uint16_t _sseq[MAX_SOCK_NUM] = {0};
 
 char protocolName[4][11] = {"JMRI", "HTTP", "WITHROTTLE", "UNKNOWN"};
 Connection connections[MAX_SOCK_NUM];
-
 
 /**
  * @brief Sending a reply by using the StringFormatter (this will result in every byte send individually which may/will create an important Network overhead).
@@ -45,14 +63,32 @@ void parse(Print *stream, byte *command, bool blocking)
  * @param client  Client who send the command to which the reply shall be send
  * @param command Command initaliy recieved to be echoed back 
  */
-void sendReply(Client *client, char *command)
-{
-    memset(reply, 0, MAX_ETH_BUFFER); // reset reply
-    sprintf((char *)reply, "reply to: %s\n", command);
+void sendReply(Client *client, char *command, uint8_t c)
+{   
+    char *number;
+    char seqNumber[6];
+    int i = 0;
+    
+    memset(reply, 0, MAX_ETH_BUFFER);       // reset reply
+
+    number = strrchr(command, ':');         // replace the int after the last ':'
+    while( &command[i] != number ) {        // copy command into the reply upto the last ':'
+        reply[i] = command[i];
+        i++;
+    }
+    
+    strcat((char *)reply, ":");
+    itoa(_sseq[c], seqNumber, 10);    
+    strcat((char *)reply, seqNumber);
+    strcat((char *)reply, ">");
+
+    // sprintf((char *)reply, "reply to: %s", command);
+
     DIAG(F("Response:               [%e]"), (char *)reply);
     if (client->connected())
     {
         client->write(reply, strlen((char *)reply));
+        _sseq[c]++;
         DIAG(F(" send\n"));
     }
 };
@@ -97,7 +133,7 @@ void Transport::udpHandler()
         // terminate buffer properly
         buffer[packetSize] = '\0';
 
-        DIAG(F("Command:                [%s]\n"), buffer);
+        DIAG(F("Command:                 [%s]\n"),buffer);
         // execute the command via the parser
         // check if we have a response if yes then
         // send the reply
@@ -125,15 +161,15 @@ appProtocol setAppProtocol(char a, char b)
     appProtocol p;
     switch (a)
     {
-    case 'G':     // GET
-    case 'C':     // CONNECT
-    case 'O':     // OPTIONS
-    case 'T':     // TRACE
+    case 'G': // GET
+    case 'C': // CONNECT
+    case 'O': // OPTIONS
+    case 'T': // TRACE
     {
         p = HTTP;
         break;
     }
-    case 'D':     // DELETE or D plux hex value
+    case 'D': // DELETE or D plux hex value
     {
         if (b == 'E')
         {
@@ -141,7 +177,7 @@ appProtocol setAppProtocol(char a, char b)
         }
         else
         {
-            p = WITHROTTLE; 
+            p = WITHROTTLE;
         }
         break;
     }
@@ -153,22 +189,23 @@ appProtocol setAppProtocol(char a, char b)
         }
         else
         {
-            p = HTTP;    // PUT / PATCH / POST
+            p = HTTP; // PUT / PATCH / POST
         }
         break;
     }
-    case 'H': {
-      if (b == 'U')
+    case 'H':
+    {
+        if (b == 'U')
         {
             p = WITHROTTLE;
         }
         else
         {
-            p = HTTP;   // HEAD 
+            p = HTTP; // HEAD
         }
         break;
     }
-    case 'M': 
+    case 'M':
     case '*':
     case 'R':
     case 'Q': // That doesn't make sense as it's the Q or close on app level
@@ -179,7 +216,7 @@ appProtocol setAppProtocol(char a, char b)
     }
     case '<':
     {
-        p =  DCCEX;
+        p = DCCEX;
         break;
     }
     default:
@@ -247,24 +284,30 @@ void commandHandler(Client *client, uint8_t c, char delimiter)
         }
         buffer[l] = '\0'; // terminate buffer just after the last '>'
         // DIAG(F("\nNew buffer: [%s] New overflow: [%s]\n"), (char*) buffer, connections[c].overflow );
-    } 
-    i = 0;
+    }
+
     // breakup the buffer using its changed length
-    // DIAG(F("\nCommand buffer: [%s]\n"), command );
-    k = strlen(command); // current length of the command buffer telling us where to start copy in
+    i = 0;
+    k = strlen(command);            // current length of the command buffer telling us where to start copy in
     l = strlen((char *)buffer);
+    // DIAG(F("\nCommand buffer: [%s]:[%d:%d:%d]\n"), command, i, l, k );
     while (i < l)
     {
         // DIAG(F("\nl: %d k: %d , i: %d"), l, k, i);
         command[k] = buffer[i];
         if (buffer[i] == delimiter)
         { // closing bracket need to fix if there is none before an opening bracket ?
-            // send command for processing
-            DIAG(F("Command:                [%e]\n"), command);
-            j = 0;
+
+            command[k+1] = '\0';
+
+            DIAG(F("Command:                [%d:%d:%e]\n"), c, _rseq[c], command);
+
             // parse(client, buffer, true);
-            sendReply(client, command);
+            sendReply(client, command, c);
             memset(command, 0, MAX_JMRI_CMD); // clear out the command
+
+            _rseq[c]++;
+            j = 0;
             k = 0;
         }
         else
@@ -287,28 +330,6 @@ void withrottleHandler(Client *client, uint8_t c)
 }
 
 /**
- * @brief creates a HttpRequest object for the user callback. Some conditions apply esp reagrding the length of the items in the Request
- * can be found in @file HttpRequest.h 
- *  
- * @param client Client object from whom we receievd the data
- * @param c id of the Client object
- */
-void httpHandler(Client *client, uint8_t c)
-{
-    uint8_t i,l = 0;
-    l = strlen((char *)buffer);
-    while ( i < l || !httpReq.endOfRequest()) {
-        httpReq.parseRequest(buffer[i]);
-        i++;
-    }
-    if (httpReq.endOfRequest()) {
-        // callback for the user to handle the request
-        // callback(&httpReq);    // the user will get the req which contains the client to reply to
-        httpReq.resetRequest();   
-    } // else do nothing and wait for the next packet
-}
-
-/**
  * @brief Breaks up packets into JMRI commands
  * 
  * @param client    Client object from whom we receievd the data
@@ -317,6 +338,50 @@ void httpHandler(Client *client, uint8_t c)
 void jmriHandler(Client *client, uint8_t c)
 {
     commandHandler(client, c, '>');
+}
+
+/**
+ * @brief creates a HttpRequest object for the user callback. Some conditions apply esp reagrding the length of the items in the Request
+ * can be found in @file HttpRequest.h 
+ *  
+ * @param client Client object from whom we receievd the data
+ * @param c id of the Client object
+ */
+void httpHandler(Client *client, uint8_t c)
+{
+    uint8_t i, l = 0;
+    ParsedRequest preq;
+    l = strlen((char *)buffer);
+    for (i = 0; i < l; i++)
+    {
+        httpReq.parseRequest((char)buffer[i]);
+    }
+    if (httpReq.endOfRequest())
+    {
+        // check if we have one parameter with name 'jmri' then send the payload directly and don't call the callback
+        preq = httpReq.getParsedRequest();
+
+        if (*preq.paramCount == 1)
+        {
+            Params *p;
+            // check if the name of the parameter is jmri or wit (for withrottle )
+            if (strcmp("jmri", p->name))
+            {
+                buffer[0] = '\0';
+                p = httpReq.getParam(1);
+                strcpy((char *)buffer, p->value);
+                jmriHandler(client, c);
+            } else {
+                httpReq.callback(&preq, client);
+            }
+        }
+        else
+        {
+            httpReq.callback(&preq, client);
+        }
+        httpReq.resetRequest();
+
+    } // else do nothing and wait for the next packet
 }
 
 /**
@@ -352,6 +417,7 @@ void readStream(Client *client, byte i)
         case HTTP:
         {
             connections[i].appProtocolHandler = (appProtocolCallback)httpHandler;
+            httpReq.callback = NetworkInterface::getHttpCallback();
             break;
         }
         case UNKNOWN_PROTOCOL:
