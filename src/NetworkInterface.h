@@ -23,13 +23,13 @@
 #include "Transport.h"
 #include "HttpRequest.h"
 
-typedef enum {
+typedef enum protocolType {
     TCP,
     UDP,
     MQTT                
 } protocolType;
 
-typedef enum  {
+typedef enum transportType {
     WIFI,                   // using an AT (Version >= V1.7) command enabled ESP8266 not to be used in conjunction with the WifiInterface though! not tested for conflicts
     ETHERNET                // using the EthernetShield
 } transportType;
@@ -40,8 +40,11 @@ typedef void (*HttpCallback)(ParsedRequest *req, Client *client);
 class NetworkInterface
 {
 private:
-    static Transport*  transport;
+
+    static Transport<WiFiServer,WiFiClient,WiFiUDP>* wifiTransport;
+    static Transport<EthernetServer,EthernetClient,EthernetUDP>* ethernetTransport;
     static HttpCallback httpCallback;
+    static transportType tType;
 
 public:
     

@@ -19,48 +19,48 @@
 
 #include "DIAG.h"
 #include "NetworkInterface.h"
-#include "WifiTransport.h"
-#include "EthernetTransport.h"
+#include "Singelton.h"
+// #include "WifiTransport.h"
+// #include "EthernetTransport.h"
 
-Transport* NetworkInterface::transport;
+Transport<WiFiServer,WiFiClient,WiFiUDP>* wifiTransport;
+Transport<EthernetServer,EthernetClient,EthernetUDP>* ethernetTransport;
+
 HttpCallback NetworkInterface::httpCallback;
 
-void NetworkInterface::setup(transportType tt, protocolType pt, uint16_t lp)
+void NetworkInterface::setup(transportType transport, protocolType protocol, uint16_t port)
 {
     uint8_t ok = 0;
+    tType = transport;
 
-    DIAG(F("\n[%s] Transport Setup In Progress ...\n"), tt ? "Ethernet" : "Wifi");
+    DIAG(F("\n[%s] Transport Setup In Progress ...\n"), tType ? "Ethernet" : "Wifi");
+    // configure the Transport and get it up and running
 
-    switch (tt)
+    switch (tType)
     {
-    case WIFI:
-    {
-        transport = Singleton<WifiTransport>::get();
-        ok = 1;
-        break;
-    };
-    case ETHERNET:
-    {
-        transport = Singleton<EthernetTransport>::get();
-        ok = 1;
-        break;
-    };
-    default:
-    {
-        DIAG(F("\nERROR: Unknown Transport"));// Something went wrong
-        break;
+        case WIFI:
+        {
+            wifiTransport = Singleton<Transport<WiFiServer,WiFiClient,WiFiUDP>>::get();
+            wifiTransport->port = port;
+            wifiTransport->protocol = protocol;
+            ok = wifiTransport->setup();
+            break;
+        };
+        case ETHERNET:
+        {
+            ethernetTransport = Singleton<Transport<EthernetServer,EthernetClient,EthernetUDP>>::get();
+            ethernetTransport->port = port;
+            ethernetTransport->protocol = protocol;
+            ok = ethernetTransport->setup();
+            break;
+        };
+        default:
+        {
+            DIAG(F("\nERROR: Unknown Transport"));// Something went wrong
+            break;
+        }
     }
-    }
-
-    if(ok) {  // configure the Transport and get it up and running
-        transport->port = lp;
-        transport->protocol = pt;
-        // ok = transport->setup(pt,lp);
-        ok = transport->setup();
-    }
-
-    DIAG(F("\n\n[%s] Transport %s ..."), tt ? "Ethernet" : "Wifi", ok ? "OK" : "Failed");
-    
+    DIAG(F("\n\n[%s] Transport %s ..."), tType ? "Ethernet" : "Wifi", ok ? "OK" : "Failed");
 }
 
 void NetworkInterface::setup(transportType tt, protocolType pt)
@@ -79,9 +79,10 @@ void NetworkInterface::setup()
 }
 
 void NetworkInterface::loop() {
-
-    transport->loop();
-
+    switch(tType){
+        case WIFI: { wifiTransport->loop(); break;}
+        case ETHERNET: { ethernetTransport->loop(); break;}
+    }
 }
 
 void NetworkInterface::setHttpCallback(HttpCallback callback) {

@@ -32,14 +32,22 @@
 static uint8_t buffer[MAX_ETH_BUFFER];
 static uint8_t reply[MAX_ETH_BUFFER];
 
-EthernetClient Transport::eclients[MAX_SOCK_NUM] = {0};
-WiFiClient Transport::wclients[MAX_WIFI_SOCK];
+// EthernetClient Transport::eclients[MAX_SOCK_NUM] = {0};
+// WiFiClient Transport::wclients[MAX_WIFI_SOCK];
+
 HttpRequest httpReq;
 uint16_t _rseq[MAX_SOCK_NUM] = {0};
 uint16_t _sseq[MAX_SOCK_NUM] = {0};
 
 char protocolName[4][11] = {"JMRI", "HTTP", "WITHROTTLE", "UNKNOWN"};
-Connection connections[MAX_SOCK_NUM];
+
+// Transport::Connection connections[MAX_SOCK_NUM];
+/*
+template<class S, class C, class U> 
+Connection* Transport<S,C,U>::getConnection(uint8_t c) {
+        return &connections[c];
+    }
+*/
 
 /**
  * @brief Sending a reply by using the StringFormatter (this will result in every byte send individually which may/will create an important Network overhead).
@@ -93,31 +101,19 @@ void sendReply(Client *client, char *command, uint8_t c)
     }
 };
 
-void Transport::connectionPool(EthernetServer *server)
+template<class S, class C, class U> 
+void Transport<S, C, U>::connectionPool(S *server)
 {
     for (int i = 0; i < Transport::maxConnections; i++)
     {
-        eclients[i] = server->accept(); //  EthernetClient(i);
-        connections[i].client = &eclients[i];
-        DIAG(F("\nEthernet connection pool: [%d:%x]"), i, eclients[i]);
+        clients[i] = server->accept();
+        connections[i].client = &clients[i];
+        DIAG(F("\nConnection pool: [%d:%x]"), i, clients[i]);
     }
 }
 
-void Transport::connectionPool(WiFiServer *server)
-{
-    for (int i = 0; i < Transport::maxConnections; i++)
-    {
-        wclients[i] = server->accept(); //  EthernetClient(i);
-        connections[i].client = &wclients[i];
-        DIAG(F("\nWifi connection pool:  [%d:%x]"), i, wclients[i]);
-    }
-}
-
-/*
- * UDP Section : same for Ethenet & Wifi
- */
-
-void Transport::udpHandler()
+template<class S, class C, class U> 
+void Transport<S, C, U>::udpHandler()
 {
     int packetSize = myudp->parsePacket();
     if (packetSize)
@@ -236,7 +232,95 @@ appProtocol setAppProtocol(char a, char b)
  */
 void echoHandler(Client *client, uint8_t c)
 {
+    
 }
+/**
+ * @brief Parses the buffer to extract commands to be executed
+ * 
+ * @tparam S         Server class
+ * @tparam C         Client class
+ * @tparam U         UDP class       
+ * @param c          Client Id
+ * @param delimiter  End delimiter for the commands to extract
+ */
+
+template<class S, class C, class U> 
+void Transport<S, C, U>::
+commandHandler(C* client, uint8_t c, char delimiter) 
+{
+    uint8_t i, j, k, l = 0;
+    char command[MAX_JMRI_CMD] = {0};
+    
+    DIAG(F("\nBuffer: %e"), buffer);
+    // copy overflow into the command
+    if ((i = strlen(connections[c].overflow)) != 0)
+    {
+        // DIAG(F("\nCopy overflow to command: %e"), connections[c].overflow);
+        strncpy(command, connections[c].overflow, i);
+        k = i;
+    }
+    // reset the overflow
+    memset(connections[c].overflow, 0, MAX_OVERFLOW);
+
+    // check if there is again an overflow and copy if needed
+    if ((i = strlen((char *)buffer)) == MAX_ETH_BUFFER - 1)
+    { // only then we shall be in an overflow situation
+        // DIAG(F("\nPossible overflow situation detected: %d "), i);
+        j = i;
+        while (buffer[i] != delimiter)
+        { // what if there is none: ?
+            //  DIAG(F("%c"),(char) buffer[i]);
+            // Serial.print((char) buffer[i]);
+            i--;
+        }
+        Serial.println();
+        i++; // start of the buffer to copy
+        l = i;
+        k = j - i; // length to copy
+
+        for (j = 0; j < k; j++, i++)
+        {
+            connections[c].overflow[j] = buffer[i];
+            // DIAG(F("\n%d %d %d %c"),k,j,i, buffer[i]); // connections[c].overflow[j]);
+        }
+        buffer[l] = '\0'; // terminate buffer just after the last '>'
+        // DIAG(F("\nNew buffer: [%s] New overflow: [%s]\n"), (char*) buffer, connections[c].overflow );
+    }
+
+    // breakup the buffer using its changed length
+    i = 0;
+    k = strlen(command);            // current length of the command buffer telling us where to start copy in
+    l = strlen((char *)buffer);
+    // DIAG(F("\nCommand buffer: [%s]:[%d:%d:%d]\n"), command, i, l, k );
+    while (i < l)
+    {
+        // DIAG(F("\nl: %d k: %d , i: %d"), l, k, i);
+        command[k] = buffer[i];
+        if (buffer[i] == delimiter)
+        { // closing bracket need to fix if there is none before an opening bracket ?
+
+            command[k+1] = '\0';
+
+            DIAG(F("Command:                [%d:%d:%e]\n"), c, _rseq[c], command);
+
+            // parse(client, buffer, true);
+            sendReply(connections[c].client, command, c);
+            memset(command, 0, MAX_JMRI_CMD); // clear out the command
+
+            _rseq[c]++;
+            j = 0;
+            k = 0;
+        }
+        else
+        {
+            k++;
+        }
+        i++;
+    }
+}
+
+
+
 
 /**
  * @brief           Breaks up packets into commands according to the delimiter provided. Handles commands possibly
@@ -246,6 +330,7 @@ void echoHandler(Client *client, uint8_t c)
  * @param c         Id of the Client object
  * @param delimiter Character used for breaking up a buffer into commands
  */
+/*
 void commandHandler(Client *client, uint8_t c, char delimiter)
 {
     uint8_t i, j, k, l = 0;
@@ -317,14 +402,16 @@ void commandHandler(Client *client, uint8_t c, char delimiter)
         i++;
     }
 }
-
+*/
+// using Transport<S,C,U>::commandHandler;
 /**
  * @brief Breaks up packets into WiThrottle commands
  * 
  * @param client    Client object from whom we receievd the data
  * @param c         Id of the Client object
  */
-void withrottleHandler(Client *client, uint8_t c)
+template<class S, class C, class U> 
+void withrottleHandler(C* client, uint8_t c)
 {
     commandHandler(client, c, '\n');
 }
@@ -335,9 +422,10 @@ void withrottleHandler(Client *client, uint8_t c)
  * @param client    Client object from whom we receievd the data
  * @param c         Id of the Client object
  */
-void jmriHandler(Client *client, uint8_t c)
+template<class S, class C, class U> 
+void jmriHandler(C* client, uint8_t c)
 {
-    Serial.println("jmriHandler\n");
+   // Transport<S,C,U>::getConnection(c)
     commandHandler(client, c, '>');
 }
 
@@ -348,7 +436,7 @@ void jmriHandler(Client *client, uint8_t c)
  * @param client Client object from whom we receievd the data
  * @param c id of the Client object
  */
-void httpHandler(Client *client, uint8_t c)
+void httpHandler(uint8_t c)
 {
     uint8_t i, l = 0;
     ParsedRequest preq;
@@ -360,7 +448,7 @@ void httpHandler(Client *client, uint8_t c)
     if (httpReq.endOfRequest())
     {
         preq = httpReq.getParsedRequest();
-        httpReq.callback(&preq, client);
+        // httpReq.callback(&preq, client);
         httpReq.resetRequest();
     } // esle do nothing and continue with the next packet
 }
@@ -401,157 +489,85 @@ void httpHandler(Client *client, uint8_t c)
 }
 */
 
+// using Transport<S,C,U>::getConnection;
+
 /**
  * @brief Reads what is available on the incomming TCP stream and hands it over to the protocol handler.
  * 
  * @param client    Client object from whom we receievd the data
  * @param c         Id of the Client object
  */
-void readStream(Client *client, byte i)
+
+template<class S, class C, class U> 
+void readStream(Connection *c, uint8_t i)
 {
+    // Connection *c = getConnection(i);
     // read bytes from a client
-    int count = client->read(buffer, MAX_ETH_BUFFER - 1); // count is the amount of data ready for reading, -1 if there is no data, 0 is the connection has been closed
+    int count = c->client->read(buffer, MAX_ETH_BUFFER - 1); // count is the amount of data ready for reading, -1 if there is no data, 0 is the connection has been closed
     buffer[count] = 0;
 
     // figure out which protocol
 
-    if (!connections[i].isProtocolDefined)
+    if (!c->isProtocolDefined)
     {
-        connections[i].p = setAppProtocol(buffer[0], buffer[1]);
-        connections[i].isProtocolDefined = true;
-        switch (connections[i].p)
+        c->p = setAppProtocol(buffer[0], buffer[1]);
+        c->isProtocolDefined = true;
+        switch (c->p)
         {
         case DCCEX:
         {
-            connections[i].appProtocolHandler = (appProtocolCallback)jmriHandler;
+            c->appProtocolHandler = (appProtocolCallback)jmriHandler;
             break;
         }
         case WITHROTTLE:
         {
-            connections[i].appProtocolHandler = (appProtocolCallback)withrottleHandler;
+            c->appProtocolHandler = (appProtocolCallback)withrottleHandler;
             break;
         }
         case HTTP:
         {
-            connections[i].appProtocolHandler = (appProtocolCallback)httpHandler;
+            c->appProtocolHandler = (appProtocolCallback)httpHandler;
             httpReq.callback = NetworkInterface::getHttpCallback();
             break;
         }
         case UNKNOWN_PROTOCOL:
         {
             DIAG(F("Requests will not be handeled and packet echoed back\n"));
-            connections[i].appProtocolHandler = (appProtocolCallback)echoHandler;
+            c->appProtocolHandler = (appProtocolCallback)echoHandler;
             break;
         }
         }
     }
 
-    IPAddress remote = client->remoteIP();
+    IPAddress remote = c->client->remoteIP();
+
     buffer[count] = '\0'; // terminate the string properly
     DIAG(F("\nReceived packet of size:[%d] from [%d.%d.%d.%d]\n"), count, remote[0], remote[1], remote[2], remote[3]);
     DIAG(F("Client #:               [%d]\n"), i);
     DIAG(F("Packet:                 [%e]\n"), buffer);
 
     // chop the buffer into CS / WiThrottle commands || assemble command across buffer read boundaries
-    connections[i].appProtocolHandler(client, i);
+    c->appProtocolHandler(i);
 }
 
 /*
  * WIFI/TCP Section 
  */
-
-void Transport::tcpHandler(WiFiServer *server)
+template<class S, class C, class U> 
+void Transport<S,C,U>::tcpHandler(S* server)
 {
     // loop over the connection pool
     for (int i = 0; i < MAX_WIFI_SOCK; i++)
     {
-        if (!wclients[i].connected())
+        if (!clients[i].connected())
         {
-            wclients[i] = server->accept(); // if not connected try again
+            clients[i] = server->accept(); // if not connected try again
         }
 
-        if (wclients[i].connected() && wclients[i].available() > 0) // continue only if the client is connected and something is there to read
+        if (clients[i].connected() && clients[i].available() > 0) // continue only if the client is connected and something is there to read
         {
-            readStream(&(wclients[i]), i);
-            wclients[i].stop();
-        }
-    }
-}
-
-/**
- * @brief As tcpHandler but this time the connections are kept open (thus creating a statefull session) as long as the client doesn't disconnect. A connection
- * pool has been setup beforehand and determines the number of available sessions depending on the network hardware.  Commands crossing packet boundaries will be captured
- * 
- * @param server Pointer to the WiFiServer handling the TCP/IP Stack 
- */
-void Transport::tcpSessionHandler(WiFiServer *server)
-{
-    // get client from the server
-    WiFiClient client = server->accept();
-
-    // check for new client
-    if (client)
-    {
-        for (byte i = 0; i < Transport::maxConnections; i++)
-        {
-            if (!wclients[i])
-            {
-                // On accept() the EthernetServer doesn't track the client anymore
-                // so we store it in our client array
-                wclients[i] = client;
-                DIAG(F("\nNew Client:             [%d:%x]"), i, eclients[i]);
-                break;
-            }
-        }
-    }
-    // check for incoming data from all possible clients
-    for (byte i = 0; i < Transport::maxConnections; i++)
-    {
-        if (wclients[i] && wclients[i].available() > 0)
-        {
-            readStream(&(wclients[i]), i);
-        }
-        // stop any clients which disconnect
-        for (byte i = 0; i < Transport::maxConnections; i++)
-        {
-            if (wclients[i] && !wclients[i].connected())
-            {
-                DIAG(F("\nDisconnect client #%d"), i);
-                wclients[i].stop();
-                connections[i].isProtocolDefined = false;
-            }
-        }
-    }
-}
-
-/*
- * Ethernet/TCP Section
- */
-
-/**
- * @brief Handling incomming TCP over the EthernetShield. Everytime we recieved a packet it will be read and replied to for all commands recieved in that packet
- * If there is an incomplete commands across the boundary the command will be dropped as we close the connection here after each req/reply cycle. This allows for reuse of all the
- * available sockets as much as possible and as such would allow for more then 8 clients in // at the cost of msg/sec handled because of the connection/close overhead. A connection
- * pool has been setup beforehand and for each packet a different socketfrom the pool may be used. This is a complete stateless way of interacting
- * 
- * @param EthernetServer* server Pointer to the ethernetServer handling the TCP/IP Stack
- */
-void Transport::tcpHandler(EthernetServer *server)
-{
-    // add the connectionpool setup here with a state if its init or not ?
-
-    // loop over the connection pool. All sockets have been in principle accepted and should be connected
-    for (int i = 0; i < Transport::maxConnections; i++)
-    {
-        if (!eclients[i].connected())
-        {
-            eclients[i] = server->accept(); // if not connected try again
-        }
-
-        if (eclients[i] && eclients[i].available() > 0) // continue only if the client is connected and something is there to read
-        {
-            readStream(&(eclients[i]), i);
-            eclients[i].stop(); // close the connection once the reply has been send
+            readStream(&(clients[i]), i);
+            clients[i].stop();
         }
     }
 }
@@ -562,42 +578,43 @@ void Transport::tcpHandler(EthernetServer *server)
  * 
  * @param EthernetServer* server Pointer to the ethernetServer handling the TCP/IP Stack 
  */
-void Transport::tcpSessionHandler(EthernetServer *server)
+template<class S, class C, class U> 
+void Transport<S,C,U>::tcpSessionHandler(S* server)
 {
     // get client from the server
-    EthernetClient client = server->accept();
+    C client = server->accept();
 
     // check for new client
     if (client)
     {
-        for (byte i = 0; i < Transport::maxConnections; i++)
+        for (byte i = 0; i < Transport<S,C,U>::maxConnections; i++)
         {
-            if (!eclients[i])
+            if (!clients[i])
             {
                 // On accept() the EthernetServer doesn't track the client anymore
                 // so we store it in our client array
-                eclients[i] = client;
-                DIAG(F("\nNew Client:                [%d:%x]"), i, eclients[i]);
+                clients[i] = client;
+                DIAG(F("\nNew Client:                [%d:%x]"), i, clients[i]);
                 break;
             }
         }
     }
     // check for incoming data from all possible clients
-    for (byte i = 0; i < Transport::maxConnections; i++)
+    for (byte i = 0; i < Transport<S,C,U>::maxConnections; i++)
     {
-        if (eclients[i] && eclients[i].available() > 0)
+        if (clients[i] && clients[i].available() > 0)
         {
-            readStream(&(eclients[i]), i);
+            // readStream(i);
+            readStream(&connections[i], i);
         }
         // stop any clients which disconnect
-        for (byte i = 0; i < Transport::maxConnections; i++)
+        for (byte i = 0; i < Transport<S,C,U>::maxConnections; i++)
         {
-            if (eclients[i] && !eclients[i].connected())
+            if (clients[i] && !clients[i].connected())
             {
                 DIAG(F("\nDisconnect client #%d"), i);
-                eclients[i].stop();
+                clients[i].stop();
                 connections[i].isProtocolDefined = false;
-                // eclients[i]=0; // that would kill the connectionPool and thus a freed slot bc the client disconneced can be provided again (?)
             }
         }
     }
