@@ -18,7 +18,7 @@
 #include "Arduino.h"
 #include "HttpRequest.h"
 #include "NetworkInterface.h"
-// #include "DIAG.h"
+#include "DIAG.h"
 
 // public interface to the parsed request
 // static ParsedRequest req;
@@ -110,7 +110,7 @@ void HttpRequest::parseRequest(char c)
 		break;
 
 	case HTTP_GET_NAME:
-		// DIAG(F("HTTP_URI: %c\n"), c);
+		// DIAG(F("HTTP_GET_NAME: %c\n"), c);
 		if (c == ' ')
 			parseStatus = HTTP_VERSION;
 		else if (c != '=')
@@ -139,6 +139,7 @@ void HttpRequest::parseRequest(char c)
 		break;
 
 	case HTTP_VERSION:
+		// DIAG(F("HTTP_VERSION: %c\n"), c);
 		if (c == '\n')
 			parseStatus = HTTP_NEW_LINE;
 		else if (c != '\r' && strlen(version) < HTTP_REQ_VERSION_LENGTH - 1)
@@ -146,6 +147,7 @@ void HttpRequest::parseRequest(char c)
 		break;
 
 	case HTTP_NEW_LINE:
+		// DIAG(F("HTTP_NEW_LINE: %c\n"), c);
 		if (c != '\r' && c != '\n')
 		{
 			parseStatus = HTTP_ATTRIB_NAME;
@@ -157,11 +159,14 @@ void HttpRequest::parseRequest(char c)
 			if (strcmp(method, "POST") == 0 && dataBlockLength > 0)
 				parseStatus = HTTP_POST_NAME;
 			else
+				// DIAG(F("HTTP_REQUEST_END: %c\n"), c);
 				parseStatus = HTTP_REQUEST_END;
 			break;
 		}
+		break;
 
 	case HTTP_ATTRIB_NAME:
+		// DIAG(F("HTTP_ATTRIB_NAME: %c\n"), c);
 		if (c == '\n')
 			parseStatus = HTTP_NEW_LINE;
 		else if (c != ':' && c != ' ' && c != '\r')
@@ -179,6 +184,7 @@ void HttpRequest::parseRequest(char c)
 		break;
 
 	case HTTP_ATTRIB_VALUE:
+		// DIAG(F("HTTP_ATTRIB_VALUE: %c\n"), c);
 		if (c == '\n')
 		{
 			addAttrib();
@@ -201,6 +207,7 @@ void HttpRequest::parseRequest(char c)
 		if (dataCount > dataBlockLength)
 		{
 			addParam();
+			// DIAG(F("HTTP_REQUEST_END: %c\n"), c);
 			parseStatus = HTTP_REQUEST_END;
 		}
 		break;
@@ -217,6 +224,7 @@ void HttpRequest::parseRequest(char c)
 		if (dataCount > dataBlockLength)
 		{
 			addParam();
+			// DIAG(F("HTTP_REQUEST_END: %c\n"), c);
 			parseStatus = HTTP_REQUEST_END;
 		}
 		break;

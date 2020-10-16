@@ -250,7 +250,7 @@ void commandHandler(Client *client, uint8_t c, char delimiter)
 {
     uint8_t i, j, k, l = 0;
     char command[MAX_JMRI_CMD] = {0};
-    // DIAG(F("\nBuffer: %e"), buffer);
+    DIAG(F("\nBuffer: %e"), buffer);
     // copy overflow into the command
     if ((i = strlen(connections[c].overflow)) != 0)
     {
@@ -337,6 +337,7 @@ void withrottleHandler(Client *client, uint8_t c)
  */
 void jmriHandler(Client *client, uint8_t c)
 {
+    Serial.println("jmriHandler\n");
     commandHandler(client, c, '>');
 }
 
@@ -358,31 +359,47 @@ void httpHandler(Client *client, uint8_t c)
     }
     if (httpReq.endOfRequest())
     {
+        preq = httpReq.getParsedRequest();
+        httpReq.callback(&preq, client);
+        httpReq.resetRequest();
+    } // esle do nothing and continue with the next packet
+}
+
+/*  This should work but creates a segmentation fault ??
+
         // check if we have one parameter with name 'jmri' then send the payload directly and don't call the callback
         preq = httpReq.getParsedRequest();
-
+        DIAG(F("Check parameter count\n"));
         if (*preq.paramCount == 1)
         {
             Params *p;
-            // check if the name of the parameter is jmri or wit (for withrottle )
-            if (strcmp("jmri", p->name))
-            {
-                buffer[0] = '\0';
-                p = httpReq.getParam(1);
-                strcpy((char *)buffer, p->value);
+            int cmp;
+            p = httpReq.getParam(1);
+
+            DIAG(F("Parameter name[%s]\n"), p->name);
+            DIAG(F("Parameter value[%s]\n"), p->value);
+            
+            cmp = strcmp("jmri", p->name);
+            if ( cmp == 0 ) { 
+                memset(buffer, 0, MAX_ETH_BUFFER); // reset PacktBuffer
+                strncpy((char *)buffer, p->value, strlen(p->value));
                 jmriHandler(client, c);
             } else {
+                DIAG(F("Callback 1\n"));
                 httpReq.callback(&preq, client);
             }
         }
         else
         {
+            DIAG(F("Callback 2\n"));
             httpReq.callback(&preq, client);
         }
+        DIAG(F("ResetRequest\n"));
         httpReq.resetRequest();
 
     } // else do nothing and wait for the next packet
 }
+*/
 
 /**
  * @brief Reads what is available on the incomming TCP stream and hands it over to the protocol handler.
