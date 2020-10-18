@@ -44,7 +44,6 @@ private:
     static Transport<WiFiServer,WiFiClient,WiFiUDP>* wifiTransport;
     static Transport<EthernetServer,EthernetClient,EthernetUDP>* ethernetTransport;
     static HttpCallback httpCallback;
-    static transportType tType;
 
 public:
     

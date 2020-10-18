@@ -32,8 +32,6 @@
 static uint8_t buffer[MAX_ETH_BUFFER];
 static uint8_t reply[MAX_ETH_BUFFER];
 
-// EthernetClient Transport::eclients[MAX_SOCK_NUM] = {0};
-// WiFiClient Transport::wclients[MAX_WIFI_SOCK];
 
 HttpRequest httpReq;
 uint16_t _rseq[MAX_SOCK_NUM] = {0};
@@ -41,14 +39,216 @@ uint16_t _sseq[MAX_SOCK_NUM] = {0};
 
 char protocolName[4][11] = {"JMRI", "HTTP", "WITHROTTLE", "UNKNOWN"};
 
-// Transport::Connection connections[MAX_SOCK_NUM];
+template class Transport<EthernetServer,EthernetClient,EthernetUDP>;
+template class Transport<WiFiServer, WiFiClient, WiFiUDP>;
+
+template<class S, class C, class U>
+bool Transport<S,C,U>::setupEthernet() {
+
+    DIAG(F("\nInitialize Ethernet with DHCP"));
+    if (Ethernet.begin(mac) == 0)
+    {
+        DIAG(F("\nFailed to configure Ethernet using DHCP ... Trying with fixed IP"));
+        Ethernet.begin(mac, IPAddress(IP_ADDRESS)); // default ip address
+
+        if (Ethernet.hardwareStatus() == EthernetNoHardware)
+        {
+            DIAG(F("\nEthernet shield was not found. Sorry, can't run without hardware. :("));
+            return false;
+        };
+        if (Ethernet.linkStatus() == LinkOFF)
+        {
+            DIAG(F("\nEthernet cable is not connected."));
+            return false;
+        }
+    }
+    
+    maxConnections = MAX_SOCK_NUM;  
+    ip = Ethernet.localIP();
+
+    if (Ethernet.hardwareStatus() == EthernetW5100)
+    {
+        DIAG(F("\nW5100 Ethernet controller detected."));
+        maxConnections = 4;  // Max supported officaly by the W5100 but i have been running over 8 as well. Perf has to be evaluated though comparing 4 vs. 8 connections
+    }
+    else if (Ethernet.hardwareStatus() == EthernetW5200)
+    {
+        DIAG(F("\nW5200 Ethernet controller detected."));
+        maxConnections = 8;
+    }
+    else if (Ethernet.hardwareStatus() == EthernetW5500)
+    {
+        DIAG(F("W5500 Ethernet controller detected."));
+        maxConnections = 8;
+    }
+
+   DIAG(F("\nNetwork Protocol:      [%s]"), protocol ? "UDP" : "TCP");
+    switch (protocol)
+    {
+        case UDP:
+        { 
+            if (udp.begin(port))
+            {
+                connected = true;
+                ip = Ethernet.localIP();
+            }
+            else
+            {
+                DIAG(F("\nUDP client failed to start"));
+                connected = false;
+            }
+            break;
+        };
+        case TCP:
+        {
+            server = S(port);
+            server.begin();
+            connectionPool(&server);
+            connected = true;
+            break;
+        };
+        case MQTT:
+        {
+            // do the MQTT setup stuff ...
+        };
+        default:
+        {
+            DIAG(F("\nUnkown Ethernet protocol; Setup failed"));
+            connected = false;
+            break;
+        }
+    }
+    if (connected)
+    {
+        DIAG(F("\nLocal IP address:      [%d.%d.%d.%d]"), ip[0], ip[1], ip[2], ip[3]);
+        DIAG(F("\nListening on port:     [%d]"), port);
+        dnsip = Ethernet.dnsServerIP();
+        DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
+        DIAG(F("\nNumber of connections: [%d]"), maxConnections);
+        return true;
+    }
+    return false;
+}
+
+template<class S, class C, class U>
+bool Transport<S,C,U>::setupWiFi() {
+
+    Serial1.begin(AT_BAUD_RATE);
+    WiFi.init(Serial1);
+
+    maxConnections = MAX_WIFI_SOCK;
+
+    if (WiFi.status() == WL_NO_MODULE)
+    {
+        DIAG(F("Communication with WiFi module failed!\n"));
+        return 0;
+    }
+
+    DIAG(F("Waiting for connection to WiFi "));
+    while (WiFi.status() != WL_CONNECTED)
+    {
+        delay(1000);
+        DIAG(F("."));
+    }
+
+    // Setup the protocol handler
+    DIAG(F("\n\nNetwork Protocol:      [%s]"), protocol ? "UDP" : "TCP");
+
+    switch (protocol)
+    {
+    case UDP:
+    {
+        if (udp.begin(port))
+        {
+            connected = true;
+            ip = WiFi.localIP();
+        }
+        else
+        {
+            DIAG(F("\nUDP client failed to start"));
+            connected = false;
+        }
+        break;
+    };
+    case TCP:
+    {
+        server = S(port);
+        server.begin(MAX_WIFI_SOCK, 240);
+        if(server.status()) {
+            connected = true;
+            ip = WiFi.localIP();
+        } else {
+            DIAG(F("\nWiFi server failed to start"));
+            connected = false;
+        } // Connection pool not used for WiFi
+        break;
+    };
+    case MQTT: {
+        // do the MQTT setup stuff here 
+    };
+    default:
+    {
+        DIAG(F("Unkown Ethernet protocol; Setup failed"));
+        connected = false;
+        break;
+    }
+    }
+
+    if (connected)
+    {
+        DIAG(F("\nLocal IP address:      [%d.%d.%d.%d]"), ip[0], ip[1], ip[2], ip[3]);
+        DIAG(F("\nListening on port:     [%d]"), port);
+        dnsip = WiFi.dnsServer1();
+        DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
+        DIAG(F("\nNumber of connections: [%d]"), maxConnections);
+        return true;
+    }
+    // something went wrong
+    return false;
+}
+
+template<class S, class C, class U> 
+uint8_t Transport<S,C,U>::setup() {
+    switch(transport) {
+        case WIFI:{
+            return setupWiFi();
+            break;
+        }
+        case ETHERNET:{
+            return setupEthernet();
+        }
+        case UNKNOWN_PROTOCOL: {
+            return 0;
+        }
+    }
+    return 0;
+}
+
 /*
 template<class S, class C, class U> 
-Connection* Transport<S,C,U>::getConnection(uint8_t c) {
-        return &connections[c];
+void Transport<S,C,U>::loop() {
+    // DIAG(F("Loop .. "));
+    switch (protocol)
+    {
+    case UDP:
+    {
+        udpHandler();
+        break;
+    };
+    case TCP:
+    {
+        // tcpHandler(&server);         // for stateless coms
+        tcpSessionHandler(&server);     // for session oriented coms
+        break;
+    };
+    case MQTT:
+    {
+        // MQTT
+        break;
+    };
     }
+}
 */
-
 /**
  * @brief Sending a reply by using the StringFormatter (this will result in every byte send individually which may/will create an important Network overhead).
  * Here we hook back into the DCC code for actually processing the command using a DCCParser. Alternatively we could use MemeStream in order to build the entiere reply
@@ -115,17 +315,17 @@ void Transport<S, C, U>::connectionPool(S *server)
 template<class S, class C, class U> 
 void Transport<S, C, U>::udpHandler()
 {
-    int packetSize = myudp->parsePacket();
+    int packetSize = udp.parsePacket();
     if (packetSize)
     {
         DIAG(F("\nReceived packet of size:[%d]\n"), packetSize);
-        IPAddress remote = myudp->remoteIP();
+        IPAddress remote = udp.remoteIP();
         DIAG(F("From:                   [%d.%d.%d.%d:"), remote[0], remote[1], remote[2], remote[3]);
         char portBuffer[6];
-        DIAG(F("%s]\n"), utoa(myudp->remotePort(), portBuffer, 10)); // DIAG has issues with unsigend int's so go through utoa
+        DIAG(F("%s]\n"), utoa(udp.remotePort(), portBuffer, 10)); // DIAG has issues with unsigend int's so go through utoa
 
         // read the packet into packetBufffer
-        myudp->read(buffer, MAX_ETH_BUFFER);
+        udp.read(buffer, MAX_ETH_BUFFER);
         // terminate buffer properly
         buffer[packetSize] = '\0';
 
@@ -133,9 +333,9 @@ void Transport<S, C, U>::udpHandler()
         // execute the command via the parser
         // check if we have a response if yes then
         // send the reply
-        myudp->beginPacket(myudp->remoteIP(), myudp->remotePort());
-        parse(myudp, (byte *)buffer, true);
-        myudp->endPacket();
+        udp.beginPacket(udp.remoteIP(), udp.remotePort());
+        parse(&udp, (byte *)buffer, true);
+        udp.endPacket();
 
         // clear out the PacketBuffer
         memset(buffer, 0, MAX_ETH_BUFFER); // reset PacktBuffer
@@ -250,7 +450,7 @@ commandHandler(C* client, uint8_t c, char delimiter)
 {
     uint8_t i, j, k, l = 0;
     char command[MAX_JMRI_CMD] = {0};
-    
+
     DIAG(F("\nBuffer: %e"), buffer);
     // copy overflow into the command
     if ((i = strlen(connections[c].overflow)) != 0)
@@ -319,91 +519,6 @@ commandHandler(C* client, uint8_t c, char delimiter)
     }
 }
 
-
-
-
-/**
- * @brief           Breaks up packets into commands according to the delimiter provided. Handles commands possibly
- *                  be distributed over two or (more?) packets. Used for WiThrottle & JMRi
- * 
- * @param client    Client object from whom we receieved the data
- * @param c         Id of the Client object
- * @param delimiter Character used for breaking up a buffer into commands
- */
-/*
-void commandHandler(Client *client, uint8_t c, char delimiter)
-{
-    uint8_t i, j, k, l = 0;
-    char command[MAX_JMRI_CMD] = {0};
-    DIAG(F("\nBuffer: %e"), buffer);
-    // copy overflow into the command
-    if ((i = strlen(connections[c].overflow)) != 0)
-    {
-        // DIAG(F("\nCopy overflow to command: %e"), connections[c].overflow);
-        strncpy(command, connections[c].overflow, i);
-        k = i;
-    }
-    // reset the overflow
-    memset(connections[c].overflow, 0, MAX_OVERFLOW);
-
-    // check if there is again an overflow and copy if needed
-    if ((i = strlen((char *)buffer)) == MAX_ETH_BUFFER - 1)
-    { // only then we shall be in an overflow situation
-        // DIAG(F("\nPossible overflow situation detected: %d "), i);
-        j = i;
-        while (buffer[i] != delimiter)
-        { // what if there is none: ?
-            //  DIAG(F("%c"),(char) buffer[i]);
-            // Serial.print((char) buffer[i]);
-            i--;
-        }
-        Serial.println();
-        i++; // start of the buffer to copy
-        l = i;
-        k = j - i; // length to copy
-
-        for (j = 0; j < k; j++, i++)
-        {
-            connections[c].overflow[j] = buffer[i];
-            // DIAG(F("\n%d %d %d %c"),k,j,i, buffer[i]); // connections[c].overflow[j]);
-        }
-        buffer[l] = '\0'; // terminate buffer just after the last '>'
-        // DIAG(F("\nNew buffer: [%s] New overflow: [%s]\n"), (char*) buffer, connections[c].overflow );
-    }
-
-    // breakup the buffer using its changed length
-    i = 0;
-    k = strlen(command);            // current length of the command buffer telling us where to start copy in
-    l = strlen((char *)buffer);
-    // DIAG(F("\nCommand buffer: [%s]:[%d:%d:%d]\n"), command, i, l, k );
-    while (i < l)
-    {
-        // DIAG(F("\nl: %d k: %d , i: %d"), l, k, i);
-        command[k] = buffer[i];
-        if (buffer[i] == delimiter)
-        { // closing bracket need to fix if there is none before an opening bracket ?
-
-            command[k+1] = '\0';
-
-            DIAG(F("Command:                [%d:%d:%e]\n"), c, _rseq[c], command);
-
-            // parse(client, buffer, true);
-            sendReply(client, command, c);
-            memset(command, 0, MAX_JMRI_CMD); // clear out the command
-
-            _rseq[c]++;
-            j = 0;
-            k = 0;
-        }
-        else
-        {
-            k++;
-        }
-        i++;
-    }
-}
-*/
-// using Transport<S,C,U>::commandHandler;
 /**
  * @brief Breaks up packets into WiThrottle commands
  * 
@@ -489,7 +604,7 @@ void httpHandler(uint8_t c)
 }
 */
 
-// using Transport<S,C,U>::getConnection;
+
 
 /**
  * @brief Reads what is available on the incomming TCP stream and hands it over to the protocol handler.
@@ -551,8 +666,6 @@ void readStream(Connection *c, uint8_t i)
 }
 
 /*
- * WIFI/TCP Section 
- */
 template<class S, class C, class U> 
 void Transport<S,C,U>::tcpHandler(S* server)
 {
@@ -571,6 +684,7 @@ void Transport<S,C,U>::tcpHandler(S* server)
         }
     }
 }
+*/
 
 /**
  * @brief As tcpHandler but this time the connections are kept open (thus creating a statefull session) as long as the client doesn't disconnect. A connection
@@ -618,6 +732,18 @@ void Transport<S,C,U>::tcpSessionHandler(S* server)
             }
         }
     }
+}
+
+
+template<class S, class C, class U> 
+Transport<S,C,U>::Transport(uint16_t p)
+{
+    // DIAG(F("Transport created "));
+}
+template<class S, class C, class U> 
+Transport<S,C,U>::~Transport()
+{
+    // DIAG(F("Transport destroyed"));
 }
 
 /*
