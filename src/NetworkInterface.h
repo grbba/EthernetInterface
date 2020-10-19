@@ -32,10 +32,10 @@ typedef enum protocolType {
 typedef enum transportType {
     WIFI,                   // using an AT (Version >= V1.7) command enabled ESP8266 not to be used in conjunction with the WifiInterface though! not tested for conflicts
     ETHERNET                // using the EthernetShield
-} transportType;
+} transoprtType;
 
-typedef void (*HttpCallback)(ParsedRequest *req, Client *client);
-
+// typedef void (*HttpCallback)(ParsedRequest *req, Client *client);
+using HttpCallback = void(*)(ParsedRequest *req, Client *client);
 
 class NetworkInterface
 {

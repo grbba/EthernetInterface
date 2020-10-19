@@ -25,11 +25,12 @@
 
 HttpCallback NetworkInterface::httpCallback;
 
-Transport<WiFiServer,WiFiClient,WiFiUDP>* NetworkInterface::wifiTransport;
-Transport<EthernetServer,EthernetClient,EthernetUDP>* NetworkInterface::ethernetTransport;
+//Transport<WiFiServer,WiFiClient,WiFiUDP> wifiT;
+// Transport<EthernetServer,EthernetClient,EthernetUDP> ethernetT;
 
-Transport<WiFiServer,WiFiClient,WiFiUDP>* wifiT;
-Transport<EthernetServer,EthernetClient,EthernetUDP>* ethernetT;
+Transport<WiFiServer, WiFiClient,WiFiUDP>* NetworkInterface::wifiTransport;
+Transport<EthernetServer, EthernetClient,EthernetUDP>* NetworkInterface::ethernetTransport;
+
 transportType t;
 
 void NetworkInterface::setup(transportType transport, protocolType protocol, uint16_t port)
@@ -38,7 +39,6 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
     uint8_t ok = 0;
 
     DIAG(F("\n[%s] Transport Setup In Progress ...\n"), transport ? "Ethernet" : "Wifi");
-    // setup2( transport, protocol, port );
 
     // configure the Transport and get it up and running
     
@@ -47,16 +47,18 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
     {
         case WIFI:
         {
-            wifiTransport = new Transport<WiFiServer,WiFiClient,WiFiUDP>(port);
+            wifiTransport = new Transport<WiFiServer,WiFiClient,WiFiUDP>;
+            wifiTransport->wServer = new WiFiServer(port);
             wifiTransport->port = port;
             wifiTransport->protocol = protocol;
             wifiTransport->transport = transport;
-            ok = wifiTransport->setup();
+            ok = wifiTransport->setup(); // do the setup here for the server part and remove the setup part from the transport; just set the server accordingly ... 
             break;
         };
         case ETHERNET:
         {
-            ethernetTransport = new Transport<EthernetServer,EthernetClient,EthernetUDP>(port);
+            ethernetTransport = new Transport<EthernetServer,EthernetClient,EthernetUDP>;
+            ethernetTransport->eServer = new EthernetServer(port);
             ethernetTransport->port = port;
             ethernetTransport->protocol = protocol;
             ethernetTransport->transport = transport;
@@ -90,11 +92,11 @@ void NetworkInterface::setup()
 void NetworkInterface::loop() {
     switch(t){
         case WIFI: {
-            wifiTransport->loop(); 
+            // wifiTransport->loop(); 
             break;
         }
         case ETHERNET: {
-            ethernetTransport->loop();  
+            // ethernetTransport->loop();  
             break;
         }
     }

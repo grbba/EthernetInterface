@@ -62,7 +62,7 @@ typedef enum {
     UNKNOWN_PROTOCOL
 } appProtocol;
 
-typedef void (*appProtocolCallback)(uint8_t connection);
+using appProtocolCallback = void(*)(uint8_t connection);
 
 struct Connection {
     Client *client;
@@ -90,7 +90,7 @@ private:
     uint8_t         maxConnections;   
     bool            connected;
     U               udp; 
-    S               server;
+    S*               server;
     uint8_t         mac[6]; // = MAC_ADDRESS;
     IPAddress       dnsip;
     IPAddress       ip;
@@ -101,46 +101,30 @@ private:
     // void tcpHandler(S* server);             // not used currently   
     void tcpSessionHandler(S* server);      // tcpSessionHandler -> connections are maintained open until close by the client
     void connectionPool(S* server);         // allocates the Sockets at setup time and creates the Connections
-    bool setupEthernet();
-    bool setupWiFi();
+
+    // tag for setup dispatch
+    template<class T>
+    struct setupTag{};
+
+    void setupHelper(setupTag<EthernetServer>);
+    void setupHelper(setupTag<WiFiServer>);
 
 public:
     uint16_t        port;
     uint8_t         protocol;               // TCP or UDP  
-    uint8_t         transport;              // WIFI or ETHERNET                                
+    uint8_t         transport;              // WIFI or ETHERNET 
+    WiFiServer*     wServer = 0;
+    EthernetServer* eServer = 0;                               
 
     uint8_t setup();
     void loop(); 
 
-    Transport<S,C,U>(uint16_t p);
+    Transport<S,C,U>();
     ~Transport<S,C,U>();
     
 };
 
-/*
-template<class S, class C, class U> 
-void Transport<S,C,U>::loop() {
-    // DIAG(F("Loop .. "));
-    switch (protocol)
-    {
-    case UDP:
-    {
-        udpHandler();
-        break;
-    };
-    case TCP:
-    {
-        // tcpHandler(&server);         // for stateless coms
-        tcpSessionHandler(&server);     // for session oriented coms
-        break;
-    };
-    case MQTT:
-    {
-        // MQTT
-        break;
-    };
-    }
-}
-*/
+template class Transport<EthernetServer,EthernetClient,EthernetUDP>;
+template class Transport<EthernetServer, WiFiClient, WiFiUDP>;
 
 #endif // !Transport_h

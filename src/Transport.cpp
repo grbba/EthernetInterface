@@ -39,9 +39,8 @@ uint16_t _sseq[MAX_SOCK_NUM] = {0};
 
 char protocolName[4][11] = {"JMRI", "HTTP", "WITHROTTLE", "UNKNOWN"};
 
-template class Transport<EthernetServer,EthernetClient,EthernetUDP>;
-template class Transport<WiFiServer, WiFiClient, WiFiUDP>;
 
+/*
 template<class S, class C, class U>
 bool Transport<S,C,U>::setupEthernet() {
 
@@ -206,9 +205,29 @@ bool Transport<S,C,U>::setupWiFi() {
     // something went wrong
     return false;
 }
+*/
+
+template<class S, class C, class U>  
+void Transport<S,C,U>::setupHelper(setupTag<EthernetServer>)
+{
+   server = eServer; 
+    DIAG(F("Ethernet setup helper\n"));
+}
+
+template<class S, class C, class U>  
+void Transport<S,C,U>::setupHelper(setupTag<WiFiServer>)
+{
+    server = wServer; 
+    DIAG(F("Wifi setup helper\n"));
+}
 
 template<class S, class C, class U> 
 uint8_t Transport<S,C,U>::setup() {
+    setupHelper(setupTag<S>{});
+    return 1;
+}
+
+/*
     switch(transport) {
         case WIFI:{
             return setupWiFi();
@@ -223,11 +242,10 @@ uint8_t Transport<S,C,U>::setup() {
     }
     return 0;
 }
+*/
 
-/*
 template<class S, class C, class U> 
 void Transport<S,C,U>::loop() {
-    // DIAG(F("Loop .. "));
     switch (protocol)
     {
     case UDP:
@@ -238,7 +256,7 @@ void Transport<S,C,U>::loop() {
     case TCP:
     {
         // tcpHandler(&server);         // for stateless coms
-        tcpSessionHandler(&server);     // for session oriented coms
+        tcpSessionHandler(server);     // for session oriented coms
         break;
     };
     case MQTT:
@@ -248,7 +266,7 @@ void Transport<S,C,U>::loop() {
     };
     }
 }
-*/
+
 /**
  * @brief Sending a reply by using the StringFormatter (this will result in every byte send individually which may/will create an important Network overhead).
  * Here we hook back into the DCC code for actually processing the command using a DCCParser. Alternatively we could use MemeStream in order to build the entiere reply
@@ -434,6 +452,7 @@ void echoHandler(Client *client, uint8_t c)
 {
     
 }
+
 /**
  * @brief Parses the buffer to extract commands to be executed
  * 
@@ -443,7 +462,6 @@ void echoHandler(Client *client, uint8_t c)
  * @param c          Client Id
  * @param delimiter  End delimiter for the commands to extract
  */
-
 template<class S, class C, class U> 
 void Transport<S, C, U>::
 commandHandler(C* client, uint8_t c, char delimiter) 
@@ -604,8 +622,6 @@ void httpHandler(uint8_t c)
 }
 */
 
-
-
 /**
  * @brief Reads what is available on the incomming TCP stream and hands it over to the protocol handler.
  * 
@@ -692,6 +708,7 @@ void Transport<S,C,U>::tcpHandler(S* server)
  * 
  * @param EthernetServer* server Pointer to the ethernetServer handling the TCP/IP Stack 
  */
+
 template<class S, class C, class U> 
 void Transport<S,C,U>::tcpSessionHandler(S* server)
 {
@@ -734,12 +751,12 @@ void Transport<S,C,U>::tcpSessionHandler(S* server)
     }
 }
 
-
 template<class S, class C, class U> 
-Transport<S,C,U>::Transport(uint16_t p)
+Transport<S,C,U>::Transport()
 {
     // DIAG(F("Transport created "));
 }
+
 template<class S, class C, class U> 
 Transport<S,C,U>::~Transport()
 {
