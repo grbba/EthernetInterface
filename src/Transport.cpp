@@ -40,7 +40,7 @@ uint16_t _sseq[MAX_SOCK_NUM] = {0};
 char protocolName[4][11] = {"JMRI", "HTTP", "WITHROTTLE", "UNKNOWN"};
 
 
-/*
+
 template<class S, class C, class U>
 bool Transport<S,C,U>::setupEthernet() {
 
@@ -100,9 +100,9 @@ bool Transport<S,C,U>::setupEthernet() {
         };
         case TCP:
         {
-            server = S(port);
-            server.begin();
-            connectionPool(&server);
+            // server = S(port);
+            // server.begin();
+            // connectionPool(&server);
             connected = true;
             break;
         };
@@ -130,7 +130,7 @@ bool Transport<S,C,U>::setupEthernet() {
 }
 
 template<class S, class C, class U>
-bool Transport<S,C,U>::setupWiFi() {
+bool Transport<S,C,U>::setupWifi() {
 
     Serial1.begin(AT_BAUD_RATE);
     WiFi.init(Serial1);
@@ -171,15 +171,15 @@ bool Transport<S,C,U>::setupWiFi() {
     };
     case TCP:
     {
-        server = S(port);
-        server.begin(MAX_WIFI_SOCK, 240);
-        if(server.status()) {
+        // server = S(port);
+        // server.begin(MAX_WIFI_SOCK, 240);
+        // if(server.status()) {
             connected = true;
             ip = WiFi.localIP();
-        } else {
-            DIAG(F("\nWiFi server failed to start"));
-            connected = false;
-        } // Connection pool not used for WiFi
+        // } else {
+        //     DIAG(F("\nWiFi server failed to start"));
+        //     connected = false;
+        // } // Connection pool not used for WiFi
         break;
     };
     case MQTT: {
@@ -205,20 +205,17 @@ bool Transport<S,C,U>::setupWiFi() {
     // something went wrong
     return false;
 }
-*/
 
 template<class S, class C, class U>  
 void Transport<S,C,U>::setupHelper(setupTag<EthernetServer>)
 {
-   server = eServer; 
-    DIAG(F("Ethernet setup helper\n"));
+    setupEthernet();
 }
 
 template<class S, class C, class U>  
 void Transport<S,C,U>::setupHelper(setupTag<WiFiServer>)
 {
-    server = wServer; 
-    DIAG(F("Wifi setup helper\n"));
+    setupWifi();
 }
 
 template<class S, class C, class U> 
@@ -583,7 +580,7 @@ void httpHandler(uint8_t c)
         preq = httpReq.getParsedRequest();
         // httpReq.callback(&preq, client);
         httpReq.resetRequest();
-    } // esle do nothing and continue with the next packet
+    } // else do nothing and continue with the next packet
 }
 
 /*  This should work but creates a segmentation fault ??
@@ -762,6 +759,10 @@ Transport<S,C,U>::~Transport()
 {
     // DIAG(F("Transport destroyed"));
 }
+
+// explicitly instatiate to get the relevant copies for ethernet / wifi build @compile time
+template class Transport<EthernetServer,EthernetClient,EthernetUDP>;
+template class Transport<WiFiServer, WiFiClient, WiFiUDP>;
 
 /*
  * Scratch pad Section

@@ -90,7 +90,7 @@ private:
     uint8_t         maxConnections;   
     bool            connected;
     U               udp; 
-    S*               server;
+    // S*              server;
     uint8_t         mac[6]; // = MAC_ADDRESS;
     IPAddress       dnsip;
     IPAddress       ip;
@@ -109,12 +109,16 @@ private:
     void setupHelper(setupTag<EthernetServer>);
     void setupHelper(setupTag<WiFiServer>);
 
+    bool setupEthernet();
+    bool setupWifi();
+
 public:
     uint16_t        port;
     uint8_t         protocol;               // TCP or UDP  
     uint8_t         transport;              // WIFI or ETHERNET 
-    WiFiServer*     wServer = 0;
-    EthernetServer* eServer = 0;                               
+    S*              server;
+    // WiFiServer*     wServer = 0;
+    // EthernetServer* eServer = 0;                               
 
     uint8_t setup();
     void loop(); 
@@ -124,7 +128,6 @@ public:
     
 };
 
-template class Transport<EthernetServer,EthernetClient,EthernetUDP>;
-template class Transport<EthernetServer, WiFiClient, WiFiUDP>;
+
 
 #endif // !Transport_h

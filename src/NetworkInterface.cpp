@@ -21,12 +21,10 @@
 #include "NetworkInterface.h"
 // #include "Singelton.h"
 // #include "WifiTransport.h"
-// #include "EthernetTransport.h"
+#include "EthernetSetup.h"
+#include "WifiSetup.h"
 
 HttpCallback NetworkInterface::httpCallback;
-
-//Transport<WiFiServer,WiFiClient,WiFiUDP> wifiT;
-// Transport<EthernetServer,EthernetClient,EthernetUDP> ethernetT;
 
 Transport<WiFiServer, WiFiClient,WiFiUDP>* NetworkInterface::wifiTransport;
 Transport<EthernetServer, EthernetClient,EthernetUDP>* NetworkInterface::ethernetTransport;
@@ -47,22 +45,26 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
     {
         case WIFI:
         {
-            wifiTransport = new Transport<WiFiServer,WiFiClient,WiFiUDP>;
-            wifiTransport->wServer = new WiFiServer(port);
+            WifiSetup wSetup;
+
+            wifiTransport = new Transport<WiFiServer,WiFiClient,WiFiUDP>(); 
+            wifiTransport->server =  wSetup.setup(port);  // new WiFiServer(port);
             wifiTransport->port = port;
             wifiTransport->protocol = protocol;
             wifiTransport->transport = transport;
-            ok = wifiTransport->setup(); // do the setup here for the server part and remove the setup part from the transport; just set the server accordingly ... 
+            // ok = wifiTransport->setup();
             break;
         };
         case ETHERNET:
         {
-            ethernetTransport = new Transport<EthernetServer,EthernetClient,EthernetUDP>;
-            ethernetTransport->eServer = new EthernetServer(port);
+            EthernetSetup eSetup;
+
+            ethernetTransport = new Transport<EthernetServer,EthernetClient,EthernetUDP>();
+            ethernetTransport->server = eSetup.setup(port); 
             ethernetTransport->port = port;
             ethernetTransport->protocol = protocol;
             ethernetTransport->transport = transport;
-            ok = ethernetTransport->setup();
+            // ok = ethernetTransport->setup();
             break;
         };
         default:
