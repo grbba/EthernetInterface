@@ -67,7 +67,7 @@ EthernetServer* EthernetSetup::setup(uint16_t port)
     {
         case UDP:
         { 
-            if (udp.begin(port))
+            if (udp.begin(port)) // !! goes to the transport ??
             {
                 connected = true;
                 ip = Ethernet.localIP();
@@ -83,7 +83,6 @@ EthernetServer* EthernetSetup::setup(uint16_t port)
         {
             server = &s;
             server->begin();
-            // connectionPool(&server); 
             connected = true;
             break;
         };

@@ -42,25 +42,22 @@
     }                            // MAC address of your networking card found on the sticker on your card or take one from above
 #define IP_ADDRESS 10, 0, 0, 101 // Just in case we don't get an adress from DHCP try a static one;
 
-class NetworkSetup {
-
+class NetworkSetup
+{
 private:
-
-
 public:
-
-    IPAddress               dnsip;
-    IPAddress               ip;
-    uint8_t                 mac[6] = MAC_ADDRESS;
-    uint8_t                 maxConnections;
-    bool                    connected;
-    protocolType            protocol;
-    uint16_t                port;
+    IPAddress       dnsip;
+    IPAddress       ip;
+    uint8_t         mac[6] = MAC_ADDRESS;
+    uint8_t         maxConnections;
+    bool            connected;                  // semantics is that the server has successfullt started  or not; client connections will be started in the Transport object
+    protocolType    protocol;
+    uint16_t        port;
 
     virtual void setup();
 
-    NetworkSetup ();
-    ~NetworkSetup ();
+    NetworkSetup();
+    ~NetworkSetup();
 };
 
 #endif

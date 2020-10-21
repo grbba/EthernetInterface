@@ -24,6 +24,7 @@
 #include <WiFiEspAT.h>
 
 #include <NetworkInterface.h>
+#include "TransportProcessor.h"
 
 #define MAX_ETH_BUFFER 64                   // maximum length we read in one go from a TCP packet. Anything longer in one go send to the Arduino may result in unpredictable behaviour.
                                             // idealy the windowsize should be set accordingly so that the sender knows to produce only max 250 size packets. 
@@ -57,19 +58,21 @@ SoftwareSerial Serial1(6, 7); // RX, TX
 
 typedef enum {
     DCCEX,              // if char[0] = < opening bracket the client should be a JMRI / DCC EX client_h
+    WITHROTTLE,         // 
     HTTP,               // If char[0] = G || P || D; if P then char [1] = U || O || A 
-    WITHROTTLE,         // if char[0] = N 
     UNKNOWN_PROTOCOL
 } appProtocol;
 
 using appProtocolCallback = void(*)(uint8_t connection);
 
 struct Connection {
-    Client *client;
-    char overflow[MAX_OVERFLOW];
-    appProtocol p;
-    bool isProtocolDefined = false;
-    appProtocolCallback appProtocolHandler;         
+    uint8_t             id;
+    Client*             client;
+    char                overflow[MAX_OVERFLOW];
+    appProtocol         p;
+    char                delimiter = '\0';
+    bool                isProtocolDefined = false;
+    appProtocolCallback appProtocolHandler; 
 };
 
 /**
@@ -80,54 +83,42 @@ struct Connection {
  * @tparam U UDP class ( EthernetUDP or WiFiUDP )
  */
 
-
 template <class S, class C, class U> class Transport 
 {
 
 private:
-    C               clients[MAX_SOCK_NUM];
-    Connection      connections[MAX_SOCK_NUM];
-    uint8_t         maxConnections;   
-    bool            connected;
-    U               udp; 
-    // S*              server;
-    uint8_t         mac[6]; // = MAC_ADDRESS;
-    IPAddress       dnsip;
-    IPAddress       ip;
+    C               clients[MAX_SOCK_NUM];              // Client objects created by the connectionPool
+    Connection      connections[MAX_SOCK_NUM];          
+    bool            connected;                          
+    U               udp;                                // Udp socket object
+    uint8_t         mac[6];                             // MAC_ADDRESS;
+    IPAddress       dnsip;                              // dns server ip address
+    IPAddress       ip;                                 // local ip Address
 
-    void commandHandler(C* client, uint8_t c, char delimiter);
-    void readStream(Connection* c, uint8_t i);
-    void udpHandler();
-    // void tcpHandler(S* server);             // not used currently   
-    void tcpSessionHandler(S* server);      // tcpSessionHandler -> connections are maintained open until close by the client
-    void connectionPool(S* server);         // allocates the Sockets at setup time and creates the Connections
+    TransportProcessor* t; 
 
-    // tag for setup dispatch
-    template<class T>
-    struct setupTag{};
+    void udpHandler();                                  //  reads from a Udp socket - todo add incomming queue for processing when the flow is faster than we can process commands
+    // void tcpHandler(S* server);                      // not used currently   connects/disconnects once a packet has been recieved
+    void tcpSessionHandler(S* server);                  // tcpSessionHandler -> connections are maintained open until close by the client
 
-    void setupHelper(setupTag<EthernetServer>);
-    void setupHelper(setupTag<WiFiServer>);
 
-    bool setupEthernet();
-    bool setupWifi();
+    void connectionPool(S* server);                     // allocates the Sockets at setup time and creates the Connections
+    void setAppProtocolHandler(Connection *c, appProtocolCallback cb);
+
 
 public:
     uint16_t        port;
     uint8_t         protocol;               // TCP or UDP  
     uint8_t         transport;              // WIFI or ETHERNET 
-    S*              server;
-    // WiFiServer*     wServer = 0;
-    // EthernetServer* eServer = 0;                               
+    S*              server;                  
+    uint8_t         maxConnections;         // number of supported connections depending on the network equipment used
 
-    uint8_t setup();
+    bool setup();
     void loop(); 
 
     Transport<S,C,U>();
     ~Transport<S,C,U>();
     
 };
-
-
 
 #endif // !Transport_h

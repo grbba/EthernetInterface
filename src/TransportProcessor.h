@@ -1,5 +1,6 @@
+
 /*
- *  © 2020 Gregor Baues. All rights reserved.
+ *  © 2020, Gregor Baues. All rights reserved.
  *  
  *  This is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -15,11 +16,34 @@
  *  along with CommandStation.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#ifndef TransportProcesor_h
+#define TransportProcessor_h
+
 #include <Arduino.h>
-#include "DIAG.h"
-#include "NetworkSetup.h"
+// #include <Ethernet.h>
+// #include <WiFiEspAT.h>
 
-void NetworkSetup::setup() {}
+// #include <NetworkInterface.h>
 
-NetworkSetup::NetworkSetup() {}
-NetworkSetup::~NetworkSetup() {}
+
+class TransportProcessor 
+{
+
+private:
+    static uint8_t buffer[MAX_ETH_BUFFER];
+    char command[MAX_JMRI_CMD] = {0};
+
+    void processStream(Connection* c);
+    void jmriProcessor();
+
+public:
+    
+    void readStream(Connection *c);     // reads incomming packets and hands over to the commandHandle for taking the stream apart for commands
+    void processStream(Connection* c); 
+
+    TransportProcessor();
+    ~TransportProcessor();
+    
+};
+
+#endif // !Transport_h

@@ -38,7 +38,7 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
 
     DIAG(F("\n[%s] Transport Setup In Progress ...\n"), transport ? "Ethernet" : "Wifi");
 
-    // configure the Transport and get it up and running
+    // configure the Transport and get Ethernet/Wifi server up and running
     
     t = transport;
     switch (transport)
@@ -48,11 +48,12 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
             WifiSetup wSetup;
 
             wifiTransport = new Transport<WiFiServer,WiFiClient,WiFiUDP>(); 
-            wifiTransport->server =  wSetup.setup(port);  // new WiFiServer(port);
+            wifiTransport->server =  wSetup.setup(port); 
             wifiTransport->port = port;
             wifiTransport->protocol = protocol;
             wifiTransport->transport = transport;
-            // ok = wifiTransport->setup();
+            wifiTransport->maxConnections = wSetup.maxConnections;
+            ok = wifiTransport->setup();
             break;
         };
         case ETHERNET:
@@ -60,11 +61,12 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
             EthernetSetup eSetup;
 
             ethernetTransport = new Transport<EthernetServer,EthernetClient,EthernetUDP>();
-            ethernetTransport->server = eSetup.setup(port); 
+            ethernetTransport->server = eSetup.setup(port);             // 0 if something went wrong i.e. we didn't get a server object / server not running
             ethernetTransport->port = port;
             ethernetTransport->protocol = protocol;
             ethernetTransport->transport = transport;
-            // ok = ethernetTransport->setup();
+            ethernetTransport->maxConnections = eSetup.maxConnections;  // that has been determined during the ethernet/wifi setup
+            ok = ethernetTransport->setup();                            // start the transport i.e. setup all the client connections; We don't need the setup object anymore from here on 
             break;
         };
         default:
@@ -94,11 +96,11 @@ void NetworkInterface::setup()
 void NetworkInterface::loop() {
     switch(t){
         case WIFI: {
-            // wifiTransport->loop(); 
+            wifiTransport->loop(); 
             break;
         }
         case ETHERNET: {
-            // ethernetTransport->loop();  
+            ethernetTransport->loop();  
             break;
         }
     }
