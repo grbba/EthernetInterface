@@ -22,7 +22,8 @@
 
 static WiFiServer s(LISTEN_PORT); 
 
-WiFiServer* WifiSetup::setup(uint16_t port) {
+// WiFiServer* WifiSetup::setup(uint16_t port) {
+WiFiServer* WifiSetup::setup() {
     Serial1.begin(AT_BAUD_RATE);
     WiFi.init(Serial1);
 
@@ -97,3 +98,7 @@ WiFiServer* WifiSetup::setup(uint16_t port) {
     return 0;
 
 };
+
+WifiSetup::WifiSetup() {}
+WifiSetup::WifiSetup(uint16_t p, protocolType pt ) { port = p; protocol = pt; }
+WifiSetup::~WifiSetup() {}

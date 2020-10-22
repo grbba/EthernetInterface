@@ -52,9 +52,7 @@ public:
     uint8_t         maxConnections;
     bool            connected;                  // semantics is that the server has successfullt started  or not; client connections will be started in the Transport object
     protocolType    protocol;
-    uint16_t        port;
-
-    virtual void setup();
+    uint16_t        port = LISTEN_PORT;         // Default port
 
     NetworkSetup();
     ~NetworkSetup();

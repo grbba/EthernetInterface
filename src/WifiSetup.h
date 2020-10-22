@@ -40,9 +40,11 @@ private:
 
 public:
 
-    WiFiServer *setup(uint16_t port);
+    // WiFiServer *setup(uint16_t port);
+    WiFiServer *setup();
 
     WifiSetup();
+    WifiSetup(uint16_t port, protocolType protocol);
     ~WifiSetup();
 };
 

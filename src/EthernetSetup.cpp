@@ -19,9 +19,9 @@
 #include "DIAG.h"
 #include "EthernetSetup.h"
 
-static EthernetServer s(LISTEN_PORT); 
+// static EthernetServer s(LISTEN_PORT); 
 
-EthernetServer* EthernetSetup::setup(uint16_t port) 
+EthernetServer* EthernetSetup::setup() 
 {
 
     DIAG(F("\nInitialize Ethernet with DHCP"));
@@ -81,7 +81,7 @@ EthernetServer* EthernetSetup::setup(uint16_t port)
         };
         case TCP:
         {
-            server = &s;
+            server = new EthernetServer(port);
             server->begin();
             connected = true;
             break;
@@ -110,5 +110,6 @@ EthernetServer* EthernetSetup::setup(uint16_t port)
 }
 
 EthernetSetup::EthernetSetup() {}
+EthernetSetup::EthernetSetup(uint16_t p, protocolType pt ) { port = p; protocol = pt; }
 EthernetSetup::~EthernetSetup() {}
 

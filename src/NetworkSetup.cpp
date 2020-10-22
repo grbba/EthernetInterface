@@ -19,7 +19,5 @@
 #include "DIAG.h"
 #include "NetworkSetup.h"
 
-void NetworkSetup::setup() {}
-
 NetworkSetup::NetworkSetup() {}
 NetworkSetup::~NetworkSetup() {}

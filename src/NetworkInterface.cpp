@@ -46,10 +46,10 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
     {
         case WIFI:
         {
-            WifiSetup wSetup;
+            WifiSetup wSetup(port, protocol);
 
             wifiTransport = new Transport<WiFiServer,WiFiClient,WiFiUDP>(); 
-            wifiTransport->server =  wSetup.setup(port); 
+            wifiTransport->server =  wSetup.setup(); 
             wifiTransport->port = port;
             wifiTransport->protocol = protocol;
             wifiTransport->transport = transport;
@@ -59,10 +59,12 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
         };
         case ETHERNET:
         {
-            EthernetSetup eSetup;
+            EthernetSetup eSetup(port, protocol);
 
             ethernetTransport = new Transport<EthernetServer,EthernetClient,EthernetUDP>();
-            ethernetTransport->server = eSetup.setup(port);             // 0 if something went wrong i.e. we didn't get a server object / server not running
+            ethernetTransport->server = eSetup.setup();             // 0 if something went wrong i.e. we didn't get a server object / server not running
+            // DIAG(F("\nServer:                [%x]"), ethernetTransport->server);
+            // ethernetTransport->server->statusreport();
             ethernetTransport->port = port;
             ethernetTransport->protocol = protocol;
             ethernetTransport->transport = transport;

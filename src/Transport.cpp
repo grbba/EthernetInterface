@@ -111,6 +111,8 @@ void Transport<S,C,U>::tcpSessionHandler(S* server)
     // get client from the server
     C client = server->accept();
 
+    // DIAG(F("\nClient:                [%x:%x]"), client, server);
+     
     // check for new client
     if (client)
     {

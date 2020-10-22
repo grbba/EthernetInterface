@@ -47,7 +47,7 @@ void setup()
   }
   
   // DCC::begin(STANDARD_MOTOR_SHIELD);
-
+  DIAG(F("\nFree RAM before network init: [%d]\n"),freeMemory());
   DIAG(F("\nNetwork Setup In Progress ...\n"));
   NetworkInterface::setup(ETHERNET, TCP, 8888);           // specify WIFI or ETHERNET depending on if you have Wifi or an EthernetShield; Wifi has to be on Serial1 UDP or TCP for the protocol
   NetworkInterface::setHttpCallback(httpRequestHandler);  // The network interface will provide and HTTP request object which can be used as well to send the reply. cf. example above
