@@ -30,12 +30,13 @@ static uint8_t buffer[MAX_ETH_BUFFER];
 static char command[MAX_JMRI_CMD] = {0};
 static uint8_t reply[MAX_ETH_BUFFER];
 
-
 HttpRequest httpReq;
 uint16_t _rseq[MAX_SOCK_NUM] = {0};
 uint16_t _sseq[MAX_SOCK_NUM] = {0};
 
-char protocolName[4][11] = {"JMRI", "HTTP", "WITHROTTLE", "UNKNOWN"};  // change for Progmem
+char protocolName[4][11] = {"JMRI", "WITHROTTLE", "HTTP", "UNKNOWN"};  // change for Progmem
+bool diagNetwork = false;
+uint8_t diagNetworkClient = 0;
 
 
 /**
@@ -57,7 +58,7 @@ void httpProcessor(Connection* c)
     if (httpReq.endOfRequest())
     {
         preq = httpReq.getParsedRequest();
-        // httpReq.callback(&preq, client);
+        httpReq.callback(&preq, c->client);
         httpReq.resetRequest();
     } // else do nothing and continue with the next packet
 }
@@ -71,10 +72,9 @@ void httpProcessor(Connection* c)
  * @param b Second character of the recieved buffer upon first connection
  * @return appProtocol 
  */
-appProtocol setAppProtocol(char a, char b)
+appProtocol setAppProtocol(char a, char b, Connection *c)
 {
     appProtocol p;
-    
     switch (a)
     {
     case 'G': // GET
@@ -135,6 +135,14 @@ appProtocol setAppProtocol(char a, char b)
         p = DCCEX;
         break;
     }
+    case '#': {
+        p = DCCEX;
+        DIAG(F("\nDiagnostics routed to network client\n"));
+        StringFormatter::setDiagOut(c);
+        diagNetwork = true;
+        diagNetworkClient = c->id;
+        break;
+    }
     default:
     {
         // here we don't know
@@ -146,7 +154,6 @@ appProtocol setAppProtocol(char a, char b)
     return p;
 }
 
-
 /**
  * @brief Parses the buffer to extract commands to be executed
  * 
@@ -157,7 +164,8 @@ void processStream(Connection *c)
 {
     uint8_t i, j, k, l = 0;
 
-    DIAG(F("\nBuffer: %e"), buffer);
+    memset(command, 0, MAX_JMRI_CMD); // clear out the command
+    DIAG(F("\nBuffer:                 [%e]\n"), buffer);
     // copy overflow into the command
     if ((i = strlen(c->overflow)) != 0)
     {
@@ -176,10 +184,8 @@ void processStream(Connection *c)
         while (buffer[i] != c->delimiter)
         { // what if there is none: ?
             //  DIAG(F("%c"),(char) buffer[i]);
-            // Serial.print((char) buffer[i]);
             i--;
         }
-        Serial.println();
         i++; // start of the buffer to copy
         l = i;
         k = j - i; // length to copy
@@ -207,11 +213,11 @@ void processStream(Connection *c)
 
             command[k+1] = '\0';
 
-            DIAG(F("Command:                [%d:%d:%e]\n"), c, _rseq[c->id], command);
+            DIAG(F("Command:                [%d:%e]\n"),_rseq[c->id], command);
 
             // parse(client, buffer, true);
             // sendReply(c->client, command, c);
-            memset(command, 0, MAX_JMRI_CMD); // clear out the command
+            // memset(command, 0, MAX_JMRI_CMD); // clear out the command
 
             _rseq[c->id]++;
             j = 0;
@@ -227,8 +233,13 @@ void processStream(Connection *c)
 
 void echoProcessor(Connection *c)
 {
-    processStream(c);
-    
+    memset(reply, 0, MAX_ETH_BUFFER);       
+    sprintf((char *)reply, "ERROR: malformed content in [%s]", buffer);
+    if (c->client->connected())
+    {
+        c->client->write(reply, strlen((char *)reply));
+        _sseq[c->id]++;
+    }
 }
 void jmriProcessor(Connection *c)
 {
@@ -256,10 +267,11 @@ void TransportProcessor::readStream(Connection *c)
 
     if (!c->isProtocolDefined)
     {
-        c->p = setAppProtocol(buffer[0], buffer[1]);
+        c->p = setAppProtocol(buffer[0], buffer[1], c);
         c->isProtocolDefined = true;
         switch (c->p)
         {
+        case N_DIAG:
         case DCCEX:
         {
             c->delimiter = '>';
@@ -297,8 +309,6 @@ void TransportProcessor::readStream(Connection *c)
     // chop the buffer into CS / WiThrottle commands || assemble command across buffer read boundaries
     c->appProtocolHandler(c);
 }
-
-
 
 /**
  * @brief Sending a reply by using the StringFormatter (this will result in every byte send individually which may/will create an important Network overhead).
@@ -340,8 +350,6 @@ void sendReply(Client *client, char *command, uint8_t c)
     itoa(_sseq[c], seqNumber, 10);    
     strcat((char *)reply, seqNumber);
     strcat((char *)reply, ">");
-
-    // sprintf((char *)reply, "reply to: %s", command);
 
     DIAG(F("Response:               [%e]"), (char *)reply);
     if (client->connected())

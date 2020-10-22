@@ -18,19 +18,18 @@
 #include <Arduino.h>
 
 #include "DIAG.h"
-// #include "DCCEXParser.h"
-
 #include "NetworkInterface.h"
 #include "Transport.h"
 
-// DCCEXParser ethParser;
+extern bool diagNetwork;
+extern uint8_t diagNetworkClient;
 
 template<class S, class C, class U> 
 bool Transport<S,C,U>::setup() {
-    // server should have started here so create the connection pool
-    connectionPool(server);         
+    
+    connectionPool(server);         // server should have started here so create the connection pool
     t = new TransportProcessor();
-    connected = true;           // server & clients which will recieve/send data have all e setup and are available
+    connected = true;               // server & clients which will recieve/send data have all e setup and are available
     return true;
 } 
 
@@ -45,7 +44,6 @@ void Transport<S,C,U>::loop() {
     };
     case TCP:
     {
-        // tcpHandler(&server);         // for stateless coms
         tcpSessionHandler(server);     // for session oriented coms
         break;
     };
@@ -65,7 +63,7 @@ void Transport<S, C, U>::connectionPool(S *server)
         clients[i] = server->accept();
         connections[i].client = &clients[i];
         connections[i].id = i;
-        DIAG(F("\nConnection pool: [%d:%x]"), i, clients[i]);
+        DIAG(F("\nConnection pool:       [%d:%x]"), i, clients[i]);
     }
 }
 
@@ -110,8 +108,6 @@ void Transport<S,C,U>::tcpSessionHandler(S* server)
 {
     // get client from the server
     C client = server->accept();
-
-    // DIAG(F("\nClient:                [%x:%x]"), client, server);
      
     // check for new client
     if (client)
@@ -123,7 +119,7 @@ void Transport<S,C,U>::tcpSessionHandler(S* server)
                 // On accept() the EthernetServer doesn't track the client anymore
                 // so we store it in our client array
                 clients[i] = client;
-                DIAG(F("\nNew Client:                [%d:%x]"), i, clients[i]);
+                DIAG(F("\nNew Client:             [%d:%x]"), i, clients[i]);
                 break;
             }
         }
@@ -144,6 +140,10 @@ void Transport<S,C,U>::tcpSessionHandler(S* server)
                 DIAG(F("\nDisconnect client #%d"), i);
                 clients[i].stop();
                 connections[i].isProtocolDefined = false;
+                if (diagNetworkClient == i && diagNetwork) {
+                    diagNetwork = false;
+                    StringFormatter::resetDiagOut();
+                }
             }
         }
     }

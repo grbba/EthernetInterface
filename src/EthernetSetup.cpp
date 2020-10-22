@@ -19,8 +19,6 @@
 #include "DIAG.h"
 #include "EthernetSetup.h"
 
-// static EthernetServer s(LISTEN_PORT); 
-
 EthernetServer* EthernetSetup::setup() 
 {
 

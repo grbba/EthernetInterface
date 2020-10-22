@@ -19,10 +19,7 @@
 
 #include "DIAG.h"
 #include "WifiSetup.h"
-
-static WiFiServer s(LISTEN_PORT); 
-
-// WiFiServer* WifiSetup::setup(uint16_t port) {
+ 
 WiFiServer* WifiSetup::setup() {
     Serial1.begin(AT_BAUD_RATE);
     WiFi.init(Serial1);
@@ -63,7 +60,7 @@ WiFiServer* WifiSetup::setup() {
     };
     case TCP:
     {
-           server = &s;
+           server = new WiFiServer(port);
            server->begin(MAX_WIFI_SOCK, 240);
         if(server->status()) {
             connected = true;

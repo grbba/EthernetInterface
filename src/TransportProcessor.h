@@ -32,6 +32,7 @@ typedef enum {
     DCCEX,              // if char[0] = < opening bracket the client should be a JMRI / DCC EX client_h
     WITHROTTLE,         // 
     HTTP,               // If char[0] = G || P || D; if P then char [1] = U || O || A 
+    N_DIAG,             // '#' send form a telnet client as FIRST message will then reroute all DIAG messages to that client whilst being able to send jmri type commands
     UNKNOWN_PROTOCOL
 } appProtocol;
 
@@ -52,8 +53,6 @@ struct Connection {
 
 class TransportProcessor 
 {
-
-private:
 
 public:
     
