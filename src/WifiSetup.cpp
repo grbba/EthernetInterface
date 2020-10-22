@@ -38,7 +38,6 @@ WiFiServer* WifiSetup::setup() {
         delay(1000);
         DIAG(F("."));
     }
-
     // Setup the protocol handler
     DIAG(F("\n\nNetwork Protocol:      [%s]"), protocol ? "UDP" : "TCP");
 
@@ -46,10 +45,10 @@ WiFiServer* WifiSetup::setup() {
     {
     case UDP:
     {
-        if (udp.begin(port))
+        udp = new WiFiUDP();
+        if (udp->begin(port))
         {
             connected = true;
-            ip = WiFi.localIP();
         }
         else
         {
@@ -60,11 +59,11 @@ WiFiServer* WifiSetup::setup() {
     };
     case TCP:
     {
-           server = new WiFiServer(port);
-           server->begin(MAX_WIFI_SOCK, 240);
+        server = new WiFiServer(port);
+        server->begin(MAX_WIFI_SOCK, 240);
         if(server->status()) {
             connected = true;
-            ip = WiFi.localIP();
+        
         } else {
             DIAG(F("\nWiFi server failed to start"));
             connected = false;
@@ -84,11 +83,13 @@ WiFiServer* WifiSetup::setup() {
 
     if (connected)
     {
+        ip = WiFi.localIP();
         DIAG(F("\nLocal IP address:      [%d.%d.%d.%d]"), ip[0], ip[1], ip[2], ip[3]);
         DIAG(F("\nListening on port:     [%d]"), port);
         dnsip = WiFi.dnsServer1();
         DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
         DIAG(F("\nNumber of connections: [%d]"), maxConnections);
+        if( protocol == UDP ) return 0;  // no server here as we use UDP
         return server;
     }
     // something went wrong

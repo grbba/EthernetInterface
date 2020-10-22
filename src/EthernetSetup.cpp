@@ -39,10 +39,8 @@ EthernetServer* EthernetSetup::setup()
             return 0;
         }
     }
-    
-    maxConnections = MAX_SOCK_NUM;
 
-    ip = Ethernet.localIP();
+    maxConnections = MAX_SOCK_NUM;
 
     if (Ethernet.hardwareStatus() == EthernetW5100)
     {
@@ -65,10 +63,10 @@ EthernetServer* EthernetSetup::setup()
     {
         case UDP:
         { 
-            if (udp.begin(port)) // !! goes to the transport ??
+            if (udp.begin(port)) 
             {
+                maxConnections = 1;             // there is only one UDP object listening for incomming data
                 connected = true;
-                ip = Ethernet.localIP();
             }
             else
             {
@@ -97,11 +95,13 @@ EthernetServer* EthernetSetup::setup()
     }
     if (connected)
     {
+        ip = Ethernet.localIP();
         DIAG(F("\nLocal IP address:      [%d.%d.%d.%d]"), ip[0], ip[1], ip[2], ip[3]);
         DIAG(F("\nListening on port:     [%d]"), port);
         dnsip = Ethernet.dnsServerIP();
         DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
         DIAG(F("\nNumber of connections: [%d]"), maxConnections);
+        if( protocol == UDP ) return 0;  // no server here as we use UDB
         return server;
     }
     return 0;

@@ -36,7 +36,7 @@ class WifiSetup: public NetworkSetup {
 private:
 
     WiFiServer*         server;
-    WiFiUDP             udp;
+    WiFiUDP*            udp;
 
 public:
 

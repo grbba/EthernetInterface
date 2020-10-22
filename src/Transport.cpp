@@ -26,8 +26,9 @@ extern uint8_t diagNetworkClient;
 
 template<class S, class C, class U> 
 bool Transport<S,C,U>::setup() {
-    
-    connectionPool(server);         // server should have started here so create the connection pool
+    if (protocol == TCP) { 
+        connectionPool(server);         // server should have started here so create the connection pool only for TCP though
+    }
     t = new TransportProcessor();
     connected = true;               // server & clients which will recieve/send data have all e setup and are available
     return true;
@@ -88,9 +89,9 @@ void Transport<S, C, U>::udpHandler()
         // execute the command via the parser
         // check if we have a response if yes then
         // send the reply
-        udp.beginPacket(udp.remoteIP(), udp.remotePort());
+        // udp.beginPacket(udp.remoteIP(), udp.remotePort());
         // parse(&udp, (byte *)buffer, true); //////////// Put into the TransportProcessor
-        udp.endPacket();
+        // udp.endPacket();
 
         // clear out the PacketBuffer
         // memset(buffer, 0, MAX_ETH_BUFFER); // reset PacktBuffer

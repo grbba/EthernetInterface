@@ -62,9 +62,7 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
             EthernetSetup eSetup(port, protocol);
 
             ethernetTransport = new Transport<EthernetServer,EthernetClient,EthernetUDP>();
-            ethernetTransport->server = eSetup.setup();             // 0 if something went wrong i.e. we didn't get a server object / server not running
-            // DIAG(F("\nServer:                [%x]"), ethernetTransport->server);
-            // ethernetTransport->server->statusreport();
+            ethernetTransport->server = eSetup.setup();                 // returns (NULL) 0 if we run over UDP
             ethernetTransport->port = port;
             ethernetTransport->protocol = protocol;
             ethernetTransport->transport = transport;
