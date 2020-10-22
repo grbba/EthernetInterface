@@ -16,33 +16,51 @@
  *  along with CommandStation.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef TransportProcesor_h
+#ifndef TransportProcessor_h
 #define TransportProcessor_h
 
 #include <Arduino.h>
-// #include <Ethernet.h>
-// #include <WiFiEspAT.h>
+#include <Ethernet.h>
+#include <WiFiEspAT.h>
 
-// #include <NetworkInterface.h>
+
+#define MAX_ETH_BUFFER 64                   // maximum length we read in one go from a TCP packet. Anything longer in one go send to the Arduino may result in unpredictable behaviour.
+                                            // idealy the windowsize should be set accordingly so that the sender knows to produce only max 250 size packets.
+#define MAX_OVERFLOW MAX_ETH_BUFFER/2       // length of the overflow buffer to be used for a given connection.
+#define MAX_JMRI_CMD 32                     // MAX Length of a JMRI Command 
+typedef enum {
+    DCCEX,              // if char[0] = < opening bracket the client should be a JMRI / DCC EX client_h
+    WITHROTTLE,         // 
+    HTTP,               // If char[0] = G || P || D; if P then char [1] = U || O || A 
+    UNKNOWN_PROTOCOL
+} appProtocol;
+
+struct Connection;
+using appProtocolCallback = void(*)(Connection*  c);
+
+struct Connection {
+    uint8_t             id;
+    Client*             client;
+    char                overflow[MAX_OVERFLOW];
+    appProtocol         p;
+    char                delimiter = '\0';
+    bool                isProtocolDefined = false;
+    appProtocolCallback appProtocolHandler;
+};
+
 
 
 class TransportProcessor 
 {
 
 private:
-    static uint8_t buffer[MAX_ETH_BUFFER];
-    char command[MAX_JMRI_CMD] = {0};
-
-    void processStream(Connection* c);
-    void jmriProcessor();
 
 public:
     
     void readStream(Connection *c);     // reads incomming packets and hands over to the commandHandle for taking the stream apart for commands
-    void processStream(Connection* c); 
 
-    TransportProcessor();
-    ~TransportProcessor();
+    TransportProcessor(){};
+    ~TransportProcessor(){};
     
 };
 

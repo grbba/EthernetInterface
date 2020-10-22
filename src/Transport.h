@@ -26,13 +26,11 @@
 #include <NetworkInterface.h>
 #include "TransportProcessor.h"
 
-#define MAX_ETH_BUFFER 64                   // maximum length we read in one go from a TCP packet. Anything longer in one go send to the Arduino may result in unpredictable behaviour.
-                                            // idealy the windowsize should be set accordingly so that the sender knows to produce only max 250 size packets. 
+ 
 #define MAX_SOCK_NUM 8                      // Maximum number of sockets allowed for any WizNet based EthernetShield. The W5100 only supports 4
 #define MAX_WIFI_SOCK 5                     // ESP8266 doesn't support more than 5 connections in //
 #define LISTEN_PORT 2560                    // default listen port for the server
-#define MAX_OVERFLOW MAX_ETH_BUFFER/2       // length of the overflow buffer to be used for a given connection.
-#define MAX_JMRI_CMD 32                     // MAX Length of a JMRI Command 
+
 
 #define MAC_ADDRESS                        \
     {                                      \
@@ -49,68 +47,25 @@ SoftwareSerial Serial1(6, 7); // RX, TX
 #define AT_BAUD_RATE 115200
 #endif
 
-/**
- * @brief  Application level protocol; detemined upon first connection i.e. first message recieved
- * 
- * @todo   Check if MQTT makes sens here
- * 
- */
-
-typedef enum {
-    DCCEX,              // if char[0] = < opening bracket the client should be a JMRI / DCC EX client_h
-    WITHROTTLE,         // 
-    HTTP,               // If char[0] = G || P || D; if P then char [1] = U || O || A 
-    UNKNOWN_PROTOCOL
-} appProtocol;
-
-using appProtocolCallback = void(*)(uint8_t connection);
-
-struct Connection {
-    uint8_t             id;
-    Client*             client;
-    char                overflow[MAX_OVERFLOW];
-    appProtocol         p;
-    char                delimiter = '\0';
-    bool                isProtocolDefined = false;
-    appProtocolCallback appProtocolHandler; 
-};
-
-/**
- * @brief templated transport class 
- * 
- * @tparam S Server ( EthernetServer or WiFiServer )
- * @tparam C Client ( EthernetClient or WiFiClient )
- * @tparam U UDP class ( EthernetUDP or WiFiUDP )
- */
-
 template <class S, class C, class U> class Transport 
 {
 
 private:
     C               clients[MAX_SOCK_NUM];              // Client objects created by the connectionPool
-    Connection      connections[MAX_SOCK_NUM];          
+    Connection      connections[MAX_SOCK_NUM];          // All the connections build by the connectionPool
     bool            connected;                          
     U               udp;                                // Udp socket object
-    uint8_t         mac[6];                             // MAC_ADDRESS;
-    IPAddress       dnsip;                              // dns server ip address
-    IPAddress       ip;                                 // local ip Address
+    TransportProcessor* t;                              // pointer to the object which handles the incomming flow
 
-    TransportProcessor* t; 
-
-    void udpHandler();                                  //  reads from a Udp socket - todo add incomming queue for processing when the flow is faster than we can process commands
-    // void tcpHandler(S* server);                      // not used currently   connects/disconnects once a packet has been recieved
+    void udpHandler();                                  // Reads from a Udp socket - todo add incomming queue for processing when the flow is faster than we can process commands
     void tcpSessionHandler(S* server);                  // tcpSessionHandler -> connections are maintained open until close by the client
-
-
     void connectionPool(S* server);                     // allocates the Sockets at setup time and creates the Connections
-    void setAppProtocolHandler(Connection *c, appProtocolCallback cb);
-
-
+   
 public:
     uint16_t        port;
     uint8_t         protocol;               // TCP or UDP  
     uint8_t         transport;              // WIFI or ETHERNET 
-    S*              server;                  
+    S*              server;                 // WiFiServer or EthernetServer 
     uint8_t         maxConnections;         // number of supported connections depending on the network equipment used
 
     bool setup();

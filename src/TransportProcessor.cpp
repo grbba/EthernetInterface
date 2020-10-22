@@ -26,8 +26,9 @@
 
 // DCCEXParser ethParser;
 
-// static uint8_t buffer[MAX_ETH_BUFFER];
-// static uint8_t reply[MAX_ETH_BUFFER];
+static uint8_t buffer[MAX_ETH_BUFFER];
+static char command[MAX_JMRI_CMD] = {0};
+static uint8_t reply[MAX_ETH_BUFFER];
 
 
 HttpRequest httpReq;
@@ -35,6 +36,31 @@ uint16_t _rseq[MAX_SOCK_NUM] = {0};
 uint16_t _sseq[MAX_SOCK_NUM] = {0};
 
 char protocolName[4][11] = {"JMRI", "HTTP", "WITHROTTLE", "UNKNOWN"};  // change for Progmem
+
+
+/**
+ * @brief creates a HttpRequest object for the user callback. Some conditions apply esp reagrding the length of the items in the Request
+ * can be found in @file HttpRequest.h 
+ *  
+ * @param client Client object from whom we receievd the data
+ * @param c id of the Client object
+ */
+void httpProcessor(Connection* c)
+{
+    uint8_t i, l = 0;
+    ParsedRequest preq;
+    l = strlen((char *)buffer);
+    for (i = 0; i < l; i++)
+    {
+        httpReq.parseRequest((char)buffer[i]);
+    }
+    if (httpReq.endOfRequest())
+    {
+        preq = httpReq.getParsedRequest();
+        // httpReq.callback(&preq, client);
+        httpReq.resetRequest();
+    } // else do nothing and continue with the next packet
+}
 
 /**
  * @brief Set the App Protocol. The detection id done upon the very first message recieved. The client will then be bound to that protocol. Its very brittle 
@@ -126,7 +152,8 @@ appProtocol setAppProtocol(char a, char b)
  * 
  */
 
-void TransportProcessor::processStream(Connection *c)
+// void TransportProcessor::processStream(Connection *c)
+void processStream(Connection *c)
 {
     uint8_t i, j, k, l = 0;
 
@@ -198,6 +225,21 @@ void TransportProcessor::processStream(Connection *c)
     }
 }
 
+void echoProcessor(Connection *c)
+{
+    processStream(c);
+    
+}
+void jmriProcessor(Connection *c)
+{
+    processStream(c);
+    
+}
+void withrottleProcessor(Connection *c)
+{
+    processStream(c);
+}
+
 /**
  * @brief Reads what is available on the incomming TCP stream and hands it over to the protocol handler.
  * 
@@ -253,5 +295,117 @@ void TransportProcessor::readStream(Connection *c)
     DIAG(F("Packet:                 [%e]\n"), buffer);
 
     // chop the buffer into CS / WiThrottle commands || assemble command across buffer read boundaries
-    c->appProtocolHandler(c->id);
+    c->appProtocolHandler(c);
 }
+
+
+
+/**
+ * @brief Sending a reply by using the StringFormatter (this will result in every byte send individually which may/will create an important Network overhead).
+ * Here we hook back into the DCC code for actually processing the command using a DCCParser. Alternatively we could use MemeStream in order to build the entiere reply
+ * before ending it (cf. Scratch pad below)
+ * 
+ * @param stream    Actually the Client to whom to send the reply. As Clients implement Print this is working
+ * @param command   The reply to be send ( echo as in sendReply() )
+ * @param blocking  if set to true will instruct the DCC code to not use the async callback functions
+ */
+void parse(Print *stream, byte *command, bool blocking)
+{
+    DIAG(F("DCC parsing:            [%e]\n"), command);
+    // echo back (as mock parser )
+    StringFormatter::send(stream, F("reply to: %s"), command);
+}
+
+/**
+ * @brief Sending a reply without going through the StringFormatter. Sends the repy in one go
+ * 
+ * @param client  Client who send the command to which the reply shall be send
+ * @param command Command initaliy recieved to be echoed back 
+ */
+void sendReply(Client *client, char *command, uint8_t c)
+{   
+    char *number;
+    char seqNumber[6];
+    int i = 0;
+    
+    memset(reply, 0, MAX_ETH_BUFFER);       // reset reply
+
+    number = strrchr(command, ':');         // replace the int after the last ':'
+    while( &command[i] != number ) {        // copy command into the reply upto the last ':'
+        reply[i] = command[i];
+        i++;
+    }
+    
+    strcat((char *)reply, ":");
+    itoa(_sseq[c], seqNumber, 10);    
+    strcat((char *)reply, seqNumber);
+    strcat((char *)reply, ">");
+
+    // sprintf((char *)reply, "reply to: %s", command);
+
+    DIAG(F("Response:               [%e]"), (char *)reply);
+    if (client->connected())
+    {
+        client->write(reply, strlen((char *)reply));
+        _sseq[c]++;
+        DIAG(F(" send\n"));
+    }
+};
+
+/*
+            // Alternative reply mechanism using MemStream thus allowing to send all in one go using the parser
+            streamer.setBufferContentPosition(0, 0);
+
+            // Parse via MemBuffer to be replaced by DCCEXparser.parse later
+
+            parse(&streamer, buffer, true); // set to true to that the execution in DCC is sync
+            
+            if (streamer.available() == 0)
+            {
+                DIAG(F("No response\n"));
+            }
+            else
+            {
+                buffer[streamer.available()] = '\0'; // mark end of buffer, so it can be used as a string later
+                DIAG(F("Response:               [%s]\n"), (char *)reply);
+                if (clients[i]->connected())
+                {
+                    clients[i]->write(reply, streamer.available());
+                }
+            }
+*/
+/*  This should work but creates a segmentation fault ??
+
+        // check if we have one parameter with name 'jmri' then send the payload directly and don't call the callback
+        preq = httpReq.getParsedRequest();
+        DIAG(F("Check parameter count\n"));
+        if (*preq.paramCount == 1)
+        {
+            Params *p;
+            int cmp;
+            p = httpReq.getParam(1);
+
+            DIAG(F("Parameter name[%s]\n"), p->name);
+            DIAG(F("Parameter value[%s]\n"), p->value);
+            
+            cmp = strcmp("jmri", p->name);
+            if ( cmp == 0 ) { 
+                memset(buffer, 0, MAX_ETH_BUFFER); // reset PacktBuffer
+                strncpy((char *)buffer, p->value, strlen(p->value));
+                jmriHandler(client, c);
+            } else {
+                DIAG(F("Callback 1\n"));
+                httpReq.callback(&preq, client);
+            }
+        }
+        else
+        {
+            DIAG(F("Callback 2\n"));
+            httpReq.callback(&preq, client);
+        }
+        DIAG(F("ResetRequest\n"));
+        httpReq.resetRequest();
+
+    } // else do nothing and wait for the next packet
+}
+*/
