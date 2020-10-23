@@ -24,57 +24,59 @@
 #include "EthernetSetup.h"
 #include "WifiSetup.h"
 
-
 HttpCallback NetworkInterface::httpCallback;
 
-Transport<WiFiServer, WiFiClient,WiFiUDP>* NetworkInterface::wifiTransport;
-Transport<EthernetServer, EthernetClient,EthernetUDP>* NetworkInterface::ethernetTransport;
-
+Transport<WiFiServer, WiFiClient, WiFiUDP> *NetworkInterface::wifiTransport;
+Transport<EthernetServer, EthernetClient, EthernetUDP> *NetworkInterface::ethernetTransport;
 transportType t;
 
 void NetworkInterface::setup(transportType transport, protocolType protocol, uint16_t port)
 {
-    
-    uint8_t ok = 0;
+
+    bool ok = false;
 
     DIAG(F("\n[%s] Transport Setup In Progress ...\n"), transport ? "Ethernet" : "Wifi");
 
     // configure the Transport and get Ethernet/Wifi server up and running
-    
+
     t = transport;
     switch (transport)
     {
-        case WIFI:
-        {
-            WifiSetup wSetup(port, protocol);
+    case WIFI:
+    {
+        WifiSetup wSetup(port, protocol);
 
-            wifiTransport = new Transport<WiFiServer,WiFiClient,WiFiUDP>(); 
-            wifiTransport->server =  wSetup.setup(); 
+        wifiTransport = new Transport<WiFiServer, WiFiClient, WiFiUDP>();
+        ok = wSetup.setup();
+        if (ok)
+        {
+            wifiTransport->server = wSetup.getServer();
             wifiTransport->port = port;
             wifiTransport->protocol = protocol;
             wifiTransport->transport = transport;
             wifiTransport->maxConnections = wSetup.maxConnections;
             ok = wifiTransport->setup();
-            break;
-        };
-        case ETHERNET:
-        {
-            EthernetSetup eSetup(port, protocol);
-
-            ethernetTransport = new Transport<EthernetServer,EthernetClient,EthernetUDP>();
-            ethernetTransport->server = eSetup.setup();                 // returns (NULL) 0 if we run over UDP
-            ethernetTransport->port = port;
-            ethernetTransport->protocol = protocol;
-            ethernetTransport->transport = transport;
-            ethernetTransport->maxConnections = eSetup.maxConnections;  // that has been determined during the ethernet/wifi setup
-            ok = ethernetTransport->setup();                            // start the transport i.e. setup all the client connections; We don't need the setup object anymore from here on 
-            break;
-        };
-        default:
-        {
-            DIAG(F("\nERROR: Unknown Transport"));// Something went wrong
-            break;
         }
+        break;
+    };
+    case ETHERNET:
+    {
+        EthernetSetup eSetup(port, protocol);
+
+        ethernetTransport = new Transport<EthernetServer, EthernetClient, EthernetUDP>();
+        ethernetTransport->server = eSetup.setup(); // returns (NULL) 0 if we run over UDP
+        ethernetTransport->port = port;
+        ethernetTransport->protocol = protocol;
+        ethernetTransport->transport = transport;
+        ethernetTransport->maxConnections = eSetup.maxConnections; // that has been determined during the ethernet/wifi setup
+        ok = ethernetTransport->setup();                           // start the transport i.e. setup all the client connections; We don't need the setup object anymore from here on
+        break;
+    };
+    default:
+    {
+        DIAG(F("\nERROR: Unknown Transport")); // Something went wrong
+        break;
+    }
     }
     DIAG(F("\n\n[%s] Transport %s ..."), transport ? "Ethernet" : "Wifi", ok ? "OK" : "Failed");
 }
@@ -94,24 +96,34 @@ void NetworkInterface::setup()
     NetworkInterface::setup(ETHERNET, TCP, LISTEN_PORT);
 }
 
-void NetworkInterface::loop() {
-    switch(t){
-        case WIFI: {
-            wifiTransport->loop(); 
-            break;
+void NetworkInterface::loop()
+{
+    switch (t)
+    {
+    case WIFI:
+    {
+        if (wifiTransport->isConnected()){ 
+            wifiTransport->loop();
         }
-        case ETHERNET: {
-            ethernetTransport->loop();  
-            break;
+        break;
+    }
+    case ETHERNET:
+    {
+        if (ethernetTransport->isConnected()) {  
+            ethernetTransport->loop();
         }
+        break;
+    }
     }
 }
 
-void NetworkInterface::setHttpCallback(HttpCallback callback) {
+void NetworkInterface::setHttpCallback(HttpCallback callback)
+{
     httpCallback = callback;
 }
-HttpCallback NetworkInterface::getHttpCallback() {
-    return httpCallback; 
+HttpCallback NetworkInterface::getHttpCallback()
+{
+    return httpCallback;
 }
 
 NetworkInterface::NetworkInterface()

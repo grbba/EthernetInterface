@@ -16,15 +16,20 @@
  */
 
 #include <Arduino.h>
-
 #include "DIAG.h"
-// #include "DCCEXParser.h"
 
 #include "NetworkInterface.h"
 #include "HttpRequest.h"
 #include "TransportProcessor.h"
 
-// DCCEXParser ethParser;
+#ifdef DCCEX_ENABLED
+    
+    #include "DCCEXParser.h"
+    #include "MemStream.h"
+
+    DCCEXParser ethParser;
+
+#endif
 
 static uint8_t buffer[MAX_ETH_BUFFER];
 static char command[MAX_JMRI_CMD] = {0};
@@ -38,6 +43,76 @@ char protocolName[4][11] = {"JMRI", "WITHROTTLE", "HTTP", "UNKNOWN"};  // change
 bool diagNetwork = false;
 uint8_t diagNetworkClient = 0;
 
+#ifdef DCCEX_ENABLED
+/**
+ * @brief Sending a reply by using the StringFormatter (this will result in every byte send individually which may/will create an important Network overhead).
+ * Here we hook back into the DCC code for actually processing the command using a DCCParser. Alternatively we could use MemeStream in order to build the entiere reply
+ * before ending it.
+ * 
+ * @param stream    Actually the Client to whom to send the reply. As Clients implement Print this is working
+ * @param command   The reply to be send ( echo as in sendReply() )
+ * @param blocking  if set to true will instruct the DCC code to not use the async callback functions
+ */
+
+void sendToDCC(Connection* c ,char *command, bool blocking)
+{
+    static MemStream* streamer = new MemStream((byte *)command, MAX_ETH_BUFFER, MAX_ETH_BUFFER, true);
+
+    DIAG(F("DCC parsing:            [%e]\n"), command);
+            // as we use buffer for recv and send we have to reset the write position
+            streamer->setBufferContentPosition(0, 0);
+
+            ethParser.parse(streamer, (byte *)command, true); // set to true to that the execution in DCC is sync
+
+            if (streamer->available() == 0)
+            {
+                DIAG(F("No response\n"));
+            }
+            else
+            {
+                command[streamer->available()] = '\0'; // mark end of buffer, so it can be used as a string later
+                DIAG(F("Response: %s\n"), command);
+                if (c->client->connected())
+                {
+                    c->client->write((byte *)command, streamer->available());
+                }
+            }
+}
+#else
+/**
+ * @brief Sending a reply without going through the StringFormatter. Sends the repy in one go
+ * 
+ * @param client  Client who send the command to which the reply shall be send
+ * @param command Command initaliy recieved to be echoed back 
+ */
+void sendReply(Connection* c, char *command)
+{   
+    char *number;
+    char seqNumber[6];
+    int i = 0;
+    
+    memset(reply, 0, MAX_ETH_BUFFER);       // reset reply
+
+    number = strrchr(command, ':');         // replace the int after the last ':'
+    while( &command[i] != number ) {        // copy command into the reply upto the last ':'
+        reply[i] = command[i];
+        i++;
+    }
+    
+    strcat((char *)reply, ":");
+    itoa(_sseq[c->id], seqNumber, 10);    
+    strcat((char *)reply, seqNumber);
+    strcat((char *)reply, ">");
+
+    DIAG(F("Response:               [%e]"), (char *)reply);
+    if (c->client->connected())
+    {
+        c->client->write(reply, strlen((char *)reply));
+        _sseq[c->id]++;
+        DIAG(F(" send\n"));
+    }
+};
+#endif
 
 /**
  * @brief creates a HttpRequest object for the user callback. Some conditions apply esp reagrding the length of the items in the Request
@@ -48,6 +123,12 @@ uint8_t diagNetworkClient = 0;
  */
 void httpProcessor(Connection* c)
 {
+    
+    if (httpReq.callback == 0) return;  // no callback i.e. nothing to do
+    /**
+     * @todo look for jmri formatted uris and execute those if there is no callback. If no command found ignore and 
+     * ev. send a 401 error back
+     */
     uint8_t i, l = 0;
     ParsedRequest preq;
     l = strlen((char *)buffer);
@@ -214,11 +295,11 @@ void processStream(Connection *c)
             command[k+1] = '\0';
 
             DIAG(F("Command:                [%d:%e]\n"),_rseq[c->id], command);
-
-            // parse(client, buffer, true);
-            // sendReply(c->client, command, c);
-            // memset(command, 0, MAX_JMRI_CMD); // clear out the command
-
+#ifdef DCCEX_ENABLED
+            sendToDCC(c, command, true);
+#else
+            sendReply(c, command);
+#endif
             _rseq[c->id]++;
             j = 0;
             k = 0;
@@ -326,39 +407,7 @@ void parse(Print *stream, byte *command, bool blocking)
     StringFormatter::send(stream, F("reply to: %s"), command);
 }
 
-/**
- * @brief Sending a reply without going through the StringFormatter. Sends the repy in one go
- * 
- * @param client  Client who send the command to which the reply shall be send
- * @param command Command initaliy recieved to be echoed back 
- */
-void sendReply(Client *client, char *command, uint8_t c)
-{   
-    char *number;
-    char seqNumber[6];
-    int i = 0;
-    
-    memset(reply, 0, MAX_ETH_BUFFER);       // reset reply
 
-    number = strrchr(command, ':');         // replace the int after the last ':'
-    while( &command[i] != number ) {        // copy command into the reply upto the last ':'
-        reply[i] = command[i];
-        i++;
-    }
-    
-    strcat((char *)reply, ":");
-    itoa(_sseq[c], seqNumber, 10);    
-    strcat((char *)reply, seqNumber);
-    strcat((char *)reply, ">");
-
-    DIAG(F("Response:               [%e]"), (char *)reply);
-    if (client->connected())
-    {
-        client->write(reply, strlen((char *)reply));
-        _sseq[c]++;
-        DIAG(F(" send\n"));
-    }
-};
 
 /*
             // Alternative reply mechanism using MemStream thus allowing to send all in one go using the parser

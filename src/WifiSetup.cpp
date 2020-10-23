@@ -19,8 +19,8 @@
 
 #include "DIAG.h"
 #include "WifiSetup.h"
- 
-WiFiServer* WifiSetup::setup() {
+
+bool WifiSetup::setup() {
     Serial1.begin(AT_BAUD_RATE);
     WiFi.init(Serial1);
 
@@ -45,8 +45,14 @@ WiFiServer* WifiSetup::setup() {
     {
     case UDP:
     {
-        udp = new WiFiUDP();
-        if (udp->begin(port))
+        DIAG(F("\nUDP over Wifi is not yet supported\n"));
+        connected = false;
+        /*
+        udp = new WiFiUDP(); 
+        
+        maxConnections = 1;
+        // DIAG(F("Wifi/UDP: [%x:%d]"), udp, port);
+        if (udp->begin(port))     // no need to call begin for the WiFiEspAT library but doesn't run properly in the context of the application
         {
             connected = true;
         }
@@ -55,6 +61,7 @@ WiFiServer* WifiSetup::setup() {
             DIAG(F("\nUDP client failed to start"));
             connected = false;
         }
+        */
         break;
     };
     case TCP:
@@ -90,12 +97,13 @@ WiFiServer* WifiSetup::setup() {
         DIAG(F("\nDNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
         DIAG(F("\nNumber of connections: [%d]"), maxConnections);
         if( protocol == UDP ) return 0;  // no server here as we use UDP
-        return server;
+        return true;
     }
     // something went wrong
-    return 0;
+    return false;
 
 };
+
 
 WifiSetup::WifiSetup() {}
 WifiSetup::WifiSetup(uint16_t p, protocolType pt ) { port = p; protocol = pt; }

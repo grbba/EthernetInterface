@@ -53,8 +53,7 @@ template <class S, class C, class U> class Transport
 private:
     C               clients[MAX_SOCK_NUM];              // Client objects created by the connectionPool
     Connection      connections[MAX_SOCK_NUM];          // All the connections build by the connectionPool
-    bool            connected;                          
-    U               udp;                                // Udp socket object
+    bool            connected = false;                          
     TransportProcessor* t;                              // pointer to the object which handles the incomming flow
 
     void udpHandler();                                  // Reads from a Udp socket - todo add incomming queue for processing when the flow is faster than we can process commands
@@ -66,10 +65,15 @@ public:
     uint8_t         protocol;               // TCP or UDP  
     uint8_t         transport;              // WIFI or ETHERNET 
     S*              server;                 // WiFiServer or EthernetServer 
+    U*              udp;                    // UDP socket object
     uint8_t         maxConnections;         // number of supported connections depending on the network equipment used
 
     bool setup();
     void loop(); 
+
+    bool isConnected() {
+        return connected;
+    }
 
     Transport<S,C,U>();
     ~Transport<S,C,U>();

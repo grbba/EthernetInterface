@@ -71,14 +71,15 @@ void Transport<S, C, U>::connectionPool(S *server)
 template<class S, class C, class U> 
 void Transport<S, C, U>::udpHandler()
 {
-    int packetSize = udp.parsePacket();
+    // DIAG(F("UdpHandler\n"));
+    int packetSize = udp->parsePacket();
     if (packetSize)
     {
         DIAG(F("\nReceived packet of size:[%d]\n"), packetSize);
-        IPAddress remote = udp.remoteIP();
+        IPAddress remote = udp->remoteIP();
         DIAG(F("From:                   [%d.%d.%d.%d:"), remote[0], remote[1], remote[2], remote[3]);
         char portBuffer[6];
-        DIAG(F("%s]\n"), utoa(udp.remotePort(), portBuffer, 10)); // DIAG has issues with unsigend int's so go through utoa
+        DIAG(F("%s]\n"), utoa(udp->remotePort(), portBuffer, 10)); // DIAG has issues with unsigend int's so go through utoa
 
         // read the packet into packetBufffer
         // udp.read(buffer, MAX_ETH_BUFFER); /////////// Put into the TransportProcessor
