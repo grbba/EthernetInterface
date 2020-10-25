@@ -25,10 +25,9 @@
 
 // #define DCCEX_ENABLED
 
-#define MAX_ETH_BUFFER 64               // maximum length we read in one go from a TCP packet. Anything longer in one go send to the Arduino may result in unpredictable behaviour. \
-                                        // idealy the windowsize should be set accordingly so that the sender knows to produce only max 250 size packets.
+#define MAX_ETH_BUFFER 64               // maximum length we read in one go from a TCP packet.
 #define MAX_OVERFLOW MAX_ETH_BUFFER / 2 // length of the overflow buffer to be used for a given connection.
-#define MAX_JMRI_CMD 32                 // MAX Length of a JMRI Command
+#define MAX_JMRI_CMD MAX_ETH_BUFFER / 2 // MAX Length of a JMRI Command
 typedef enum
 {
     DCCEX,      // if char[0] = < opening bracket the client should be a JMRI / DCC EX client_h
