@@ -52,9 +52,9 @@ uint8_t diagNetworkClient = 0;
 
 void sendToDCC(Connection *c, TransportProcessor* t, bool blocking)
 {
-    static MemStream *streamer = new MemStream((byte *)command, MAX_ETH_BUFFER, MAX_ETH_BUFFER, true);
+    static MemStream *streamer = new MemStream((byte *)t->command, MAX_ETH_BUFFER, MAX_ETH_BUFFER, true);
 
-    DIAG(F("DCC parsing:            [%e]\n"), command);
+    DIAG(F("DCC parsing:            [%e]\n"), t->command);
     // as we use buffer for recv and send we have to reset the write position
     streamer->setBufferContentPosition(0, 0);
 
@@ -66,7 +66,7 @@ void sendToDCC(Connection *c, TransportProcessor* t, bool blocking)
     }
     else
     {
-        command[streamer->available()] = '\0'; // mark end of buffer, so it can be used as a string later
+        t->command[streamer->available()] = '\0'; // mark end of buffer, so it can be used as a string later
         DIAG(F("Response: %s\n"), t->command);
         if (c->client->connected())
         {
@@ -304,7 +304,7 @@ void processStream(Connection *c, TransportProcessor *t)
 
             DIAG(F("Command:                [%d:%e]\n"), _rseq[c->id], t->command);
 #ifdef DCCEX_ENABLED
-            sendToDCC(c, command, true);
+            sendToDCC(c, t, true);
 #else
             sendReply(c, t);
 #endif
@@ -390,10 +390,13 @@ void TransportProcessor::readStream(Connection *c)
         }
         }
     }
-
+#ifdef DCCEX_ENABLED 
+    DIAG(F("\nReceived packet of size:[%d]\n"), count);
+#else
     IPAddress remote = c->client->remoteIP();
-    buffer[count] = '\0'; // terminate the string properly
     DIAG(F("\nReceived packet of size:[%d] from [%d.%d.%d.%d]\n"), count, remote[0], remote[1], remote[2], remote[3]);
+#endif
+    buffer[count] = '\0'; // terminate the string properly
     DIAG(F("Client #:               [%d]\n"), c->id);
     DIAG(F("Packet:                 [%e]\n"), buffer);
 

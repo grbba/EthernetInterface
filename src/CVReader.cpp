@@ -36,8 +36,9 @@ void httpRequestHandler(ParsedRequest *req, Client* client) {
   // client->write(result);
 }
 
-NetworkInterface wifi;
-NetworkInterface eth;
+// NetworkInterface wifi;
+NetworkInterface eth1;
+NetworkInterface eth2;
 
 void setup()
 {
@@ -52,9 +53,10 @@ void setup()
   DIAG(F("\nFree RAM before network init: [%d]\n"),freeMemory());
   DIAG(F("\nNetwork Setup In Progress ...\n"));
 
-  wifi.setup(WIFI);       
-  eth.setup(ETHERNET, TCP, 8888); 
-  eth.setHttpCallback(httpRequestHandler); 
+  // wifi.setup(WIFI);       
+  eth1.setup(ETHERNET, TCP, 8888); 
+  eth1.setHttpCallback(httpRequestHandler); 
+  eth2.setup(ETHERNET, TCP); 
 
   // NetworkInterface::setup(ETHERNET, TCP, 8888);           // specify WIFI or ETHERNET depending on if you have Wifi or an EthernetShield; Wifi has to be on Serial1 UDP or TCP for the protocol 
   // NetworkInterface::setHttpCallback(httpRequestHandler);  // The network interface will provide and HTTP request object which can be used as well to send the reply. cf. example above
@@ -75,8 +77,9 @@ void loop()
   // DCC::loop();
   // NetworkInterface::loop();
 
-  wifi.loop();
-  eth.loop();
+  // wifi.loop();
+  eth1.loop();
+  eth2.loop();
 
   // serialParser.loop(Serial);
 }
