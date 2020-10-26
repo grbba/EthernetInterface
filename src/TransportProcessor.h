@@ -23,11 +23,11 @@
 #include <Ethernet.h>
 #include <WiFiEspAT.h>
 
+#include "NetworkConfig.h"
+#include "NetworkInterface.h"
+
 // #define DCCEX_ENABLED
 
-#define MAX_ETH_BUFFER 64               // maximum length we read in one go from a TCP packet.
-#define MAX_OVERFLOW MAX_ETH_BUFFER / 2 // length of the overflow buffer to be used for a given connection.
-#define MAX_JMRI_CMD MAX_ETH_BUFFER / 2 // MAX Length of a JMRI Command
 typedef enum
 {
     DCCEX,      // if char[0] = < opening bracket the client should be a JMRI / DCC EX client_h
@@ -37,8 +37,11 @@ typedef enum
     UNKNOWN_PROTOCOL
 } appProtocol;
 
+// Needed forward declarations
 struct Connection;
-using appProtocolCallback = void (*)(Connection *c);
+class TransportProcessor;
+
+using appProtocolCallback = void (*)(Connection* c, TransportProcessor* t);
 
 struct Connection
 {
@@ -55,9 +58,15 @@ class TransportProcessor
 {
 private:
 #ifdef DCCEX_ENABLED
-    void sendToDCC(Connection *c, char *command, bool blocking);
+    void sendToDCC(Connection *c, TransportProcessor* t, bool blocking);
 #endif
+
 public:
+
+    NetworkInterface *nwi;
+    uint8_t buffer[MAX_ETH_BUFFER];
+    char command[MAX_JMRI_CMD];
+    
     void readStream(Connection *c); // reads incomming packets and hands over to the commandHandle for taking the stream apart for commands
 
     TransportProcessor(){};
