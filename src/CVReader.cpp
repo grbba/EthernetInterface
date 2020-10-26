@@ -75,11 +75,12 @@ void setup()
 void loop()
 {
   // DCC::loop();
-  // NetworkInterface::loop();
+  
+  NetworkInterface::loop();
 
   // wifi.loop();
-  eth1.loop();
-  eth2.loop();
+  // eth1.loop();
+  // eth2.loop();
 
   // serialParser.loop(Serial);
 }

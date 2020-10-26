@@ -20,7 +20,7 @@
 
 #include <Arduino.h>
 
-// #include "Transport.h"
+#include "NetworkConfig.h"
 #include "HttpRequest.h"
 
 typedef enum protocolType {
@@ -36,15 +36,33 @@ typedef enum transportType {
 
 using HttpCallback = void(*)(ParsedRequest *req, Client *client);
 
+// class NetworkInterface;
+struct AbstractTransport {
+    void loop(){
+        Serial.println(".");
+    };
+    virtual ~AbstractTransport(){};
+};
+
+class DCCNetwork {
+    private:
+        byte _tCounter = 0;
+        transportType _t;
+    public: 
+        AbstractTransport *transports[MAX_INTERFACES];
+
+        byte add(AbstractTransport* t, transportType _t);
+        void loop();
+};
+
 class NetworkInterface
 {
 private:
-
     HttpCallback httpCallback;
     transportType t;
 
 public:
-    
+
     void setHttpCallback(HttpCallback callback);
     HttpCallback getHttpCallback();
     void setup(transportType t, protocolType p, uint16_t port);        // specific port nummber
@@ -52,7 +70,7 @@ public:
     void setup(transportType t);                                       // defaults for protocol/port 
     
     void setup();                                                      // defaults for all as above plus CABLE (i.e. using EthernetShield ) as default
-    void loop();
+    static void loop();
 
     NetworkInterface();
     ~NetworkInterface();
