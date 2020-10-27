@@ -54,19 +54,31 @@ void setup()
   DIAG(F("\nFree RAM before network init: [%d]\n"),freeMemory());
   DIAG(F("\nNetwork Setup In Progress ...\n"));
 
-  wifi1.setup(WIFI);                                        // There will be only one WIFI transport allowed for now. Its not clear if the underlying AT library actually supports 
+  wifi1.setup(WIFI);                                           // There will be only one WIFI transport allowed for now. Its not clear if the underlying AT library actually supports 
   // wifi2.setup(WIFI,TCP,3000);                               // multiple ports. Current guess is that everytime WiFi Init is called all is reset and there no port muktiplexing implemented
 
   eth1.setup(ETHERNET, TCP, 8888); 
   // eth1.setHttpCallback(httpRequestHandler); 
   // eth2.setup(ETHERNET, TCP); 
 
-  // NetworkInterface::setup(ETHERNET, TCP, 8888);           // specify WIFI or ETHERNET depending on if you have Wifi or an EthernetShield; Wifi has to be on Serial1 UDP or TCP for the protocol 
-  // NetworkInterface::setHttpCallback(httpRequestHandler);  // The network interface will provide and HTTP request object which can be used as well to send the reply. cf. example above
-  // NetworkInterface::setup(WIFI, MQTT, 8888);              // sending over MQTT.
-  // NetworkInterface::setup(WIFI, UDP, 8888);               // Setup without port will use the by default port 2560 :: DOES NOT WORK 
-  // NetworkInterface::setup(WIFI);                          // setup without port and protocol will use by default TCP on port 2560 
-  // NetworkInterface::setup();                              // all defaults ETHERNET, TCP on port 2560
+
+  // WIFI, TCP on Port 2560, Wifi (ssid/password) has been configured permanetly already on the esp. If
+  // the connection fails will go into AP mode 
+
+  // wifi.setup(WIFI);   
+
+  // New connection on known ssid / password combo / port can be added as a last parameter other wise the default of 2560
+  // will be used. If it passes the connection will be stored as permanent default. If fails will go into AP mode.                
+  
+  // wifi.setup(WIFI, TCP, F(WIFI_SSID), F(WIFI_PASSWORD), F(WIFI_HOSTNAME));
+  // wifi.setup(WIFI, TCP, F(WIFI_SSID), F(WIFI_PASSWORD), F(WIFI_HOSTNAME, 2323);
+
+  // <obj>.setup(ETHERNET, TCP, 8888);           // specify WIFI or ETHERNET depending on if you have Wifi or an EthernetShield; Wifi has to be on Serial1 UDP or TCP for the protocol 
+  // <obj>.setHttpCallback(httpRequestHandler);  // The network interface will provide and HTTP request object which can be used as well to send the reply. cf. example above
+  // <obj>.setup(WIFI, MQTT, 8888);              // sending over MQTT.
+  // <obj>.setup(WIFI, UDP, 8888);               // Setup without port will use the by default port 2560 :: DOES NOT WORK 
+  // <obj>.setup(WIFI);                          // setup without port and protocol will use by default TCP on port 2560 
+  // <obj>.setup();                              // all defaults ETHERNET, TCP on port 2560
 
   DIAG(F("\nNetwork Setup done ..."));
   

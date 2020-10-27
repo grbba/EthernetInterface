@@ -27,6 +27,12 @@
  * 86:cf:fa:9f:07:79
  */
 
+/**
+ * @brief Build configuration
+ * 
+ */
+
+// #define DCCEX_ENABLED      // uncomment to enable CS-EX integration; Commented will operate as standalone and only echo commands as replies
 
 /**
  * @brief Network operational configuration
@@ -46,3 +52,11 @@
 #define MAX_ETH_BUFFER  64                                      // maximum length we read in one go from a TCP packet.
 #define MAX_OVERFLOW    MAX_ETH_BUFFER / 2                      // length of the overflow buffer to be used for a given connection.
 #define MAX_JMRI_CMD    MAX_ETH_BUFFER / 2                      // MAX Length of a JMRI Command
+
+
+
+/**
+ * @todo - MAC address automation
+ * @todo - Wifi setup process in case no permanent setup yet done
+ * 
+ */
