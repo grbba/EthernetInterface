@@ -26,7 +26,7 @@
 typedef enum protocolType {
     TCP,
     UDP,
-    MQTT                
+    MQTT                      
 } protocolType;
 
 typedef enum transportType {
@@ -36,18 +36,26 @@ typedef enum transportType {
 
 using HttpCallback = void(*)(ParsedRequest *req, Client *client);
 
-// class NetworkInterface;
+/**
+ * @brief Abstract parent class of the templated ( Ethernet or Wifi ) class 
+ * Instances of Transports are hold through this in an array in DCCNetwork which describes and 
+ * actually manages the available transports.
+ */
 struct AbstractTransport {
-    void loop(){
-        Serial.println(".");
-    };
+    void loop(){};
     virtual ~AbstractTransport(){};
 };
 
+/**
+ * @brief Core class holding and running the instantiated Transports 
+ * initalized through the NetworkInterface. The number of transports is 
+ * limited by MAX_INTERFACES
+ * 
+ */
 class DCCNetwork {
     private:
         byte _tCounter = 0;
-        transportType _t;
+        transportType _t[MAX_INTERFACES];
     public: 
         AbstractTransport *transports[MAX_INTERFACES];
 
@@ -55,6 +63,11 @@ class DCCNetwork {
         void loop();
 };
 
+/**
+ * @brief Main entry point and provider of callbacks. Sole responsibility is to create
+ * the transport endpoints and loop over them for processing
+ * 
+ */
 class NetworkInterface
 {
 private:

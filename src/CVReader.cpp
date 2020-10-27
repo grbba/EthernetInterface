@@ -36,9 +36,10 @@ void httpRequestHandler(ParsedRequest *req, Client* client) {
   // client->write(result);
 }
 
-// NetworkInterface wifi;
+NetworkInterface wifi1;
+// NetworkInterface wifi2;
 NetworkInterface eth1;
-NetworkInterface eth2;
+// NetworkInterface eth2;
 
 void setup()
 {
@@ -53,10 +54,12 @@ void setup()
   DIAG(F("\nFree RAM before network init: [%d]\n"),freeMemory());
   DIAG(F("\nNetwork Setup In Progress ...\n"));
 
-  // wifi.setup(WIFI);       
+  wifi1.setup(WIFI);                                        // There will be only one WIFI transport allowed for now. Its not clear if the underlying AT library actually supports 
+  // wifi2.setup(WIFI,TCP,3000);                               // multiple ports. Current guess is that everytime WiFi Init is called all is reset and there no port muktiplexing implemented
+
   eth1.setup(ETHERNET, TCP, 8888); 
-  eth1.setHttpCallback(httpRequestHandler); 
-  eth2.setup(ETHERNET, TCP); 
+  // eth1.setHttpCallback(httpRequestHandler); 
+  // eth2.setup(ETHERNET, TCP); 
 
   // NetworkInterface::setup(ETHERNET, TCP, 8888);           // specify WIFI or ETHERNET depending on if you have Wifi or an EthernetShield; Wifi has to be on Serial1 UDP or TCP for the protocol 
   // NetworkInterface::setHttpCallback(httpRequestHandler);  // The network interface will provide and HTTP request object which can be used as well to send the reply. cf. example above
@@ -77,10 +80,6 @@ void loop()
   // DCC::loop();
   
   NetworkInterface::loop();
-
-  // wifi.loop();
-  // eth1.loop();
-  // eth2.loop();
 
   // serialParser.loop(Serial);
 }

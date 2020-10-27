@@ -36,7 +36,7 @@ void DCCNetwork::loop()
         Transport<EthernetServer, EthernetClient, EthernetUDP> *e;
         Transport<WiFiServer, WiFiClient, WiFiUDP> *w;
 
-        switch (_t)
+        switch (_t[i])
         {
             case ETHERNET:
             {
@@ -58,7 +58,7 @@ byte DCCNetwork::add(AbstractTransport *t, transportType transport)
 {
     if (_tCounter != MAX_INTERFACES)
     {
-        _t = transport;
+        _t[_tCounter] = transport;
         transports[_tCounter] = t;  // add to array of network interfaces returns the index + 1 if added
         _tCounter++;                // if max intefaces is reached returns 0 for too many ...
         return _tCounter;           // normally a delete shall not be necessary as all is setup at the beginning and shall not change over a session
@@ -139,31 +139,9 @@ void NetworkInterface::setup()
 
 void NetworkInterface::loop()
 {
-
     // loop over all the transports in
     _dccNet.loop();
-    /*
-    switch (t)
-    {
-    case WIFI:
-    {
-        if (wifiTransport->isConnected())
-        {
-            wifiTransport->loop();
-        }
-        break;
-    }
-    case ETHERNET:
-    {
-        DIAG(F("transport loop on %x\n"), ethernetTransport);
-        if (ethernetTransport->isConnected())
-        {
-            ethernetTransport->loop();
-        }
-        break;
-    }
-    }
-    */
+
 }
 
 void NetworkInterface::setHttpCallback(HttpCallback callback)
