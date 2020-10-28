@@ -270,29 +270,31 @@ void processStream(Connection *c, TransportProcessor *t)
     // check if there is again an overflow and copy if needed
     if ((i = strlen((char *)_buffer)) == MAX_ETH_BUFFER - 1)
     {
-        // DIAG(F("\nPossible overflow situation detected: %d "), i);
+        // DIAG(F("\nPossible overflow situation detected: [%d:0x%x] "), i, c->delimiter);
         j = i;
         while (_buffer[i] != c->delimiter)
         {
+            // DIAG(F("\n%d %c 0x%x 0x%x"),i, _buffer[i], _buffer[i], c->delimiter);
             i--;
+            if ( i == 0 ) return; // we have an error don't do anything delimiter wasn't found
         }
         i++; // start of the buffer to copy
         l = i;
         k = j - i; // length to copy
-
+        // DIAG(F("\n%d %d %d %c"),k,j,i, _buffer[i]);
         for (j = 0; j < k; j++, i++)
         {
             c->overflow[j] = _buffer[i];
-            // DIAG(F("\n%d %d %d %c"),k,j,i, buffer[i]); // c->overflow[j]);
+            // DIAG(F("\n%d %d %d %c"),k,j,i, _buffer[i]); // c->overflow[j]);
         }
         _buffer[l] = '\0'; // terminate buffer just after the last '>'
-        // DIAG(F("\nNew buffer: [%s] New overflow: [%s]\n"), (char*) buffer, c->overflow );
+        // DIAG(F("\nNew buffer: [%s] New overflow: [%s]\n"), (char*) _buffer, c->overflow );
     }
     // breakup the buffer using its changed length
     i = 0;
     k = strlen(t->command); // current length of the command buffer telling us where to start copy in
     l = strlen((char *)_buffer);
-    // DIAG(F("\nCommand buffer: [%s]:[%d:%d:%d]\n"), command, i, l, k );
+    DIAG(F("\nCommand buffer: [%s]:[%d:%d:%d]\n"), t->command, i, l, k );
     while (i < l)
     {
         // DIAG(F("\nl: %d k: %d , i: %d"), l, k, i);
@@ -325,11 +327,12 @@ void echoProcessor(Connection *c, TransportProcessor *t)
     byte reply[MAX_ETH_BUFFER];
 
     memset(reply, 0, MAX_ETH_BUFFER);
-    sprintf((char *)reply, "ERROR: malformed content in [%s]", t->buffer);
+    sprintf((char *)reply, "ERROR: malformed content in [%s]\n", (char *)t->buffer);
     if (c->client->connected())
     {
         c->client->write(reply, strlen((char *)reply));
         _sseq[c->id]++;
+        c->isProtocolDefined = false;       // reset the protocol to not defined so that we can recover the next time
     }
 }
 void jmriProcessor(Connection *c, TransportProcessor *t)
