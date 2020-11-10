@@ -1,23 +1,25 @@
 /*
- *  © 2020, Gregor Baues. All rights reserved.
+ * © 2020 Gregor Baues. All rights reserved.
  *  
- *  This is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  It is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with CommandStation.  If not, see <https://www.gnu.org/licenses/>.
+ * This is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the 
+ * Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ * 
+ * See the GNU General Public License for more details <https://www.gnu.org/licenses/>
  */
 
 #include <Arduino.h>
-#include "DIAG.h"
 
+#include "NetworkDiag.h"
 #include "NetworkInterface.h"
 #include "HttpRequest.h"
 #include "TransportProcessor.h"
@@ -25,21 +27,89 @@
 #ifdef DCCEX_ENABLED
 
 #include "DCCEXParser.h"
+#include "WiThrottle.h"
 #include "MemStream.h"
 
-DCCEXParser ethParser;
+DCCEXParser dccParser;
 
 #endif
 
 HttpRequest httpReq;
-uint16_t _rseq[MAX_SOCK_NUM] = {0};
-uint16_t _sseq[MAX_SOCK_NUM] = {0};
 
-char protocolName[5][11] = {"JMRI", "WITHROTTLE", "HTTP", "DIAG" , "UNKNOWN"}; // change for Progmem
-bool diagNetwork = false;
-uint8_t diagNetworkClient = 0;
+uint16_t _rseq[MAX_SOCK_NUM] = {0}; // sequence number for packets recieved per connection
+uint16_t _sseq[MAX_SOCK_NUM] = {0}; // sequence number for replies send per connection
+uint16_t _pNum = 0;                 // number of total packets recieved
+uint64_t _tPayload = 0;             // number of total bytes recieved
+unsigned int _nCmds = 0;                // total number of commands processed
+
+char protocolName[5][11] = {"JMRI", "WITHROTTLE", "HTTP", "DIAG", "UNKNOWN"}; // change for Progmem
+
+bool diagNetwork = false;      // if true diag data will be send to the connected telnet client
+uint8_t diagNetworkClient = 0; // client id for diag output
 
 #ifdef DCCEX_ENABLED
+
+void dumpRingStreamBuffer(byte *b, int len)
+{
+    TRC(F("RingStream buffer length [%d] out of [%d] bytes"), strlen((char *)b), len);
+    TRC(F("%e"), b);
+}
+
+RingStream streamer(512); // buffer into which to feed the commands for handling; there will not be an immediate reply
+                          // as this is async written to another RingStream i.e. we have to see where in the loop we
+                          // generate the replies.
+
+void sendWiThrottleToDCC(Connection *c, TransportProcessor *t, bool blocking)
+{
+
+    byte *_buffer = streamer.getBuffer();
+    memset(_buffer, 0, 512);                         // clear out the _buffer
+    WiThrottle *wt = WiThrottle::getThrottle(c->id); // get a throttle for the Connection; will be created if it doesn't exist
+
+    TRC(F("WiThrottle [%x:%x] parsing: [%e]"), wt, _buffer, t->command);
+
+    wt->parse(&streamer, (byte *)t->command); // get the response; not all commands will produce a reply
+    if (streamer.count() != -1)
+    {
+        dumpRingStreamBuffer(_buffer, 512);
+        TRC(F("UDP %x"), t->udp);
+
+        if ( t->udp != 0) {
+            TRC(F("Sending UDP WiThrottle response ..."));
+            t->udp->beginPacket(t->udp->remoteIP(), t->udp->remotePort());
+            t->udp->write(_buffer, strlen((char *)_buffer));
+            t->udp->endPacket();
+        } else if (c->client->connected()) {
+            c->client->write(_buffer, strlen((char *)_buffer));
+        }
+    }
+    streamer.resetStream();
+}
+
+void sendJmriToDCC(Connection *c, TransportProcessor *t, bool blocking)
+{
+    MemStream streamer((byte *)t->command, MAX_ETH_BUFFER, MAX_ETH_BUFFER, true);
+
+    DBG(F("DCC parsing: [%e]"), t->command);
+    // as we use buffer for recv and send we have to reset the write position
+    streamer.setBufferContentPosition(0, 0);
+    dccParser.parse(&streamer, (byte *)t->command, true); // set to true to that the execution in DCC is sync
+
+    if (streamer.available() == 0)
+    {
+        DBG(F("No response"));
+    }
+    else
+    {
+        t->command[streamer.available()] = '\0'; // mark end of buffer, so it can be used as a string later
+        DBG(F("Response: %s"), t->command);
+        if (c->client->connected())
+        {
+            c->client->write((byte *)t->command, streamer.available());
+        }
+    }
+}
+
 /**
  * @brief Sending a reply by using the StringFormatter (this will result in every byte send individually which may/will create an important Network overhead).
  * Here we hook back into the DCC code for actually processing the command using a DCCParser. Alternatively we could use MemeStream in order to build the entiere reply
@@ -50,30 +120,31 @@ uint8_t diagNetworkClient = 0;
  * @param blocking  if set to true will instruct the DCC code to not use the async callback functions
  */
 
-void sendToDCC(Connection *c, TransportProcessor* t, bool blocking)
+void sendToDCC(Connection *c, TransportProcessor *t, bool blocking)
 {
-    MemStream streamer((byte *)t->command, MAX_ETH_BUFFER, MAX_ETH_BUFFER, true);
 
-    DIAG(F("DCC parsing:            [%e]\n"), t->command);
-    // as we use buffer for recv and send we have to reset the write position
-    streamer.setBufferContentPosition(0, 0);
-    dccParser.parse(&streamer, (byte *)t->command, true); // set to true to that the execution in DCC is sync
-
-    if (streamer.available() == 0)
+    switch (c->p)
     {
-        DIAG(F("No response\n"));
+    case WITHROTTLE:
+    {
+        sendWiThrottleToDCC(c, t, blocking);
+        break;
     }
-    else
+    case DCCEX:
     {
-        t->command[streamer.available()] = '\0'; // mark end of buffer, so it can be used as a string later
-       // DIAG(F("Response: %s\n"), t->command);
-       Serial.println(t->command);
-        if (c->client->connected())
-        {
-            c->client->write((byte *)t->command, streamer.available());
-        }
+        sendJmriToDCC(c, t, blocking);
+        break;
+    }
+    case N_DIAG:
+    case HTTP:
+    case UNKNOWN_PROTOCOL:
+    {
+        // we shall never get here they should have been caught before
+        break;
+    }
     }
 }
+
 #else
 /**
  * @brief Sending a reply without going through the StringFormatter. Sends the repy in one go
@@ -108,16 +179,18 @@ void sendReply(Connection *c, TransportProcessor *t)
         strcat((char *)reply, seqNumber);
         strcat((char *)reply, ">");
         response = reply;
-    } else {
+    }
+    else
+    {
         response = (byte *)command;
     }
 
-    DIAG(F("Response:               [%e]"), (char *)response);
+    DBG(F("Response: [%e]"), (char *)response);
     if (c->client->connected())
     {
         c->client->write(response, strlen((char *)response));
         _sseq[c->id]++;
-        DIAG(F(" send\n"));
+        DBG(F("Send"));
     }
 };
 #endif
@@ -228,8 +301,8 @@ appProtocol setAppProtocol(char a, char b, Connection *c)
     case '#':
     {
         p = DCCEX;
-        DIAG(F("\nDiagnostics routed to network client\n"));
-        StringFormatter::setDiagOut(c);
+        INFO(F("\nDiagnostics routed to network client"));
+        NetworkDiag::setDiagOut(c);
         diagNetwork = true;
         diagNetworkClient = c->id;
         break;
@@ -241,7 +314,7 @@ appProtocol setAppProtocol(char a, char b, Connection *c)
         break;
     }
     }
-    DIAG(F("\nClient speaks:          [%s]\n"), protocolName[p]);
+    INFO(F("Client speaks: [%s]"), protocolName[p]);
     return p;
 }
 
@@ -254,13 +327,13 @@ void processStream(Connection *c, TransportProcessor *t)
     uint8_t i, j, k, l = 0;
     uint8_t *_buffer = t->buffer;
 
-    DIAG(F("\nBuffer:                 [%e]\n"), _buffer);
+    DBG(F("Buffer: [%e]"), _buffer);
     memset(t->command, 0, MAX_JMRI_CMD); // clear out the command
 
     // copy overflow into the command
     if ((i = strlen(c->overflow)) != 0)
     {
-        // DIAG(F("\nCopy overflow to command: %e"), c->overflow);
+        // DBG(F("Copy overflow to command: %e"), c->overflow);
         strncpy(t->command, c->overflow, i);
         k = i;
     }
@@ -270,47 +343,49 @@ void processStream(Connection *c, TransportProcessor *t)
     // check if there is again an overflow and copy if needed
     if ((i = strlen((char *)_buffer)) == MAX_ETH_BUFFER - 1)
     {
-        // DIAG(F("\nPossible overflow situation detected: [%d:0x%x] "), i, c->delimiter);
+        // DBG(F("Possible overflow situation detected: %d "), i);
         j = i;
         while (_buffer[i] != c->delimiter)
         {
-            // DIAG(F("\n%d %c 0x%x 0x%x"),i, _buffer[i], _buffer[i], c->delimiter);
             i--;
-            if ( i == 0 ) return; // we have an error don't do anything delimiter wasn't found
         }
         i++; // start of the buffer to copy
         l = i;
         k = j - i; // length to copy
-        // DIAG(F("\n%d %d %d %c"),k,j,i, _buffer[i]);
+
         for (j = 0; j < k; j++, i++)
         {
             c->overflow[j] = _buffer[i];
-            // DIAG(F("\n%d %d %d %c"),k,j,i, _buffer[i]); // c->overflow[j]);
+            // DBG(F("%d %d %d %c"),k,j,i, buffer[i]);
         }
         _buffer[l] = '\0'; // terminate buffer just after the last '>'
-        // DIAG(F("\nNew buffer: [%s] New overflow: [%s]\n"), (char*) _buffer, c->overflow );
+        // DBG(F("New buffer: [%s] New overflow: [%s]"), (char*) buffer, c->overflow );
     }
     // breakup the buffer using its changed length
     i = 0;
     k = strlen(t->command); // current length of the command buffer telling us where to start copy in
     l = strlen((char *)_buffer);
-    DIAG(F("\nCommand buffer: [%s]:[%d:%d:%d]\n"), t->command, i, l, k );
+    // DBG(F("Command buffer cid[%d]: [%s]:[%d:%d:%d:%x]"), c->id,  t->command, i, l, k, c->delimiter );
+    unsigned long _startT = micros();
+    _nCmds = 0;
     while (i < l)
     {
-        // DIAG(F("\nl: %d k: %d , i: %d"), l, k, i);
+        // DBG(F("l: %d - k: %d - i: %d - %c"), l, k, i, _buffer[i]);
         t->command[k] = _buffer[i];
         if (_buffer[i] == c->delimiter)
         { // closing bracket need to fix if there is none before an opening bracket ?
 
             t->command[k + 1] = '\0';
 
-            DIAG(F("Command:                [%d:%e]\n"), _rseq[c->id], t->command);
+            DBG(F("Command: [%d:%e]"), _rseq[c->id], t->command);
 #ifdef DCCEX_ENABLED
-            sendToDCC(c, t, true);
+
+            sendToDCC(c, t, true); // send the command into the parser and replies back to the client
 #else
-            sendReply(c, t);
+            sendReply(c, t); // standalone version without CS-EX integration
 #endif
             _rseq[c->id]++;
+            _nCmds++; 
             j = 0;
             k = 0;
         }
@@ -320,6 +395,10 @@ void processStream(Connection *c, TransportProcessor *t)
         }
         i++;
     }
+    unsigned long _endT = micros();
+    char time[10] = {0};
+    ultoa(_endT - _startT, time, 10);
+    INFO(F("[%d] Commands processed in [%s]uS\n"), _nCmds, time);
 }
 
 void echoProcessor(Connection *c, TransportProcessor *t)
@@ -327,21 +406,22 @@ void echoProcessor(Connection *c, TransportProcessor *t)
     byte reply[MAX_ETH_BUFFER];
 
     memset(reply, 0, MAX_ETH_BUFFER);
-    sprintf((char *)reply, "ERROR: malformed content in [%s]\n", (char *)t->buffer);
+    sprintf((char *)reply, "ERROR: malformed content in [%s]\n", t->buffer);
     if (c->client->connected())
     {
         c->client->write(reply, strlen((char *)reply));
         _sseq[c->id]++;
-        c->isProtocolDefined = false;       // reset the protocol to not defined so that we can recover the next time
+        c->isProtocolDefined = false; // reset the protocol to not defined so that we can recover the next time
     }
 }
 void jmriProcessor(Connection *c, TransportProcessor *t)
 {
-    DIAG(F("Processing JMRI ... \n"));
+    DBG(F("Processing JMRI ..."));
     processStream(c, t);
 }
 void withrottleProcessor(Connection *c, TransportProcessor *t)
 {
+    DBG(F("Processing WiThrottle ..."));
     processStream(c, t);
 }
 
@@ -351,12 +431,17 @@ void withrottleProcessor(Connection *c, TransportProcessor *t)
  * @param c    Pointer to the connection struct contining relevant information handling the data from that connection
  */
 
-void TransportProcessor::readStream(Connection *c)
+void TransportProcessor::readStream(Connection *c, bool read)
 {
-
-    // read bytes from a client
-    int count = c->client->read(buffer, MAX_ETH_BUFFER - 1); // count is the amount of data ready for reading, -1 if there is no data, 0 is the connection has been closed
-    buffer[count] = 0;
+    int count = 0;
+    // read bytes from a TCP client if required 
+    if (read) {
+        int len = c->client->read(buffer, MAX_ETH_BUFFER - 1); // count is the amount of data ready for reading, -1 if there is no data, 0 is the connection has been closed
+        buffer[len] = 0;
+        count = len;
+    } else {
+        count = strlen((char *)buffer);
+    }
 
     // figure out which protocol
 
@@ -387,21 +472,22 @@ void TransportProcessor::readStream(Connection *c)
         }
         case UNKNOWN_PROTOCOL:
         {
-            DIAG(F("Requests will not be handeled and packet echoed back\n"));
+            INFO(F("Requests will not be handeled and packet echoed back"));
             c->appProtocolHandler = (appProtocolCallback)echoProcessor;
             break;
         }
         }
     }
-#ifdef DCCEX_ENABLED 
-    DIAG(F("\nReceived packet of size:[%d]\n"), count);
+    _pNum++;
+    _tPayload = _tPayload + count;
+#ifdef DCCEX_ENABLED
+    INFO(F("Client #[%d] received packet #[%d] of size:[%d/%d]"), c->id, _pNum, count, _tPayload);
 #else
     IPAddress remote = c->client->remoteIP();
-    DIAG(F("\nReceived packet of size:[%d] from [%d.%d.%d.%d]\n"), count, remote[0], remote[1], remote[2], remote[3]);
+    INFO(F("Client #[%d] Received packet #[%d] of size:[%d] from [%d.%d.%d.%d]"), c->id, _pNum, count, remote[0], remote[1], remote[2], remote[3]);
 #endif
     buffer[count] = '\0'; // terminate the string properly
-    DIAG(F("Client #:               [%d]\n"), c->id);
-    DIAG(F("Packet:                 [%e]\n"), buffer);
+    INFO(F("Packet: [%e]"), buffer);
 
     // chop the buffer into CS / WiThrottle commands || assemble command across buffer read boundaries
     c->appProtocolHandler(c, this);
@@ -418,7 +504,9 @@ void TransportProcessor::readStream(Connection *c)
  */
 void parse(Print *stream, byte *command, bool blocking)
 {
-    DIAG(F("DCC parsing:            [%e]\n"), command);
+    DBG(F("DCC parsing: [%e]"), command);
     // echo back (as mock parser )
     StringFormatter::send(stream, F("reply to: %s"), command);
 }
+
+

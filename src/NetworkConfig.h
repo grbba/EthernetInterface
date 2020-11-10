@@ -49,14 +49,16 @@
 #define MAX_INTERFACES  4                                       // Consume too much memeory beyond in general not more than 2 should be required
 #define MAX_SOCK_NUM    8                                       // Maximum number of sockets allowed for any WizNet based EthernetShield. The W5100 only supports 4
 #define MAX_WIFI_SOCK   5                                       // ESP8266 doesn't support more than 5 connections
-#define MAX_ETH_BUFFER  64                                      // maximum length we read in one go from a TCP packet.
+#define MAX_ETH_BUFFER  128                                      // maximum length we read in one go from a TCP packet.
 #define MAX_OVERFLOW    MAX_ETH_BUFFER / 2                      // length of the overflow buffer to be used for a given connection.
 #define MAX_JMRI_CMD    MAX_ETH_BUFFER / 2                      // MAX Length of a JMRI Command
+#define OUTBOUND_RING_SIZE 2048
 
 
 
 /**
  * @todo - MAC address automation
  * @todo - Wifi setup process in case no permanent setup yet done
+ * @todo - RingBuffer hack to be reviewed
  * 
  */
