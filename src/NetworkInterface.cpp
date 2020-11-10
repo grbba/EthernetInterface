@@ -130,7 +130,7 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
     }
 
     INFO(F("[%s] Transport %s ..."), transport ? "Ethernet" : "Wifi", ok ? "OK" : "Failed");
-    _nLogLevel = 0;   // set loging back to silent;
+    // _nLogLevel = 0;   // set loging back to silent;
 }
 
 void NetworkInterface::setup(transportType tt, protocolType pt)
