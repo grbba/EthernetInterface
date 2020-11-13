@@ -185,12 +185,12 @@ void sendReply(Connection *c, TransportProcessor *t)
         response = (byte *)command;
     }
 
-    TRC(F("Response: [%e]"), (char *)response);
+    DBG(F("Response: [%e]"), (char *)response);
     if (c->client->connected())
     {
         c->client->write(response, strlen((char *)response));
         _sseq[c->id]++;
-        DBG(F("send"));
+        DBG(F("Send"));
     }
 };
 #endif

@@ -1,0 +1,613 @@
+\hypertarget{class_shell}{}\doxysection{Shell Class Reference}
+\label{class_shell}\index{Shell@{Shell}}
+
+
+Command-\/line shell access.  
+
+
+
+
+{\ttfamily \#include $<$Shell.\+h$>$}
+
+
+
+Inheritance diagram for Shell\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_shell__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Shell\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{class_shell__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shell_ad613444a902075e8fd26b1f51c4d3b63}{Shell}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{class_shell}{Shell}} instance. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_shell_a95f78f499b3dfd9c83f4099cf90ef3df}{$\sim$\+Shell}} ()
+\begin{DoxyCompactList}\small\item\em Destroys this \mbox{\hyperlink{class_shell}{Shell}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}} (Stream \&\mbox{\hyperlink{class_terminal_a910099d74409456914f83e88ba1d4aec}{stream}}, size\+\_\+t max\+History=0, \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Terminal\+::\+Mode}} \mbox{\hyperlink{class_terminal_aa3a460ae0bcb33d5673b457c258dc64e}{mode}}=\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}})
+\begin{DoxyCompactList}\small\item\em Begin shell handling on an underlying character stream. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_shell_a3ff0cc86725388d4fe92520e5a18ad92}{begin}} (Client \&client, size\+\_\+t max\+History=0, \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Terminal\+::\+Mode}} \mbox{\hyperlink{class_terminal_aa3a460ae0bcb33d5673b457c258dc64e}{mode}}=\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7}{Telnet}})
+\begin{DoxyCompactList}\small\item\em Begin shell handling on a connected T\+CP client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shell_a8a654aadd0b6a379309bb1007749e41d}{end}} ()
+\begin{DoxyCompactList}\small\item\em Ends shell processing on the underlying stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shell_afc45cae4ccfc76321a254bb617dce08c}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Performs regular activities on the shell. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{class_shell_a7a8bbb229b0c49e32a8ef9e9c00c697e}{prompt}} () const
+\begin{DoxyCompactList}\small\item\em Gets the prompt string to display in the shell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{set\+Prompt}} (const char $\ast$\mbox{\hyperlink{class_shell_a7a8bbb229b0c49e32a8ef9e9c00c697e}{prompt}})
+\begin{DoxyCompactList}\small\item\em Sets the prompt string to display in the shell. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_shell_a57a0635d19db9ecaf07bc57fad587ab7}{userid}} () const
+\begin{DoxyCompactList}\small\item\em Gets the user identifier for the currently logged in user, or -\/1 if there is no user logged in currently. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shell_a5db7316a4feb9829beea11dfe65462d2}{set\+Userid}} (int \mbox{\hyperlink{class_shell_a57a0635d19db9ecaf07bc57fad587ab7}{userid}})
+\begin{DoxyCompactList}\small\item\em Sets the user identifier for the currently logged in user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shell_a58b0e9104d1f6c7ec7d1663c69cd03dd}{help}} ()
+\begin{DoxyCompactList}\small\item\em Displays help for all supported commands. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shell_ab9dab65bc0757ce3bb0ac926bbefcee3}{exit}} ()
+\begin{DoxyCompactList}\small\item\em Exit from the shell back to the login prompt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_shell_a03dfba66a0125a8c02dd71b3f3b37870}{register\+Command}} (Shell\+Command\+Register $\ast$cmd)
+\begin{DoxyCompactList}\small\item\em Registers a command with the shell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_shell_a3ad32b7cd3b48c78953ab9f7384d5a58}{begin\+Session}} ()
+\begin{DoxyCompactList}\small\item\em Begins a login session. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_shell_a720144957bf6462659017cc25c429beb}{print\+Prompt}} ()
+\begin{DoxyCompactList}\small\item\em Prints the current prompt string. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_shell_ab4a3f80dc5ff779ac99116a1f7e35cda}{execute}} ()
+\begin{DoxyCompactList}\small\item\em Executes the command in the buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_shell_a8c01f92a3930e107f45a0035c1adc290}{Login\+Shell}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shell_ad5bac6a4033cd81e24c1345650bca744}{Shell\+Command\+Func}}
+\begin{DoxyCompactList}\small\item\em Type of functions that provide shell command handlers. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{class_shell_a809d96cf913bf11d02f3c0d51a120740}{Shell\+Command}}(name,  \mbox{\hyperlink{class_shell_a58b0e9104d1f6c7ec7d1663c69cd03dd}{help}},  function)
+\begin{DoxyCompactList}\small\item\em Registers a command with the shell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Command-\/line shell access. 
+
+This class provides a command-\/line shell via serial ports, T\+CP connections, or any other type of Stream.
+
+The following example is the minimal setup for a command-\/line shell on a serial port. The application calls \mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin()}} to set the underlying Stream, and periodically calls \mbox{\hyperlink{class_shell_afc45cae4ccfc76321a254bb617dce08c}{loop()}} to manage shell-\/related events.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_shell}{Shell}} shell;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} setup() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}.begin(9600);}
+\DoxyCodeLine{    shell.\mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{setPrompt}}(\textcolor{stringliteral}{"\$ "});}
+\DoxyCodeLine{    shell.\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_shell_afc45cae4ccfc76321a254bb617dce08c}{loop}}() \{}
+\DoxyCodeLine{    shell.\mbox{\hyperlink{class_shell_afc45cae4ccfc76321a254bb617dce08c}{loop}}();}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+Commands can be registered with the shell by the application to be invoked when the user types in the corresponding command. Each command is associated with a handler function\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} cmdMotor(\mbox{\hyperlink{class_shell}{Shell}} \&shell, \textcolor{keywordtype}{int} argc, \textcolor{keyword}{const} \mbox{\hyperlink{class_shell_arguments}{ShellArguments}} \&argv)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    ...}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_shell_a809d96cf913bf11d02f3c0d51a120740}{ShellCommand}}(motor, \textcolor{stringliteral}{"Turn the motor on or off"}, cmdMotor);}
+\end{DoxyCode}
+
+
+There are two standard commands built into \mbox{\hyperlink{class_shell}{Shell}}\+: \char`\"{}help\char`\"{} and \char`\"{}exit\char`\"{}. The \char`\"{}help\char`\"{} command provides a list of all registered commands with the short help string from the \mbox{\hyperlink{class_shell_a809d96cf913bf11d02f3c0d51a120740}{Shell\+Command()}} registration. The \char`\"{}exit\char`\"{} command logs the user out and returns to the login prompt, or stops the underlying connection in the case of T\+CP streams.
+
+The F1 key can be used as a synonym for \char`\"{}help\char`\"{} and C\+T\+R\+L-\/D can be used as a synonym for \char`\"{}exit\char`\"{}.
+
+\mbox{\hyperlink{class_shell}{Shell}} provides some limited history editing for scrolling back through previous commands. The size of the history stack is provided in the second argument to \mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin()}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{shell.\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}, 5);}
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_login_shell}{Login\+Shell}}, \mbox{\hyperlink{class_terminal}{Terminal}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shell_ad613444a902075e8fd26b1f51c4d3b63}\label{class_shell_ad613444a902075e8fd26b1f51c4d3b63}} 
+\index{Shell@{Shell}!Shell@{Shell}}
+\index{Shell@{Shell}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{Shell()}{Shell()}}
+{\footnotesize\ttfamily Shell\+::\+Shell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{class_shell}{Shell}} instance. 
+
+This constructor must be followed by a call to \mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin()}} to specify the underlying I/O stream. \mbox{\Hypertarget{class_shell_a95f78f499b3dfd9c83f4099cf90ef3df}\label{class_shell_a95f78f499b3dfd9c83f4099cf90ef3df}} 
+\index{Shell@{Shell}!````~Shell@{$\sim$Shell}}
+\index{````~Shell@{$\sim$Shell}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{$\sim$Shell()}{~Shell()}}
+{\footnotesize\ttfamily Shell\+::$\sim$\+Shell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroys this \mbox{\hyperlink{class_shell}{Shell}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shell_a3ff0cc86725388d4fe92520e5a18ad92}\label{class_shell_a3ff0cc86725388d4fe92520e5a18ad92}} 
+\index{Shell@{Shell}!begin@{begin}}
+\index{begin@{begin}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Shell\+::begin (\begin{DoxyParamCaption}\item[{Client \&}]{client,  }\item[{size\+\_\+t}]{max\+History = {\ttfamily 0},  }\item[{\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Terminal\+::\+Mode}}}]{mode = {\ttfamily \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7}{Telnet}}} }\end{DoxyParamCaption})}
+
+
+
+Begin shell handling on a connected T\+CP client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & The client to apply the shell to. This must be a connected T\+CP client. \\
+\hline
+{\em max\+History} & The number of commands to allocate in the history stack for scrolling back through using Up/\+Down arrow keys. \\
+\hline
+{\em mode} & The terminal mode to operate in, \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Terminal\+::\+Serial}} or \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7}{Terminal\+::\+Telnet}}. Default is \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7}{Terminal\+::\+Telnet}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the shell was initialized, or false if there is insufficient memory for the history stack.
+\end{DoxyReturn}
+This override is provided as a convenience for starting a shell on a T\+CP connection. This function also modifies the behaviour of the builtin \char`\"{}exit\char`\"{} command to forcibly stop the T\+CP connection rather than returning to the login prompt.
+
+The {\itshape max\+History} parameter indicates the number of commands of maximum length that can be stored in the history. If the actual entered commands are shorter, then more commands can be stored in the history.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_a8a654aadd0b6a379309bb1007749e41d}{end()}}, \mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{set\+Prompt()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{class_shell_a3ff0cc86725388d4fe92520e5a18ad92_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_ad9acba905b6e0b661cce19d57c067990}\label{class_shell_ad9acba905b6e0b661cce19d57c067990}} 
+\index{Shell@{Shell}!begin@{begin}}
+\index{begin@{begin}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Shell\+::begin (\begin{DoxyParamCaption}\item[{Stream \&}]{stream,  }\item[{size\+\_\+t}]{max\+History = {\ttfamily 0},  }\item[{\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Terminal\+::\+Mode}}}]{mode = {\ttfamily \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}} }\end{DoxyParamCaption})}
+
+
+
+Begin shell handling on an underlying character stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The stream to apply the shell to. Usually this is a serial port or T\+CP network connection. \\
+\hline
+{\em max\+History} & The number of commands to allocate in the history stack for scrolling back through using Up/\+Down arrow keys. \\
+\hline
+{\em mode} & The terminal mode to operate in, \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Terminal\+::\+Serial}} or \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7}{Terminal\+::\+Telnet}}. Default is \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Terminal\+::\+Serial}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if there is insufficient memory for the history stack. The session will continue but without command history.
+\end{DoxyReturn}
+This function will print the \mbox{\hyperlink{class_shell_a7a8bbb229b0c49e32a8ef9e9c00c697e}{prompt()}} in preparation for entry of the first command. The default prompt is \char`\"{}\$ \char`\"{}; call \mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{set\+Prompt()}} before \mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin()}} to change this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}.begin(9600);}
+\DoxyCodeLine{shell.\mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{setPrompt}}(\textcolor{stringliteral}{"Command: "});}
+\DoxyCodeLine{shell.\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}});}
+\end{DoxyCode}
+
+
+The {\itshape max\+History} parameter indicates the number of commands of maximum length that can be stored in the history. If the actual entered commands are shorter, then more commands can be stored in the history.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_a8a654aadd0b6a379309bb1007749e41d}{end()}}, \mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{set\+Prompt()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_shell_ad9acba905b6e0b661cce19d57c067990_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_a3ad32b7cd3b48c78953ab9f7384d5a58}\label{class_shell_a3ad32b7cd3b48c78953ab9f7384d5a58}} 
+\index{Shell@{Shell}!beginSession@{beginSession}}
+\index{beginSession@{beginSession}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{beginSession()}{beginSession()}}
+{\footnotesize\ttfamily void Shell\+::begin\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Begins a login session. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_login_shell_a88a72760d4dc960c32e2fa4b691f9558}{Login\+Shell}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shell_a3ad32b7cd3b48c78953ab9f7384d5a58_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_a8a654aadd0b6a379309bb1007749e41d}\label{class_shell_a8a654aadd0b6a379309bb1007749e41d}} 
+\index{Shell@{Shell}!end@{end}}
+\index{end@{end}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Shell\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ends shell processing on the underlying stream. 
+
+This function is intended to be called when a T\+CP network connection is closed to clean up the shell state that was in use by the connection.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{class_shell_a8a654aadd0b6a379309bb1007749e41d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shell_a8a654aadd0b6a379309bb1007749e41d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_ab4a3f80dc5ff779ac99116a1f7e35cda}\label{class_shell_ab4a3f80dc5ff779ac99116a1f7e35cda}} 
+\index{Shell@{Shell}!execute@{execute}}
+\index{execute@{execute}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Shell\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Executes the command in the buffer. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_login_shell_af54c5c14adac7955cf5e4f9460bd9ca5}{Login\+Shell}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shell_ab4a3f80dc5ff779ac99116a1f7e35cda_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{class_shell_ab4a3f80dc5ff779ac99116a1f7e35cda_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_ab9dab65bc0757ce3bb0ac926bbefcee3}\label{class_shell_ab9dab65bc0757ce3bb0ac926bbefcee3}} 
+\index{Shell@{Shell}!exit@{exit}}
+\index{exit@{exit}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{exit()}{exit()}}
+{\footnotesize\ttfamily void Shell\+::exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exit from the shell back to the login prompt. 
+
+If the underlying stream is a T\+CP client, then this function will stop the client, causing disconnection. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shell_ab9dab65bc0757ce3bb0ac926bbefcee3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shell_ab9dab65bc0757ce3bb0ac926bbefcee3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_a58b0e9104d1f6c7ec7d1663c69cd03dd}\label{class_shell_a58b0e9104d1f6c7ec7d1663c69cd03dd}} 
+\index{Shell@{Shell}!help@{help}}
+\index{help@{help}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{help()}{help()}}
+{\footnotesize\ttfamily void Shell\+::help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays help for all supported commands. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{class_shell_a58b0e9104d1f6c7ec7d1663c69cd03dd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shell_a58b0e9104d1f6c7ec7d1663c69cd03dd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_afc45cae4ccfc76321a254bb617dce08c}\label{class_shell_afc45cae4ccfc76321a254bb617dce08c}} 
+\index{Shell@{Shell}!loop@{loop}}
+\index{loop@{loop}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void Shell\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Performs regular activities on the shell. 
+
+This function must be called regularly from the application\textquotesingle{}s main loop to process input for the shell. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shell_afc45cae4ccfc76321a254bb617dce08c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_a720144957bf6462659017cc25c429beb}\label{class_shell_a720144957bf6462659017cc25c429beb}} 
+\index{Shell@{Shell}!printPrompt@{printPrompt}}
+\index{printPrompt@{printPrompt}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{printPrompt()}{printPrompt()}}
+{\footnotesize\ttfamily void Shell\+::print\+Prompt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Prints the current prompt string. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_login_shell_a6574705053f780acb8f0d8594c210524}{Login\+Shell}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_shell_a720144957bf6462659017cc25c429beb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_a7a8bbb229b0c49e32a8ef9e9c00c697e}\label{class_shell_a7a8bbb229b0c49e32a8ef9e9c00c697e}} 
+\index{Shell@{Shell}!prompt@{prompt}}
+\index{prompt@{prompt}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{prompt()}{prompt()}}
+{\footnotesize\ttfamily const char $\ast$ Shell\+::prompt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the prompt string to display in the shell. 
+
+\begin{DoxyReturn}{Returns}
+The current prompt. The default is \char`\"{}\$ \char`\"{}.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{set\+Prompt()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{class_shell_a7a8bbb229b0c49e32a8ef9e9c00c697e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_a03dfba66a0125a8c02dd71b3f3b37870}\label{class_shell_a03dfba66a0125a8c02dd71b3f3b37870}} 
+\index{Shell@{Shell}!registerCommand@{registerCommand}}
+\index{registerCommand@{registerCommand}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{registerCommand()}{registerCommand()}}
+{\footnotesize\ttfamily void Shell\+::register\+Command (\begin{DoxyParamCaption}\item[{Shell\+Command\+Register $\ast$}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Registers a command with the shell. 
+
+\begin{DoxyNote}{Note}
+This function is internal. The \mbox{\hyperlink{class_shell_a809d96cf913bf11d02f3c0d51a120740}{Shell\+Command()}} macro should be used instead. 
+\end{DoxyNote}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{class_shell_a03dfba66a0125a8c02dd71b3f3b37870_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}\label{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}} 
+\index{Shell@{Shell}!setPrompt@{setPrompt}}
+\index{setPrompt@{setPrompt}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{setPrompt()}{setPrompt()}}
+{\footnotesize\ttfamily void Shell\+::set\+Prompt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{prompt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the prompt string to display in the shell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & The new prompt string. The caller is responsible to ensure that the string persists after this call returns. The \mbox{\hyperlink{class_shell}{Shell}} class does not make a copy of the string.\\
+\hline
+\end{DoxyParams}
+Calling this function will change the prompt for the next line of input.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_a7a8bbb229b0c49e32a8ef9e9c00c697e}{prompt()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_a5db7316a4feb9829beea11dfe65462d2}\label{class_shell_a5db7316a4feb9829beea11dfe65462d2}} 
+\index{Shell@{Shell}!setUserid@{setUserid}}
+\index{setUserid@{setUserid}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{setUserid()}{setUserid()}}
+{\footnotesize\ttfamily void Shell\+::set\+Userid (\begin{DoxyParamCaption}\item[{int}]{userid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the user identifier for the currently logged in user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em userid} & The new user identifier to set, or -\/1 if there is no user logged in currently.\\
+\hline
+\end{DoxyParams}
+Normally the user identifier is set when \mbox{\hyperlink{class_login_shell}{Login\+Shell}} detects a successful login. This function can be used to alter the access rights of the logged-\/in user after login.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_a57a0635d19db9ecaf07bc57fad587ab7}{userid()}}, \mbox{\hyperlink{class_login_shell_adad54b04ec54d3577df4cd11944fff1d}{Shell\+Password\+Check\+Func}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_shell_a5db7316a4feb9829beea11dfe65462d2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_a57a0635d19db9ecaf07bc57fad587ab7}\label{class_shell_a57a0635d19db9ecaf07bc57fad587ab7}} 
+\index{Shell@{Shell}!userid@{userid}}
+\index{userid@{userid}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{userid()}{userid()}}
+{\footnotesize\ttfamily int Shell\+::userid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the user identifier for the currently logged in user, or -\/1 if there is no user logged in currently. 
+
+The user identifier can be used by applications to restrict the set of commands that are available to the user, or to restrict the behaviour of those commands when acting on critical resources.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_a5db7316a4feb9829beea11dfe65462d2}{set\+Userid()}}, \mbox{\hyperlink{class_login_shell_adad54b04ec54d3577df4cd11944fff1d}{Shell\+Password\+Check\+Func}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{class_shell_a57a0635d19db9ecaf07bc57fad587ab7_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_shell_a8c01f92a3930e107f45a0035c1adc290}\label{class_shell_a8c01f92a3930e107f45a0035c1adc290}} 
+\index{Shell@{Shell}!LoginShell@{LoginShell}}
+\index{LoginShell@{LoginShell}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{LoginShell}{LoginShell}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_login_shell}{Login\+Shell}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_shell_a809d96cf913bf11d02f3c0d51a120740}\label{class_shell_a809d96cf913bf11d02f3c0d51a120740}} 
+\index{Shell@{Shell}!ShellCommand@{ShellCommand}}
+\index{ShellCommand@{ShellCommand}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{ShellCommand}{ShellCommand}}
+{\footnotesize\ttfamily \#define Shell\+Command(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{\mbox{\hyperlink{class_shell_a58b0e9104d1f6c7ec7d1663c69cd03dd}{help}},  }\item[{}]{function }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keyword}{static} \textcolor{keywordtype}{char} \textcolor{keyword}{const} shell\_id\_\#\#name[] \mbox{\hyperlink{_terminal_8cpp_ad725b10d18aacac2902dd26ca569e861}{PROGMEM}} = \#name; \(\backslash\)}
+\DoxyCodeLine{    static \textcolor{keywordtype}{char} \textcolor{keyword}{const} shell\_help\_\#\#name[] \mbox{\hyperlink{_terminal_8cpp_ad725b10d18aacac2902dd26ca569e861}{PROGMEM}} = \mbox{\hyperlink{class_shell_a58b0e9104d1f6c7ec7d1663c69cd03dd}{help}}; \(\backslash\)}
+\DoxyCodeLine{    static ShellCommandInfo \textcolor{keyword}{const} shell\_info\_\#\#name \mbox{\hyperlink{_terminal_8cpp_ad725b10d18aacac2902dd26ca569e861}{PROGMEM}} = \{ \(\backslash\)}
+\DoxyCodeLine{        shell\_id\_\#\#name, \(\backslash\)}
+\DoxyCodeLine{        shell\_help\_\#\#name, \(\backslash\)}
+\DoxyCodeLine{        (\textcolor{keyword}{function}) \(\backslash\)}
+\DoxyCodeLine{    \}; \(\backslash\)}
+\DoxyCodeLine{    static ShellCommandRegister shell\_cmd\_\#\#name(\&shell\_info\_\#\#name)}
+
+\end{DoxyCode}
+
+
+Registers a command with the shell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the command. \\
+\hline
+{\em help} & Help string to display that describes the command. \\
+\hline
+{\em function} & The function to call to handle the command.\\
+\hline
+\end{DoxyParams}
+The {\itshape name} and {\itshape help} parameters must be constant strings that can be placed into program memory.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} cmdMotor(\mbox{\hyperlink{class_shell}{Shell}} \&shell, \textcolor{keywordtype}{int} argc, \textcolor{keyword}{const} \mbox{\hyperlink{class_shell_arguments}{ShellArguments}} \&argv)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    ...}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_shell_a809d96cf913bf11d02f3c0d51a120740}{ShellCommand}}(motor, \textcolor{stringliteral}{"Turn the motor on or off"}, cmdMotor);}
+\end{DoxyCode}
+
+
+If there are multiple \mbox{\hyperlink{class_shell}{Shell}} instances active in the system, then the command will be registered with all of them. \mbox{\Hypertarget{class_shell_ad5bac6a4033cd81e24c1345650bca744}\label{class_shell_ad5bac6a4033cd81e24c1345650bca744}} 
+\index{Shell@{Shell}!ShellCommandFunc@{ShellCommandFunc}}
+\index{ShellCommandFunc@{ShellCommandFunc}!Shell@{Shell}}
+\doxysubsubsection{\texorpdfstring{ShellCommandFunc()}{ShellCommandFunc()}}
+{\footnotesize\ttfamily Shell\+Command\+Func\hspace{0.3cm}{\ttfamily [related]}}
+
+
+
+Type of functions that provide shell command handlers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & Points to the shell instance that executed the command, which can be used to print command results or read more input. \\
+\hline
+{\em argc} & Number of arguments to the command, including the command\textquotesingle{}s name. \\
+\hline
+{\em argv} & The arguments to the command.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_a809d96cf913bf11d02f3c0d51a120740}{Shell\+Command()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{class_shell_ad5bac6a4033cd81e24c1345650bca744_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/cli/\mbox{\hyperlink{_shell_8h}{Shell.\+h}}\item 
+src/cli/\mbox{\hyperlink{_shell_8cpp}{Shell.\+cpp}}\end{DoxyCompactItemize}

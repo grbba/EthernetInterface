@@ -1,0 +1,4 @@
+<map id="Transport&lt; S, C, U &gt;" name="Transport&lt; S, C, U &gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node2" href="$struct_abstract_transport.html" title="Abstract parent class of the templated ( Ethernet or Wifi ) Transport class." alt="" coords="15,5,142,32"/>
+</map>

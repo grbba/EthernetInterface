@@ -1,0 +1,5 @@
+<map id="escapeSequenceStart" name="escapeSequenceStart">
+<area shape="rect" id="node1" title="Determine if a character starts an escape sequence after ESC." alt="" coords="311,5,461,32"/>
+<area shape="rect" id="node2" href="$class_terminal.html#aa82621ea174422601cc7384c8185eb96" title="Reads the next key that was typed on this terminal." alt="" coords="136,5,263,32"/>
+<area shape="rect" id="node3" href="$class_shell.html#afc45cae4ccfc76321a254bb617dce08c" title="Performs regular activities on the shell." alt="" coords="5,5,88,32"/>
+</map>

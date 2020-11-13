@@ -1,0 +1,110 @@
+\hypertarget{_network_interface_8h}{}\doxysection{src/\+Network\+Interface.h File Reference}
+\label{_network_interface_8h}\index{src/NetworkInterface.h@{src/NetworkInterface.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Network\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Http\+Request.\+h\char`\"{}}\newline
+Include dependency graph for Network\+Interface.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{_network_interface_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_network_interface_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_abstract_transport}{Abstract\+Transport}}
+\begin{DoxyCompactList}\small\item\em Abstract parent class of the templated ( Ethernet or Wifi ) \mbox{\hyperlink{class_transport}{Transport}} class. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_d_c_c_network}{D\+C\+C\+Network}}
+\begin{DoxyCompactList}\small\item\em Core class holding and running the instantiated \mbox{\hyperlink{class_transport}{Transport}} objects initalized through the \mbox{\hyperlink{class_network_interface}{Network\+Interface}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_network_interface}{Network\+Interface}}
+\begin{DoxyCompactList}\small\item\em Main entry point used to instatiate the network interface(s). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}{protocol\+Type}} \mbox{\hyperlink{_network_interface_8h_a3d524451a44296541faccbb5c2d6bdfb}{protocol\+Type}}
+\item 
+typedef enum \mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}} \mbox{\hyperlink{_network_interface_8h_a098ed0759f349f3b682c046ab1bf06b0}{transport\+Type}}
+\item 
+using \mbox{\hyperlink{_network_interface_8h_a956a1a6eb4f3ad86434c3e9d1ea45907}{Http\+Callback}} = void($\ast$)(\mbox{\hyperlink{struct_parsed_request}{Parsed\+Request}} $\ast$req, Client $\ast$client)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}{protocol\+Type}} \{ \mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530aa040cd7feeb588104634cdadf35abf1c}{T\+CP}}, 
+\mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530a0974950e8e1fd532b410d07b07b7e541}{U\+D\+PR}}, 
+\mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530a3d9883e35c082e84541192595e9b7419}{M\+Q\+TT}}
+ \}
+\item 
+enum \mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}} \{ \mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1a13e02909006158bf407b1093191dcf5b}{W\+I\+FI}}, 
+\mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1a8f0fce6ed9d0370f45ef72a7b469937c}{E\+T\+H\+E\+R\+N\+ET}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_network_interface_8h_a956a1a6eb4f3ad86434c3e9d1ea45907}\label{_network_interface_8h_a956a1a6eb4f3ad86434c3e9d1ea45907}} 
+\index{NetworkInterface.h@{NetworkInterface.h}!HttpCallback@{HttpCallback}}
+\index{HttpCallback@{HttpCallback}!NetworkInterface.h@{NetworkInterface.h}}
+\doxysubsubsection{\texorpdfstring{HttpCallback}{HttpCallback}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_network_interface_8h_a956a1a6eb4f3ad86434c3e9d1ea45907}{Http\+Callback}} =  void($\ast$)(\mbox{\hyperlink{struct_parsed_request}{Parsed\+Request}} $\ast$req, Client $\ast$client)}
+
+\mbox{\Hypertarget{_network_interface_8h_a3d524451a44296541faccbb5c2d6bdfb}\label{_network_interface_8h_a3d524451a44296541faccbb5c2d6bdfb}} 
+\index{NetworkInterface.h@{NetworkInterface.h}!protocolType@{protocolType}}
+\index{protocolType@{protocolType}!NetworkInterface.h@{NetworkInterface.h}}
+\doxysubsubsection{\texorpdfstring{protocolType}{protocolType}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}{protocol\+Type}} \mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}{protocol\+Type}}}
+
+\mbox{\Hypertarget{_network_interface_8h_a098ed0759f349f3b682c046ab1bf06b0}\label{_network_interface_8h_a098ed0759f349f3b682c046ab1bf06b0}} 
+\index{NetworkInterface.h@{NetworkInterface.h}!transportType@{transportType}}
+\index{transportType@{transportType}!NetworkInterface.h@{NetworkInterface.h}}
+\doxysubsubsection{\texorpdfstring{transportType}{transportType}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}} \mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}\label{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}} 
+\index{NetworkInterface.h@{NetworkInterface.h}!protocolType@{protocolType}}
+\index{protocolType@{protocolType}!NetworkInterface.h@{NetworkInterface.h}}
+\doxysubsubsection{\texorpdfstring{protocolType}{protocolType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}{protocol\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TCP@{TCP}!NetworkInterface.h@{NetworkInterface.h}}\index{NetworkInterface.h@{NetworkInterface.h}!TCP@{TCP}}}\mbox{\Hypertarget{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530aa040cd7feeb588104634cdadf35abf1c}\label{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530aa040cd7feeb588104634cdadf35abf1c}} 
+T\+CP&T\+CP standard protocol for the network connection management. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UDPR@{UDPR}!NetworkInterface.h@{NetworkInterface.h}}\index{NetworkInterface.h@{NetworkInterface.h}!UDPR@{UDPR}}}\mbox{\Hypertarget{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530a0974950e8e1fd532b410d07b07b7e541}\label{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530a0974950e8e1fd532b410d07b07b7e541}} 
+U\+D\+PR&U\+DP clashes with a class name in the network stack need to define a namespace for that? \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT@{MQTT}!NetworkInterface.h@{NetworkInterface.h}}\index{NetworkInterface.h@{NetworkInterface.h}!MQTT@{MQTT}}}\mbox{\Hypertarget{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530a3d9883e35c082e84541192595e9b7419}\label{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530a3d9883e35c082e84541192595e9b7419}} 
+M\+Q\+TT&M\+Q\+TT should not be here as its on the application level ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_network_interface_8h_a59eb013c6734195b94b275310e167df1}\label{_network_interface_8h_a59eb013c6734195b94b275310e167df1}} 
+\index{NetworkInterface.h@{NetworkInterface.h}!transportType@{transportType}}
+\index{transportType@{transportType}!NetworkInterface.h@{NetworkInterface.h}}
+\doxysubsubsection{\texorpdfstring{transportType}{transportType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WIFI@{WIFI}!NetworkInterface.h@{NetworkInterface.h}}\index{NetworkInterface.h@{NetworkInterface.h}!WIFI@{WIFI}}}\mbox{\Hypertarget{_network_interface_8h_a59eb013c6734195b94b275310e167df1a13e02909006158bf407b1093191dcf5b}\label{_network_interface_8h_a59eb013c6734195b94b275310e167df1a13e02909006158bf407b1093191dcf5b}} 
+W\+I\+FI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHERNET@{ETHERNET}!NetworkInterface.h@{NetworkInterface.h}}\index{NetworkInterface.h@{NetworkInterface.h}!ETHERNET@{ETHERNET}}}\mbox{\Hypertarget{_network_interface_8h_a59eb013c6734195b94b275310e167df1a8f0fce6ed9d0370f45ef72a7b469937c}\label{_network_interface_8h_a59eb013c6734195b94b275310e167df1a8f0fce6ed9d0370f45ef72a7b469937c}} 
+E\+T\+H\+E\+R\+N\+ET&\\
+\hline
+
+\end{DoxyEnumFields}

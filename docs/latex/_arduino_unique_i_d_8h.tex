@@ -1,0 +1,104 @@
+\hypertarget{_arduino_unique_i_d_8h}{}\doxysection{src/\+Arduino\+Unique\+ID.h File Reference}
+\label{_arduino_unique_i_d_8h}\index{src/ArduinoUniqueID.h@{src/ArduinoUniqueID.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+Include dependency graph for Arduino\+Unique\+I\+D.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{_arduino_unique_i_d_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{_arduino_unique_i_d_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_arduino_unique_i_d}{Arduino\+Unique\+ID}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_arduino_unique_i_d_8h_af3b60fbf2a19753bbf26a0267eb7403b}{Unique\+I\+D8}}~(\+\_\+\+Unique\+I\+D.\+id + Unique\+I\+Dbuffer -\/ 8)
+\item 
+\#define \mbox{\hyperlink{_arduino_unique_i_d_8h_a7dcb5f192e52fca99d06f966a9ae9716}{Unique\+ID}}~(\+\_\+\+Unique\+I\+D.\+id + Unique\+I\+Dbuffer -\/ Unique\+I\+Dsize)
+\item 
+\#define \mbox{\hyperlink{_arduino_unique_i_d_8h_a218d287b966ad6a63e214504f640302d}{Unique\+I\+Ddump}}(stream)
+\item 
+\#define \mbox{\hyperlink{_arduino_unique_i_d_8h_a60c7f6e6c50aa1b25ebee781ff7ef7e6}{Unique\+I\+D8dump}}(stream)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arduino_unique_i_d}{Arduino\+Unique\+ID}} \mbox{\hyperlink{_arduino_unique_i_d_8h_a4ebddd6ffbf4ee77d34d51d7e87c85d2}{\+\_\+\+Unique\+ID}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_arduino_unique_i_d_8h_a7dcb5f192e52fca99d06f966a9ae9716}\label{_arduino_unique_i_d_8h_a7dcb5f192e52fca99d06f966a9ae9716}} 
+\index{ArduinoUniqueID.h@{ArduinoUniqueID.h}!UniqueID@{UniqueID}}
+\index{UniqueID@{UniqueID}!ArduinoUniqueID.h@{ArduinoUniqueID.h}}
+\doxysubsubsection{\texorpdfstring{UniqueID}{UniqueID}}
+{\footnotesize\ttfamily \#define Unique\+ID~(\+\_\+\+Unique\+I\+D.\+id + Unique\+I\+Dbuffer -\/ Unique\+I\+Dsize)}
+
+\mbox{\Hypertarget{_arduino_unique_i_d_8h_af3b60fbf2a19753bbf26a0267eb7403b}\label{_arduino_unique_i_d_8h_af3b60fbf2a19753bbf26a0267eb7403b}} 
+\index{ArduinoUniqueID.h@{ArduinoUniqueID.h}!UniqueID8@{UniqueID8}}
+\index{UniqueID8@{UniqueID8}!ArduinoUniqueID.h@{ArduinoUniqueID.h}}
+\doxysubsubsection{\texorpdfstring{UniqueID8}{UniqueID8}}
+{\footnotesize\ttfamily \#define Unique\+I\+D8~(\+\_\+\+Unique\+I\+D.\+id + Unique\+I\+Dbuffer -\/ 8)}
+
+\mbox{\Hypertarget{_arduino_unique_i_d_8h_a60c7f6e6c50aa1b25ebee781ff7ef7e6}\label{_arduino_unique_i_d_8h_a60c7f6e6c50aa1b25ebee781ff7ef7e6}} 
+\index{ArduinoUniqueID.h@{ArduinoUniqueID.h}!UniqueID8dump@{UniqueID8dump}}
+\index{UniqueID8dump@{UniqueID8dump}!ArduinoUniqueID.h@{ArduinoUniqueID.h}}
+\doxysubsubsection{\texorpdfstring{UniqueID8dump}{UniqueID8dump}}
+{\footnotesize\ttfamily \#define Unique\+I\+D8dump(\begin{DoxyParamCaption}\item[{}]{stream }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{                                        \(\backslash\)}
+\DoxyCodeLine{        stream.print(\textcolor{stringliteral}{"UniqueID: "});  \(\backslash\)}
+\DoxyCodeLine{        for (\textcolor{keywordtype}{size\_t} i = 0; i < 8; i++)       \(\backslash\)}
+\DoxyCodeLine{        \{                                    \(\backslash\)}
+\DoxyCodeLine{            if (\mbox{\hyperlink{_arduino_unique_i_d_8h_af3b60fbf2a19753bbf26a0267eb7403b}{UniqueID8}}[i] < 0x10)         \(\backslash\)}
+\DoxyCodeLine{                stream.print(\textcolor{stringliteral}{"0"});           \(\backslash\)}
+\DoxyCodeLine{            stream.print(\mbox{\hyperlink{_arduino_unique_i_d_8h_af3b60fbf2a19753bbf26a0267eb7403b}{UniqueID8}}[i], HEX); \(\backslash\)}
+\DoxyCodeLine{            stream.print(\textcolor{stringliteral}{" "});               \(\backslash\)}
+\DoxyCodeLine{        \}                                    \(\backslash\)}
+\DoxyCodeLine{        stream.println();                    \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_arduino_unique_i_d_8h_a218d287b966ad6a63e214504f640302d}\label{_arduino_unique_i_d_8h_a218d287b966ad6a63e214504f640302d}} 
+\index{ArduinoUniqueID.h@{ArduinoUniqueID.h}!UniqueIDdump@{UniqueIDdump}}
+\index{UniqueIDdump@{UniqueIDdump}!ArduinoUniqueID.h@{ArduinoUniqueID.h}}
+\doxysubsubsection{\texorpdfstring{UniqueIDdump}{UniqueIDdump}}
+{\footnotesize\ttfamily \#define Unique\+I\+Ddump(\begin{DoxyParamCaption}\item[{}]{stream }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{                                             \(\backslash\)}
+\DoxyCodeLine{        stream.print(\textcolor{stringliteral}{"UniqueID: "});       \(\backslash\)}
+\DoxyCodeLine{        for (\textcolor{keywordtype}{size\_t} i = 0; i < UniqueIDsize; i++) \(\backslash\)}
+\DoxyCodeLine{        \{                                         \(\backslash\)}
+\DoxyCodeLine{            if (\mbox{\hyperlink{_arduino_unique_i_d_8h_a7dcb5f192e52fca99d06f966a9ae9716}{UniqueID}}[i] < 0x10)               \(\backslash\)}
+\DoxyCodeLine{                stream.print(\textcolor{stringliteral}{"0"});                \(\backslash\)}
+\DoxyCodeLine{            stream.print(\mbox{\hyperlink{_arduino_unique_i_d_8h_a7dcb5f192e52fca99d06f966a9ae9716}{UniqueID}}[i], HEX);       \(\backslash\)}
+\DoxyCodeLine{            stream.print(\textcolor{stringliteral}{" "});                    \(\backslash\)}
+\DoxyCodeLine{        \}                                         \(\backslash\)}
+\DoxyCodeLine{        stream.println();                         \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_arduino_unique_i_d_8h_a4ebddd6ffbf4ee77d34d51d7e87c85d2}\label{_arduino_unique_i_d_8h_a4ebddd6ffbf4ee77d34d51d7e87c85d2}} 
+\index{ArduinoUniqueID.h@{ArduinoUniqueID.h}!\_UniqueID@{\_UniqueID}}
+\index{\_UniqueID@{\_UniqueID}!ArduinoUniqueID.h@{ArduinoUniqueID.h}}
+\doxysubsubsection{\texorpdfstring{\_UniqueID}{\_UniqueID}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_arduino_unique_i_d}{Arduino\+Unique\+ID}} \+\_\+\+Unique\+ID}
+

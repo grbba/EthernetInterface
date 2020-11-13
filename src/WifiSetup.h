@@ -32,7 +32,11 @@ SoftwareSerial Serial1(6, 7); // RX, TX
 #define AT_BAUD_RATE 115200
 #endif
 
-
+/**
+ * Setting up an TCP/UDP WiFi connection. Stores and provides acces to the Server and UDP instance currently 
+ * setup. Once the setup is done for a given NetworkInterface the instance of this class is not needed anymore.
+ * An instance will be created within the NetworInterface setup function ans go out of scope after the setup has been done.
+ */
 class WifiSetup: public NetworkSetup {
 
 private:

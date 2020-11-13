@@ -1,0 +1,5 @@
+<map id="Terminal::mode" name="Terminal::mode">
+<area shape="rect" id="node1" title="Returns the mode this terminal is operating in, Serial or Telnet." alt="" coords="164,31,275,57"/>
+<area shape="rect" id="node2" href="$class_terminal.html#a6bf417195a7d2a2fab6b3518f25764a2" title="Begins terminal operations on an underlying stream." alt="" coords="5,5,116,32"/>
+<area shape="rect" id="node3" href="$class_shell.html#ad9acba905b6e0b661cce19d57c067990" title="Begin shell handling on an underlying character stream." alt="" coords="15,56,106,83"/>
+</map>

@@ -1,0 +1,268 @@
+\hypertarget{class_login_shell}{}\doxysection{Login\+Shell Class Reference}
+\label{class_login_shell}\index{LoginShell@{LoginShell}}
+
+
+Command-\/line shell access via a login shell.  
+
+
+
+
+{\ttfamily \#include $<$Login\+Shell.\+h$>$}
+
+
+
+Inheritance diagram for Login\+Shell\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_login_shell__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Login\+Shell\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_login_shell__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_login_shell_a8a6e6c259bc6415eb9cfbb13980e31d4}{Login\+Shell}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new login shell. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_login_shell_aaae466b141c9ea50870b66509402a2f9}{$\sim$\+Login\+Shell}} ()
+\begin{DoxyCompactList}\small\item\em Destroys this login shell. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{class_login_shell_ac977fd927028c6f6b86939bbc197d235}{machine\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name of the machine to display in the login prompt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_login_shell_a951838252942c56537dc877c48d3d63e}{set\+Machine\+Name}} (const char $\ast$\mbox{\hyperlink{class_login_shell_ac977fd927028c6f6b86939bbc197d235}{machine\+Name}})
+\begin{DoxyCompactList}\small\item\em Sets the name of the machine to display in the login prompt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_login_shell_adad54b04ec54d3577df4cd11944fff1d}{Shell\+Password\+Check\+Func}} \mbox{\hyperlink{class_login_shell_ad41ffe558d65094c09256db69e5ac153}{password\+Check\+Function}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current password checking function, or N\+U\+LL if the function has not been set yet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_login_shell_a68d34a52a12f36113286418c17351bd4}{set\+Password\+Check\+Function}} (\mbox{\hyperlink{class_login_shell_adad54b04ec54d3577df4cd11944fff1d}{Shell\+Password\+Check\+Func}} function)
+\begin{DoxyCompactList}\small\item\em Sets the password checking function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_login_shell_a88a72760d4dc960c32e2fa4b691f9558}{begin\+Session}} ()
+\begin{DoxyCompactList}\small\item\em Begins a login session. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_login_shell_a6574705053f780acb8f0d8594c210524}{print\+Prompt}} ()
+\begin{DoxyCompactList}\small\item\em Prints the current prompt string. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_login_shell_af54c5c14adac7955cf5e4f9460bd9ca5}{execute}} ()
+\begin{DoxyCompactList}\small\item\em Executes the command in the buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_login_shell_adad54b04ec54d3577df4cd11944fff1d}{Shell\+Password\+Check\+Func}}
+\begin{DoxyCompactList}\small\item\em Password checking function for login shells. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Command-\/line shell access via a login shell. 
+
+This class provides a command-\/line shell with login support. The user is prompted for username and password when they connect and other commands will not be available until the correct credentials have been supplied.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell}{Shell}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_login_shell_a8a6e6c259bc6415eb9cfbb13980e31d4}\label{class_login_shell_a8a6e6c259bc6415eb9cfbb13980e31d4}} 
+\index{LoginShell@{LoginShell}!LoginShell@{LoginShell}}
+\index{LoginShell@{LoginShell}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{LoginShell()}{LoginShell()}}
+{\footnotesize\ttfamily Login\+Shell\+::\+Login\+Shell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a new login shell. 
+
+This constructor must be followed by a call to \mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin()}} to specify the underlying I/O stream. \mbox{\Hypertarget{class_login_shell_aaae466b141c9ea50870b66509402a2f9}\label{class_login_shell_aaae466b141c9ea50870b66509402a2f9}} 
+\index{LoginShell@{LoginShell}!````~LoginShell@{$\sim$LoginShell}}
+\index{````~LoginShell@{$\sim$LoginShell}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{$\sim$LoginShell()}{~LoginShell()}}
+{\footnotesize\ttfamily Login\+Shell\+::$\sim$\+Login\+Shell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroys this login shell. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_login_shell_a88a72760d4dc960c32e2fa4b691f9558}\label{class_login_shell_a88a72760d4dc960c32e2fa4b691f9558}} 
+\index{LoginShell@{LoginShell}!beginSession@{beginSession}}
+\index{beginSession@{beginSession}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{beginSession()}{beginSession()}}
+{\footnotesize\ttfamily void Login\+Shell\+::begin\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Begins a login session. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_shell_a3ad32b7cd3b48c78953ab9f7384d5a58}{Shell}}.
+
+\mbox{\Hypertarget{class_login_shell_af54c5c14adac7955cf5e4f9460bd9ca5}\label{class_login_shell_af54c5c14adac7955cf5e4f9460bd9ca5}} 
+\index{LoginShell@{LoginShell}!execute@{execute}}
+\index{execute@{execute}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Login\+Shell\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Executes the command in the buffer. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_shell_ab4a3f80dc5ff779ac99116a1f7e35cda}{Shell}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_login_shell_af54c5c14adac7955cf5e4f9460bd9ca5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_login_shell_ac977fd927028c6f6b86939bbc197d235}\label{class_login_shell_ac977fd927028c6f6b86939bbc197d235}} 
+\index{LoginShell@{LoginShell}!machineName@{machineName}}
+\index{machineName@{machineName}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{machineName()}{machineName()}}
+{\footnotesize\ttfamily const char $\ast$ Login\+Shell\+::machine\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the name of the machine to display in the login prompt. 
+
+The default value is N\+U\+LL, indicating that no machine name should be shown.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_login_shell_a951838252942c56537dc877c48d3d63e}{set\+Machine\+Name()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_login_shell_ac977fd927028c6f6b86939bbc197d235_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_login_shell_ad41ffe558d65094c09256db69e5ac153}\label{class_login_shell_ad41ffe558d65094c09256db69e5ac153}} 
+\index{LoginShell@{LoginShell}!passwordCheckFunction@{passwordCheckFunction}}
+\index{passwordCheckFunction@{passwordCheckFunction}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{passwordCheckFunction()}{passwordCheckFunction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_login_shell_adad54b04ec54d3577df4cd11944fff1d}{Shell\+Password\+Check\+Func}} Login\+Shell\+::password\+Check\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current password checking function, or N\+U\+LL if the function has not been set yet. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_login_shell_a68d34a52a12f36113286418c17351bd4}{set\+Password\+Check\+Function()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_login_shell_a6574705053f780acb8f0d8594c210524}\label{class_login_shell_a6574705053f780acb8f0d8594c210524}} 
+\index{LoginShell@{LoginShell}!printPrompt@{printPrompt}}
+\index{printPrompt@{printPrompt}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{printPrompt()}{printPrompt()}}
+{\footnotesize\ttfamily void Login\+Shell\+::print\+Prompt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Prints the current prompt string. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_shell_a720144957bf6462659017cc25c429beb}{Shell}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_login_shell_a6574705053f780acb8f0d8594c210524_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_login_shell_a951838252942c56537dc877c48d3d63e}\label{class_login_shell_a951838252942c56537dc877c48d3d63e}} 
+\index{LoginShell@{LoginShell}!setMachineName@{setMachineName}}
+\index{setMachineName@{setMachineName}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{setMachineName()}{setMachineName()}}
+{\footnotesize\ttfamily void Login\+Shell\+::set\+Machine\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{machine\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the name of the machine to display in the login prompt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em machine\+Name} & The machine name, or N\+U\+LL for no machine name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_login_shell_ac977fd927028c6f6b86939bbc197d235}{machine\+Name()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_login_shell_a951838252942c56537dc877c48d3d63e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_login_shell_a68d34a52a12f36113286418c17351bd4}\label{class_login_shell_a68d34a52a12f36113286418c17351bd4}} 
+\index{LoginShell@{LoginShell}!setPasswordCheckFunction@{setPasswordCheckFunction}}
+\index{setPasswordCheckFunction@{setPasswordCheckFunction}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{setPasswordCheckFunction()}{setPasswordCheckFunction()}}
+{\footnotesize\ttfamily void Login\+Shell\+::set\+Password\+Check\+Function (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_login_shell_adad54b04ec54d3577df4cd11944fff1d}{Shell\+Password\+Check\+Func}}}]{function }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the password checking function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function} & The password checking function to set, or N\+U\+LL to return to the default rules.\\
+\hline
+\end{DoxyParams}
+If no function is set, then \mbox{\hyperlink{class_login_shell}{Login\+Shell}} will check for a username of \char`\"{}root\char`\"{} and a password of \char`\"{}arduino\char`\"{} (both values are case-\/sensitive). This is of course not very secure. Realistic applications should set a proper password checking function.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_login_shell_ad41ffe558d65094c09256db69e5ac153}{password\+Check\+Function()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_login_shell_adad54b04ec54d3577df4cd11944fff1d}\label{class_login_shell_adad54b04ec54d3577df4cd11944fff1d}} 
+\index{LoginShell@{LoginShell}!ShellPasswordCheckFunc@{ShellPasswordCheckFunc}}
+\index{ShellPasswordCheckFunc@{ShellPasswordCheckFunc}!LoginShell@{LoginShell}}
+\doxysubsubsection{\texorpdfstring{ShellPasswordCheckFunc()}{ShellPasswordCheckFunc()}}
+{\footnotesize\ttfamily Shell\+Password\+Check\+Func\hspace{0.3cm}{\ttfamily [related]}}
+
+
+
+Password checking function for login shells. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Points to the user name that was supplied at login. \\
+\hline
+{\em password} & Points to the password that was supplied at login.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns zero or greater if the username and password combination is correct, negative if incorrect.
+\end{DoxyReturn}
+The return value is reported to the application as \mbox{\hyperlink{class_shell_a57a0635d19db9ecaf07bc57fad587ab7}{Shell\+::userid()}}, which can be used by the application to restrict the set of commands that are available to the user, or to restrict the behaviour of those commands when acting on critical resources.
+
+Timing can be very important\+: the check should take the same amount of time for valid and invalid user identifiers or passwords so that an attacker cannot gain knowledge about the valid users on the system based on failed login attempts.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_a57a0635d19db9ecaf07bc57fad587ab7}{Shell\+::userid()}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/cli/\mbox{\hyperlink{_login_shell_8h}{Login\+Shell.\+h}}\item 
+src/cli/\mbox{\hyperlink{_login_shell_8cpp}{Login\+Shell.\+cpp}}\item 
+src/cli/\mbox{\hyperlink{_shell_8cpp}{Shell.\+cpp}}\end{DoxyCompactItemize}

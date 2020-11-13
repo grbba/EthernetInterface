@@ -1,0 +1,303 @@
+\hypertarget{_transport_processor_8cpp}{}\doxysection{src/\+Transport\+Processor.cpp File Reference}
+\label{_transport_processor_8cpp}\index{src/TransportProcessor.cpp@{src/TransportProcessor.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Network\+Diag.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Network\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Http\+Request.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Transport\+Processor.\+h\char`\"{}}\newline
+Include dependency graph for Transport\+Processor.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_transport_processor_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_transport_processor_8cpp_a3af0ecf3a10ec36ab4835f7837bc1f13}{send\+Reply}} (\mbox{\hyperlink{struct_connection}{Connection}} $\ast$c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Sending a reply without going through the \mbox{\hyperlink{class_string_formatter}{String\+Formatter}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_transport_processor_8cpp_adffd99c797adf573a9d65073d1595d53}{http\+Processor}} (\mbox{\hyperlink{struct_connection}{Connection}} $\ast$c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$t)
+\item 
+\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885}{app\+Protocol}} \mbox{\hyperlink{_transport_processor_8cpp_a2db43fc4f27865830ec6fef653704a79}{set\+App\+Protocol}} (char a, char b, \mbox{\hyperlink{struct_connection}{Connection}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Set the App Protocol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_transport_processor_8cpp_a715460ec8d4cb3f8b8dc399c3d3029c1}{process\+Stream}} (\mbox{\hyperlink{struct_connection}{Connection}} $\ast$c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Parses the buffer to extract commands to be executed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_transport_processor_8cpp_a92da7dae58087b5b75125e1e1ebf5f49}{echo\+Processor}} (\mbox{\hyperlink{struct_connection}{Connection}} $\ast$c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$t)
+\item 
+void \mbox{\hyperlink{_transport_processor_8cpp_ae99c9311978b9a5d08837fe5f9d929cc}{jmri\+Processor}} (\mbox{\hyperlink{struct_connection}{Connection}} $\ast$c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$t)
+\item 
+void \mbox{\hyperlink{_transport_processor_8cpp_abb4e43a46551501a6057f1405addb873}{withrottle\+Processor}} (\mbox{\hyperlink{struct_connection}{Connection}} $\ast$c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$t)
+\item 
+void \mbox{\hyperlink{_transport_processor_8cpp_a4c1d147693aeb4dd642efcfd08eaadc3}{parse}} (Print $\ast$stream, byte $\ast$command, bool blocking)
+\begin{DoxyCompactList}\small\item\em Sending a reply by using the \mbox{\hyperlink{class_string_formatter}{String\+Formatter}} (this will result in every byte send individually which may/will create an important Network overhead). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_http_request}{Http\+Request}} \mbox{\hyperlink{_transport_processor_8cpp_afa7eb7acfa8d633cb3155e420cd49391}{http\+Req}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_transport_processor_8cpp_aeda0eeac8d4417ea031debf74c786465}{\+\_\+rseq}} \mbox{[}\mbox{\hyperlink{_network_config_8h_ae5a2e3b1eefb3a10a2485e28a4ccdb59}{M\+A\+X\+\_\+\+S\+O\+C\+K\+\_\+\+N\+UM}}\mbox{]} = \{0\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_transport_processor_8cpp_a95ea5fce95dd0c00d6416abb44f39717}{\+\_\+sseq}} \mbox{[}\mbox{\hyperlink{_network_config_8h_ae5a2e3b1eefb3a10a2485e28a4ccdb59}{M\+A\+X\+\_\+\+S\+O\+C\+K\+\_\+\+N\+UM}}\mbox{]} = \{0\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_transport_processor_8cpp_a9a4ee75f1cc5ee8c8e55e5f371779d88}{\+\_\+p\+Num}} = 0
+\item 
+uint64\+\_\+t \mbox{\hyperlink{_transport_processor_8cpp_a009e1e0b46f2c7e335549258bb5b6230}{\+\_\+t\+Payload}} = 0
+\item 
+unsigned int \mbox{\hyperlink{_transport_processor_8cpp_aabf9409f0d890442fd454fbff4af9905}{\+\_\+n\+Cmds}} = 0
+\item 
+char \mbox{\hyperlink{_transport_processor_8cpp_a015b3e76f7deb14fbdffea26513a0538}{protocol\+Name}} \mbox{[}5\mbox{]}\mbox{[}11\mbox{]} = \{\char`\"{}J\+M\+RI\char`\"{}, \char`\"{}\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a588219683faf075b63c78c5447d0fb6e}{W\+I\+T\+H\+R\+O\+T\+T\+LE}}\char`\"{}, \char`\"{}\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a67e044074f46e6cea22788527da5f02e}{H\+T\+TP}}\char`\"{}, \char`\"{}\mbox{\hyperlink{_d_i_a_g_8h_ad2390c07b2f83f490ae971a3fdc0c18b}{D\+I\+AG}}\char`\"{}, \char`\"{}U\+N\+K\+N\+O\+WN\char`\"{}\}
+\item 
+bool \mbox{\hyperlink{_transport_processor_8cpp_af7edababa419584d038a5bcbf1cc771d}{diag\+Network}} = false
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_transport_processor_8cpp_a90538335e7e6e7f444374f84213c0409}{diag\+Network\+Client}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_transport_processor_8cpp_a92da7dae58087b5b75125e1e1ebf5f49}\label{_transport_processor_8cpp_a92da7dae58087b5b75125e1e1ebf5f49}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!echoProcessor@{echoProcessor}}
+\index{echoProcessor@{echoProcessor}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{echoProcessor()}{echoProcessor()}}
+{\footnotesize\ttfamily void echo\+Processor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_connection}{Connection}} $\ast$}]{c,  }\item[{\mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{_transport_processor_8cpp_a92da7dae58087b5b75125e1e1ebf5f49_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_transport_processor_8cpp_adffd99c797adf573a9d65073d1595d53}\label{_transport_processor_8cpp_adffd99c797adf573a9d65073d1595d53}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!httpProcessor@{httpProcessor}}
+\index{httpProcessor@{httpProcessor}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{httpProcessor()}{httpProcessor()}}
+{\footnotesize\ttfamily void http\+Processor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_connection}{Connection}} $\ast$}]{c,  }\item[{\mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]look for jmri formatted uris and execute those if there is no callback. If no command found ignore and ev. send a 401 error back \end{DoxyRefDesc}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_transport_processor_8cpp_adffd99c797adf573a9d65073d1595d53_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{_transport_processor_8cpp_adffd99c797adf573a9d65073d1595d53_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_transport_processor_8cpp_ae99c9311978b9a5d08837fe5f9d929cc}\label{_transport_processor_8cpp_ae99c9311978b9a5d08837fe5f9d929cc}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!jmriProcessor@{jmriProcessor}}
+\index{jmriProcessor@{jmriProcessor}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{jmriProcessor()}{jmriProcessor()}}
+{\footnotesize\ttfamily void jmri\+Processor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_connection}{Connection}} $\ast$}]{c,  }\item[{\mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_transport_processor_8cpp_ae99c9311978b9a5d08837fe5f9d929cc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{_transport_processor_8cpp_ae99c9311978b9a5d08837fe5f9d929cc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_transport_processor_8cpp_a4c1d147693aeb4dd642efcfd08eaadc3}\label{_transport_processor_8cpp_a4c1d147693aeb4dd642efcfd08eaadc3}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!parse@{parse}}
+\index{parse@{parse}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily void parse (\begin{DoxyParamCaption}\item[{Print $\ast$}]{stream,  }\item[{byte $\ast$}]{command,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
+
+
+
+Sending a reply by using the \mbox{\hyperlink{class_string_formatter}{String\+Formatter}} (this will result in every byte send individually which may/will create an important Network overhead). 
+
+Here we hook back into the D\+CC code for actually processing the command using a D\+C\+C\+Parser. Alternatively we could use Meme\+Stream in order to build the entiere reply before ending it (cf. Scratch pad below)
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Actually the Client to whom to send the reply. As Clients implement Print this is working \\
+\hline
+{\em command} & The reply to be send ( echo as in \mbox{\hyperlink{_transport_processor_8cpp_a3af0ecf3a10ec36ab4835f7837bc1f13}{send\+Reply()}} ) \\
+\hline
+{\em blocking} & if set to true will instruct the D\+CC code to not use the async callback functions \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{_transport_processor_8cpp_a4c1d147693aeb4dd642efcfd08eaadc3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_transport_processor_8cpp_a715460ec8d4cb3f8b8dc399c3d3029c1}\label{_transport_processor_8cpp_a715460ec8d4cb3f8b8dc399c3d3029c1}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!processStream@{processStream}}
+\index{processStream@{processStream}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{processStream()}{processStream()}}
+{\footnotesize\ttfamily void process\+Stream (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_connection}{Connection}} $\ast$}]{c,  }\item[{\mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+Parses the buffer to extract commands to be executed. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{_transport_processor_8cpp_a715460ec8d4cb3f8b8dc399c3d3029c1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_transport_processor_8cpp_a715460ec8d4cb3f8b8dc399c3d3029c1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_transport_processor_8cpp_a3af0ecf3a10ec36ab4835f7837bc1f13}\label{_transport_processor_8cpp_a3af0ecf3a10ec36ab4835f7837bc1f13}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{sendReply()}{sendReply()}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_connection}{Connection}} $\ast$}]{c,  }\item[{\mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+Sending a reply without going through the \mbox{\hyperlink{class_string_formatter}{String\+Formatter}}. 
+
+Sends the repy in one go
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & Client who send the command to which the reply shall be send \\
+\hline
+{\em command} & Command initaliy recieved to be echoed back \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_transport_processor_8cpp_a3af0ecf3a10ec36ab4835f7837bc1f13_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_transport_processor_8cpp_a2db43fc4f27865830ec6fef653704a79}\label{_transport_processor_8cpp_a2db43fc4f27865830ec6fef653704a79}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!setAppProtocol@{setAppProtocol}}
+\index{setAppProtocol@{setAppProtocol}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{setAppProtocol()}{setAppProtocol()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885}{app\+Protocol}} set\+App\+Protocol (\begin{DoxyParamCaption}\item[{char}]{a,  }\item[{char}]{b,  }\item[{\mbox{\hyperlink{struct_connection}{Connection}} $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Set the App Protocol. 
+
+The detection id done upon the very first message recieved. The client will then be bound to that protocol. Its very brittle as e.\+g. The N message as first message for Wi\+Throttle is not a requirement by the protocol; If any client talking Withrottle doesn\textquotesingle{}t implement this the detection will default to J\+M\+RI. For H\+T\+TP we base this only on a subset of th H\+T\+TP verbs which can be used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First character of the recieved buffer upon first connection \\
+\hline
+{\em b} & Second character of the recieved buffer upon first connection \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+app\+Protocol 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{_transport_processor_8cpp_a2db43fc4f27865830ec6fef653704a79_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{_transport_processor_8cpp_a2db43fc4f27865830ec6fef653704a79_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_transport_processor_8cpp_abb4e43a46551501a6057f1405addb873}\label{_transport_processor_8cpp_abb4e43a46551501a6057f1405addb873}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!withrottleProcessor@{withrottleProcessor}}
+\index{withrottleProcessor@{withrottleProcessor}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{withrottleProcessor()}{withrottleProcessor()}}
+{\footnotesize\ttfamily void withrottle\+Processor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_connection}{Connection}} $\ast$}]{c,  }\item[{\mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_transport_processor_8cpp_abb4e43a46551501a6057f1405addb873_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{_transport_processor_8cpp_abb4e43a46551501a6057f1405addb873_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_transport_processor_8cpp_aabf9409f0d890442fd454fbff4af9905}\label{_transport_processor_8cpp_aabf9409f0d890442fd454fbff4af9905}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!\_nCmds@{\_nCmds}}
+\index{\_nCmds@{\_nCmds}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{\_nCmds}{\_nCmds}}
+{\footnotesize\ttfamily unsigned int \+\_\+n\+Cmds = 0}
+
+\mbox{\Hypertarget{_transport_processor_8cpp_a9a4ee75f1cc5ee8c8e55e5f371779d88}\label{_transport_processor_8cpp_a9a4ee75f1cc5ee8c8e55e5f371779d88}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!\_pNum@{\_pNum}}
+\index{\_pNum@{\_pNum}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{\_pNum}{\_pNum}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+p\+Num = 0}
+
+\mbox{\Hypertarget{_transport_processor_8cpp_aeda0eeac8d4417ea031debf74c786465}\label{_transport_processor_8cpp_aeda0eeac8d4417ea031debf74c786465}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!\_rseq@{\_rseq}}
+\index{\_rseq@{\_rseq}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{\_rseq}{\_rseq}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+rseq\mbox{[}\mbox{\hyperlink{_network_config_8h_ae5a2e3b1eefb3a10a2485e28a4ccdb59}{M\+A\+X\+\_\+\+S\+O\+C\+K\+\_\+\+N\+UM}}\mbox{]} = \{0\}}
+
+\mbox{\Hypertarget{_transport_processor_8cpp_a95ea5fce95dd0c00d6416abb44f39717}\label{_transport_processor_8cpp_a95ea5fce95dd0c00d6416abb44f39717}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!\_sseq@{\_sseq}}
+\index{\_sseq@{\_sseq}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{\_sseq}{\_sseq}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+sseq\mbox{[}\mbox{\hyperlink{_network_config_8h_ae5a2e3b1eefb3a10a2485e28a4ccdb59}{M\+A\+X\+\_\+\+S\+O\+C\+K\+\_\+\+N\+UM}}\mbox{]} = \{0\}}
+
+\mbox{\Hypertarget{_transport_processor_8cpp_a009e1e0b46f2c7e335549258bb5b6230}\label{_transport_processor_8cpp_a009e1e0b46f2c7e335549258bb5b6230}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!\_tPayload@{\_tPayload}}
+\index{\_tPayload@{\_tPayload}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{\_tPayload}{\_tPayload}}
+{\footnotesize\ttfamily uint64\+\_\+t \+\_\+t\+Payload = 0}
+
+\mbox{\Hypertarget{_transport_processor_8cpp_af7edababa419584d038a5bcbf1cc771d}\label{_transport_processor_8cpp_af7edababa419584d038a5bcbf1cc771d}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!diagNetwork@{diagNetwork}}
+\index{diagNetwork@{diagNetwork}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{diagNetwork}{diagNetwork}}
+{\footnotesize\ttfamily bool diag\+Network = false}
+
+\mbox{\Hypertarget{_transport_processor_8cpp_a90538335e7e6e7f444374f84213c0409}\label{_transport_processor_8cpp_a90538335e7e6e7f444374f84213c0409}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!diagNetworkClient@{diagNetworkClient}}
+\index{diagNetworkClient@{diagNetworkClient}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{diagNetworkClient}{diagNetworkClient}}
+{\footnotesize\ttfamily uint8\+\_\+t diag\+Network\+Client = 0}
+
+\mbox{\Hypertarget{_transport_processor_8cpp_afa7eb7acfa8d633cb3155e420cd49391}\label{_transport_processor_8cpp_afa7eb7acfa8d633cb3155e420cd49391}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!httpReq@{httpReq}}
+\index{httpReq@{httpReq}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{httpReq}{httpReq}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_http_request}{Http\+Request}} http\+Req}
+
+\mbox{\Hypertarget{_transport_processor_8cpp_a015b3e76f7deb14fbdffea26513a0538}\label{_transport_processor_8cpp_a015b3e76f7deb14fbdffea26513a0538}} 
+\index{TransportProcessor.cpp@{TransportProcessor.cpp}!protocolName@{protocolName}}
+\index{protocolName@{protocolName}!TransportProcessor.cpp@{TransportProcessor.cpp}}
+\doxysubsubsection{\texorpdfstring{protocolName}{protocolName}}
+{\footnotesize\ttfamily char protocol\+Name\mbox{[}5\mbox{]}\mbox{[}11\mbox{]} = \{\char`\"{}J\+M\+RI\char`\"{}, \char`\"{}\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a588219683faf075b63c78c5447d0fb6e}{W\+I\+T\+H\+R\+O\+T\+T\+LE}}\char`\"{}, \char`\"{}\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a67e044074f46e6cea22788527da5f02e}{H\+T\+TP}}\char`\"{}, \char`\"{}\mbox{\hyperlink{_d_i_a_g_8h_ad2390c07b2f83f490ae971a3fdc0c18b}{D\+I\+AG}}\char`\"{}, \char`\"{}U\+N\+K\+N\+O\+WN\char`\"{}\}}
+

@@ -1,0 +1,9 @@
+<map id="Terminal::stream" name="Terminal::stream">
+<area shape="rect" id="node1" title="Returns a pointer to the underlying Stream, or NULL if the stream has not been set with begin() yet." alt="" coords="501,81,620,108"/>
+<area shape="rect" id="node2" href="$class_terminal.html#a6bf417195a7d2a2fab6b3518f25764a2" title="Begins terminal operations on an underlying stream." alt="" coords="343,5,453,32"/>
+<area shape="rect" id="node3" href="$class_shell.html#ad9acba905b6e0b661cce19d57c067990" title="Begin shell handling on an underlying character stream." alt="" coords="353,56,443,83"/>
+<area shape="rect" id="node4" href="$class_shell.html#ab9dab65bc0757ce3bb0ac926bbefcee3" title="Exit from the shell back to the login prompt." alt="" coords="358,107,438,133"/>
+<area shape="rect" id="node7" href="$class_shell.html#afc45cae4ccfc76321a254bb617dce08c" title="Performs regular activities on the shell." alt="" coords="32,157,115,184"/>
+<area shape="rect" id="node5" href="$class_shell.html#ab4a3f80dc5ff779ac99116a1f7e35cda" title="Executes the command in the buffer." alt="" coords="189,107,295,133"/>
+<area shape="rect" id="node6" href="$class_login_shell.html#af54c5c14adac7955cf5e4f9460bd9ca5" title="Executes the command in the buffer." alt="" coords="5,107,141,133"/>
+</map>

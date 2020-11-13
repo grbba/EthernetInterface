@@ -1,0 +1,168 @@
+\hypertarget{class_network_interface}{}\doxysection{Network\+Interface Class Reference}
+\label{class_network_interface}\index{NetworkInterface@{NetworkInterface}}
+
+
+Main entry point used to instatiate the network interface(s).  
+
+
+
+
+{\ttfamily \#include $<$Network\+Interface.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_network_interface_ac131f1227aa4e746238686378e9ddff4}{set\+Http\+Callback}} (\mbox{\hyperlink{_network_interface_8h_a956a1a6eb4f3ad86434c3e9d1ea45907}{Http\+Callback}} callback)
+\begin{DoxyCompactList}\small\item\em used for setting the user provided callback function for H\+T\+TP request handling \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_network_interface_8h_a956a1a6eb4f3ad86434c3e9d1ea45907}{Http\+Callback}} \mbox{\hyperlink{class_network_interface_ab496a8867070073e643be7f67e6b09b7}{get\+Http\+Callback}} ()
+\item 
+void \mbox{\hyperlink{class_network_interface_a8f05744c8bc994934df83686131bbc63}{setup}} (\mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}} t, \mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}{protocol\+Type}} p, uint16\+\_\+t port)
+\begin{DoxyCompactList}\small\item\em Used for specific port nummber; default is 2560. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_interface_a6c82f2f7a8c50fecc3b7f1614ba8487c}{setup}} (\mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}} t, \mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}{protocol\+Type}} p)
+\begin{DoxyCompactList}\small\item\em uses default port number \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_interface_ae7bf14546d339e277e5471321e67f6a3}{setup}} (\mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}} t)
+\begin{DoxyCompactList}\small\item\em defaults for protocol/port \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_interface_a1421b49ae5459cef15985d833fbbb15a}{setup}} ()
+\begin{DoxyCompactList}\small\item\em defaults for all as above plus C\+A\+B\+LE (i.\+e. using Ethernet\+Shield ) as default \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_network_interface_abf59552fdde86426011d5a6496efcad5}{Network\+Interface}} ()
+\item 
+\mbox{\hyperlink{class_network_interface_adc72badb87b206431e240704e9aaa7c1}{$\sim$\+Network\+Interface}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_network_interface_a16289c91bcd5e48a00ad6fe5e8f0a2ad}{loop}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main entry point used to instatiate the network interface(s). 
+
+The member functions of this class shall be the only ones used in the main Comand\+Station-\/\+EX sketch. It provides the setup and callback setting facilities as well as the loop managing data transfer and command handling accroding to the Command\+Station command protocols available. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_network_interface_abf59552fdde86426011d5a6496efcad5}\label{class_network_interface_abf59552fdde86426011d5a6496efcad5}} 
+\index{NetworkInterface@{NetworkInterface}!NetworkInterface@{NetworkInterface}}
+\index{NetworkInterface@{NetworkInterface}!NetworkInterface@{NetworkInterface}}
+\doxysubsubsection{\texorpdfstring{NetworkInterface()}{NetworkInterface()}}
+{\footnotesize\ttfamily Network\+Interface\+::\+Network\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_network_interface_adc72badb87b206431e240704e9aaa7c1}\label{class_network_interface_adc72badb87b206431e240704e9aaa7c1}} 
+\index{NetworkInterface@{NetworkInterface}!````~NetworkInterface@{$\sim$NetworkInterface}}
+\index{````~NetworkInterface@{$\sim$NetworkInterface}!NetworkInterface@{NetworkInterface}}
+\doxysubsubsection{\texorpdfstring{$\sim$NetworkInterface()}{~NetworkInterface()}}
+{\footnotesize\ttfamily Network\+Interface\+::$\sim$\+Network\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_network_interface_ab496a8867070073e643be7f67e6b09b7}\label{class_network_interface_ab496a8867070073e643be7f67e6b09b7}} 
+\index{NetworkInterface@{NetworkInterface}!getHttpCallback@{getHttpCallback}}
+\index{getHttpCallback@{getHttpCallback}!NetworkInterface@{NetworkInterface}}
+\doxysubsubsection{\texorpdfstring{getHttpCallback()}{getHttpCallback()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_network_interface_8h_a956a1a6eb4f3ad86434c3e9d1ea45907}{Http\+Callback}} Network\+Interface\+::get\+Http\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_network_interface_ab496a8867070073e643be7f67e6b09b7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_network_interface_a16289c91bcd5e48a00ad6fe5e8f0a2ad}\label{class_network_interface_a16289c91bcd5e48a00ad6fe5e8f0a2ad}} 
+\index{NetworkInterface@{NetworkInterface}!loop@{loop}}
+\index{loop@{loop}!NetworkInterface@{NetworkInterface}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void Network\+Interface\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_network_interface_a16289c91bcd5e48a00ad6fe5e8f0a2ad_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_network_interface_ac131f1227aa4e746238686378e9ddff4}\label{class_network_interface_ac131f1227aa4e746238686378e9ddff4}} 
+\index{NetworkInterface@{NetworkInterface}!setHttpCallback@{setHttpCallback}}
+\index{setHttpCallback@{setHttpCallback}!NetworkInterface@{NetworkInterface}}
+\doxysubsubsection{\texorpdfstring{setHttpCallback()}{setHttpCallback()}}
+{\footnotesize\ttfamily void Network\+Interface\+::set\+Http\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_network_interface_8h_a956a1a6eb4f3ad86434c3e9d1ea45907}{Http\+Callback}}}]{callback }\end{DoxyParamCaption})}
+
+
+
+used for setting the user provided callback function for H\+T\+TP request handling 
+
+\mbox{\Hypertarget{class_network_interface_a1421b49ae5459cef15985d833fbbb15a}\label{class_network_interface_a1421b49ae5459cef15985d833fbbb15a}} 
+\index{NetworkInterface@{NetworkInterface}!setup@{setup}}
+\index{setup@{setup}!NetworkInterface@{NetworkInterface}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Network\+Interface\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+defaults for all as above plus C\+A\+B\+LE (i.\+e. using Ethernet\+Shield ) as default 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_network_interface_a1421b49ae5459cef15985d833fbbb15a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_network_interface_ae7bf14546d339e277e5471321e67f6a3}\label{class_network_interface_ae7bf14546d339e277e5471321e67f6a3}} 
+\index{NetworkInterface@{NetworkInterface}!setup@{setup}}
+\index{setup@{setup}!NetworkInterface@{NetworkInterface}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Network\+Interface\+::setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}}}]{t }\end{DoxyParamCaption})}
+
+
+
+defaults for protocol/port 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_network_interface_ae7bf14546d339e277e5471321e67f6a3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_network_interface_a6c82f2f7a8c50fecc3b7f1614ba8487c}\label{class_network_interface_a6c82f2f7a8c50fecc3b7f1614ba8487c}} 
+\index{NetworkInterface@{NetworkInterface}!setup@{setup}}
+\index{setup@{setup}!NetworkInterface@{NetworkInterface}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Network\+Interface\+::setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}}}]{t,  }\item[{\mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}{protocol\+Type}}}]{p }\end{DoxyParamCaption})}
+
+
+
+uses default port number 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_network_interface_a6c82f2f7a8c50fecc3b7f1614ba8487c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_network_interface_a8f05744c8bc994934df83686131bbc63}\label{class_network_interface_a8f05744c8bc994934df83686131bbc63}} 
+\index{NetworkInterface@{NetworkInterface}!setup@{setup}}
+\index{setup@{setup}!NetworkInterface@{NetworkInterface}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Network\+Interface\+::setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_network_interface_8h_a59eb013c6734195b94b275310e167df1}{transport\+Type}}}]{t,  }\item[{\mbox{\hyperlink{_network_interface_8h_af6adf0e71a06d4619216ff5e60479530}{protocol\+Type}}}]{p,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+Used for specific port nummber; default is 2560. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_network_interface_a8f05744c8bc994934df83686131bbc63_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_network_interface_8h}{Network\+Interface.\+h}}\item 
+src/\mbox{\hyperlink{_network_interface_8cpp}{Network\+Interface.\+cpp}}\end{DoxyCompactItemize}

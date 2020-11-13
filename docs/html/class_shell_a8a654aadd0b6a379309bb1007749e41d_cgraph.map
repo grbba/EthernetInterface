@@ -1,0 +1,4 @@
+<map id="Shell::end" name="Shell::end">
+<area shape="rect" id="node1" title="Ends shell processing on the underlying stream." alt="" coords="5,5,85,32"/>
+<area shape="rect" id="node2" href="$class_terminal.html#a9e4c08d43a1a1c039e385d63aca049c0" title="Ends terminal operations on an underlying stream." alt="" coords="133,5,233,32"/>
+</map>

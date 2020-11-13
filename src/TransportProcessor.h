@@ -24,14 +24,13 @@
 #include <Ethernet.h>
 #include <WiFiEspAT.h>
 
-#ifdef DCCEX_ENABLED
-    #include "RingStream.h"
-#endif
-
 #include "Transport.h"
 #include "NetworkConfig.h"
 #include "NetworkInterface.h"
 
+#ifdef DCCEX_ENABLED
+#include "RingStream.h"
+#endif
 
 class TransportProcessor
 {

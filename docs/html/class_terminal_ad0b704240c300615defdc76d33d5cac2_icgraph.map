@@ -1,0 +1,4 @@
+<map id="Terminal::unicodeKey" name="Terminal::unicodeKey">
+<area shape="rect" id="node1" title="Gets the Unicode version of the last key returned by readKey()." alt="" coords="136,5,283,32"/>
+<area shape="rect" id="node2" href="$class_shell.html#afc45cae4ccfc76321a254bb617dce08c" title="Performs regular activities on the shell." alt="" coords="5,5,88,32"/>
+</map>

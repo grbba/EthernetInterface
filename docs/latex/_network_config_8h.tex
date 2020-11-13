@@ -1,0 +1,131 @@
+\hypertarget{_network_config_8h}{}\doxysection{src/\+Network\+Config.h File Reference}
+\label{_network_config_8h}\index{src/NetworkConfig.h@{src/NetworkConfig.h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_network_config_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_network_config_8h_a364697bba92cbad598418a91ddff9993}{D\+C\+C\+E\+X\+\_\+\+C\+LI}}
+\item 
+\#define \mbox{\hyperlink{_network_config_8h_a4fba0963c20988d1f1a45afb1c636e44}{L\+I\+S\+T\+E\+N\+\_\+\+P\+O\+RT}}~2560
+\begin{DoxyCompactList}\small\item\em default listen port for the server \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_network_config_8h_a0cb4fc37d244ce985851dd2958ae0b94}{M\+A\+C\+\_\+\+A\+D\+D\+R\+E\+SS}}~\{0x52, 0x\+B8, 0x8A, 0x8E, 0x\+CE, 0x21\}
+\begin{DoxyCompactList}\small\item\em Dummy will not be used; This will be setup automatically based on the unique id of the Arduino. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_network_config_8h_ad8a262037cbfb38d1512f0073eeb7a66}{I\+P\+\_\+\+A\+D\+D\+R\+E\+SS}}~10, 0, 0, 101
+\begin{DoxyCompactList}\small\item\em Just in case we don\textquotesingle{}t get an adress from D\+H\+CP try a static one; To be adapted to your specific home network setup. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_network_config_8h_a10bf2917a6a4297e21e03f60c487f591}{M\+A\+X\+\_\+\+I\+N\+T\+E\+R\+F\+A\+C\+ES}}~4
+\begin{DoxyCompactList}\small\item\em Consumes too much memory beyond in general not more than 2 should be required. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_network_config_8h_ae5a2e3b1eefb3a10a2485e28a4ccdb59}{M\+A\+X\+\_\+\+S\+O\+C\+K\+\_\+\+N\+UM}}~8
+\begin{DoxyCompactList}\small\item\em Maximum number of sockets allowed for any Wiz\+Net based Ethernet\+Shield. The W5100 only supports 4. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_network_config_8h_a425484190fd0727155e363d1c9d2083e}{M\+A\+X\+\_\+\+W\+I\+F\+I\+\_\+\+S\+O\+CK}}~5
+\begin{DoxyCompactList}\small\item\em E\+S\+P8266 doesn\textquotesingle{}t support more than 5 connections. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_network_config_8h_a4662280c82f67a3cdb4c528fde9e682c}{M\+A\+X\+\_\+\+E\+T\+H\+\_\+\+B\+U\+F\+F\+ER}}~128
+\begin{DoxyCompactList}\small\item\em Maximum length read in one go from a T\+CP packet. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_network_config_8h_a09fdbf3d9ac8ffe5a6bc5a7c3c29293a}{M\+A\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~\mbox{\hyperlink{_network_config_8h_a4662280c82f67a3cdb4c528fde9e682c}{M\+A\+X\+\_\+\+E\+T\+H\+\_\+\+B\+U\+F\+F\+ER}} / 2
+\begin{DoxyCompactList}\small\item\em Length of the overflow buffer to be used for a given connection to make sure we capture commands broken between two recieves. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_network_config_8h_a4fc9bdc92501e74ac247760dc0c8f3ad}{M\+A\+X\+\_\+\+J\+M\+R\+I\+\_\+\+C\+MD}}~\mbox{\hyperlink{_network_config_8h_a4662280c82f67a3cdb4c528fde9e682c}{M\+A\+X\+\_\+\+E\+T\+H\+\_\+\+B\+U\+F\+F\+ER}} / 2
+\begin{DoxyCompactList}\small\item\em Maximum Length of a J\+M\+RI Command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_network_config_8h_a364697bba92cbad598418a91ddff9993}\label{_network_config_8h_a364697bba92cbad598418a91ddff9993}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!DCCEX\_CLI@{DCCEX\_CLI}}
+\index{DCCEX\_CLI@{DCCEX\_CLI}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{DCCEX\_CLI}{DCCEX\_CLI}}
+{\footnotesize\ttfamily \#define D\+C\+C\+E\+X\+\_\+\+C\+LI}
+
+\mbox{\Hypertarget{_network_config_8h_ad8a262037cbfb38d1512f0073eeb7a66}\label{_network_config_8h_ad8a262037cbfb38d1512f0073eeb7a66}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!IP\_ADDRESS@{IP\_ADDRESS}}
+\index{IP\_ADDRESS@{IP\_ADDRESS}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{IP\_ADDRESS}{IP\_ADDRESS}}
+{\footnotesize\ttfamily \#define I\+P\+\_\+\+A\+D\+D\+R\+E\+SS~10, 0, 0, 101}
+
+
+
+Just in case we don\textquotesingle{}t get an adress from D\+H\+CP try a static one; To be adapted to your specific home network setup. 
+
+\mbox{\Hypertarget{_network_config_8h_a4fba0963c20988d1f1a45afb1c636e44}\label{_network_config_8h_a4fba0963c20988d1f1a45afb1c636e44}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!LISTEN\_PORT@{LISTEN\_PORT}}
+\index{LISTEN\_PORT@{LISTEN\_PORT}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{LISTEN\_PORT}{LISTEN\_PORT}}
+{\footnotesize\ttfamily \#define L\+I\+S\+T\+E\+N\+\_\+\+P\+O\+RT~2560}
+
+
+
+default listen port for the server 
+
+\mbox{\Hypertarget{_network_config_8h_a0cb4fc37d244ce985851dd2958ae0b94}\label{_network_config_8h_a0cb4fc37d244ce985851dd2958ae0b94}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!MAC\_ADDRESS@{MAC\_ADDRESS}}
+\index{MAC\_ADDRESS@{MAC\_ADDRESS}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{MAC\_ADDRESS}{MAC\_ADDRESS}}
+{\footnotesize\ttfamily \#define M\+A\+C\+\_\+\+A\+D\+D\+R\+E\+SS~\{0x52, 0x\+B8, 0x8A, 0x8E, 0x\+CE, 0x21\}}
+
+
+
+Dummy will not be used; This will be setup automatically based on the unique id of the Arduino. 
+
+\mbox{\Hypertarget{_network_config_8h_a4662280c82f67a3cdb4c528fde9e682c}\label{_network_config_8h_a4662280c82f67a3cdb4c528fde9e682c}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!MAX\_ETH\_BUFFER@{MAX\_ETH\_BUFFER}}
+\index{MAX\_ETH\_BUFFER@{MAX\_ETH\_BUFFER}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_ETH\_BUFFER}{MAX\_ETH\_BUFFER}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+E\+T\+H\+\_\+\+B\+U\+F\+F\+ER~128}
+
+
+
+Maximum length read in one go from a T\+CP packet. 
+
+\mbox{\Hypertarget{_network_config_8h_a10bf2917a6a4297e21e03f60c487f591}\label{_network_config_8h_a10bf2917a6a4297e21e03f60c487f591}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!MAX\_INTERFACES@{MAX\_INTERFACES}}
+\index{MAX\_INTERFACES@{MAX\_INTERFACES}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_INTERFACES}{MAX\_INTERFACES}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+I\+N\+T\+E\+R\+F\+A\+C\+ES~4}
+
+
+
+Consumes too much memory beyond in general not more than 2 should be required. 
+
+\mbox{\Hypertarget{_network_config_8h_a4fc9bdc92501e74ac247760dc0c8f3ad}\label{_network_config_8h_a4fc9bdc92501e74ac247760dc0c8f3ad}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!MAX\_JMRI\_CMD@{MAX\_JMRI\_CMD}}
+\index{MAX\_JMRI\_CMD@{MAX\_JMRI\_CMD}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_JMRI\_CMD}{MAX\_JMRI\_CMD}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+J\+M\+R\+I\+\_\+\+C\+MD~\mbox{\hyperlink{_network_config_8h_a4662280c82f67a3cdb4c528fde9e682c}{M\+A\+X\+\_\+\+E\+T\+H\+\_\+\+B\+U\+F\+F\+ER}} / 2}
+
+
+
+Maximum Length of a J\+M\+RI Command. 
+
+\mbox{\Hypertarget{_network_config_8h_a09fdbf3d9ac8ffe5a6bc5a7c3c29293a}\label{_network_config_8h_a09fdbf3d9ac8ffe5a6bc5a7c3c29293a}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!MAX\_OVERFLOW@{MAX\_OVERFLOW}}
+\index{MAX\_OVERFLOW@{MAX\_OVERFLOW}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_OVERFLOW}{MAX\_OVERFLOW}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW~\mbox{\hyperlink{_network_config_8h_a4662280c82f67a3cdb4c528fde9e682c}{M\+A\+X\+\_\+\+E\+T\+H\+\_\+\+B\+U\+F\+F\+ER}} / 2}
+
+
+
+Length of the overflow buffer to be used for a given connection to make sure we capture commands broken between two recieves. 
+
+\mbox{\Hypertarget{_network_config_8h_ae5a2e3b1eefb3a10a2485e28a4ccdb59}\label{_network_config_8h_ae5a2e3b1eefb3a10a2485e28a4ccdb59}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!MAX\_SOCK\_NUM@{MAX\_SOCK\_NUM}}
+\index{MAX\_SOCK\_NUM@{MAX\_SOCK\_NUM}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_SOCK\_NUM}{MAX\_SOCK\_NUM}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+S\+O\+C\+K\+\_\+\+N\+UM~8}
+
+
+
+Maximum number of sockets allowed for any Wiz\+Net based Ethernet\+Shield. The W5100 only supports 4. 
+
+\mbox{\Hypertarget{_network_config_8h_a425484190fd0727155e363d1c9d2083e}\label{_network_config_8h_a425484190fd0727155e363d1c9d2083e}} 
+\index{NetworkConfig.h@{NetworkConfig.h}!MAX\_WIFI\_SOCK@{MAX\_WIFI\_SOCK}}
+\index{MAX\_WIFI\_SOCK@{MAX\_WIFI\_SOCK}!NetworkConfig.h@{NetworkConfig.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_WIFI\_SOCK}{MAX\_WIFI\_SOCK}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+W\+I\+F\+I\+\_\+\+S\+O\+CK~5}
+
+
+
+E\+S\+P8266 doesn\textquotesingle{}t support more than 5 connections. 
+

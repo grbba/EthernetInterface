@@ -1,0 +1,5 @@
+<map id="Terminal::setWindowSize" name="Terminal::setWindowSize">
+<area shape="rect" id="node1" title="Sets the number of columns and rows in the window." alt="" coords="5,31,176,57"/>
+<area shape="rect" id="node2" href="$class_terminal.html#a6d8451ffa6a80afdd3daa4bec96258e3" title="Gets the number of columns in the window; defaults to 80." alt="" coords="224,5,352,32"/>
+<area shape="rect" id="node3" href="$class_terminal.html#a56611fcbeb5eadf3665e568760952ee4" title="Gets the number of rows in the window; defaults to 24." alt="" coords="235,56,341,83"/>
+</map>

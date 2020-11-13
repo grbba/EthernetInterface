@@ -1,0 +1,13 @@
+<map id="src/NetworkDiag.h" name="src/NetworkDiag.h">
+<area shape="rect" id="node1" title=" " alt="" coords="109,5,240,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="43,379,120,405"/>
+<area shape="rect" id="node3" href="$free_memory_8h.html" title=" " alt="" coords="262,80,362,107"/>
+<area shape="rect" id="node4" href="$_string_formatter_8h.html" title=" " alt="" coords="64,80,187,107"/>
+<area shape="rect" id="node5" href="$_transport_processor_8h.html" title=" " alt="" coords="171,155,317,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="340,453,423,480"/>
+<area shape="rect" id="node7" title=" " alt="" coords="195,304,293,331"/>
+<area shape="rect" id="node8" href="$_transport_8h.html" title=" " alt="" coords="287,229,375,256"/>
+<area shape="rect" id="node9" href="$_network_config_8h.html" title=" " alt="" coords="549,379,669,405"/>
+<area shape="rect" id="node10" href="$_network_interface_8h.html" title=" " alt="" coords="419,304,552,331"/>
+<area shape="rect" id="node11" href="$_http_request_8h.html" title="creates a HttpRequest object for the user callback." alt="" coords="419,379,525,405"/>
+</map>

@@ -1,0 +1,92 @@
+\hypertarget{class_shell_arguments}{}\doxysection{Shell\+Arguments Class Reference}
+\label{class_shell_arguments}\index{ShellArguments@{ShellArguments}}
+
+
+Convenience class that encapsulates an array of shell command arguments.  
+
+
+
+
+{\ttfamily \#include $<$Shell.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_shell_arguments_ae8c5e39921e5d1cc4521f4712495abc0}{count}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of arguments, including the name of the command. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{class_shell_arguments_abf8bda757e8411d2729655f96e92fd38}{operator\mbox{[}$\,$\mbox{]}}} (int index) const
+\begin{DoxyCompactList}\small\item\em Gets a specific argument for the command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_shell_arguments_a7edf259cb12b10b3f2b1af7cf09d5664}{Shell}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Convenience class that encapsulates an array of shell command arguments. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell}{Shell}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shell_arguments_ae8c5e39921e5d1cc4521f4712495abc0}\label{class_shell_arguments_ae8c5e39921e5d1cc4521f4712495abc0}} 
+\index{ShellArguments@{ShellArguments}!count@{count}}
+\index{count@{count}!ShellArguments@{ShellArguments}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily int Shell\+Arguments\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the number of arguments, including the name of the command. 
+
+\begin{DoxySeeAlso}{See also}
+operator\mbox{[}\mbox{]} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shell_arguments_ae8c5e39921e5d1cc4521f4712495abc0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shell_arguments_abf8bda757e8411d2729655f96e92fd38}\label{class_shell_arguments_abf8bda757e8411d2729655f96e92fd38}} 
+\index{ShellArguments@{ShellArguments}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ShellArguments@{ShellArguments}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily const char $\ast$ Shell\+Arguments\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Gets a specific argument for the command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The argument index between 0 and \mbox{\hyperlink{class_shell_arguments_ae8c5e39921e5d1cc4521f4712495abc0}{count()}} -\/ 1. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The argument, or N\+U\+LL if {\itshape index} is out of range.
+\end{DoxyReturn}
+The name of the command is argument 0. The command\textquotesingle{}s remaining arguments are numbered 1 to \mbox{\hyperlink{class_shell_arguments_ae8c5e39921e5d1cc4521f4712495abc0}{count()}} -\/ 1.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell_arguments_ae8c5e39921e5d1cc4521f4712495abc0}{count()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_shell_arguments_a7edf259cb12b10b3f2b1af7cf09d5664}\label{class_shell_arguments_a7edf259cb12b10b3f2b1af7cf09d5664}} 
+\index{ShellArguments@{ShellArguments}!Shell@{Shell}}
+\index{Shell@{Shell}!ShellArguments@{ShellArguments}}
+\doxysubsubsection{\texorpdfstring{Shell}{Shell}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_shell}{Shell}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/cli/\mbox{\hyperlink{_shell_8h}{Shell.\+h}}\item 
+src/cli/\mbox{\hyperlink{_shell_8cpp}{Shell.\+cpp}}\end{DoxyCompactItemize}

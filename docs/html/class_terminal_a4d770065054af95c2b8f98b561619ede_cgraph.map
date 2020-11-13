@@ -1,0 +1,4 @@
+<map id="Terminal::reverse" name="Terminal::reverse">
+<area shape="rect" id="node1" title="Reverse the foreground and background colors for inverted text." alt="" coords="5,5,128,32"/>
+<area shape="rect" id="node2" href="$class_terminal.html#ae0b908585ec355e0f299579a015c1170" title="Writes a static string that is stored in program memory." alt="" coords="176,5,339,32"/>
+</map>

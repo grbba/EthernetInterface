@@ -31,10 +31,10 @@
 
 typedef enum
 {
-    DCCEX,      // if char[0] = < opening bracket the client should be a JMRI / DCC EX client_h
+    DCCEX,      //!< if char[0] = < opening bracket the client should be a JMRI / DCC EX client_h
     WITHROTTLE, //
-    HTTP,       // If char[0] = G || P || D; if P then char [1] = U || O || A
-    N_DIAG,     // '#' send form a telnet client as FIRST message will then reroute all DIAG messages to that client whilst being able to send jmri type commands
+    HTTP,       //!< If char[0] = G || P || D; if P then char [1] = U || O || A
+    N_DIAG,     //!< '#' send form a telnet client as FIRST message will then reroute all DIAG messages to that client whilst being able to send any raw text (jmri/WiThrottle) type commands
     UNKNOWN_PROTOCOL
 } appProtocol;
 
@@ -56,21 +56,27 @@ struct Connection
 };
 
 
-
+/**
+ * @brief 
+ * 
+ * @tparam S Server (either EthernetServer or WiFiServer)
+ * @tparam C Client (either EthernetClient or WiFiClient)
+ * @tparam U UDP (either EthernetUDP or WiFiUDP)
+ */
 
 template <class S, class C, class U> class Transport: public AbstractTransport
 {
 
 private:
-    C                   clients[MAX_SOCK_NUM];          // Client objects created by the connectionPool
-    Connection          connections[MAX_SOCK_NUM];      // All the connections build by the connectionPool
+    C                   clients[MAX_SOCK_NUM];          //!< Client objects created by the connectionPool
+    Connection          connections[MAX_SOCK_NUM];      //!< All the connections build by the connectionPool
     bool                connected = false;                          
-    TransportProcessor* t;                              // pointer to the object which handles the incomming/outgoing flow
+    TransportProcessor* t;                              //!< pointer to the object which handles the incomming/outgoing flow
 
-    void udpHandler(U* udp);                            // Reads from a Udp socket - todo add incomming queue for processing when the flow is faster than we can process commands
-    void tcpSessionHandler(S* server);                  // tcpSessionHandler -> connections are maintained open until close by the client
-    void connectionPool(S* server);                     // allocates the Sockets at setup time and creates the Connections
-    void connectionPool(U* udp);                        // allocates the UDP Sockets at setup time and creates the Connection
+    void udpHandler(U* udp);                            //!< Reads from a Udp socket - todo add incomming queue for processing when the flow is faster than we can process commands
+    void tcpSessionHandler(S* server);                  //!< tcpSessionHandler -> connections are maintained open until close by the client
+    void connectionPool(S* server);                     //!< allocates the sockets at setup time and creates the Connections
+    void connectionPool(U* udp);                        //!< allocates the UDP Sockets at setup time and creates the Connection
    
 public:
 

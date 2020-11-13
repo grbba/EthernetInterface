@@ -17,9 +17,22 @@
  * See the GNU General Public License for more details <https://www.gnu.org/licenses/>
  */
 
+/**
+ * @file NetworkInterface.cpp
+ * @author Gregor Baues (gr2bba@gmail.com)
+ * @brief This is some text about this class
+ * @version 0.1
+ * @date 12-11-2020
+ * 
+ * @copyright Copyright (c) 2020
+ * 
+ * Licence
+ */
+
 #include <Arduino.h>
 
 #include "NetworkDiag.h"
+#include "NetworkSetup.h"
 #include "NetworkInterface.h"
 #include "Transport.h"
 #include "EthernetSetup.h"
@@ -75,6 +88,8 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
 {
     bool ok = false;
     _nLogLevel = 4;    // set the log level to ERROR during setup to get proper information 
+
+    NetworkSetup::setDeviceId();
 
     INFO(F("[%s] Transport Setup In Progress ..."), transport ? "Ethernet" : "Wifi");
 

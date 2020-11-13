@@ -1,0 +1,73 @@
+\hypertarget{_terminal_8cpp}{}\doxysection{src/cli/\+Terminal.cpp File Reference}
+\label{_terminal_8cpp}\index{src/cli/Terminal.cpp@{src/cli/Terminal.cpp}}
+{\ttfamily \#include \char`\"{}Terminal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Telnet\+Defs.\+h\char`\"{}}\newline
+Include dependency graph for Terminal.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{_terminal_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{_terminal_8cpp_a9b301b0513979d71c4ba77a06007efda}{escape\+Sequence\+Start}} (int ch)
+\begin{DoxyCompactList}\small\item\em Determine if a character starts an escape sequence after E\+SC. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{_terminal_8cpp_ab9f8ebed3be695428256a5bbbf81fde3}{write\+Number}} (uint8\+\_\+t $\ast$buf, uint8\+\_\+t \&posn, int value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static uint8\+\_\+t const keymap\mbox{[}459\mbox{]} \mbox{\hyperlink{_terminal_8cpp_ad725b10d18aacac2902dd26ca569e861}{P\+R\+O\+G\+M\+EM}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_terminal_8cpp_a9b301b0513979d71c4ba77a06007efda}\label{_terminal_8cpp_a9b301b0513979d71c4ba77a06007efda}} 
+\index{Terminal.cpp@{Terminal.cpp}!escapeSequenceStart@{escapeSequenceStart}}
+\index{escapeSequenceStart@{escapeSequenceStart}!Terminal.cpp@{Terminal.cpp}}
+\doxysubsubsection{\texorpdfstring{escapeSequenceStart()}{escapeSequenceStart()}}
+{\footnotesize\ttfamily static bool escape\+Sequence\+Start (\begin{DoxyParamCaption}\item[{int}]{ch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Determine if a character starts an escape sequence after E\+SC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & The character to test.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if {\itshape ch} starts an escape sequence; false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_terminal_8cpp_a9b301b0513979d71c4ba77a06007efda_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_terminal_8cpp_ab9f8ebed3be695428256a5bbbf81fde3}\label{_terminal_8cpp_ab9f8ebed3be695428256a5bbbf81fde3}} 
+\index{Terminal.cpp@{Terminal.cpp}!writeNumber@{writeNumber}}
+\index{writeNumber@{writeNumber}!Terminal.cpp@{Terminal.cpp}}
+\doxysubsubsection{\texorpdfstring{writeNumber()}{writeNumber()}}
+{\footnotesize\ttfamily static void write\+Number (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buf,  }\item[{uint8\+\_\+t \&}]{posn,  }\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{_terminal_8cpp_ab9f8ebed3be695428256a5bbbf81fde3_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_terminal_8cpp_ad725b10d18aacac2902dd26ca569e861}\label{_terminal_8cpp_ad725b10d18aacac2902dd26ca569e861}} 
+\index{Terminal.cpp@{Terminal.cpp}!PROGMEM@{PROGMEM}}
+\index{PROGMEM@{PROGMEM}!Terminal.cpp@{Terminal.cpp}}
+\doxysubsubsection{\texorpdfstring{PROGMEM}{PROGMEM}}
+{\footnotesize\ttfamily uint8\+\_\+t const keymap \mbox{[}459\mbox{]} P\+R\+O\+G\+M\+EM\hspace{0.3cm}{\ttfamily [static]}}
+

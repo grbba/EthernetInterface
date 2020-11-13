@@ -1,0 +1,5 @@
+<map id="Terminal::color" name="Terminal::color">
+<area shape="rect" id="node1" title="Selects a text foreground color with the default background color." alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node2" href="$class_terminal.html#a2e8dd341fc1ce63aa120be6066a89bea" title="Enables bold text." alt="" coords="160,5,263,32"/>
+<area shape="rect" id="node3" href="$class_terminal.html#ae0b908585ec355e0f299579a015c1170" title="Writes a static string that is stored in program memory." alt="" coords="311,5,473,32"/>
+</map>

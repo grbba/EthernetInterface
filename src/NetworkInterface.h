@@ -26,9 +26,9 @@
 #include "HttpRequest.h"
 
 typedef enum protocolType {
-    TCP,
-    UDPR,            // UDP clashes with a class name in the network stack
-    MQTT                      
+    TCP,             //!< TCP standard protocol for the network connection management
+    UDPR,            //!< UDP clashes with a class name in the network stack need to define a namespace for that?
+    MQTT             //!< MQTT should not be here as its on the application level        
 } protocolType;
 
 typedef enum transportType {
@@ -39,25 +39,26 @@ typedef enum transportType {
 using HttpCallback = void(*)(ParsedRequest *req, Client *client);
 
 /**
- * @brief Abstract parent class of the templated ( Ethernet or Wifi ) class 
- * Instances of Transports are hold through this in an array in DCCNetwork which describes and 
+ * Abstract parent class of the templated ( Ethernet or Wifi ) Transport class. 
+ * Instances of Transport are hold through this in an array in DCCNetwork which describes and 
  * actually manages the available transports.
  */
 struct AbstractTransport {
-    void loop(){};
-    virtual ~AbstractTransport(){};
+    virtual ~AbstractTransport(){};  //!< declared virtual to make the class abstract
 };
 
 /**
- * @brief Core class holding and running the instantiated Transports 
- * initalized through the NetworkInterface. The number of transports is 
- * limited by MAX_INTERFACES
- * 
+ * Core class holding and running the instantiated Transport objects 
+ * initalized through the NetworkInterface. The Transports are handled as abstract 
+ * transports as they are derived from a templated class. Transport inherits from
+ * AbstractTransport. The transports arrayactually holds the instatiated Transport instances.
+ * The number of transports is limited by MAX_INTERFACES
  */
 class DCCNetwork {
     private:
         byte _tCounter = 0;
         transportType _t[MAX_INTERFACES];
+    
     public: 
         AbstractTransport *transports[MAX_INTERFACES];
 
@@ -66,9 +67,9 @@ class DCCNetwork {
 };
 
 /**
- * @brief Main entry point and provider of callbacks. Sole responsibility is to create
- * the transport endpoints and loop over them for processing
- * 
+ * Main entry point used to instatiate the network interface(s). The member functions of this class shall be the only
+ * ones used in the main ComandStation-EX sketch. It provides the setup and callback setting facilities as well as the loop
+ * managing data transfer and command handling accroding to the CommandStation command protocols available.
  */
 class NetworkInterface
 {
@@ -78,13 +79,13 @@ private:
 
 public:
 
-    void setHttpCallback(HttpCallback callback);
-    HttpCallback getHttpCallback();
-    void setup(transportType t, protocolType p, uint16_t port);        // specific port nummber
-    void setup(transportType t, protocolType p);                       // uses default port number
-    void setup(transportType t);                                       // defaults for protocol/port 
+    void setHttpCallback(HttpCallback callback);                       //!< used for setting the user provided callback function for HTTP request handling
+    HttpCallback getHttpCallback();                                   
+    void setup(transportType t, protocolType p, uint16_t port);        //!< Used for specific port nummber; default is 2560
+    void setup(transportType t, protocolType p);                       //!< uses default port number
+    void setup(transportType t);                                       //!< defaults for protocol/port 
     
-    void setup();                                                      // defaults for all as above plus CABLE (i.e. using EthernetShield ) as default
+    void setup();                                                      //!< defaults for all as above plus CABLE (i.e. using EthernetShield ) as default
     static void loop();
 
     NetworkInterface();

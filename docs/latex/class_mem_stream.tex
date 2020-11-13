@@ -1,0 +1,175 @@
+\hypertarget{class_mem_stream}{}\doxysection{Mem\+Stream Class Reference}
+\label{class_mem_stream}\index{MemStream@{MemStream}}
+
+
+{\ttfamily \#include $<$Mem\+Stream.\+h$>$}
+
+
+
+Inheritance diagram for Mem\+Stream\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{class_mem_stream__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Mem\+Stream\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{class_mem_stream__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mem_stream_a1d963263c21ab54327f40f73e38cb2ad}{Mem\+Stream}} (uint8\+\_\+t $\ast$buffer, const uint16\+\_\+t len, uint16\+\_\+t content\+\_\+len=0, bool allow\+Write=true)
+\item 
+\mbox{\hyperlink{class_mem_stream_a3a9b44b8e38b7e154cc249563174a71b}{$\sim$\+Mem\+Stream}} ()
+\item 
+\mbox{\hyperlink{class_mem_stream_ac63a80af54f2a06af92e907216514ff0}{operator const uint8\+\_\+t $\ast$}} () const
+\item 
+\mbox{\hyperlink{class_mem_stream_ad70d4e4855417d90ba1ca1567ba15468}{operator const char $\ast$}} () const
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_mem_stream_aeb558c63018daaf6f9d5d572ac9199dc}{current\+\_\+length}} () const
+\item 
+bool \mbox{\hyperlink{class_mem_stream_af1a783382251650988433c750edc2de9}{listen}} ()
+\item 
+void \mbox{\hyperlink{class_mem_stream_ab8af206e714477177c3fbe143586eb5d}{end}} ()
+\item 
+bool \mbox{\hyperlink{class_mem_stream_ad32b4f5f8e84ce5b67b22f39532490af}{is\+Listening}} ()
+\item 
+bool \mbox{\hyperlink{class_mem_stream_a91751af12d950db34bce6c6ea466b316}{overflow}} ()
+\item 
+int \mbox{\hyperlink{class_mem_stream_a8af2198179329778ffd70cb973d298f1}{peek}} ()
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_mem_stream_a341202849907fa5e1f48413238b679e5}{write}} (uint8\+\_\+t byte)
+\item 
+virtual int \mbox{\hyperlink{class_mem_stream_a6643d58cfb582889795c354f8165258e}{read}} ()
+\item 
+virtual int \mbox{\hyperlink{class_mem_stream_a9e63c0c11a6682563319874e8ae2e7c5}{available}} ()
+\item 
+virtual void \mbox{\hyperlink{class_mem_stream_a6ffdae0608184645433aad791c996617}{flush}} ()
+\item 
+void \mbox{\hyperlink{class_mem_stream_a17b150a7913a36fd08f0d6678ca5cdff}{set\+Buffer\+Content}} (uint8\+\_\+t $\ast$buffer, uint16\+\_\+t content\+\_\+len)
+\item 
+void \mbox{\hyperlink{class_mem_stream_ae457852240bf3f3e07d2353d28233aec}{set\+Buffer\+Content\+From\+Progmem}} (uint8\+\_\+t $\ast$buffer, uint16\+\_\+t content\+\_\+len)
+\item 
+void \mbox{\hyperlink{class_mem_stream_a52e42de9d57d04d4e85c3ec3f6db8a10}{set\+Buffer\+Content\+Position}} (uint16\+\_\+t read\+\_\+pos, uint16\+\_\+t write\+\_\+pos)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mem_stream_a1d963263c21ab54327f40f73e38cb2ad}\label{class_mem_stream_a1d963263c21ab54327f40f73e38cb2ad}} 
+\index{MemStream@{MemStream}!MemStream@{MemStream}}
+\index{MemStream@{MemStream}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{MemStream()}{MemStream()}}
+{\footnotesize\ttfamily Mem\+Stream\+::\+Mem\+Stream (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{const uint16\+\_\+t}]{len,  }\item[{uint16\+\_\+t}]{content\+\_\+len = {\ttfamily 0},  }\item[{bool}]{allow\+Write = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_mem_stream_a3a9b44b8e38b7e154cc249563174a71b}\label{class_mem_stream_a3a9b44b8e38b7e154cc249563174a71b}} 
+\index{MemStream@{MemStream}!````~MemStream@{$\sim$MemStream}}
+\index{````~MemStream@{$\sim$MemStream}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{$\sim$MemStream()}{~MemStream()}}
+{\footnotesize\ttfamily Mem\+Stream\+::$\sim$\+Mem\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mem_stream_a9e63c0c11a6682563319874e8ae2e7c5}\label{class_mem_stream_a9e63c0c11a6682563319874e8ae2e7c5}} 
+\index{MemStream@{MemStream}!available@{available}}
+\index{available@{available}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{available()}{available()}}
+{\footnotesize\ttfamily int Mem\+Stream\+::available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_mem_stream_aeb558c63018daaf6f9d5d572ac9199dc}\label{class_mem_stream_aeb558c63018daaf6f9d5d572ac9199dc}} 
+\index{MemStream@{MemStream}!current\_length@{current\_length}}
+\index{current\_length@{current\_length}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{current\_length()}{current\_length()}}
+{\footnotesize\ttfamily uint16\+\_\+t Mem\+Stream\+::current\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_mem_stream_ab8af206e714477177c3fbe143586eb5d}\label{class_mem_stream_ab8af206e714477177c3fbe143586eb5d}} 
+\index{MemStream@{MemStream}!end@{end}}
+\index{end@{end}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Mem\+Stream\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_mem_stream_a6ffdae0608184645433aad791c996617}\label{class_mem_stream_a6ffdae0608184645433aad791c996617}} 
+\index{MemStream@{MemStream}!flush@{flush}}
+\index{flush@{flush}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily void Mem\+Stream\+::flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_mem_stream_ad32b4f5f8e84ce5b67b22f39532490af}\label{class_mem_stream_ad32b4f5f8e84ce5b67b22f39532490af}} 
+\index{MemStream@{MemStream}!isListening@{isListening}}
+\index{isListening@{isListening}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{isListening()}{isListening()}}
+{\footnotesize\ttfamily bool Mem\+Stream\+::is\+Listening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_mem_stream_af1a783382251650988433c750edc2de9}\label{class_mem_stream_af1a783382251650988433c750edc2de9}} 
+\index{MemStream@{MemStream}!listen@{listen}}
+\index{listen@{listen}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{listen()}{listen()}}
+{\footnotesize\ttfamily bool Mem\+Stream\+::listen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_mem_stream_ad70d4e4855417d90ba1ca1567ba15468}\label{class_mem_stream_ad70d4e4855417d90ba1ca1567ba15468}} 
+\index{MemStream@{MemStream}!operator const char $\ast$@{operator const char $\ast$}}
+\index{operator const char $\ast$@{operator const char $\ast$}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{operator const char $\ast$()}{operator const char *()}}
+{\footnotesize\ttfamily Mem\+Stream\+::operator const char $\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_mem_stream_ac63a80af54f2a06af92e907216514ff0}\label{class_mem_stream_ac63a80af54f2a06af92e907216514ff0}} 
+\index{MemStream@{MemStream}!operator const uint8\_t $\ast$@{operator const uint8\_t $\ast$}}
+\index{operator const uint8\_t $\ast$@{operator const uint8\_t $\ast$}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{operator const uint8\_t $\ast$()}{operator const uint8\_t *()}}
+{\footnotesize\ttfamily Mem\+Stream\+::operator const uint8\+\_\+t $\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_mem_stream_a91751af12d950db34bce6c6ea466b316}\label{class_mem_stream_a91751af12d950db34bce6c6ea466b316}} 
+\index{MemStream@{MemStream}!overflow@{overflow}}
+\index{overflow@{overflow}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{overflow()}{overflow()}}
+{\footnotesize\ttfamily bool Mem\+Stream\+::overflow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_mem_stream_a8af2198179329778ffd70cb973d298f1}\label{class_mem_stream_a8af2198179329778ffd70cb973d298f1}} 
+\index{MemStream@{MemStream}!peek@{peek}}
+\index{peek@{peek}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily int Mem\+Stream\+::peek (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_mem_stream_a6643d58cfb582889795c354f8165258e}\label{class_mem_stream_a6643d58cfb582889795c354f8165258e}} 
+\index{MemStream@{MemStream}!read@{read}}
+\index{read@{read}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int Mem\+Stream\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_mem_stream_a17b150a7913a36fd08f0d6678ca5cdff}\label{class_mem_stream_a17b150a7913a36fd08f0d6678ca5cdff}} 
+\index{MemStream@{MemStream}!setBufferContent@{setBufferContent}}
+\index{setBufferContent@{setBufferContent}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{setBufferContent()}{setBufferContent()}}
+{\footnotesize\ttfamily void Mem\+Stream\+::set\+Buffer\+Content (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint16\+\_\+t}]{content\+\_\+len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_mem_stream_ae457852240bf3f3e07d2353d28233aec}\label{class_mem_stream_ae457852240bf3f3e07d2353d28233aec}} 
+\index{MemStream@{MemStream}!setBufferContentFromProgmem@{setBufferContentFromProgmem}}
+\index{setBufferContentFromProgmem@{setBufferContentFromProgmem}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{setBufferContentFromProgmem()}{setBufferContentFromProgmem()}}
+{\footnotesize\ttfamily void Mem\+Stream\+::set\+Buffer\+Content\+From\+Progmem (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint16\+\_\+t}]{content\+\_\+len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_mem_stream_a52e42de9d57d04d4e85c3ec3f6db8a10}\label{class_mem_stream_a52e42de9d57d04d4e85c3ec3f6db8a10}} 
+\index{MemStream@{MemStream}!setBufferContentPosition@{setBufferContentPosition}}
+\index{setBufferContentPosition@{setBufferContentPosition}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{setBufferContentPosition()}{setBufferContentPosition()}}
+{\footnotesize\ttfamily void Mem\+Stream\+::set\+Buffer\+Content\+Position (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{read\+\_\+pos,  }\item[{uint16\+\_\+t}]{write\+\_\+pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_mem_stream_a341202849907fa5e1f48413238b679e5}\label{class_mem_stream_a341202849907fa5e1f48413238b679e5}} 
+\index{MemStream@{MemStream}!write@{write}}
+\index{write@{write}!MemStream@{MemStream}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily size\+\_\+t Mem\+Stream\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_mem_stream_8h}{Mem\+Stream.\+h}}\item 
+src/\mbox{\hyperlink{_mem_stream_8cpp}{Mem\+Stream.\+cpp}}\end{DoxyCompactItemize}

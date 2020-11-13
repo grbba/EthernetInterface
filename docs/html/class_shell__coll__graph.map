@@ -1,0 +1,5 @@
+<map id="Shell" name="Shell">
+<area shape="rect" id="node1" title="Command&#45;line shell access." alt="" coords="15,155,66,181"/>
+<area shape="rect" id="node2" href="$class_terminal.html" title="Extended stream interface for terminal operations." alt="" coords="5,80,76,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="9,5,73,32"/>
+</map>

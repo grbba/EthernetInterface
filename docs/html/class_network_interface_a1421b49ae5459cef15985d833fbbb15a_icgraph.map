@@ -1,0 +1,4 @@
+<map id="NetworkInterface::setup" name="NetworkInterface::setup">
+<area shape="rect" id="node1" title="defaults for all as above plus CABLE (i.e. using EthernetShield ) as default" alt="" coords="216,5,379,32"/>
+<area shape="rect" id="node2" href="$class_network_interface.html#a6c82f2f7a8c50fecc3b7f1614ba8487c" title="uses default port number" alt="" coords="5,5,168,32"/>
+</map>

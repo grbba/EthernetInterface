@@ -19,28 +19,46 @@
 
 #include <Arduino.h>
 
-#ifdef DCCEX_ENABLED
-#include "RingStream.h"
-#endif
-
 #include "NetworkDiag.h"
 #include "NetworkInterface.h"
 #include "Transport.h"
 
+#ifdef DCCEX_ENABLED
+#include "RingStream.h"
+#endif
+
 extern bool diagNetwork;
 extern uint8_t diagNetworkClient;
+
+/**
+ * @brief Initalizes either the TCP or WiFi transport and creates the connecion pool. If the port for this transport is 23 and the protocol TCP it will start also the
+ * telnet server and set the maxConnections to 1 ( only one telnet connection will be allowed ) 
+ * 
+ * @tparam S Server type
+ * @tparam C Client type
+ * @tparam U UDP type
+ * @param nw NetworkInterface for this transport instance
+ * @return true 
+ * @return false 
+ */
 
 template<class S, class C, class U> 
 bool Transport<S,C,U>::setup(NetworkInterface *nw) {
     t = new TransportProcessor();
 
     if (protocol == TCP) { 
+        if (port == 23 ){
+            maxConnections = 1;
+            shell.setMachineName("CommandStation-EX");
+            shell.begin(clients[0], 5);  // 
+        }
         connectionPool(server);     // server should have started here so create the connection pool only for TCP though
         t->udp = 0;
     } else {
         connectionPool(udp);
         t->udp = udp;
     }
+    
     t->nwi = nw;                    // The TransportProcessor needs to know which Interface he is connected to
     connected = true;               // server & clients which will recieve/send data have all e setup and are available
     return true;
@@ -96,9 +114,9 @@ void Transport<S, C, U>::connectionPool(U *udp)
 /**
  * @todo implement UDP properly
  * 
- * @tparam S 
- * @tparam C 
- * @tparam U 
+ * @tparam S Server (either EthernetServer or WiFiServer)
+ * @tparam C Client (either EthernetClient or WiFiClient)
+ * @tparam U UDP (either EthernetUDP or WiFiUDP)
  */
 
 template<class S, class C, class U> 

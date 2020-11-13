@@ -1,0 +1,1277 @@
+\hypertarget{class_terminal}{}\doxysection{Terminal Class Reference}
+\label{class_terminal}\index{Terminal@{Terminal}}
+
+
+Extended stream interface for terminal operations.  
+
+
+
+
+{\ttfamily \#include $<$Terminal.\+h$>$}
+
+
+
+Inheritance diagram for Terminal\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_terminal__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Terminal\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{class_terminal__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Mode}} \{ \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}, 
+\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7}{Telnet}}
+ \}
+\begin{DoxyCompactList}\small\item\em Mode to operate in, Serial or Telnet. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}{Color}} \{ \newline
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20ae8891bcc826bd9843740727bd36481a4}{Black}} = 0x00, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a7e02ffbae282462707f7fa9b521a5350}{Dark\+Red}} = 0x01, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a3e3b823d801aa16880e837ee4b5a950a}{Dark\+Green}} = 0x02, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20aa79363e8a838f09ac55b4be7ddabe625}{Dark\+Yellow}} = 0x03, 
+\newline
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a857041b4a99e4a303f183a9881c32b8e}{Dark\+Blue}} = 0x04, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a3c0cb0568e93ebf1ea54bea5991b40a9}{Dark\+Magenta}} = 0x05, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a7770ad09b7bc5a420575bba06878efeb}{Dark\+Cyan}} = 0x06, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a3b4388fbed1f6c20cbe706d49b968683}{Light\+Gray}} = 0x07, 
+\newline
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20ab5595f67da54848741ee2b31a38bafec}{Dark\+Gray}} = 0x08, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20af2687d41cae4cb8276778be71c1e1efb}{Red}} = 0x09, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a884f0fec8e7a5adac3047b890fcbf491}{Green}} = 0x0A, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a5f04853bd0cf9cea91dae31cc5294f22}{Yellow}} = 0x0B, 
+\newline
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a70f0c34fa3b8055231e826454b9cf8be}{Blue}} = 0x0C, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a438c102a577219f2b654bebce4d53ea0}{Magenta}} = 0x0D, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a12656e5c242667b489e639d399964077}{Cyan}} = 0x0E, 
+\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20ae8296a3587847d6e0dd41efcc65251e8}{White}} = 0x0F
+ \}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_terminal}{Terminal}} foreground or background colors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_terminal_aa448509b5aa1ece53c3d86385655be0e}{Terminal}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a terminal object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_terminal_add5a7d4dd45b68af9a0afb1cc845af2f}{$\sim$\+Terminal}} ()
+\begin{DoxyCompactList}\small\item\em Destroys this terminal object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}{begin}} (Stream \&\mbox{\hyperlink{class_terminal_a910099d74409456914f83e88ba1d4aec}{stream}}, \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Mode}} \mbox{\hyperlink{class_terminal_aa3a460ae0bcb33d5673b457c258dc64e}{mode}}=\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}})
+\begin{DoxyCompactList}\small\item\em Begins terminal operations on an underlying stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a9e4c08d43a1a1c039e385d63aca049c0}{end}} ()
+\begin{DoxyCompactList}\small\item\em Ends terminal operations on an underlying stream. \end{DoxyCompactList}\item 
+Stream $\ast$ \mbox{\hyperlink{class_terminal_a910099d74409456914f83e88ba1d4aec}{stream}} () const
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the underlying Stream, or N\+U\+LL if the stream has not been set with \mbox{\hyperlink{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}{begin()}} yet. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Terminal\+::\+Mode}} \mbox{\hyperlink{class_terminal_aa3a460ae0bcb33d5673b457c258dc64e}{mode}} () const
+\begin{DoxyCompactList}\small\item\em Returns the mode this terminal is operating in, Serial or Telnet. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_terminal_a111698c496d601ef7fe0ce4de8a6de9a}{available}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of bytes that are available for reading. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_terminal_a49f6aa694fae8a9ff8a526350dd8f8fc}{peek}} ()
+\begin{DoxyCompactList}\small\item\em Peeks at the next byte from the underlying stream. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_terminal_a14dfd6dc5c4a30acfb47ab24c22d1cd5}{read}} ()
+\begin{DoxyCompactList}\small\item\em Reads the next byte from the underlying stream. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_terminal_a908cdfa64167279ed565d43b45470c3d}{flush}} ()
+\begin{DoxyCompactList}\small\item\em Flushes all data in the underlying stream. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_terminal_ae723f16d4f97954fb45550fa05d600bb}{write}} (uint8\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Writes a single byte to the underlying stream. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_terminal_a134b9131e18b35af18c53eabec49186d}{write}} (const uint8\+\_\+t $\ast$buffer, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Writes a buffer of data to the underlying stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_ae0b908585ec355e0f299579a015c1170}{write\+Prog\+Mem}} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Writes a static string that is stored in program memory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key}} ()
+\begin{DoxyCompactList}\small\item\em Reads the next key that was typed on this terminal. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{class_terminal_ad0b704240c300615defdc76d33d5cac2}{unicode\+Key}} () const
+\begin{DoxyCompactList}\small\item\em Gets the Unicode version of the last key returned by \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}}. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_terminal_a25308d6b2a3d18820d8a0e641c7be937}{write\+Unicode}} (long code)
+\begin{DoxyCompactList}\small\item\em Writes a Unicode code point to the output in U\+T\+F-\/8 encoding. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_terminal_a6d8451ffa6a80afdd3daa4bec96258e3}{columns}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of columns in the window; defaults to 80. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_terminal_a56611fcbeb5eadf3665e568760952ee4}{rows}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of rows in the window; defaults to 24. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_terminal_af8957afd199718a809114dc5236f1a62}{set\+Window\+Size}} (int \mbox{\hyperlink{class_terminal_a6d8451ffa6a80afdd3daa4bec96258e3}{columns}}, int \mbox{\hyperlink{class_terminal_a56611fcbeb5eadf3665e568760952ee4}{rows}})
+\begin{DoxyCompactList}\small\item\em Sets the number of columns and rows in the window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a4be741767b27739eec98901477e1c3d4}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Move the cursor to the top-\/left position and clear the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_aeb93d71925cdfb17065e7f1ef2e83414}{clear\+To\+E\+OL}} ()
+\begin{DoxyCompactList}\small\item\em Clears from the current cursor position to the end of the line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a7f60537603bd91df3ff1371a895054ea}{cursor\+Move}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Moves the cursor to a specific location in the window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a2b8434f44885beabb668b70565bfbebe}{cursor\+Left}} ()
+\begin{DoxyCompactList}\small\item\em Moves the cursor left by one character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_adba29515f7a2f7e3a8038cd583bd28dc}{cursor\+Right}} ()
+\begin{DoxyCompactList}\small\item\em Moves the cursor right by one character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_ae5259872812d674e1fda215ddd18ee70}{cursor\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Moves the cursor up by one line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a4068f1fd6087ff865b169da0a3d61ec5}{cursor\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Moves the cursor down by one line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_ae4aec627f980fe0d26653401785d41bc}{backspace}} ()
+\begin{DoxyCompactList}\small\item\em Backspaces over the last character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a9109858612082ffd3d91a88713b7448a}{insert\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Inserts a line at the cursor position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_af79ea5335f73762828087f5c813feafd}{insert\+Char}} ()
+\begin{DoxyCompactList}\small\item\em Inserts a blank character at the cursor position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_ae2f95592f13a1a5fe8464176a2b10298}{delete\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Deletes a line at the cursor position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a7daffb0fe91d76678c5a9f22fe16e2c5}{delete\+Char}} ()
+\begin{DoxyCompactList}\small\item\em Deletes the character at the cursor position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a30d8d69fd84cafc6c2c94ae6fc65b690}{scroll\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Scrolls the contents of the window up one line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a661474bb4790aa82178b3ce9a85e5dea}{scroll\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Scrolls the contents of the window down one line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a928023c8125f226ab0851f8b4bb6302f}{normal}} ()
+\begin{DoxyCompactList}\small\item\em Selects normal text with all attributes and colors off. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a2e8dd341fc1ce63aa120be6066a89bea}{bold}} ()
+\begin{DoxyCompactList}\small\item\em Enables bold text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a0e23c452353e7fdf0881d37521f3d105}{underline}} ()
+\begin{DoxyCompactList}\small\item\em Enables underlined text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a8485c7073e94e77f9873b80e9cac3151}{blink}} ()
+\begin{DoxyCompactList}\small\item\em Enables blinking text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_a4d770065054af95c2b8f98b561619ede}{reverse}} ()
+\begin{DoxyCompactList}\small\item\em Reverse the foreground and background colors for inverted text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_ad1fc2be31d49124a1d32e8afddaa57b8}{color}} (\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}{Color}} fg)
+\begin{DoxyCompactList}\small\item\em Selects a text foreground color with the default background color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_terminal_ae22436e478a854e8b559fe73182bc329}{color}} (\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}{Color}} fg, \mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}{Color}} bg)
+\begin{DoxyCompactList}\small\item\em Selects text foreground and background colors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_terminal_a25fdddd02378250799016cbb714c8a6b}{is\+Wide\+Character}} (long code)
+\begin{DoxyCompactList}\small\item\em Determine if a Unicode character is wide. \end{DoxyCompactList}\item 
+static size\+\_\+t \mbox{\hyperlink{class_terminal_a0ed780bd8568f752c5d3dfe68a111c52}{utf8\+Length}} (long code)
+\begin{DoxyCompactList}\small\item\em Determines the length of a Unicode code point in the U\+T\+F-\/8 encoding. \end{DoxyCompactList}\item 
+static size\+\_\+t \mbox{\hyperlink{class_terminal_ae6478319776ecb726613b38429d7cdec}{utf8\+Format}} (uint8\+\_\+t $\ast$buffer, long code)
+\begin{DoxyCompactList}\small\item\em Formats a Unicode code point in a buffer in the U\+T\+F-\/8 encoding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Extended stream interface for terminal operations. 
+
+This class extends the standard Arduino Stream class with functions that are suitable for interfacing to V\+T100 terminal applications like Pu\+T\+TY.
+
+The following example initializes a terminal running on the primary Arduino serial port\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_terminal}{Terminal}} term;}
+\DoxyCodeLine{\textcolor{keywordtype}{void} setup() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}.begin(9600);}
+\DoxyCodeLine{    term.\mbox{\hyperlink{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}});}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+The \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}} function reads input from the underlying stream, decodes any V\+T100 key escape sequences that it finds, and reports them to the application using U\+SB, A\+S\+C\+II, or Unicode key codes. This is typically used in the application\textquotesingle{}s main loop as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} loop() \{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} key = term.\mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{readKey}}();}
+\DoxyCodeLine{    \textcolor{keywordflow}{switch} (key) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{case} -\/1:     \textcolor{keywordflow}{break};      \textcolor{comment}{// No key available.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{case} \mbox{\hyperlink{_u_s_b_keys_extra_8h_a9a8100ac50bf8e0227c66f85312d1eec}{KEY\_LEFT\_ARROW}}:}
+\DoxyCodeLine{        \textcolor{comment}{// Left arrow key has been pressed.}}
+\DoxyCodeLine{        ...}
+\DoxyCodeLine{        \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{case} \mbox{\hyperlink{_u_s_b_keys_extra_8h_a6b1df3d1cbf22d04b162eb6a89068b5d}{KEY\_RIGHT\_ARROW}}:}
+\DoxyCodeLine{        \textcolor{comment}{// Right arrow key has been pressed.}}
+\DoxyCodeLine{        ...}
+\DoxyCodeLine{        \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{case} \mbox{\hyperlink{_u_s_b_keys_extra_8h_a86b2b2d4eda22067d85d2287c118e2d8}{KEY\_ESC}}:}
+\DoxyCodeLine{        \textcolor{comment}{// Escape key has been pressed.}}
+\DoxyCodeLine{        ...}
+\DoxyCodeLine{        \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (key >= 0x20 \&\& key <= 7E) \{}
+\DoxyCodeLine{            \textcolor{comment}{// Visible ASCII character has been typed.}}
+\DoxyCodeLine{            ...}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{break};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+This class understands extended characters in the U\+T\+F-\/8 encoding, allowing the full Unicode character set to be used in applications. Extended Unicode characters are reported by \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}} with the key code K\+E\+Y\+\_\+\+U\+N\+I\+C\+O\+DE, with the actual code point returned via \mbox{\hyperlink{class_terminal_ad0b704240c300615defdc76d33d5cac2}{unicode\+Key()}}.
+
+On the output side, U\+T\+F-\/8 strings can be written to the terminal using \mbox{\hyperlink{class_terminal_ae723f16d4f97954fb45550fa05d600bb}{write()}}, or \mbox{\hyperlink{class_terminal_a25308d6b2a3d18820d8a0e641c7be937}{write\+Unicode()}} can be used to write a single Unicode character in U\+T\+F-\/8.
+
+\begin{DoxyNote}{Note}
+This class does not have any special support for right-\/to-\/left scripts or composed characters. Unicode characters are read and written in the order in which they arrive. Applications may need to alter strings to display them correctly in such scripts. Patches are welcome to fix this.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_shell}{Shell}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}} 
+\index{Terminal@{Terminal}!Color@{Color}}
+\index{Color@{Color}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{Color}{Color}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}{Terminal\+::\+Color}}}
+
+
+
+\mbox{\hyperlink{class_terminal}{Terminal}} foreground or background colors. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Black@{Black}!Terminal@{Terminal}}\index{Terminal@{Terminal}!Black@{Black}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20ae8891bcc826bd9843740727bd36481a4}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20ae8891bcc826bd9843740727bd36481a4}} 
+Black&Color is black. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DarkRed@{DarkRed}!Terminal@{Terminal}}\index{Terminal@{Terminal}!DarkRed@{DarkRed}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a7e02ffbae282462707f7fa9b521a5350}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a7e02ffbae282462707f7fa9b521a5350}} 
+Dark\+Red&Color is dark red. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DarkGreen@{DarkGreen}!Terminal@{Terminal}}\index{Terminal@{Terminal}!DarkGreen@{DarkGreen}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a3e3b823d801aa16880e837ee4b5a950a}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a3e3b823d801aa16880e837ee4b5a950a}} 
+Dark\+Green&Color is dark green. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DarkYellow@{DarkYellow}!Terminal@{Terminal}}\index{Terminal@{Terminal}!DarkYellow@{DarkYellow}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20aa79363e8a838f09ac55b4be7ddabe625}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20aa79363e8a838f09ac55b4be7ddabe625}} 
+Dark\+Yellow&Color is dark yellow. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DarkBlue@{DarkBlue}!Terminal@{Terminal}}\index{Terminal@{Terminal}!DarkBlue@{DarkBlue}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a857041b4a99e4a303f183a9881c32b8e}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a857041b4a99e4a303f183a9881c32b8e}} 
+Dark\+Blue&Color is dark blue. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DarkMagenta@{DarkMagenta}!Terminal@{Terminal}}\index{Terminal@{Terminal}!DarkMagenta@{DarkMagenta}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a3c0cb0568e93ebf1ea54bea5991b40a9}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a3c0cb0568e93ebf1ea54bea5991b40a9}} 
+Dark\+Magenta&Color is dark magenta. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DarkCyan@{DarkCyan}!Terminal@{Terminal}}\index{Terminal@{Terminal}!DarkCyan@{DarkCyan}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a7770ad09b7bc5a420575bba06878efeb}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a7770ad09b7bc5a420575bba06878efeb}} 
+Dark\+Cyan&Color is dark cyan. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LightGray@{LightGray}!Terminal@{Terminal}}\index{Terminal@{Terminal}!LightGray@{LightGray}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a3b4388fbed1f6c20cbe706d49b968683}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a3b4388fbed1f6c20cbe706d49b968683}} 
+Light\+Gray&Color is light gray. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DarkGray@{DarkGray}!Terminal@{Terminal}}\index{Terminal@{Terminal}!DarkGray@{DarkGray}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20ab5595f67da54848741ee2b31a38bafec}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20ab5595f67da54848741ee2b31a38bafec}} 
+Dark\+Gray&Color is dark gray. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Red@{Red}!Terminal@{Terminal}}\index{Terminal@{Terminal}!Red@{Red}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20af2687d41cae4cb8276778be71c1e1efb}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20af2687d41cae4cb8276778be71c1e1efb}} 
+Red&Color is light red. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Green@{Green}!Terminal@{Terminal}}\index{Terminal@{Terminal}!Green@{Green}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a884f0fec8e7a5adac3047b890fcbf491}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a884f0fec8e7a5adac3047b890fcbf491}} 
+Green&Color is light green. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Yellow@{Yellow}!Terminal@{Terminal}}\index{Terminal@{Terminal}!Yellow@{Yellow}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a5f04853bd0cf9cea91dae31cc5294f22}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a5f04853bd0cf9cea91dae31cc5294f22}} 
+Yellow&Color is light yellow. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Blue@{Blue}!Terminal@{Terminal}}\index{Terminal@{Terminal}!Blue@{Blue}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a70f0c34fa3b8055231e826454b9cf8be}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a70f0c34fa3b8055231e826454b9cf8be}} 
+Blue&Color is light blue. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Magenta@{Magenta}!Terminal@{Terminal}}\index{Terminal@{Terminal}!Magenta@{Magenta}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a438c102a577219f2b654bebce4d53ea0}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a438c102a577219f2b654bebce4d53ea0}} 
+Magenta&Color is light magenta. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cyan@{Cyan}!Terminal@{Terminal}}\index{Terminal@{Terminal}!Cyan@{Cyan}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a12656e5c242667b489e639d399964077}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20a12656e5c242667b489e639d399964077}} 
+Cyan&Color is light cyan. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{White@{White}!Terminal@{Terminal}}\index{Terminal@{Terminal}!White@{White}}}\mbox{\Hypertarget{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20ae8296a3587847d6e0dd41efcc65251e8}\label{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20ae8296a3587847d6e0dd41efcc65251e8}} 
+White&Color is white. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{class_terminal_a6fd7d021468962e9604bee0522b3a364}\label{class_terminal_a6fd7d021468962e9604bee0522b3a364}} 
+\index{Terminal@{Terminal}!Mode@{Mode}}
+\index{Mode@{Mode}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{Mode}{Mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Terminal\+::\+Mode}}}
+
+
+
+Mode to operate in, Serial or Telnet. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Serial@{Serial}!Terminal@{Terminal}}\index{Terminal@{Terminal}!Serial@{Serial}}}\mbox{\Hypertarget{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}\label{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}} 
+Serial&Operates the terminal in serial mode. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Telnet@{Telnet}!Terminal@{Terminal}}\index{Terminal@{Terminal}!Telnet@{Telnet}}}\mbox{\Hypertarget{class_terminal_a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7}\label{class_terminal_a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7}} 
+Telnet&Operates the terminal in telnet mode. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_terminal_aa448509b5aa1ece53c3d86385655be0e}\label{class_terminal_aa448509b5aa1ece53c3d86385655be0e}} 
+\index{Terminal@{Terminal}!Terminal@{Terminal}}
+\index{Terminal@{Terminal}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{Terminal()}{Terminal()}}
+{\footnotesize\ttfamily Terminal\+::\+Terminal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a terminal object. 
+
+This constructor must be followed by a call to \mbox{\hyperlink{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}{begin()}} to specify the underlying stream to use for reading and writing.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}{begin()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_terminal_add5a7d4dd45b68af9a0afb1cc845af2f}\label{class_terminal_add5a7d4dd45b68af9a0afb1cc845af2f}} 
+\index{Terminal@{Terminal}!````~Terminal@{$\sim$Terminal}}
+\index{````~Terminal@{$\sim$Terminal}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{$\sim$Terminal()}{~Terminal()}}
+{\footnotesize\ttfamily Terminal\+::$\sim$\+Terminal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroys this terminal object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_terminal_a111698c496d601ef7fe0ce4de8a6de9a}\label{class_terminal_a111698c496d601ef7fe0ce4de8a6de9a}} 
+\index{Terminal@{Terminal}!available@{available}}
+\index{available@{available}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{available()}{available()}}
+{\footnotesize\ttfamily int Terminal\+::available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns the number of bytes that are available for reading. 
+
+\begin{DoxyNote}{Note}
+It is possible for this function to return a positive value while \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}} does not produce a new key. This can happen with V\+T100 key escape sequences and U\+T\+F-\/8 characters that extend over multiple bytes.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_terminal_ae4aec627f980fe0d26653401785d41bc}\label{class_terminal_ae4aec627f980fe0d26653401785d41bc}} 
+\index{Terminal@{Terminal}!backspace@{backspace}}
+\index{backspace@{backspace}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{backspace()}{backspace()}}
+{\footnotesize\ttfamily void Terminal\+::backspace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Backspaces over the last character. 
+
+This function prints C\+T\+R\+L-\/H, a space, and another C\+T\+R\+L-\/H to backspace over and erase the last character on the current line.
+
+If the last character was a wide Unicode character, then two calls to this function are required to erase it. See \mbox{\hyperlink{class_terminal_a25fdddd02378250799016cbb714c8a6b}{is\+Wide\+Character()}} for more information.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a25fdddd02378250799016cbb714c8a6b}{is\+Wide\+Character()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_terminal_ae4aec627f980fe0d26653401785d41bc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}\label{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}} 
+\index{Terminal@{Terminal}!begin@{begin}}
+\index{begin@{begin}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void Terminal\+::begin (\begin{DoxyParamCaption}\item[{Stream \&}]{stream,  }\item[{\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Mode}}}]{mode = {\ttfamily \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}} }\end{DoxyParamCaption})}
+
+
+
+Begins terminal operations on an underlying stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The underlying stream, whether a serial port, T\+CP connection, or some other stream. \\
+\hline
+{\em mode} & The mode to operate in, either Serial or Telnet.\\
+\hline
+\end{DoxyParams}
+If Telnet mode is selected, then embedded commands and options from the telnet protocol (\href{https://tools.ietf.org/html/rfc854}{\texttt{ R\+FC 854}}) will be interpreted. This is useful if the underlying {\itshape stream} is a T\+CP connection on port 23. The mode operates as a telnet server.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a9e4c08d43a1a1c039e385d63aca049c0}{end()}}, \mbox{\hyperlink{class_terminal_a910099d74409456914f83e88ba1d4aec}{stream()}}, \mbox{\hyperlink{class_terminal_aa3a460ae0bcb33d5673b457c258dc64e}{mode()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a8485c7073e94e77f9873b80e9cac3151}\label{class_terminal_a8485c7073e94e77f9873b80e9cac3151}} 
+\index{Terminal@{Terminal}!blink@{blink}}
+\index{blink@{blink}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{blink()}{blink()}}
+{\footnotesize\ttfamily void Terminal\+::blink (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enables blinking text. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{class_terminal_a8485c7073e94e77f9873b80e9cac3151_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a2e8dd341fc1ce63aa120be6066a89bea}\label{class_terminal_a2e8dd341fc1ce63aa120be6066a89bea}} 
+\index{Terminal@{Terminal}!bold@{bold}}
+\index{bold@{bold}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{bold()}{bold()}}
+{\footnotesize\ttfamily void Terminal\+::bold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enables bold text. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a928023c8125f226ab0851f8b4bb6302f}{normal()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{class_terminal_a2e8dd341fc1ce63aa120be6066a89bea_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_terminal_a2e8dd341fc1ce63aa120be6066a89bea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a4be741767b27739eec98901477e1c3d4}\label{class_terminal_a4be741767b27739eec98901477e1c3d4}} 
+\index{Terminal@{Terminal}!clear@{clear}}
+\index{clear@{clear}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Terminal\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Move the cursor to the top-\/left position and clear the screen. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{class_terminal_a4be741767b27739eec98901477e1c3d4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_aeb93d71925cdfb17065e7f1ef2e83414}\label{class_terminal_aeb93d71925cdfb17065e7f1ef2e83414}} 
+\index{Terminal@{Terminal}!clearToEOL@{clearToEOL}}
+\index{clearToEOL@{clearToEOL}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{clearToEOL()}{clearToEOL()}}
+{\footnotesize\ttfamily void Terminal\+::clear\+To\+E\+OL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears from the current cursor position to the end of the line. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_terminal_aeb93d71925cdfb17065e7f1ef2e83414_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_ad1fc2be31d49124a1d32e8afddaa57b8}\label{class_terminal_ad1fc2be31d49124a1d32e8afddaa57b8}} 
+\index{Terminal@{Terminal}!color@{color}}
+\index{color@{color}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{color()}{color()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Terminal\+::color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}{Color}}}]{fg }\end{DoxyParamCaption})}
+
+
+
+Selects a text foreground color with the default background color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fg} & The foreground color to select.\\
+\hline
+\end{DoxyParams}
+All other text attributes (reverse, underline, etc) are disabled.
+
+The following example displays a warning string with the initial word in red and all following words in normal text\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{term.\mbox{\hyperlink{class_terminal_ad1fc2be31d49124a1d32e8afddaa57b8}{color}}(\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20af2687d41cae4cb8276778be71c1e1efb}{Terminal::Red}});}
+\DoxyCodeLine{term.print(\textcolor{stringliteral}{"WARNING: "});}
+\DoxyCodeLine{term.\mbox{\hyperlink{class_terminal_a928023c8125f226ab0851f8b4bb6302f}{normal}}();}
+\DoxyCodeLine{term.println(\textcolor{stringliteral}{"All files on the SD card will be deleted!"});}
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a928023c8125f226ab0851f8b4bb6302f}{normal()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_ad1fc2be31d49124a1d32e8afddaa57b8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_ae22436e478a854e8b559fe73182bc329}\label{class_terminal_ae22436e478a854e8b559fe73182bc329}} 
+\index{Terminal@{Terminal}!color@{color}}
+\index{color@{color}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{color()}{color()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Terminal\+::color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}{Color}}}]{fg,  }\item[{\mbox{\hyperlink{class_terminal_a7a03a2e94316da7b2144dad5ba95ac20}{Color}}}]{bg }\end{DoxyParamCaption})}
+
+
+
+Selects text foreground and background colors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fg} & The foreground color to select. \\
+\hline
+{\em bg} & The background color to select.\\
+\hline
+\end{DoxyParams}
+All other text attributes (reverse, underline, etc) are disabled.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a928023c8125f226ab0851f8b4bb6302f}{normal()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_terminal_a6d8451ffa6a80afdd3daa4bec96258e3}\label{class_terminal_a6d8451ffa6a80afdd3daa4bec96258e3}} 
+\index{Terminal@{Terminal}!columns@{columns}}
+\index{columns@{columns}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{columns()}{columns()}}
+{\footnotesize\ttfamily int Terminal\+::columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the number of columns in the window; defaults to 80. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a56611fcbeb5eadf3665e568760952ee4}{rows()}}, \mbox{\hyperlink{class_terminal_af8957afd199718a809114dc5236f1a62}{set\+Window\+Size()}}, \mbox{\hyperlink{class_terminal_a7f60537603bd91df3ff1371a895054ea}{cursor\+Move()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_a6d8451ffa6a80afdd3daa4bec96258e3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a4068f1fd6087ff865b169da0a3d61ec5}\label{class_terminal_a4068f1fd6087ff865b169da0a3d61ec5}} 
+\index{Terminal@{Terminal}!cursorDown@{cursorDown}}
+\index{cursorDown@{cursorDown}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{cursorDown()}{cursorDown()}}
+{\footnotesize\ttfamily void Terminal\+::cursor\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Moves the cursor down by one line. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_ae5259872812d674e1fda215ddd18ee70}{cursor\+Up()}}, \mbox{\hyperlink{class_terminal_a2b8434f44885beabb668b70565bfbebe}{cursor\+Left()}}, \mbox{\hyperlink{class_terminal_adba29515f7a2f7e3a8038cd583bd28dc}{cursor\+Right()}}, \mbox{\hyperlink{class_terminal_a7f60537603bd91df3ff1371a895054ea}{cursor\+Move()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_a4068f1fd6087ff865b169da0a3d61ec5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a2b8434f44885beabb668b70565bfbebe}\label{class_terminal_a2b8434f44885beabb668b70565bfbebe}} 
+\index{Terminal@{Terminal}!cursorLeft@{cursorLeft}}
+\index{cursorLeft@{cursorLeft}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{cursorLeft()}{cursorLeft()}}
+{\footnotesize\ttfamily void Terminal\+::cursor\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Moves the cursor left by one character. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_adba29515f7a2f7e3a8038cd583bd28dc}{cursor\+Right()}}, \mbox{\hyperlink{class_terminal_ae5259872812d674e1fda215ddd18ee70}{cursor\+Up()}}, \mbox{\hyperlink{class_terminal_a4068f1fd6087ff865b169da0a3d61ec5}{cursor\+Down()}}, \mbox{\hyperlink{class_terminal_a7f60537603bd91df3ff1371a895054ea}{cursor\+Move()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{class_terminal_a2b8434f44885beabb668b70565bfbebe_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a7f60537603bd91df3ff1371a895054ea}\label{class_terminal_a7f60537603bd91df3ff1371a895054ea}} 
+\index{Terminal@{Terminal}!cursorMove@{cursorMove}}
+\index{cursorMove@{cursorMove}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{cursorMove()}{cursorMove()}}
+{\footnotesize\ttfamily void Terminal\+::cursor\+Move (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Moves the cursor to a specific location in the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x position for the cursor between 0 and \mbox{\hyperlink{class_terminal_a6d8451ffa6a80afdd3daa4bec96258e3}{columns()}} -\/ 1. \\
+\hline
+{\em y} & The y position for the cursor between 0 and \mbox{\hyperlink{class_terminal_a56611fcbeb5eadf3665e568760952ee4}{rows()}} -\/ 1.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a2b8434f44885beabb668b70565bfbebe}{cursor\+Left()}}, \mbox{\hyperlink{class_terminal_a6d8451ffa6a80afdd3daa4bec96258e3}{columns()}}, \mbox{\hyperlink{class_terminal_a56611fcbeb5eadf3665e568760952ee4}{rows()}}, \mbox{\hyperlink{class_terminal_af8957afd199718a809114dc5236f1a62}{set\+Window\+Size()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{class_terminal_a7f60537603bd91df3ff1371a895054ea_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_adba29515f7a2f7e3a8038cd583bd28dc}\label{class_terminal_adba29515f7a2f7e3a8038cd583bd28dc}} 
+\index{Terminal@{Terminal}!cursorRight@{cursorRight}}
+\index{cursorRight@{cursorRight}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{cursorRight()}{cursorRight()}}
+{\footnotesize\ttfamily void Terminal\+::cursor\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Moves the cursor right by one character. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a2b8434f44885beabb668b70565bfbebe}{cursor\+Left()}}, \mbox{\hyperlink{class_terminal_ae5259872812d674e1fda215ddd18ee70}{cursor\+Up()}}, \mbox{\hyperlink{class_terminal_a4068f1fd6087ff865b169da0a3d61ec5}{cursor\+Down()}}, \mbox{\hyperlink{class_terminal_a7f60537603bd91df3ff1371a895054ea}{cursor\+Move()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_terminal_adba29515f7a2f7e3a8038cd583bd28dc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_ae5259872812d674e1fda215ddd18ee70}\label{class_terminal_ae5259872812d674e1fda215ddd18ee70}} 
+\index{Terminal@{Terminal}!cursorUp@{cursorUp}}
+\index{cursorUp@{cursorUp}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{cursorUp()}{cursorUp()}}
+{\footnotesize\ttfamily void Terminal\+::cursor\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Moves the cursor up by one line. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a4068f1fd6087ff865b169da0a3d61ec5}{cursor\+Down()}}, \mbox{\hyperlink{class_terminal_a2b8434f44885beabb668b70565bfbebe}{cursor\+Left()}}, \mbox{\hyperlink{class_terminal_adba29515f7a2f7e3a8038cd583bd28dc}{cursor\+Right()}}, \mbox{\hyperlink{class_terminal_a7f60537603bd91df3ff1371a895054ea}{cursor\+Move()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{class_terminal_ae5259872812d674e1fda215ddd18ee70_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a7daffb0fe91d76678c5a9f22fe16e2c5}\label{class_terminal_a7daffb0fe91d76678c5a9f22fe16e2c5}} 
+\index{Terminal@{Terminal}!deleteChar@{deleteChar}}
+\index{deleteChar@{deleteChar}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{deleteChar()}{deleteChar()}}
+{\footnotesize\ttfamily void Terminal\+::delete\+Char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deletes the character at the cursor position. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_ae2f95592f13a1a5fe8464176a2b10298}{delete\+Line()}}, \mbox{\hyperlink{class_terminal_af79ea5335f73762828087f5c813feafd}{insert\+Char()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_terminal_a7daffb0fe91d76678c5a9f22fe16e2c5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_ae2f95592f13a1a5fe8464176a2b10298}\label{class_terminal_ae2f95592f13a1a5fe8464176a2b10298}} 
+\index{Terminal@{Terminal}!deleteLine@{deleteLine}}
+\index{deleteLine@{deleteLine}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{deleteLine()}{deleteLine()}}
+{\footnotesize\ttfamily void Terminal\+::delete\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deletes a line at the cursor position. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a7daffb0fe91d76678c5a9f22fe16e2c5}{delete\+Char()}}, \mbox{\hyperlink{class_terminal_a9109858612082ffd3d91a88713b7448a}{insert\+Line()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{class_terminal_ae2f95592f13a1a5fe8464176a2b10298_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a9e4c08d43a1a1c039e385d63aca049c0}\label{class_terminal_a9e4c08d43a1a1c039e385d63aca049c0}} 
+\index{Terminal@{Terminal}!end@{end}}
+\index{end@{end}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Terminal\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ends terminal operations on an underlying stream. 
+
+This function may be useful if you want to detach the terminal from the underlying stream so that it can be used for something else. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_a9e4c08d43a1a1c039e385d63aca049c0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a908cdfa64167279ed565d43b45470c3d}\label{class_terminal_a908cdfa64167279ed565d43b45470c3d}} 
+\index{Terminal@{Terminal}!flush@{flush}}
+\index{flush@{flush}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily void Terminal\+::flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Flushes all data in the underlying stream. 
+
+\mbox{\Hypertarget{class_terminal_af79ea5335f73762828087f5c813feafd}\label{class_terminal_af79ea5335f73762828087f5c813feafd}} 
+\index{Terminal@{Terminal}!insertChar@{insertChar}}
+\index{insertChar@{insertChar}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{insertChar()}{insertChar()}}
+{\footnotesize\ttfamily void Terminal\+::insert\+Char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inserts a blank character at the cursor position. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a9109858612082ffd3d91a88713b7448a}{insert\+Line()}}, \mbox{\hyperlink{class_terminal_a7daffb0fe91d76678c5a9f22fe16e2c5}{delete\+Char()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{class_terminal_af79ea5335f73762828087f5c813feafd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a9109858612082ffd3d91a88713b7448a}\label{class_terminal_a9109858612082ffd3d91a88713b7448a}} 
+\index{Terminal@{Terminal}!insertLine@{insertLine}}
+\index{insertLine@{insertLine}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{insertLine()}{insertLine()}}
+{\footnotesize\ttfamily void Terminal\+::insert\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inserts a line at the cursor position. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_af79ea5335f73762828087f5c813feafd}{insert\+Char()}}, \mbox{\hyperlink{class_terminal_ae2f95592f13a1a5fe8464176a2b10298}{delete\+Line()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{class_terminal_a9109858612082ffd3d91a88713b7448a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a25fdddd02378250799016cbb714c8a6b}\label{class_terminal_a25fdddd02378250799016cbb714c8a6b}} 
+\index{Terminal@{Terminal}!isWideCharacter@{isWideCharacter}}
+\index{isWideCharacter@{isWideCharacter}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{isWideCharacter()}{isWideCharacter()}}
+{\footnotesize\ttfamily bool Terminal\+::is\+Wide\+Character (\begin{DoxyParamCaption}\item[{long}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Determine if a Unicode character is wide. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The code point for the Unicode character. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if {\itshape code} is a wide character, false otherwise.
+\end{DoxyReturn}
+Wide characters typically come from East Asian languages and occupy two spaces in a terminal. Two calls to \mbox{\hyperlink{class_terminal_ae4aec627f980fe0d26653401785d41bc}{backspace()}} are required to erase such characters.
+
+References\+: \href{http://www.unicode.org/reports/tr11/}{\texttt{ http\+://www.\+unicode.\+org/reports/tr11/}}, \href{http://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt}{\texttt{ http\+://www.\+unicode.\+org/\+Public/\+U\+C\+D/latest/ucd/\+East\+Asian\+Width.\+txt}}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_ae4aec627f980fe0d26653401785d41bc}{backspace()}}, \mbox{\hyperlink{class_terminal_a25308d6b2a3d18820d8a0e641c7be937}{write\+Unicode()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_terminal_aa3a460ae0bcb33d5673b457c258dc64e}\label{class_terminal_aa3a460ae0bcb33d5673b457c258dc64e}} 
+\index{Terminal@{Terminal}!mode@{mode}}
+\index{mode@{mode}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{mode()}{mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364}{Terminal\+::\+Mode}} Terminal\+::mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the mode this terminal is operating in, Serial or Telnet. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}{begin()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{class_terminal_aa3a460ae0bcb33d5673b457c258dc64e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a928023c8125f226ab0851f8b4bb6302f}\label{class_terminal_a928023c8125f226ab0851f8b4bb6302f}} 
+\index{Terminal@{Terminal}!normal@{normal}}
+\index{normal@{normal}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{normal()}{normal()}}
+{\footnotesize\ttfamily void Terminal\+::normal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Selects normal text with all attributes and colors off. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_ad1fc2be31d49124a1d32e8afddaa57b8}{color()}}, \mbox{\hyperlink{class_terminal_a2e8dd341fc1ce63aa120be6066a89bea}{bold()}}, \mbox{\hyperlink{class_terminal_a0e23c452353e7fdf0881d37521f3d105}{underline()}}, \mbox{\hyperlink{class_terminal_a8485c7073e94e77f9873b80e9cac3151}{blink()}}, \mbox{\hyperlink{class_terminal_a4d770065054af95c2b8f98b561619ede}{reverse()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{class_terminal_a928023c8125f226ab0851f8b4bb6302f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a49f6aa694fae8a9ff8a526350dd8f8fc}\label{class_terminal_a49f6aa694fae8a9ff8a526350dd8f8fc}} 
+\index{Terminal@{Terminal}!peek@{peek}}
+\index{peek@{peek}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily int Terminal\+::peek (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Peeks at the next byte from the underlying stream. 
+
+\begin{DoxyReturn}{Returns}
+The next byte or -\/1 if no bytes are available yet.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a14dfd6dc5c4a30acfb47ab24c22d1cd5}{read()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_terminal_a14dfd6dc5c4a30acfb47ab24c22d1cd5}\label{class_terminal_a14dfd6dc5c4a30acfb47ab24c22d1cd5}} 
+\index{Terminal@{Terminal}!read@{read}}
+\index{read@{read}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int Terminal\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reads the next byte from the underlying stream. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0x00 to 0x\+FF if a byte is ready, or -\/1 if none available.
+\end{DoxyReturn}
+This function performs a low-\/level read on the underlying byte stream without applying any specific interpretation to the byte. In particular, escape sequences corresponding to arrow and function keys will not be recognized.
+
+Applications will usually want to call \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}} instead to handle escape sequences for arrow and function keys. This function is provided as a convenience to implement the parent Stream interface.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_terminal_aa82621ea174422601cc7384c8185eb96}\label{class_terminal_aa82621ea174422601cc7384c8185eb96}} 
+\index{Terminal@{Terminal}!readKey@{readKey}}
+\index{readKey@{readKey}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{readKey()}{readKey()}}
+{\footnotesize\ttfamily int Terminal\+::read\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads the next key that was typed on this terminal. 
+
+\begin{DoxyReturn}{Returns}
+Returns -\/1 if there is no key ready yet; 0x00 to 0x7F for an A\+S\+C\+II character; K\+E\+Y\+\_\+\+U\+N\+I\+C\+O\+DE for an extended Unicode code point, or a U\+SB keyboard code for special arrow or function keys.
+\end{DoxyReturn}
+For example, if the user types the Home key, then this function will return K\+E\+Y\+\_\+\+H\+O\+ME. If the user types the capital letter A, then this function will return 0x41.
+
+If the user types an extended Unicode character (U+0080 and higher), then this function will return K\+E\+Y\+\_\+\+U\+N\+I\+C\+O\+DE. The application should call \mbox{\hyperlink{class_terminal_ad0b704240c300615defdc76d33d5cac2}{unicode\+Key()}} to retrieve the actual code point. All Unicode characters are assumed to be in the U\+T\+F-\/8 encoding on the stream.
+
+Some A\+S\+C\+II control characters correspond to special keys and will be mapped appropriately\+:
+
+\begin{DoxyItemize}
+\item 0x08 (C\+T\+R\+L-\/H) and 0x7F (D\+EL) are mapped to K\+E\+Y\+\_\+\+B\+A\+C\+K\+S\+P\+A\+CE \item 0x0D (C\+T\+R\+L-\/M) and 0x0A (C\+T\+R\+L-\/J) are mapped to K\+E\+Y\+\_\+\+R\+E\+T\+U\+RN \item 0x09 (C\+T\+R\+L-\/I) is mapped to K\+E\+Y\+\_\+\+T\+AB \item 0x1B (C\+T\+R\+L-\/\mbox{[}) is mapped to K\+E\+Y\+\_\+\+E\+S\+C\+A\+PE\end{DoxyItemize}
+In all of these cases, the original A\+S\+C\+II code will be reported by \mbox{\hyperlink{class_terminal_ad0b704240c300615defdc76d33d5cac2}{unicode\+Key()}}. As a special case, if 0x0D is immediately followed by 0x0A (that is, C\+R\+LF) then K\+E\+Y\+\_\+\+R\+E\+T\+U\+RN will be reported only once with \mbox{\hyperlink{class_terminal_ad0b704240c300615defdc76d33d5cac2}{unicode\+Key()}} set to 0x0D. This ensures that all line ending types are mapped to a single K\+E\+Y\+\_\+\+R\+E\+T\+U\+RN report.
+
+If the window size has changed due to a remote event, then K\+E\+Y\+\_\+\+W\+I\+N\+S\+I\+ZE will be returned. This can allow the caller to clear and redraw the window in the new size.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_ad0b704240c300615defdc76d33d5cac2}{unicode\+Key()}}, \mbox{\hyperlink{class_terminal_a14dfd6dc5c4a30acfb47ab24c22d1cd5}{read()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_aa82621ea174422601cc7384c8185eb96_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_terminal_aa82621ea174422601cc7384c8185eb96_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a4d770065054af95c2b8f98b561619ede}\label{class_terminal_a4d770065054af95c2b8f98b561619ede}} 
+\index{Terminal@{Terminal}!reverse@{reverse}}
+\index{reverse@{reverse}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily void Terminal\+::reverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reverse the foreground and background colors for inverted text. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{class_terminal_a4d770065054af95c2b8f98b561619ede_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a56611fcbeb5eadf3665e568760952ee4}\label{class_terminal_a56611fcbeb5eadf3665e568760952ee4}} 
+\index{Terminal@{Terminal}!rows@{rows}}
+\index{rows@{rows}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{rows()}{rows()}}
+{\footnotesize\ttfamily int Terminal\+::rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the number of rows in the window; defaults to 24. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a6d8451ffa6a80afdd3daa4bec96258e3}{columns()}}, \mbox{\hyperlink{class_terminal_af8957afd199718a809114dc5236f1a62}{set\+Window\+Size()}}, \mbox{\hyperlink{class_terminal_a7f60537603bd91df3ff1371a895054ea}{cursor\+Move()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_a56611fcbeb5eadf3665e568760952ee4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a661474bb4790aa82178b3ce9a85e5dea}\label{class_terminal_a661474bb4790aa82178b3ce9a85e5dea}} 
+\index{Terminal@{Terminal}!scrollDown@{scrollDown}}
+\index{scrollDown@{scrollDown}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{scrollDown()}{scrollDown()}}
+{\footnotesize\ttfamily void Terminal\+::scroll\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Scrolls the contents of the window down one line. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a30d8d69fd84cafc6c2c94ae6fc65b690}{scroll\+Up()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{class_terminal_a661474bb4790aa82178b3ce9a85e5dea_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a30d8d69fd84cafc6c2c94ae6fc65b690}\label{class_terminal_a30d8d69fd84cafc6c2c94ae6fc65b690}} 
+\index{Terminal@{Terminal}!scrollUp@{scrollUp}}
+\index{scrollUp@{scrollUp}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{scrollUp()}{scrollUp()}}
+{\footnotesize\ttfamily void Terminal\+::scroll\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Scrolls the contents of the window up one line. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a661474bb4790aa82178b3ce9a85e5dea}{scroll\+Down()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_terminal_a30d8d69fd84cafc6c2c94ae6fc65b690_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_af8957afd199718a809114dc5236f1a62}\label{class_terminal_af8957afd199718a809114dc5236f1a62}} 
+\index{Terminal@{Terminal}!setWindowSize@{setWindowSize}}
+\index{setWindowSize@{setWindowSize}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{setWindowSize()}{setWindowSize()}}
+{\footnotesize\ttfamily bool Terminal\+::set\+Window\+Size (\begin{DoxyParamCaption}\item[{int}]{columns,  }\item[{int}]{rows }\end{DoxyParamCaption})}
+
+
+
+Sets the number of columns and rows in the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em columns} & The number of columns between 1 and 10000. \\
+\hline
+{\em rows} & The number of rows between 1 and 10000.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the window size has changed.
+\end{DoxyReturn}
+This function should be used if the application has some information about the actual window size. For serial ports, this usually isn\textquotesingle{}t available but telnet and ssh sessions can get the window size from the remote host.
+
+The window size defaults to 80x24 which is the standard default for terminal programs like Pu\+T\+TY that emulate a V\+T100.
+
+If the window size changes due to a remote event, \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}} will return K\+E\+Y\+\_\+\+W\+I\+N\+S\+I\+ZE to inform the application.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a6d8451ffa6a80afdd3daa4bec96258e3}{columns()}}, \mbox{\hyperlink{class_terminal_a56611fcbeb5eadf3665e568760952ee4}{rows()}}, \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_terminal_af8957afd199718a809114dc5236f1a62_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_af8957afd199718a809114dc5236f1a62_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a910099d74409456914f83e88ba1d4aec}\label{class_terminal_a910099d74409456914f83e88ba1d4aec}} 
+\index{Terminal@{Terminal}!stream@{stream}}
+\index{stream@{stream}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{stream()}{stream()}}
+{\footnotesize\ttfamily Stream $\ast$ Terminal\+::stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a pointer to the underlying Stream, or N\+U\+LL if the stream has not been set with \mbox{\hyperlink{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}{begin()}} yet. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a6bf417195a7d2a2fab6b3518f25764a2}{begin()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_a910099d74409456914f83e88ba1d4aec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a0e23c452353e7fdf0881d37521f3d105}\label{class_terminal_a0e23c452353e7fdf0881d37521f3d105}} 
+\index{Terminal@{Terminal}!underline@{underline}}
+\index{underline@{underline}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{underline()}{underline()}}
+{\footnotesize\ttfamily void Terminal\+::underline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enables underlined text. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{class_terminal_a0e23c452353e7fdf0881d37521f3d105_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_ad0b704240c300615defdc76d33d5cac2}\label{class_terminal_ad0b704240c300615defdc76d33d5cac2}} 
+\index{Terminal@{Terminal}!unicodeKey@{unicodeKey}}
+\index{unicodeKey@{unicodeKey}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{unicodeKey()}{unicodeKey()}}
+{\footnotesize\ttfamily long Terminal\+::unicode\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the Unicode version of the last key returned by \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}}. 
+
+If \mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}} returned an A\+S\+C\+II character (0x00 to 0x7F) or K\+E\+Y\+\_\+\+U\+N\+I\+C\+O\+DE, then this function can be used to query the full Unicode code point for the key that was typed. If some other key is typed, or no key was typed, then this function will return -\/1.
+
+Unicode code points range between 0 and 0x10\+F\+F\+FF.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_aa82621ea174422601cc7384c8185eb96}{read\+Key()}}, \mbox{\hyperlink{class_terminal_a25308d6b2a3d18820d8a0e641c7be937}{write\+Unicode()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{class_terminal_ad0b704240c300615defdc76d33d5cac2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_ae6478319776ecb726613b38429d7cdec}\label{class_terminal_ae6478319776ecb726613b38429d7cdec}} 
+\index{Terminal@{Terminal}!utf8Format@{utf8Format}}
+\index{utf8Format@{utf8Format}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{utf8Format()}{utf8Format()}}
+{\footnotesize\ttfamily size\+\_\+t Terminal\+::utf8\+Format (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{long}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Formats a Unicode code point in a buffer in the U\+T\+F-\/8 encoding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to write the U\+T\+F-\/8 encoding to. At most 4 bytes will be written to this buffer. \\
+\hline
+{\em code} & The code point to be written between 0 and 0x10\+F\+F\+FF. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes that were written to {\itshape buffer} to represent {\itshape code}. Returns zero if {\itshape code} is not a valid code point.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_a0ed780bd8568f752c5d3dfe68a111c52}{utf8\+Length()}}, \mbox{\hyperlink{class_terminal_a25308d6b2a3d18820d8a0e641c7be937}{write\+Unicode()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{class_terminal_ae6478319776ecb726613b38429d7cdec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a0ed780bd8568f752c5d3dfe68a111c52}\label{class_terminal_a0ed780bd8568f752c5d3dfe68a111c52}} 
+\index{Terminal@{Terminal}!utf8Length@{utf8Length}}
+\index{utf8Length@{utf8Length}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{utf8Length()}{utf8Length()}}
+{\footnotesize\ttfamily size\+\_\+t Terminal\+::utf8\+Length (\begin{DoxyParamCaption}\item[{long}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Determines the length of a Unicode code point in the U\+T\+F-\/8 encoding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The code point to be written between 0 and 0x10\+F\+F\+FF. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes that makes up the U\+T\+F-\/8 encoding of {\itshape code}. Returns zero if {\itshape code} is not a valid code point.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_ae6478319776ecb726613b38429d7cdec}{utf8\+Format()}}, \mbox{\hyperlink{class_terminal_a25308d6b2a3d18820d8a0e641c7be937}{write\+Unicode()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{class_terminal_a0ed780bd8568f752c5d3dfe68a111c52_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a134b9131e18b35af18c53eabec49186d}\label{class_terminal_a134b9131e18b35af18c53eabec49186d}} 
+\index{Terminal@{Terminal}!write@{write}}
+\index{write@{write}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily size\+\_\+t Terminal\+::write (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buffer,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Writes a buffer of data to the underlying stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Points to the buffer to write. \\
+\hline
+{\em size} & The number of bytes in the {\itshape buffer}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes written, which may be short on error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_terminal_ae723f16d4f97954fb45550fa05d600bb}\label{class_terminal_ae723f16d4f97954fb45550fa05d600bb}} 
+\index{Terminal@{Terminal}!write@{write}}
+\index{write@{write}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily size\+\_\+t Terminal\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Writes a single byte to the underlying stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The byte to write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes written, zero on error. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_ae723f16d4f97954fb45550fa05d600bb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_ae0b908585ec355e0f299579a015c1170}\label{class_terminal_ae0b908585ec355e0f299579a015c1170}} 
+\index{Terminal@{Terminal}!writeProgMem@{writeProgMem}}
+\index{writeProgMem@{writeProgMem}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{writeProgMem()}{writeProgMem()}}
+{\footnotesize\ttfamily void Terminal\+::write\+Prog\+Mem (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Writes a static string that is stored in program memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Points to the N\+U\+L-\/terminated string in program memory.\\
+\hline
+\end{DoxyParams}
+This is a convenience function for printing static strings that are stored in program memory.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_ae723f16d4f97954fb45550fa05d600bb}{write()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_terminal_ae0b908585ec355e0f299579a015c1170_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_terminal_a25308d6b2a3d18820d8a0e641c7be937}\label{class_terminal_a25308d6b2a3d18820d8a0e641c7be937}} 
+\index{Terminal@{Terminal}!writeUnicode@{writeUnicode}}
+\index{writeUnicode@{writeUnicode}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{writeUnicode()}{writeUnicode()}}
+{\footnotesize\ttfamily size\+\_\+t Terminal\+::write\+Unicode (\begin{DoxyParamCaption}\item[{long}]{code }\end{DoxyParamCaption})}
+
+
+
+Writes a Unicode code point to the output in U\+T\+F-\/8 encoding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The code point to be written between 0 and 0x10\+F\+F\+FF. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes that were written to the underlying stream to represent {\itshape code}. Returns zero if {\itshape code} is not a valid code point.
+\end{DoxyReturn}
+This function is useful when a specific Unicode character is desired; for example the code point 0x2264 corresponds to the less than or equal to operator \char`\"{}≤\char`\"{}. See the Unicode standard for more information.
+
+Unicode characters between 0x00 and 0x7F and strings that are already in the U\+T\+F-\/8 encoding can also be written using \mbox{\hyperlink{class_terminal_ae723f16d4f97954fb45550fa05d600bb}{write()}}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_terminal_ae723f16d4f97954fb45550fa05d600bb}{write()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{class_terminal_a25308d6b2a3d18820d8a0e641c7be937_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/cli/\mbox{\hyperlink{_terminal_8h}{Terminal.\+h}}\item 
+src/cli/\mbox{\hyperlink{_terminal_8cpp}{Terminal.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<map id="Shell::exit" name="Shell::exit">
+<area shape="rect" id="node1" title="Exit from the shell back to the login prompt." alt="" coords="5,56,85,83"/>
+<area shape="rect" id="node2" href="$class_shell.html#a3ad32b7cd3b48c78953ab9f7384d5a58" title="Begins a login session." alt="" coords="133,5,271,32"/>
+<area shape="rect" id="node3" href="$class_shell.html#a8a654aadd0b6a379309bb1007749e41d" title="Ends shell processing on the underlying stream." alt="" coords="162,56,242,83"/>
+<area shape="rect" id="node5" href="$class_terminal.html#a910099d74409456914f83e88ba1d4aec" title="Returns a pointer to the underlying Stream, or NULL if the stream has not been set with begin() yet." alt="" coords="143,107,261,133"/>
+<area shape="rect" id="node4" href="$class_terminal.html#a9e4c08d43a1a1c039e385d63aca049c0" title="Ends terminal operations on an underlying stream." alt="" coords="319,56,419,83"/>
+</map>

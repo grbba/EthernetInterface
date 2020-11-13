@@ -1,0 +1,4 @@
+<map id="Shell::prompt" name="Shell::prompt">
+<area shape="rect" id="node1" title="Gets the prompt string to display in the shell." alt="" coords="172,5,271,32"/>
+<area shape="rect" id="node2" href="$class_shell.html#a89d802eae5b716e80b2c4dfbce0a0a75" title="Sets the prompt string to display in the shell." alt="" coords="5,5,124,32"/>
+</map>

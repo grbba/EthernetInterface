@@ -1,0 +1,57 @@
+\hypertarget{_shell_8h}{}\doxysection{src/cli/\+Shell.h File Reference}
+\label{_shell_8h}\index{src/cli/Shell.h@{src/cli/Shell.h}}
+{\ttfamily \#include \char`\"{}Terminal.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Client.\+h$>$}\newline
+Include dependency graph for Shell.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{_shell_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{_shell_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_shell}{Shell}}
+\begin{DoxyCompactList}\small\item\em Command-\/line shell access. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_shell_arguments}{Shell\+Arguments}}
+\begin{DoxyCompactList}\small\item\em Convenience class that encapsulates an array of shell command arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_shell_8h_a289fac62523ab75893db741e94e0d78e}{S\+H\+E\+L\+L\+\_\+\+M\+A\+X\+\_\+\+C\+M\+D\+\_\+\+L\+EN}}~64
+\begin{DoxyCompactList}\small\item\em Maximum command length for the shell, including the terminating N\+UL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{_shell_8h_ad3aab40fbf685102df6bf7e9f163f22a}{Shell\+Command\+Func}}) (\mbox{\hyperlink{class_shell}{Shell}} \&shell, int argc, const \mbox{\hyperlink{class_shell_arguments}{Shell\+Arguments}} \&argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_shell_8h_a289fac62523ab75893db741e94e0d78e}\label{_shell_8h_a289fac62523ab75893db741e94e0d78e}} 
+\index{Shell.h@{Shell.h}!SHELL\_MAX\_CMD\_LEN@{SHELL\_MAX\_CMD\_LEN}}
+\index{SHELL\_MAX\_CMD\_LEN@{SHELL\_MAX\_CMD\_LEN}!Shell.h@{Shell.h}}
+\doxysubsubsection{\texorpdfstring{SHELL\_MAX\_CMD\_LEN}{SHELL\_MAX\_CMD\_LEN}}
+{\footnotesize\ttfamily \#define S\+H\+E\+L\+L\+\_\+\+M\+A\+X\+\_\+\+C\+M\+D\+\_\+\+L\+EN~64}
+
+
+
+Maximum command length for the shell, including the terminating N\+UL. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_shell_8h_ad3aab40fbf685102df6bf7e9f163f22a}\label{_shell_8h_ad3aab40fbf685102df6bf7e9f163f22a}} 
+\index{Shell.h@{Shell.h}!ShellCommandFunc@{ShellCommandFunc}}
+\index{ShellCommandFunc@{ShellCommandFunc}!Shell.h@{Shell.h}}
+\doxysubsubsection{\texorpdfstring{ShellCommandFunc}{ShellCommandFunc}}
+{\footnotesize\ttfamily typedef void($\ast$ Shell\+Command\+Func) (\mbox{\hyperlink{class_shell}{Shell}} \&shell, int argc, const \mbox{\hyperlink{class_shell_arguments}{Shell\+Arguments}} \&argv)\hspace{0.3cm}{\ttfamily [related]}}
+

@@ -1,0 +1,86 @@
+\hypertarget{_transport_8h}{}\doxysection{src/\+Transport.h File Reference}
+\label{_transport_8h}\index{src/Transport.h@{src/Transport.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Ethernet.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi\+Esp\+A\+T.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Network\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Network\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Transport\+Processor.\+h\char`\"{}}\newline
+Include dependency graph for Transport.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_transport_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_transport_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_connection}{Connection}}
+\item 
+class \mbox{\hyperlink{class_transport}{Transport$<$ S, C, U $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{_transport_8h_a1e2f1fb81692457c4b64d606dc1c9217}{app\+Protocol\+Callback}} = void($\ast$)(\mbox{\hyperlink{struct_connection}{Connection}} $\ast$c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$t)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885}{app\+Protocol}} \{ \newline
+\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885ab3d2d83b672e0d6843574389aa5dd3e3}{D\+C\+C\+EX}}, 
+\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a588219683faf075b63c78c5447d0fb6e}{W\+I\+T\+H\+R\+O\+T\+T\+LE}}, 
+\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a67e044074f46e6cea22788527da5f02e}{H\+T\+TP}}, 
+\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a25c8381e5763b59a0b174f0bcf2a09f2}{N\+\_\+\+D\+I\+AG}}, 
+\newline
+\mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885acbc06c5821471c08ec5e22e757d27b8d}{U\+N\+K\+N\+O\+W\+N\+\_\+\+P\+R\+O\+T\+O\+C\+OL}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_transport_8h_a1e2f1fb81692457c4b64d606dc1c9217}\label{_transport_8h_a1e2f1fb81692457c4b64d606dc1c9217}} 
+\index{Transport.h@{Transport.h}!appProtocolCallback@{appProtocolCallback}}
+\index{appProtocolCallback@{appProtocolCallback}!Transport.h@{Transport.h}}
+\doxysubsubsection{\texorpdfstring{appProtocolCallback}{appProtocolCallback}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_transport_8h_a1e2f1fb81692457c4b64d606dc1c9217}{app\+Protocol\+Callback}} =  void ($\ast$)(\mbox{\hyperlink{struct_connection}{Connection}}$\ast$ c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}}$\ast$ t)}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885}} 
+\index{Transport.h@{Transport.h}!appProtocol@{appProtocol}}
+\index{appProtocol@{appProtocol}!Transport.h@{Transport.h}}
+\doxysubsubsection{\texorpdfstring{appProtocol}{appProtocol}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885}{app\+Protocol}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DCCEX@{DCCEX}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!DCCEX@{DCCEX}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885ab3d2d83b672e0d6843574389aa5dd3e3}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885ab3d2d83b672e0d6843574389aa5dd3e3}} 
+D\+C\+C\+EX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WITHROTTLE@{WITHROTTLE}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!WITHROTTLE@{WITHROTTLE}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a588219683faf075b63c78c5447d0fb6e}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a588219683faf075b63c78c5447d0fb6e}} 
+W\+I\+T\+H\+R\+O\+T\+T\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HTTP@{HTTP}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!HTTP@{HTTP}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a67e044074f46e6cea22788527da5f02e}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a67e044074f46e6cea22788527da5f02e}} 
+H\+T\+TP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\_DIAG@{N\_DIAG}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!N\_DIAG@{N\_DIAG}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a25c8381e5763b59a0b174f0bcf2a09f2}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a25c8381e5763b59a0b174f0bcf2a09f2}} 
+N\+\_\+\+D\+I\+AG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNKNOWN\_PROTOCOL@{UNKNOWN\_PROTOCOL}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!UNKNOWN\_PROTOCOL@{UNKNOWN\_PROTOCOL}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885acbc06c5821471c08ec5e22e757d27b8d}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885acbc06c5821471c08ec5e22e757d27b8d}} 
+U\+N\+K\+N\+O\+W\+N\+\_\+\+P\+R\+O\+T\+O\+C\+OL&\\
+\hline
+
+\end{DoxyEnumFields}

@@ -1,0 +1,221 @@
+\hypertarget{_network_diag_8h}{}\doxysection{src/\+Network\+Diag.h File Reference}
+\label{_network_diag_8h}\index{src/NetworkDiag.h@{src/NetworkDiag.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}free\+Memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}String\+Formatter.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Transport\+Processor.\+h\char`\"{}}\newline
+Include dependency graph for Network\+Diag.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_network_diag_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_network_diag_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_network_diag}{Network\+Diag}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}{E\+H\+\_\+\+DW}}(code)
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}{E\+H\+\_\+\+I\+F\+LL}}(LL,  code)~if(\mbox{\hyperlink{_network_diag_8h_a611cac484729e35cb94f29fda8924a9f}{\+\_\+n\+Log\+Level}} $>$= LL)\{code\}
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_ac4d460558dd2106b51b9d5216a2527fa}{E\+H\+\_\+\+I\+F\+IL}}(IL,  code)~if(\mbox{\hyperlink{_network_diag_8h_a9e46bbda4fd7d79cc53a441a5fb188eb}{\+\_\+n\+Info\+Level}} $>$= IL)\{code\}
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\+E\+B\+UG}}
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_a6c6fd5e242df15a7a42e9b75d55d5d3c}{L\+O\+G\+L\+E\+V\+EL}}~4
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}~\mbox{\hyperlink{class_string_formatter_a6b4f9fd826b055a4ec6c04ab6e9e9826}{Network\+Diag\+::diag}}
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_a842c7e9c95f3e750b4b4b380f815299b}{L\+O\+G\+V\+\_\+\+D\+E\+B\+UG}}~5
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_ac3a1abc6581e61b0186914e18e4e2149}{L\+O\+G\+V\+\_\+\+T\+R\+A\+CE}}~4
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_a14b0d6e9a6faa5377922541e7a316827}{L\+O\+G\+V\+\_\+\+E\+R\+R\+OR}}~3
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_ac900b15ffe42dd649338b2ef5b4c0ccc}{L\+O\+G\+V\+\_\+\+W\+A\+RN}}~2
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_ac1f1602d76ec20977954bb9b7d20e725}{L\+O\+G\+V\+\_\+\+I\+N\+FO}}~1
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_aba82502c9613ef37b458cc3886a5e076}{L\+O\+G\+V\+\_\+\+S\+I\+L\+E\+NT}}~0
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_ae19e2dbb70909d3e3311b8577efa9f93}{I\+N\+FO}}(message...)~\mbox{\hyperlink{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}{E\+H\+\_\+\+DW}}(\mbox{\hyperlink{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}{E\+H\+\_\+\+I\+F\+LL}}(\mbox{\hyperlink{_network_diag_8h_ac1f1602d76ec20977954bb9b7d20e725}{L\+O\+G\+V\+\_\+\+I\+N\+FO}}, \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} = \mbox{\hyperlink{_memory_free_8h_a8d862dc01c44bfabc8d952bb77f8da89}{free\+Memory}}(); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} -\/ \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\+::\mbox{[}I\+NF\mbox{]}\+:\%d\+:\%d\+:\%s\+:\%d \+: \char`\"{}), \+\_\+c\+Mem, \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(message); \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\textbackslash{}n\char`\"{})); ))
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_a899e8c12f9c3b0c57e70fa25e87db5a0}{W\+A\+RN}}(message...)~\mbox{\hyperlink{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}{E\+H\+\_\+\+DW}}(\mbox{\hyperlink{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}{E\+H\+\_\+\+I\+F\+LL}}(\mbox{\hyperlink{_network_diag_8h_ac900b15ffe42dd649338b2ef5b4c0ccc}{L\+O\+G\+V\+\_\+\+W\+A\+RN}}, \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} = \mbox{\hyperlink{_memory_free_8h_a8d862dc01c44bfabc8d952bb77f8da89}{free\+Memory}}(); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} -\/ \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\+::\mbox{[}W\+RN\mbox{]}\+:\%d\+:\%d\+:\%s\+:\%d \+: \char`\"{}), \+\_\+c\+Mem, \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(message); \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\textbackslash{}n\char`\"{})); ))
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_aa173aaa724787eeb93e96de0e5556d76}{E\+RR}}(message...)~\mbox{\hyperlink{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}{E\+H\+\_\+\+DW}}(\mbox{\hyperlink{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}{E\+H\+\_\+\+I\+F\+LL}}(\mbox{\hyperlink{_network_diag_8h_a14b0d6e9a6faa5377922541e7a316827}{L\+O\+G\+V\+\_\+\+E\+R\+R\+OR}}, \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} = \mbox{\hyperlink{_memory_free_8h_a8d862dc01c44bfabc8d952bb77f8da89}{free\+Memory}}(); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} -\/ \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\+::\mbox{[}E\+RR\mbox{]}\+:\%d\+:\%d\+:\%s\+:\%d \+: \char`\"{}), \+\_\+c\+Mem, \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(message); \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\textbackslash{}n\char`\"{})); ))
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_ae31fb81e1fe3e5c44839e319a44c8c5e}{T\+RC}}(message...)~\mbox{\hyperlink{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}{E\+H\+\_\+\+DW}}(\mbox{\hyperlink{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}{E\+H\+\_\+\+I\+F\+LL}}(\mbox{\hyperlink{_network_diag_8h_ac3a1abc6581e61b0186914e18e4e2149}{L\+O\+G\+V\+\_\+\+T\+R\+A\+CE}}, \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} = \mbox{\hyperlink{_memory_free_8h_a8d862dc01c44bfabc8d952bb77f8da89}{free\+Memory}}(); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} -\/ \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\+::\mbox{[}T\+RC\mbox{]}\+:\%d\+:\%d\+:\%s\+:\%d \+: \char`\"{}), \+\_\+c\+Mem, \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(message); \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\textbackslash{}n\char`\"{})); ))
+\item 
+\#define \mbox{\hyperlink{_network_diag_8h_a445a14d10ffdece08ce75cb22baf2c6e}{D\+BG}}(message...)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}
+\item 
+int \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}}
+\item 
+byte \mbox{\hyperlink{_network_diag_8h_a611cac484729e35cb94f29fda8924a9f}{\+\_\+n\+Log\+Level}}
+\item 
+byte \mbox{\hyperlink{_network_diag_8h_a9e46bbda4fd7d79cc53a441a5fb188eb}{\+\_\+n\+Info\+Level}}
+\item 
+byte \mbox{\hyperlink{_network_diag_8h_a155bd5f482b472779779a7e91f3d7461}{\+\_\+d\+Output}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_network_diag_8h_a445a14d10ffdece08ce75cb22baf2c6e}\label{_network_diag_8h_a445a14d10ffdece08ce75cb22baf2c6e}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!DBG@{DBG}}
+\index{DBG@{DBG}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{DBG}{DBG}}
+{\footnotesize\ttfamily \#define D\+BG(\begin{DoxyParamCaption}\item[{}]{message... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_network_diag_8h_ad72dbcf6d0153db1b8d8a58001feed83}\label{_network_diag_8h_ad72dbcf6d0153db1b8d8a58001feed83}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily \#define D\+E\+B\+UG}
+
+\mbox{\Hypertarget{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}\label{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!EH\_DW@{EH\_DW}}
+\index{EH\_DW@{EH\_DW}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{EH\_DW}{EH\_DW}}
+{\footnotesize\ttfamily \#define E\+H\+\_\+\+DW(\begin{DoxyParamCaption}\item[{}]{code }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do}              \(\backslash\)}
+\DoxyCodeLine{    \{               \(\backslash\)}
+\DoxyCodeLine{        code        \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_network_diag_8h_ac4d460558dd2106b51b9d5216a2527fa}\label{_network_diag_8h_ac4d460558dd2106b51b9d5216a2527fa}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!EH\_IFIL@{EH\_IFIL}}
+\index{EH\_IFIL@{EH\_IFIL}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{EH\_IFIL}{EH\_IFIL}}
+{\footnotesize\ttfamily \#define E\+H\+\_\+\+I\+F\+IL(\begin{DoxyParamCaption}\item[{}]{IL,  }\item[{}]{code }\end{DoxyParamCaption})~if(\mbox{\hyperlink{_network_diag_8h_a9e46bbda4fd7d79cc53a441a5fb188eb}{\+\_\+n\+Info\+Level}} $>$= IL)\{code\}}
+
+\mbox{\Hypertarget{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}\label{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!EH\_IFLL@{EH\_IFLL}}
+\index{EH\_IFLL@{EH\_IFLL}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{EH\_IFLL}{EH\_IFLL}}
+{\footnotesize\ttfamily \#define E\+H\+\_\+\+I\+F\+LL(\begin{DoxyParamCaption}\item[{}]{LL,  }\item[{}]{code }\end{DoxyParamCaption})~if(\mbox{\hyperlink{_network_diag_8h_a611cac484729e35cb94f29fda8924a9f}{\+\_\+n\+Log\+Level}} $>$= LL)\{code\}}
+
+\mbox{\Hypertarget{_network_diag_8h_aa173aaa724787eeb93e96de0e5556d76}\label{_network_diag_8h_aa173aaa724787eeb93e96de0e5556d76}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!ERR@{ERR}}
+\index{ERR@{ERR}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{ERR}{ERR}}
+{\footnotesize\ttfamily \#define E\+RR(\begin{DoxyParamCaption}\item[{}]{message... }\end{DoxyParamCaption})~\mbox{\hyperlink{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}{E\+H\+\_\+\+DW}}(\mbox{\hyperlink{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}{E\+H\+\_\+\+I\+F\+LL}}(\mbox{\hyperlink{_network_diag_8h_a14b0d6e9a6faa5377922541e7a316827}{L\+O\+G\+V\+\_\+\+E\+R\+R\+OR}}, \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} = \mbox{\hyperlink{_memory_free_8h_a8d862dc01c44bfabc8d952bb77f8da89}{free\+Memory}}(); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} -\/ \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\+::\mbox{[}E\+RR\mbox{]}\+:\%d\+:\%d\+:\%s\+:\%d \+: \char`\"{}), \+\_\+c\+Mem, \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(message); \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\textbackslash{}n\char`\"{})); ))}
+
+\mbox{\Hypertarget{_network_diag_8h_ae19e2dbb70909d3e3311b8577efa9f93}\label{_network_diag_8h_ae19e2dbb70909d3e3311b8577efa9f93}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!INFO@{INFO}}
+\index{INFO@{INFO}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{INFO}{INFO}}
+{\footnotesize\ttfamily \#define I\+N\+FO(\begin{DoxyParamCaption}\item[{}]{message... }\end{DoxyParamCaption})~\mbox{\hyperlink{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}{E\+H\+\_\+\+DW}}(\mbox{\hyperlink{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}{E\+H\+\_\+\+I\+F\+LL}}(\mbox{\hyperlink{_network_diag_8h_ac1f1602d76ec20977954bb9b7d20e725}{L\+O\+G\+V\+\_\+\+I\+N\+FO}}, \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} = \mbox{\hyperlink{_memory_free_8h_a8d862dc01c44bfabc8d952bb77f8da89}{free\+Memory}}(); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} -\/ \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\+::\mbox{[}I\+NF\mbox{]}\+:\%d\+:\%d\+:\%s\+:\%d \+: \char`\"{}), \+\_\+c\+Mem, \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(message); \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\textbackslash{}n\char`\"{})); ))}
+
+\mbox{\Hypertarget{_network_diag_8h_a6c6fd5e242df15a7a42e9b75d55d5d3c}\label{_network_diag_8h_a6c6fd5e242df15a7a42e9b75d55d5d3c}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!LOGLEVEL@{LOGLEVEL}}
+\index{LOGLEVEL@{LOGLEVEL}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{LOGLEVEL}{LOGLEVEL}}
+{\footnotesize\ttfamily \#define L\+O\+G\+L\+E\+V\+EL~4}
+
+\mbox{\Hypertarget{_network_diag_8h_a842c7e9c95f3e750b4b4b380f815299b}\label{_network_diag_8h_a842c7e9c95f3e750b4b4b380f815299b}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!LOGV\_DEBUG@{LOGV\_DEBUG}}
+\index{LOGV\_DEBUG@{LOGV\_DEBUG}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{LOGV\_DEBUG}{LOGV\_DEBUG}}
+{\footnotesize\ttfamily \#define L\+O\+G\+V\+\_\+\+D\+E\+B\+UG~5}
+
+\mbox{\Hypertarget{_network_diag_8h_a14b0d6e9a6faa5377922541e7a316827}\label{_network_diag_8h_a14b0d6e9a6faa5377922541e7a316827}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!LOGV\_ERROR@{LOGV\_ERROR}}
+\index{LOGV\_ERROR@{LOGV\_ERROR}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{LOGV\_ERROR}{LOGV\_ERROR}}
+{\footnotesize\ttfamily \#define L\+O\+G\+V\+\_\+\+E\+R\+R\+OR~3}
+
+\mbox{\Hypertarget{_network_diag_8h_ac1f1602d76ec20977954bb9b7d20e725}\label{_network_diag_8h_ac1f1602d76ec20977954bb9b7d20e725}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!LOGV\_INFO@{LOGV\_INFO}}
+\index{LOGV\_INFO@{LOGV\_INFO}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{LOGV\_INFO}{LOGV\_INFO}}
+{\footnotesize\ttfamily \#define L\+O\+G\+V\+\_\+\+I\+N\+FO~1}
+
+\mbox{\Hypertarget{_network_diag_8h_aba82502c9613ef37b458cc3886a5e076}\label{_network_diag_8h_aba82502c9613ef37b458cc3886a5e076}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!LOGV\_SILENT@{LOGV\_SILENT}}
+\index{LOGV\_SILENT@{LOGV\_SILENT}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{LOGV\_SILENT}{LOGV\_SILENT}}
+{\footnotesize\ttfamily \#define L\+O\+G\+V\+\_\+\+S\+I\+L\+E\+NT~0}
+
+\mbox{\Hypertarget{_network_diag_8h_ac3a1abc6581e61b0186914e18e4e2149}\label{_network_diag_8h_ac3a1abc6581e61b0186914e18e4e2149}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!LOGV\_TRACE@{LOGV\_TRACE}}
+\index{LOGV\_TRACE@{LOGV\_TRACE}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{LOGV\_TRACE}{LOGV\_TRACE}}
+{\footnotesize\ttfamily \#define L\+O\+G\+V\+\_\+\+T\+R\+A\+CE~4}
+
+\mbox{\Hypertarget{_network_diag_8h_ac900b15ffe42dd649338b2ef5b4c0ccc}\label{_network_diag_8h_ac900b15ffe42dd649338b2ef5b4c0ccc}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!LOGV\_WARN@{LOGV\_WARN}}
+\index{LOGV\_WARN@{LOGV\_WARN}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{LOGV\_WARN}{LOGV\_WARN}}
+{\footnotesize\ttfamily \#define L\+O\+G\+V\+\_\+\+W\+A\+RN~2}
+
+\mbox{\Hypertarget{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}\label{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!NDIAG@{NDIAG}}
+\index{NDIAG@{NDIAG}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{NDIAG}{NDIAG}}
+{\footnotesize\ttfamily \#define N\+D\+I\+AG~\mbox{\hyperlink{class_string_formatter_a6b4f9fd826b055a4ec6c04ab6e9e9826}{Network\+Diag\+::diag}}}
+
+\mbox{\Hypertarget{_network_diag_8h_ae31fb81e1fe3e5c44839e319a44c8c5e}\label{_network_diag_8h_ae31fb81e1fe3e5c44839e319a44c8c5e}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!TRC@{TRC}}
+\index{TRC@{TRC}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{TRC}{TRC}}
+{\footnotesize\ttfamily \#define T\+RC(\begin{DoxyParamCaption}\item[{}]{message... }\end{DoxyParamCaption})~\mbox{\hyperlink{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}{E\+H\+\_\+\+DW}}(\mbox{\hyperlink{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}{E\+H\+\_\+\+I\+F\+LL}}(\mbox{\hyperlink{_network_diag_8h_ac3a1abc6581e61b0186914e18e4e2149}{L\+O\+G\+V\+\_\+\+T\+R\+A\+CE}}, \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} = \mbox{\hyperlink{_memory_free_8h_a8d862dc01c44bfabc8d952bb77f8da89}{free\+Memory}}(); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} -\/ \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\+::\mbox{[}T\+RC\mbox{]}\+:\%d\+:\%d\+:\%s\+:\%d \+: \char`\"{}), \+\_\+c\+Mem, \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(message); \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\textbackslash{}n\char`\"{})); ))}
+
+\mbox{\Hypertarget{_network_diag_8h_a899e8c12f9c3b0c57e70fa25e87db5a0}\label{_network_diag_8h_a899e8c12f9c3b0c57e70fa25e87db5a0}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!WARN@{WARN}}
+\index{WARN@{WARN}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{WARN}{WARN}}
+{\footnotesize\ttfamily \#define W\+A\+RN(\begin{DoxyParamCaption}\item[{}]{message... }\end{DoxyParamCaption})~\mbox{\hyperlink{_network_diag_8h_ace431af7538cd4bbd56d61731e08b887}{E\+H\+\_\+\+DW}}(\mbox{\hyperlink{_network_diag_8h_a6d98b0bab9c715fda514c71e0100d038}{E\+H\+\_\+\+I\+F\+LL}}(\mbox{\hyperlink{_network_diag_8h_ac900b15ffe42dd649338b2ef5b4c0ccc}{L\+O\+G\+V\+\_\+\+W\+A\+RN}}, \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} = \mbox{\hyperlink{_memory_free_8h_a8d862dc01c44bfabc8d952bb77f8da89}{free\+Memory}}(); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}} -\/ \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\+::\mbox{[}W\+RN\mbox{]}\+:\%d\+:\%d\+:\%s\+:\%d \+: \char`\"{}), \+\_\+c\+Mem, \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \mbox{\hyperlink{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}{\+\_\+d\+Mem}} = \mbox{\hyperlink{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}{\+\_\+c\+Mem}}; \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(message); \mbox{\hyperlink{_network_diag_8h_aa66e672fcdfed1de0546b847396c6380}{N\+D\+I\+AG}}(F(\char`\"{}\textbackslash{}n\char`\"{})); ))}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}\label{_network_diag_8h_ae18f5366af227ae3ecf084dde54c555c}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!\_cMem@{\_cMem}}
+\index{\_cMem@{\_cMem}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{\_cMem}{\_cMem}}
+{\footnotesize\ttfamily int \+\_\+c\+Mem}
+
+\mbox{\Hypertarget{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}\label{_network_diag_8h_ad548e02bb802224da4f15de29be3f758}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!\_dMem@{\_dMem}}
+\index{\_dMem@{\_dMem}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{\_dMem}{\_dMem}}
+{\footnotesize\ttfamily int \+\_\+d\+Mem}
+
+\mbox{\Hypertarget{_network_diag_8h_a155bd5f482b472779779a7e91f3d7461}\label{_network_diag_8h_a155bd5f482b472779779a7e91f3d7461}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!\_dOutput@{\_dOutput}}
+\index{\_dOutput@{\_dOutput}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{\_dOutput}{\_dOutput}}
+{\footnotesize\ttfamily byte \+\_\+d\+Output}
+
+\mbox{\Hypertarget{_network_diag_8h_a9e46bbda4fd7d79cc53a441a5fb188eb}\label{_network_diag_8h_a9e46bbda4fd7d79cc53a441a5fb188eb}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!\_nInfoLevel@{\_nInfoLevel}}
+\index{\_nInfoLevel@{\_nInfoLevel}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{\_nInfoLevel}{\_nInfoLevel}}
+{\footnotesize\ttfamily byte \+\_\+n\+Info\+Level}
+
+\mbox{\Hypertarget{_network_diag_8h_a611cac484729e35cb94f29fda8924a9f}\label{_network_diag_8h_a611cac484729e35cb94f29fda8924a9f}} 
+\index{NetworkDiag.h@{NetworkDiag.h}!\_nLogLevel@{\_nLogLevel}}
+\index{\_nLogLevel@{\_nLogLevel}!NetworkDiag.h@{NetworkDiag.h}}
+\doxysubsubsection{\texorpdfstring{\_nLogLevel}{\_nLogLevel}}
+{\footnotesize\ttfamily byte \+\_\+n\+Log\+Level}
+

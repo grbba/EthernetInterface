@@ -23,6 +23,11 @@
 #include <Ethernet.h>
 #include "NetworkSetup.h"
 
+/**
+ * Setting up an TCP/UDP Ethernet connection. Stores and provides acces to the Server and UDP instance currently 
+ * setup. Once the setup is done for a given NetworkInterface the instance of this class is not needed anymore.
+ * An instance will be created within the NetworInterface setup function ans go out of scope after the setup has been done.
+ */
 class EthernetSetup: public NetworkSetup {
 
 private:

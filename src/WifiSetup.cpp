@@ -23,6 +23,19 @@
 #include "NetworkSetup.h"
 #include "WifiSetup.h"
 
+void reverseArray(uint8_t arr[], int start, int end);
+
+/**
+ * @brief WiFi specifi setup function. Currently only for Serial1 to connect to the ESP chip.
+ * 
+ * @return true     if the connection has been established
+ * @return false    something went wrong
+ */
+/**
+ * @todo AP setup if no persistent network & credentials found / reset persistent setup & change Network;
+ * Forcing AP only mode;
+ */
+
 bool WifiSetup::setup() {
     /**
      * @todo setup using SoftwareSerial or any other Hardware Serial port on the mega (i.e. 2 or 3);
@@ -36,7 +49,7 @@ bool WifiSetup::setup() {
     if (WiFi.status() == WL_NO_MODULE)
     {
         ERR(F("Communication with WiFi module failed!"));
-        return 0;
+        return false;
     }
 
     INFO(F("Waiting for connection to WiFi "));
@@ -47,19 +60,28 @@ bool WifiSetup::setup() {
     }
     
     INFO(F("Network Protocol: [%s]"), protocol ? "UDP" : "TCP");
+    INFO(F("Initialize MAC Addresses ... "));
+    WiFi.apMacAddress(apWifiMacAddress);
+    reverseArray(apWifiMacAddress, 0, 5);   // the MAc is provided in reverse order ...
+    WiFi.macAddress(stWifiMacAddress);
+    reverseArray(stWifiMacAddress, 0, 5);
 
-    // Setup the protocol handler
+    // Start the TCP/UDP server instance
     switch (protocol)
     {
     case UDPR:
     {
         connected = false;
+        /**
+         * @todo Can we have multiple UDP instances? Do we always get back the same ? if not possible 
+         * we should catch this condition.
+         */
         udp = new WiFiUDP(); 
         byte udpState = udp->begin(port);
         if (udpState) 
         {
             TRC(F("UDP status: %d"), udpState);
-            maxConnections = 1;             // there is only one UDP object listening for incomming data
+            maxConnections = 1;            
             connected = true;
         }
         else
@@ -96,6 +118,9 @@ bool WifiSetup::setup() {
     if (connected)
     {
         ip = WiFi.localIP();
+        NetworkSetup::printMacAddress(apWifiMacAddress);
+        NetworkSetup::printMacAddress(stWifiMacAddress);
+
         INFO(F("Local IP address:      [%d.%d.%d.%d]"), ip[0], ip[1], ip[2], ip[3]);
         INFO(F("Listening on port:     [%d]"), port);
         dnsip = WiFi.dnsServer1();
@@ -106,6 +131,18 @@ bool WifiSetup::setup() {
     return false; // something went wrong
 
 };
+
+void reverseArray(uint8_t arr[], int start, int end)
+{
+    while (start < end)
+    {
+        uint8_t temp = arr[start]; 
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    } 
+} 
 
 WifiSetup::WifiSetup() {}
 WifiSetup::WifiSetup(uint16_t p, protocolType pt ) { port = p; protocol = pt; }

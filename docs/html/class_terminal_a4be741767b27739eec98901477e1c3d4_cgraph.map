@@ -1,0 +1,4 @@
+<map id="Terminal::clear" name="Terminal::clear">
+<area shape="rect" id="node1" title="Move the cursor to the top&#45;left position and clear the screen." alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node2" href="$class_terminal.html#ae0b908585ec355e0f299579a015c1170" title="Writes a static string that is stored in program memory." alt="" coords="160,5,323,32"/>
+</map>

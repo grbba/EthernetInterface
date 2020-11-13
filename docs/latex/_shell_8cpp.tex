@@ -1,0 +1,163 @@
+\hypertarget{_shell_8cpp}{}\doxysection{src/cli/\+Shell.cpp File Reference}
+\label{_shell_8cpp}\index{src/cli/Shell.cpp@{src/cli/Shell.cpp}}
+{\ttfamily \#include \char`\"{}Shell.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Login\+Shell.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for Shell.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_shell_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_shell_8cpp_a5cdc2b16ed480998ad559ee7905bb9dc}{L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+N\+O\+R\+M\+AL}}~0x01
+\item 
+\#define \mbox{\hyperlink{_shell_8cpp_ab091102d2c3f669a120e84367a265ddc}{L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+E\+C\+HO}}~0x02
+\item 
+\#define \mbox{\hyperlink{_shell_8cpp_a944a3710774a951739eae184f2297608}{L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+U\+S\+E\+R\+N\+A\+ME}}~0x04
+\item 
+\#define \mbox{\hyperlink{_shell_8cpp_a31d3833f84e577834845a901e94abd09}{L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+P\+A\+S\+S\+W\+O\+RD}}~0x08
+\item 
+\#define \mbox{\hyperlink{_shell_8cpp_ae6b224013dff5b99d5969b1826519c25}{L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+P\+R\+O\+M\+PT}}~0x10
+\item 
+\#define \mbox{\hyperlink{_shell_8cpp_a19023760edac5c6498e72d535a24e080}{L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+D\+E\+L\+AY}}~0x20
+\item 
+\#define \mbox{\hyperlink{_shell_8cpp_a6412422f2ff6dcecc4b2cdc946983838}{L\+O\+G\+I\+N\+\_\+\+S\+H\+E\+L\+L\+\_\+\+D\+E\+L\+AY}}~3000
+\item 
+\#define \mbox{\hyperlink{_shell_8cpp_a83f51b90088a8538fb233b1e9ebd2daf}{progmem\+\_\+strcmp}}(str1,  str2)~(strcmp((str1), (str2)))
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{_shell_8cpp_a4a7dfcd79f34a1b8ada21fe099217f62}{read\+Info\+Name}} (const Shell\+Command\+Info $\ast$info)
+\item 
+static const char $\ast$ \mbox{\hyperlink{_shell_8cpp_a5e58d9ce472c021f6de2580cf186a52b}{read\+Info\+Help}} (const Shell\+Command\+Info $\ast$info)
+\item 
+static \mbox{\hyperlink{class_shell_ad5bac6a4033cd81e24c1345650bca744}{Shell\+Command\+Func}} \mbox{\hyperlink{_shell_8cpp_ab88d8413641c82b76f4a900f078c9c9a}{read\+Info\+Func}} (const Shell\+Command\+Info $\ast$info)
+\item 
+static int \mbox{\hyperlink{_shell_8cpp_a9563ffeaedd9dc0a7c2aba406ea9fac7}{default\+Password\+Check\+Func}} (const char $\ast$username, const char $\ast$password)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static Shell\+Command\+Register $\ast$ \mbox{\hyperlink{_shell_8cpp_adc22b9a2a7887a4a3b66e86d6927bc0a}{first\+Cmd}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_shell_8cpp_a19023760edac5c6498e72d535a24e080}\label{_shell_8cpp_a19023760edac5c6498e72d535a24e080}} 
+\index{Shell.cpp@{Shell.cpp}!LINEMODE\_DELAY@{LINEMODE\_DELAY}}
+\index{LINEMODE\_DELAY@{LINEMODE\_DELAY}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{LINEMODE\_DELAY}{LINEMODE\_DELAY}}
+{\footnotesize\ttfamily \#define L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+D\+E\+L\+AY~0x20}
+
+\mbox{\Hypertarget{_shell_8cpp_ab091102d2c3f669a120e84367a265ddc}\label{_shell_8cpp_ab091102d2c3f669a120e84367a265ddc}} 
+\index{Shell.cpp@{Shell.cpp}!LINEMODE\_ECHO@{LINEMODE\_ECHO}}
+\index{LINEMODE\_ECHO@{LINEMODE\_ECHO}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{LINEMODE\_ECHO}{LINEMODE\_ECHO}}
+{\footnotesize\ttfamily \#define L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+E\+C\+HO~0x02}
+
+\mbox{\Hypertarget{_shell_8cpp_a5cdc2b16ed480998ad559ee7905bb9dc}\label{_shell_8cpp_a5cdc2b16ed480998ad559ee7905bb9dc}} 
+\index{Shell.cpp@{Shell.cpp}!LINEMODE\_NORMAL@{LINEMODE\_NORMAL}}
+\index{LINEMODE\_NORMAL@{LINEMODE\_NORMAL}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{LINEMODE\_NORMAL}{LINEMODE\_NORMAL}}
+{\footnotesize\ttfamily \#define L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+N\+O\+R\+M\+AL~0x01}
+
+\mbox{\Hypertarget{_shell_8cpp_a31d3833f84e577834845a901e94abd09}\label{_shell_8cpp_a31d3833f84e577834845a901e94abd09}} 
+\index{Shell.cpp@{Shell.cpp}!LINEMODE\_PASSWORD@{LINEMODE\_PASSWORD}}
+\index{LINEMODE\_PASSWORD@{LINEMODE\_PASSWORD}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{LINEMODE\_PASSWORD}{LINEMODE\_PASSWORD}}
+{\footnotesize\ttfamily \#define L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+P\+A\+S\+S\+W\+O\+RD~0x08}
+
+\mbox{\Hypertarget{_shell_8cpp_ae6b224013dff5b99d5969b1826519c25}\label{_shell_8cpp_ae6b224013dff5b99d5969b1826519c25}} 
+\index{Shell.cpp@{Shell.cpp}!LINEMODE\_PROMPT@{LINEMODE\_PROMPT}}
+\index{LINEMODE\_PROMPT@{LINEMODE\_PROMPT}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{LINEMODE\_PROMPT}{LINEMODE\_PROMPT}}
+{\footnotesize\ttfamily \#define L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+P\+R\+O\+M\+PT~0x10}
+
+\mbox{\Hypertarget{_shell_8cpp_a944a3710774a951739eae184f2297608}\label{_shell_8cpp_a944a3710774a951739eae184f2297608}} 
+\index{Shell.cpp@{Shell.cpp}!LINEMODE\_USERNAME@{LINEMODE\_USERNAME}}
+\index{LINEMODE\_USERNAME@{LINEMODE\_USERNAME}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{LINEMODE\_USERNAME}{LINEMODE\_USERNAME}}
+{\footnotesize\ttfamily \#define L\+I\+N\+E\+M\+O\+D\+E\+\_\+\+U\+S\+E\+R\+N\+A\+ME~0x04}
+
+\mbox{\Hypertarget{_shell_8cpp_a6412422f2ff6dcecc4b2cdc946983838}\label{_shell_8cpp_a6412422f2ff6dcecc4b2cdc946983838}} 
+\index{Shell.cpp@{Shell.cpp}!LOGIN\_SHELL\_DELAY@{LOGIN\_SHELL\_DELAY}}
+\index{LOGIN\_SHELL\_DELAY@{LOGIN\_SHELL\_DELAY}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{LOGIN\_SHELL\_DELAY}{LOGIN\_SHELL\_DELAY}}
+{\footnotesize\ttfamily \#define L\+O\+G\+I\+N\+\_\+\+S\+H\+E\+L\+L\+\_\+\+D\+E\+L\+AY~3000}
+
+\mbox{\Hypertarget{_shell_8cpp_a83f51b90088a8538fb233b1e9ebd2daf}\label{_shell_8cpp_a83f51b90088a8538fb233b1e9ebd2daf}} 
+\index{Shell.cpp@{Shell.cpp}!progmem\_strcmp@{progmem\_strcmp}}
+\index{progmem\_strcmp@{progmem\_strcmp}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{progmem\_strcmp}{progmem\_strcmp}}
+{\footnotesize\ttfamily \#define progmem\+\_\+strcmp(\begin{DoxyParamCaption}\item[{}]{str1,  }\item[{}]{str2 }\end{DoxyParamCaption})~(strcmp((str1), (str2)))}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_shell_8cpp_a9563ffeaedd9dc0a7c2aba406ea9fac7}\label{_shell_8cpp_a9563ffeaedd9dc0a7c2aba406ea9fac7}} 
+\index{Shell.cpp@{Shell.cpp}!defaultPasswordCheckFunc@{defaultPasswordCheckFunc}}
+\index{defaultPasswordCheckFunc@{defaultPasswordCheckFunc}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{defaultPasswordCheckFunc()}{defaultPasswordCheckFunc()}}
+{\footnotesize\ttfamily static int default\+Password\+Check\+Func (\begin{DoxyParamCaption}\item[{const char $\ast$}]{username,  }\item[{const char $\ast$}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_shell_8cpp_a9563ffeaedd9dc0a7c2aba406ea9fac7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_shell_8cpp_ab88d8413641c82b76f4a900f078c9c9a}\label{_shell_8cpp_ab88d8413641c82b76f4a900f078c9c9a}} 
+\index{Shell.cpp@{Shell.cpp}!readInfoFunc@{readInfoFunc}}
+\index{readInfoFunc@{readInfoFunc}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{readInfoFunc()}{readInfoFunc()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_shell_ad5bac6a4033cd81e24c1345650bca744}{Shell\+Command\+Func}} read\+Info\+Func (\begin{DoxyParamCaption}\item[{const Shell\+Command\+Info $\ast$}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{_shell_8cpp_ab88d8413641c82b76f4a900f078c9c9a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_shell_8cpp_a5e58d9ce472c021f6de2580cf186a52b}\label{_shell_8cpp_a5e58d9ce472c021f6de2580cf186a52b}} 
+\index{Shell.cpp@{Shell.cpp}!readInfoHelp@{readInfoHelp}}
+\index{readInfoHelp@{readInfoHelp}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{readInfoHelp()}{readInfoHelp()}}
+{\footnotesize\ttfamily static const char$\ast$ read\+Info\+Help (\begin{DoxyParamCaption}\item[{const Shell\+Command\+Info $\ast$}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_shell_8cpp_a5e58d9ce472c021f6de2580cf186a52b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_shell_8cpp_a4a7dfcd79f34a1b8ada21fe099217f62}\label{_shell_8cpp_a4a7dfcd79f34a1b8ada21fe099217f62}} 
+\index{Shell.cpp@{Shell.cpp}!readInfoName@{readInfoName}}
+\index{readInfoName@{readInfoName}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{readInfoName()}{readInfoName()}}
+{\footnotesize\ttfamily static const char$\ast$ read\+Info\+Name (\begin{DoxyParamCaption}\item[{const Shell\+Command\+Info $\ast$}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_shell_8cpp_a4a7dfcd79f34a1b8ada21fe099217f62_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_shell_8cpp_adc22b9a2a7887a4a3b66e86d6927bc0a}\label{_shell_8cpp_adc22b9a2a7887a4a3b66e86d6927bc0a}} 
+\index{Shell.cpp@{Shell.cpp}!firstCmd@{firstCmd}}
+\index{firstCmd@{firstCmd}!Shell.cpp@{Shell.cpp}}
+\doxysubsubsection{\texorpdfstring{firstCmd}{firstCmd}}
+{\footnotesize\ttfamily Shell\+Command\+Register$\ast$ first\+Cmd = 0\hspace{0.3cm}{\ttfamily [static]}}
+

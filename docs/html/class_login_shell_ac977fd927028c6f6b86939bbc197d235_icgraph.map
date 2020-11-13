@@ -1,0 +1,4 @@
+<map id="LoginShell::machineName" name="LoginShell::machineName">
+<area shape="rect" id="node1" title="Gets the name of the machine to display in the login prompt." alt="" coords="245,5,420,32"/>
+<area shape="rect" id="node2" href="$class_login_shell.html#a951838252942c56537dc877c48d3d63e" title="Sets the name of the machine to display in the login prompt." alt="" coords="5,5,197,32"/>
+</map>

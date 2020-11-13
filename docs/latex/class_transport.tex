@@ -1,0 +1,160 @@
+\hypertarget{class_transport}{}\doxysection{Transport$<$ S, C, U $>$ Class Template Reference}
+\label{class_transport}\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+
+
+{\ttfamily \#include $<$Transport.\+h$>$}
+
+
+
+Inheritance diagram for Transport$<$ S, C, U $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{class_transport__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Transport$<$ S, C, U $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{class_transport__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_transport_a3758b46231aef33804c2b7c5acdec6c4}{setup}} (\mbox{\hyperlink{class_network_interface}{Network\+Interface}} $\ast$nwi)
+\item 
+void \mbox{\hyperlink{class_transport_a8a77fae195b7c8352fdfe17fb4d5a59f}{loop}} ()
+\item 
+bool \mbox{\hyperlink{class_transport_ad0dc819be3128c9ec90d9027146161a9}{is\+Connected}} ()
+\item 
+\mbox{\hyperlink{class_transport_acf5554cc85f06a25556acdbac1d74140}{Transport}} ()
+\item 
+\mbox{\hyperlink{class_transport_a627257d31f11c4606cae9942e4e7bdf6}{$\sim$\+Transport}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_transport_aa4ca947b9ce413d0c9ce81a4d6725245}{id}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_transport_a78bfc6ad1df101dfbc61775e2b186165}{port}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_transport_ae513a4347831e91e10ad81c23e2398bd}{protocol}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_transport_ade672e8933277c3ad0e2c679a0a9c73d}{transport}}
+\item 
+S $\ast$ \mbox{\hyperlink{class_transport_aac1116a2fe836bdaba90171fc7a65a3b}{server}}
+\item 
+U $\ast$ \mbox{\hyperlink{class_transport_accdcc014213693aca0f5ab377b9a1e6e}{udp}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_transport_ac283da242dbdb924071c1f54b8c12150}{max\+Connections}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_transport_acf5554cc85f06a25556acdbac1d74140}\label{class_transport_acf5554cc85f06a25556acdbac1d74140}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!Transport@{Transport}}
+\index{Transport@{Transport}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{Transport()}{Transport()}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+\mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::\mbox{\hyperlink{class_transport}{Transport}}}
+
+\mbox{\Hypertarget{class_transport_a627257d31f11c4606cae9942e4e7bdf6}\label{class_transport_a627257d31f11c4606cae9942e4e7bdf6}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!````~Transport@{$\sim$Transport}}
+\index{````~Transport@{$\sim$Transport}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Transport()}{~Transport()}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+\mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::$\sim$\mbox{\hyperlink{class_transport}{Transport}}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_transport_ad0dc819be3128c9ec90d9027146161a9}\label{class_transport_ad0dc819be3128c9ec90d9027146161a9}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+bool \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_transport_a8a77fae195b7c8352fdfe17fb4d5a59f}\label{class_transport_a8a77fae195b7c8352fdfe17fb4d5a59f}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!loop@{loop}}
+\index{loop@{loop}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+void \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::loop}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_transport_a8a77fae195b7c8352fdfe17fb4d5a59f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_transport_a3758b46231aef33804c2b7c5acdec6c4}\label{class_transport_a3758b46231aef33804c2b7c5acdec6c4}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!setup@{setup}}
+\index{setup@{setup}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+bool \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_network_interface}{Network\+Interface}} $\ast$}]{nwi }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_transport_aa4ca947b9ce413d0c9ce81a4d6725245}\label{class_transport_aa4ca947b9ce413d0c9ce81a4d6725245}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!id@{id}}
+\index{id@{id}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+uint8\+\_\+t \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::id}
+
+\mbox{\Hypertarget{class_transport_ac283da242dbdb924071c1f54b8c12150}\label{class_transport_ac283da242dbdb924071c1f54b8c12150}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!maxConnections@{maxConnections}}
+\index{maxConnections@{maxConnections}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{maxConnections}{maxConnections}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+uint8\+\_\+t \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::max\+Connections}
+
+\mbox{\Hypertarget{class_transport_a78bfc6ad1df101dfbc61775e2b186165}\label{class_transport_a78bfc6ad1df101dfbc61775e2b186165}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!port@{port}}
+\index{port@{port}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+uint16\+\_\+t \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::port}
+
+\mbox{\Hypertarget{class_transport_ae513a4347831e91e10ad81c23e2398bd}\label{class_transport_ae513a4347831e91e10ad81c23e2398bd}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!protocol@{protocol}}
+\index{protocol@{protocol}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{protocol}{protocol}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+uint8\+\_\+t \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::protocol}
+
+\mbox{\Hypertarget{class_transport_aac1116a2fe836bdaba90171fc7a65a3b}\label{class_transport_aac1116a2fe836bdaba90171fc7a65a3b}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!server@{server}}
+\index{server@{server}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{server}{server}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+S$\ast$ \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::server}
+
+\mbox{\Hypertarget{class_transport_ade672e8933277c3ad0e2c679a0a9c73d}\label{class_transport_ade672e8933277c3ad0e2c679a0a9c73d}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!transport@{transport}}
+\index{transport@{transport}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{transport}{transport}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+uint8\+\_\+t \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::transport}
+
+\mbox{\Hypertarget{class_transport_accdcc014213693aca0f5ab377b9a1e6e}\label{class_transport_accdcc014213693aca0f5ab377b9a1e6e}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!udp@{udp}}
+\index{udp@{udp}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{udp}{udp}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+U$\ast$ \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::udp}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_transport_8h}{Transport.\+h}}\item 
+src/\mbox{\hyperlink{_transport_8cpp}{Transport.\+cpp}}\end{DoxyCompactItemize}
