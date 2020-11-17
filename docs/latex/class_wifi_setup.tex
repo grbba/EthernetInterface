@@ -2,6 +2,11 @@
 \label{class_wifi_setup}\index{WifiSetup@{WifiSetup}}
 
 
+Setting up an T\+C\+P/\+U\+DP Wi\+Fi connection.  
+
+
+
+
 {\ttfamily \#include $<$Wifi\+Setup.\+h$>$}
 
 
@@ -26,7 +31,7 @@ Collaboration diagram for Wifi\+Setup\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{class_wifi_setup_a63c1e8056faee13a274a941c59549907}{setup}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Wi\+Fi specifi setup function. \end{DoxyCompactList}\item 
 Wi\+Fi\+U\+DP $\ast$ \mbox{\hyperlink{class_wifi_setup_a1b14ccc6c9714fb3dd6ea9a2bf4171b2}{get\+U\+D\+P\+Server}} ()
 \item 
 Wi\+Fi\+Server $\ast$ \mbox{\hyperlink{class_wifi_setup_a24f36eff734b27e060f0576a007c06da}{get\+T\+C\+P\+Server}} ()
@@ -39,6 +44,11 @@ Wi\+Fi\+Server $\ast$ \mbox{\hyperlink{class_wifi_setup_a24f36eff734b27e060f0576
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
+
+\doxysubsection{Detailed Description}
+Setting up an T\+C\+P/\+U\+DP Wi\+Fi connection. 
+
+Stores and provides acces to the Server and U\+DP instance currently setup. Once the setup is done for a given \mbox{\hyperlink{class_network_interface}{Network\+Interface}} the instance of this class is not needed anymore. An instance will be created within the Networ\+Interface setup function ans go out of scope after the setup has been done. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_wifi_setup_a503c018bcd0e6b7ea51d86aa3d0d072b}\label{class_wifi_setup_a503c018bcd0e6b7ea51d86aa3d0d072b}} 
@@ -94,8 +104,25 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{setup()}{setup()}}
 {\footnotesize\ttfamily bool Wifi\+Setup\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Wi\+Fi specifi setup function. 
+
+Currently only for Serial1 to connect to the E\+SP chip.
+
+\begin{DoxyReturn}{Returns}
+true if the connection has been established 
+
+false something went wrong 
+\end{DoxyReturn}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]setup using Software\+Serial or any other Hardware Serial port on the mega (i.\+e. 2 or 3);\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]AP setup if no persistent network \& credentials found / reset persistent setup \& change Network; Forcing AP only mode; \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]setup using Software\+Serial or any other Hardware Serial port on the mega (i.\+e. 2 or 3);\end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]Can we have multiple U\+DP instances? Do we always get back the same ? if not possible we should catch this condition. \end{DoxyRefDesc}
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -114,5 +141,5 @@ Here is the caller graph for this function\+:\nopagebreak
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\mbox{\hyperlink{_wifi_setup_8h}{Wifi\+Setup.\+h}}\item 
-src/\mbox{\hyperlink{_wifi_setup_8cpp}{Wifi\+Setup.\+cpp}}\end{DoxyCompactItemize}
+\mbox{\hyperlink{_wifi_setup_8h}{Wifi\+Setup.\+h}}\item 
+\mbox{\hyperlink{_wifi_setup_8cpp}{Wifi\+Setup.\+cpp}}\end{DoxyCompactItemize}

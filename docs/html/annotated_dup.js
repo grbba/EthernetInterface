@@ -3,6 +3,7 @@ var annotated_dup =
     [ "__freelist", "struct____freelist.html", "struct____freelist" ],
     [ "AbstractTransport", "struct_abstract_transport.html", "struct_abstract_transport" ],
     [ "ArduinoUniqueID", "class_arduino_unique_i_d.html", "class_arduino_unique_i_d" ],
+    [ "CLI", "class_c_l_i.html", "class_c_l_i" ],
     [ "Connection", "struct_connection.html", "struct_connection" ],
     [ "DCCNetwork", "class_d_c_c_network.html", "class_d_c_c_network" ],
     [ "Diag", "class_diag.html", "class_diag" ],

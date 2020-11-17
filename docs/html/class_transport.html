@@ -116,11 +116,14 @@ Collaboration diagram for Transport&lt; S, C, U &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3758b46231aef33804c2b7c5acdec6c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transport.html#a3758b46231aef33804c2b7c5acdec6c4">setup</a> (<a class="el" href="class_network_interface.html">NetworkInterface</a> *nwi)</td></tr>
+<tr class="memdesc:a3758b46231aef33804c2b7c5acdec6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalizes either the TCP or WiFi transport and creates the connecion pool.  <a href="class_transport.html#a3758b46231aef33804c2b7c5acdec6c4">More...</a><br /></td></tr>
 <tr class="separator:a3758b46231aef33804c2b7c5acdec6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a77fae195b7c8352fdfe17fb4d5a59f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transport.html#a8a77fae195b7c8352fdfe17fb4d5a59f">loop</a> ()</td></tr>
 <tr class="separator:a8a77fae195b7c8352fdfe17fb4d5a59f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0dc819be3128c9ec90d9027146161a9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transport.html#ad0dc819be3128c9ec90d9027146161a9">isConnected</a> ()</td></tr>
 <tr class="separator:ad0dc819be3128c9ec90d9027146161a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bd5672582ed1ff8ea27ac470881da26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_connection.html">Connection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transport.html#a6bd5672582ed1ff8ea27ac470881da26">getConnection</a> (byte i)</td></tr>
+<tr class="separator:a6bd5672582ed1ff8ea27ac470881da26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf5554cc85f06a25556acdbac1d74140"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transport.html#acf5554cc85f06a25556acdbac1d74140">Transport</a> ()</td></tr>
 <tr class="separator:acf5554cc85f06a25556acdbac1d74140"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a627257d31f11c4606cae9942e4e7bdf6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transport.html#a627257d31f11c4606cae9942e4e7bdf6">~Transport</a> ()</td></tr>
@@ -146,7 +149,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ac283da242dbdb924071c1f54b8c12150"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transport.html#ac283da242dbdb924071c1f54b8c12150">maxConnections</a></td></tr>
 <tr class="separator:ac283da242dbdb924071c1f54b8c12150"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class S, class C, class U&gt;<br />
+class Transport&lt; S, C, U &gt;</h3>
+
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">S</td><td>Server (either EthernetServer or WiFiServer) </td></tr>
+    <tr><td class="paramname">C</td><td>Client (either EthernetClient or WiFiClient) </td></tr>
+    <tr><td class="paramname">U</td><td>UDP (either EthernetUDP or WiFiUDP) </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acf5554cc85f06a25556acdbac1d74140"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf5554cc85f06a25556acdbac1d74140">&#9670;&nbsp;</a></span>Transport()</h2>
 
@@ -180,6 +195,34 @@ template&lt;class S , class C , class U &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6bd5672582ed1ff8ea27ac470881da26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd5672582ed1ff8ea27ac470881da26">&#9670;&nbsp;</a></span>getConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class S , class C , class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_connection.html">Connection</a> <a class="el" href="class_transport.html">Transport</a>&lt; S, C, U &gt;::getConnection </td>
+          <td>(</td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad0dc819be3128c9ec90d9027146161a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad0dc819be3128c9ec90d9027146161a9">&#9670;&nbsp;</a></span>isConnected()</h2>
 
@@ -245,11 +288,31 @@ template&lt;class S , class C , class U &gt; </div>
           <td class="memname">bool <a class="el" href="class_transport.html">Transport</a>&lt; S, C, U &gt;::setup </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_network_interface.html">NetworkInterface</a> *&#160;</td>
-          <td class="paramname"><em>nwi</em></td><td>)</td>
+          <td class="paramname"><em>nw</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initalizes either the TCP or WiFi transport and creates the connecion pool. </p>
+<p>If the port for this transport is 23 and the protocol TCP it will start also the telnet server and set the maxConnections to 1 ( only one telnet connection will be allowed )</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">S</td><td>Server type </td></tr>
+    <tr><td class="paramname">C</td><td>Client type </td></tr>
+    <tr><td class="paramname">U</td><td>UDP type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nw</td><td><a class="el" href="class_network_interface.html" title="Main entry point used to instatiate the network interface(s).">NetworkInterface</a> for this transport instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
 
 </div>
 </div>
@@ -367,8 +430,8 @@ template&lt;class S , class C , class U &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="_transport_8h_source.html">Transport.h</a></li>
-<li>src/<a class="el" href="_transport_8cpp.html">Transport.cpp</a></li>
+<li><a class="el" href="_transport_8h_source.html">Transport.h</a></li>
+<li><a class="el" href="_transport_8cpp.html">Transport.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

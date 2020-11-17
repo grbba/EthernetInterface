@@ -19,7 +19,9 @@ add list of parameters
 
 -\/ add warning if all connections available are in use. i.\+e. the next connection opened will not go through but wait until a connection gets available 
 
--\/ start on the C\+LI 
+-\/ start on the \mbox{\hyperlink{class_c_l_i}{C\+LI}} 
+
+-\/ check if the number of connections is global or per \mbox{[}Ethernet$\vert$\+Wi\+Fi\mbox{]}Server instance ... 
 
 \label{todo__todo000003}%
 \Hypertarget{todo__todo000003}%
@@ -33,5 +35,13 @@ implement U\+DP properly
 look for jmri formatted uris and execute those if there is no callback. If no command found ignore and ev. send a 401 error back  
 \item[Member \mbox{\hyperlink{class_wifi_setup_a63c1e8056faee13a274a941c59549907}{Wifi\+Setup\+::setup}} ()]\label{todo__todo000006}%
 \Hypertarget{todo__todo000006}%
+AP setup if no persistent network \& credentials found / reset persistent setup \& change Network; Forcing AP only mode; 
+
+\label{todo__todo000007}%
+\Hypertarget{todo__todo000007}%
 setup using Software\+Serial or any other Hardware Serial port on the mega (i.\+e. 2 or 3);
+
+\label{todo__todo000008}%
+\Hypertarget{todo__todo000008}%
+Can we have multiple U\+DP instances? Do we always get back the same ? if not possible we should catch this condition. 
 \end{DoxyRefList}

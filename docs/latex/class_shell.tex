@@ -92,16 +92,16 @@ The following example is the minimal setup for a command-\/line shell on a seria
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\mbox{\hyperlink{class_shell}{Shell}} shell;}
+\DoxyCodeLine{\mbox{\hyperlink{class_shell}{Shell}} \mbox{\hyperlink{_transport_8cpp_ae1bf58c4a1fd09ecd2dadcd745104365}{shell}};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{void} setup() \{}
 \DoxyCodeLine{    \mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}.begin(9600);}
-\DoxyCodeLine{    shell.\mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{setPrompt}}(\textcolor{stringliteral}{"\$ "});}
-\DoxyCodeLine{    shell.\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}});}
+\DoxyCodeLine{    \mbox{\hyperlink{_transport_8cpp_ae1bf58c4a1fd09ecd2dadcd745104365}{shell}}.\mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{setPrompt}}(\textcolor{stringliteral}{"\$ "});}
+\DoxyCodeLine{    \mbox{\hyperlink{_transport_8cpp_ae1bf58c4a1fd09ecd2dadcd745104365}{shell}}.\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}});}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_shell_afc45cae4ccfc76321a254bb617dce08c}{loop}}() \{}
-\DoxyCodeLine{    shell.\mbox{\hyperlink{class_shell_afc45cae4ccfc76321a254bb617dce08c}{loop}}();}
+\DoxyCodeLine{    \mbox{\hyperlink{_transport_8cpp_ae1bf58c4a1fd09ecd2dadcd745104365}{shell}}.\mbox{\hyperlink{class_shell_afc45cae4ccfc76321a254bb617dce08c}{loop}}();}
 \DoxyCodeLine{\}}
 \end{DoxyCode}
 
@@ -110,7 +110,7 @@ Commands can be registered with the shell by the application to be invoked when 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{void} cmdMotor(\mbox{\hyperlink{class_shell}{Shell}} \&shell, \textcolor{keywordtype}{int} argc, \textcolor{keyword}{const} \mbox{\hyperlink{class_shell_arguments}{ShellArguments}} \&argv)}
+\DoxyCodeLine{\textcolor{keywordtype}{void} cmdMotor(\mbox{\hyperlink{class_shell}{Shell}} \&\mbox{\hyperlink{_transport_8cpp_ae1bf58c4a1fd09ecd2dadcd745104365}{shell}}, \textcolor{keywordtype}{int} argc, \textcolor{keyword}{const} \mbox{\hyperlink{class_shell_arguments}{ShellArguments}} \&argv)}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    ...}
 \DoxyCodeLine{\}}
@@ -127,7 +127,7 @@ The F1 key can be used as a synonym for \char`\"{}help\char`\"{} and C\+T\+R\+L-
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{shell.\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}, 5);}
+\DoxyCodeLine{\mbox{\hyperlink{_transport_8cpp_ae1bf58c4a1fd09ecd2dadcd745104365}{shell}}.\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}, 5);}
 \end{DoxyCode}
 
 
@@ -223,8 +223,8 @@ This function will print the \mbox{\hyperlink{class_shell_a7a8bbb229b0c49e32a8ef
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}}.begin(9600);}
-\DoxyCodeLine{shell.\mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{setPrompt}}(\textcolor{stringliteral}{"Command: "});}
-\DoxyCodeLine{shell.\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}});}
+\DoxyCodeLine{\mbox{\hyperlink{_transport_8cpp_ae1bf58c4a1fd09ecd2dadcd745104365}{shell}}.\mbox{\hyperlink{class_shell_a89d802eae5b716e80b2c4dfbce0a0a75}{setPrompt}}(\textcolor{stringliteral}{"Command: "});}
+\DoxyCodeLine{\mbox{\hyperlink{_transport_8cpp_ae1bf58c4a1fd09ecd2dadcd745104365}{shell}}.\mbox{\hyperlink{class_shell_ad9acba905b6e0b661cce19d57c067990}{begin}}(\mbox{\hyperlink{class_terminal_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6}{Serial}});}
 \end{DoxyCode}
 
 
@@ -567,7 +567,7 @@ The {\itshape name} and {\itshape help} parameters must be constant strings that
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{void} cmdMotor(\mbox{\hyperlink{class_shell}{Shell}} \&shell, \textcolor{keywordtype}{int} argc, \textcolor{keyword}{const} \mbox{\hyperlink{class_shell_arguments}{ShellArguments}} \&argv)}
+\DoxyCodeLine{\textcolor{keywordtype}{void} cmdMotor(\mbox{\hyperlink{class_shell}{Shell}} \&\mbox{\hyperlink{_transport_8cpp_ae1bf58c4a1fd09ecd2dadcd745104365}{shell}}, \textcolor{keywordtype}{int} argc, \textcolor{keyword}{const} \mbox{\hyperlink{class_shell_arguments}{ShellArguments}} \&argv)}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    ...}
 \DoxyCodeLine{\}}
@@ -609,5 +609,5 @@ Here is the caller graph for this function\+:\nopagebreak
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/cli/\mbox{\hyperlink{_shell_8h}{Shell.\+h}}\item 
-src/cli/\mbox{\hyperlink{_shell_8cpp}{Shell.\+cpp}}\end{DoxyCompactItemize}
+\mbox{\hyperlink{_shell_8h}{Shell.\+h}}\item 
+\mbox{\hyperlink{_shell_8cpp}{Shell.\+cpp}}\end{DoxyCompactItemize}

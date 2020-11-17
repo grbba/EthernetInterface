@@ -1,6 +1,6 @@
 var _network_config_8h =
 [
-    [ "DCCEX_CLI", "_network_config_8h.html#a364697bba92cbad598418a91ddff9993", null ],
+    [ "CLI_ENABLED", "_network_config_8h.html#aa3e84b22f144b0fc10c717cdf8add0ff", null ],
     [ "IP_ADDRESS", "_network_config_8h.html#ad8a262037cbfb38d1512f0073eeb7a66", null ],
     [ "LISTEN_PORT", "_network_config_8h.html#a4fba0963c20988d1f1a45afb1c636e44", null ],
     [ "MAC_ADDRESS", "_network_config_8h.html#a0cb4fc37d244ce985851dd2958ae0b94", null ],

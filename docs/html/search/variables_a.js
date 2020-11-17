@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['name_687',['name',['../struct_params.html#a88eeba1df9a0bac01562dd9b468d5708',1,'Params']]],
-  ['next_688',['next',['../struct_params.html#a758822d97fa824ae18fb82ec261047cc',1,'Params']]],
-  ['nwi_689',['nwi',['../class_transport_processor.html#a084ea93e2719e923d570ac2ce6297bf7',1,'TransportProcessor']]],
-  ['nx_690',['nx',['../struct____freelist.html#abfcbc656d931bb3fc6f5b3f3deec41cd',1,'__freelist']]]
+  ['mac_711',['mac',['../class_network_setup.html#a1ff34172f684f2663bb771b66b8e9eb4',1,'NetworkSetup']]],
+  ['maxconnections_712',['maxConnections',['../class_network_setup.html#ad45376dd2b854b439a1247ed9236b27d',1,'NetworkSetup::maxConnections()'],['../class_transport.html#ac283da242dbdb924071c1f54b8c12150',1,'Transport::maxConnections()']]],
+  ['method_713',['method',['../struct_parsed_request.html#af4e4790d8f338e78c3e6720c0397e490',1,'ParsedRequest']]]
 ];

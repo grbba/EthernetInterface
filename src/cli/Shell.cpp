@@ -25,6 +25,8 @@
 #include <string.h>
 #include <stddef.h>
 
+#include "../NetworkDiag.h"
+
 /**
  * \class Shell Shell.h <Shell.h>
  * \brief Command-line shell access.
@@ -178,6 +180,7 @@ bool Shell::begin(Stream &stream, size_t maxHistory, Terminal::Mode mode)
     if (!beginShell(stream, maxHistory, mode))
         return false;
     isClient = false;
+    INFO(F("\r\nWelcome to the CommandStation-EX Command Line Interface\n"));
     return true;
 }
 
@@ -210,6 +213,7 @@ bool Shell::begin(Client &client, size_t maxHistory, Terminal::Mode mode)
     if (!beginShell(client, maxHistory, mode))
         return false;
     isClient = true;
+    Terminal::print("\n");
     return true;
 }
 
@@ -1021,7 +1025,7 @@ void LoginShell::printPrompt()
         // Print the machine name and the login prompt.
         if (machName) {
             print(machName);
-            write((uint8_t)' ');
+            // write((uint8_t)' ');
         }
         writeProgMem(loginString);
 

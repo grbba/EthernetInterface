@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['udp_703',['udp',['../class_transport.html#accdcc014213693aca0f5ab377b9a1e6e',1,'Transport::udp()'],['../class_transport_processor.html#a456fdc8e10830853057235906c9b71bd',1,'TransportProcessor::udp()']]],
-  ['uri_704',['uri',['../struct_parsed_request.html#aa969118960d665d3a2f8aa27a41f0000',1,'ParsedRequest']]]
+  ['transport_729',['transport',['../class_transport.html#ade672e8933277c3ad0e2c679a0a9c73d',1,'Transport']]],
+  ['transports_730',['transports',['../class_d_c_c_network.html#abaed87368d9a34490c9cb1dd3e2fd6d5',1,'DCCNetwork']]]
 ];

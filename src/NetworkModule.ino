@@ -57,8 +57,8 @@ void setup()
   DIAG(F("\nFree RAM before network init: [%d]\n"),freeMemory());
   DIAG(F("\nNetwork Setup In Progress ...\n\n"));
   
-  nwi1.setup(ETHERNET, TCP, 8888);               // ETHERNET/TCP on Port 8888
-  nwi2.setup(WIFI, TCP);                         // WIFI/TCP on Port 2560
+  nwi1.setup(WIFI, TCP, 23);               // ETHERNET/TCP on Port 8888
+  nwi2.setup(ETHERNET, TCP);                // WIFI/TCP on Port 2560
   
   nwi1.setHttpCallback(httpRequestHandler);      // HTTP callback
 
@@ -75,5 +75,5 @@ void loop()
 // (3) Start Loop NetworkInterface 
 NetworkInterface::loop();
 // (3) End Loop NetworkInterface
-  
+
 }

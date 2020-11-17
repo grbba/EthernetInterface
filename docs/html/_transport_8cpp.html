@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CS-EX NetworkInterface: src/Transport.cpp File Reference</title>
+<title>CS-EX NetworkInterface: Transport.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,28 +94,40 @@ $(document).ready(function(){initNavTree('_transport_8cpp.html',''); initResizab
 <code>#include &quot;<a class="el" href="_network_diag_8h_source.html">NetworkDiag.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_network_interface_8h_source.html">NetworkInterface.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_transport_8h_source.html">Transport.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_login_shell_8h_source.html">cli/LoginShell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_shell_8h_source.html">cli/Shell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_c_l_icommands_8h_source.html">cli/CLIcommands.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Transport.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="_transport_8cpp__incl.png" border="0" usemap="#src_2_transport_8cpp" alt=""/></div>
-<map name="src_2_transport_8cpp" id="src_2_transport_8cpp">
-<area shape="rect" title=" " alt="" coords="335,5,459,32"/>
-<area shape="rect" title=" " alt="" coords="205,453,283,480"/>
-<area shape="rect" href="_network_diag_8h.html" title=" " alt="" coords="228,80,337,107"/>
-<area shape="rect" href="_transport_8h.html" title=" " alt="" coords="500,304,588,331"/>
-<area shape="rect" href="_network_interface_8h.html" title=" " alt="" coords="695,379,828,405"/>
-<area shape="rect" href="free_memory_8h.html" title=" " alt="" coords="43,155,143,181"/>
-<area shape="rect" href="_string_formatter_8h.html" title=" " alt="" coords="221,155,344,181"/>
-<area shape="rect" href="_transport_processor_8h.html" title=" " alt="" coords="309,229,456,256"/>
-<area shape="rect" title=" " alt="" coords="565,528,648,555"/>
-<area shape="rect" title=" " alt="" coords="421,379,518,405"/>
-<area shape="rect" href="_network_config_8h.html" title=" " alt="" coords="644,453,764,480"/>
-<area shape="rect" href="_http_request_8h.html" title="creates a HttpRequest object for the user callback." alt="" coords="788,453,895,480"/>
+<div class="center"><img src="_transport_8cpp__incl.png" border="0" usemap="#_transport_8cpp" alt=""/></div>
+<map name="_transport_8cpp" id="_transport_8cpp">
+<area shape="rect" title=" " alt="" coords="416,5,519,32"/>
+<area shape="rect" title=" " alt="" coords="534,453,612,480"/>
+<area shape="rect" href="_network_diag_8h.html" title=" " alt="" coords="413,80,522,107"/>
+<area shape="rect" href="_transport_8h.html" title=" " alt="" coords="204,304,292,331"/>
+<area shape="rect" href="_network_interface_8h.html" title=" " alt="" coords="26,379,160,405"/>
+<area shape="rect" href="_login_shell_8h.html" title=" " alt="" coords="763,80,874,107"/>
+<area shape="rect" href="_shell_8h.html" title=" " alt="" coords="768,155,831,181"/>
+<area shape="rect" href="_c_l_icommands_8h.html" title=" " alt="" coords="131,80,266,107"/>
+<area shape="rect" href="free_memory_8h.html" title=" " alt="" coords="486,155,586,181"/>
+<area shape="rect" href="_string_formatter_8h.html" title=" " alt="" coords="338,155,461,181"/>
+<area shape="rect" href="_transport_processor_8h.html" title=" " alt="" coords="288,229,434,256"/>
+<area shape="rect" title=" " alt="" coords="45,528,128,555"/>
+<area shape="rect" title=" " alt="" coords="286,379,383,405"/>
+<area shape="rect" href="_network_config_8h.html" title=" " alt="" coords="164,453,284,480"/>
+<area shape="rect" href="_http_request_8h.html" title="creates a HttpRequest object for the user callback." alt="" coords="33,453,140,480"/>
+<area shape="rect" href="_terminal_8h.html" title=" " alt="" coords="838,229,921,256"/>
+<area shape="rect" title=" " alt="" coords="748,229,814,256"/>
+<area shape="rect" title=" " alt="" coords="712,304,794,331"/>
+<area shape="rect" href="_u_s_b_keys_extra_8h.html" title=" " alt="" coords="818,304,941,331"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ae1bf58c4a1fd09ecd2dadcd745104365"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shell.html">Shell</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a></td></tr>
+<tr class="separator:ae1bf58c4a1fd09ecd2dadcd745104365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7edababa419584d038a5bcbf1cc771d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_transport_8cpp.html#af7edababa419584d038a5bcbf1cc771d">diagNetwork</a></td></tr>
 <tr class="separator:af7edababa419584d038a5bcbf1cc771d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90538335e7e6e7f444374f84213c0409"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_transport_8cpp.html#a90538335e7e6e7f444374f84213c0409">diagNetworkClient</a></td></tr>
@@ -144,6 +156,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">uint8_t diagNetworkClient</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1bf58c4a1fd09ecd2dadcd745104365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1bf58c4a1fd09ecd2dadcd745104365">&#9670;&nbsp;</a></span>shell</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_shell.html">Shell</a> shell</td>
         </tr>
       </table>
 </div><div class="memdoc">

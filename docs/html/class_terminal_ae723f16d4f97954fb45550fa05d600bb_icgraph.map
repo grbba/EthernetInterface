@@ -1,9 +1,8 @@
 <map id="Terminal::write" name="Terminal::write">
-<area shape="rect" id="node1" title="Writes a single byte to the underlying stream." alt="" coords="548,81,655,108"/>
-<area shape="rect" id="node2" href="$class_shell.html#a58b0e9104d1f6c7ec7d1663c69cd03dd" title="Displays help for all supported commands." alt="" coords="380,5,463,32"/>
+<area shape="rect" id="node1" title="Writes a single byte to the underlying stream." alt="" coords="545,56,652,83"/>
+<area shape="rect" id="node2" href="$class_shell.html#a58b0e9104d1f6c7ec7d1663c69cd03dd" title="Displays help for all supported commands." alt="" coords="379,5,461,32"/>
 <area shape="rect" id="node5" href="$class_shell.html#afc45cae4ccfc76321a254bb617dce08c" title="Performs regular activities on the shell." alt="" coords="32,56,115,83"/>
-<area shape="rect" id="node6" href="$class_login_shell.html#a6574705053f780acb8f0d8594c210524" title="Prints the current prompt string." alt="" coords="343,107,500,133"/>
-<area shape="rect" id="node7" href="$class_terminal.html#a25308d6b2a3d18820d8a0e641c7be937" title="Writes a Unicode code point to the output in UTF&#45;8 encoding." alt="" coords="344,157,499,184"/>
+<area shape="rect" id="node6" href="$class_terminal.html#a25308d6b2a3d18820d8a0e641c7be937" title="Writes a Unicode code point to the output in UTF&#45;8 encoding." alt="" coords="343,107,497,133"/>
 <area shape="rect" id="node3" href="$class_shell.html#ab4a3f80dc5ff779ac99116a1f7e35cda" title="Executes the command in the buffer." alt="" coords="189,5,295,32"/>
 <area shape="rect" id="node4" href="$class_login_shell.html#af54c5c14adac7955cf5e4f9460bd9ca5" title="Executes the command in the buffer." alt="" coords="5,5,141,32"/>
 </map>

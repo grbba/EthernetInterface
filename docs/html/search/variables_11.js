@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['wifi_707',['WIFI',['../class_diag.html#ad9296523bbd0ba3296ddaaa347b1582a',1,'Diag']]],
-  ['wifitransport_708',['wifiTransport',['../_network_interface_8cpp.html#a5f3db7b62ec540f0a24486bcd5692827',1,'NetworkInterface.cpp']]],
-  ['withrottle_709',['WITHROTTLE',['../class_diag.html#a5f707b0ba88866a3599033e58c3f3e2c',1,'Diag']]]
+  ['value_733',['value',['../struct_params.html#abbba6c1dddfdc4a7bf4483864af8cdf3',1,'Params']]],
+  ['version_734',['version',['../struct_parsed_request.html#afaa2d1cf6fbfdde289b6b3ac438f8340',1,'ParsedRequest']]]
 ];

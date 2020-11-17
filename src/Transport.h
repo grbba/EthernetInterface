@@ -43,6 +43,7 @@ struct Connection;
 class TransportProcessor;
 
 using appProtocolCallback = void (*)(Connection* c, TransportProcessor* t);
+using loopHandler = void(*)();
 
 struct Connection
 {
@@ -63,7 +64,6 @@ struct Connection
  * @tparam C Client (either EthernetClient or WiFiClient)
  * @tparam U UDP (either EthernetUDP or WiFiUDP)
  */
-
 template <class S, class C, class U> class Transport: public AbstractTransport
 {
 
@@ -77,6 +77,8 @@ private:
     void tcpSessionHandler(S* server);                  //!< tcpSessionHandler -> connections are maintained open until close by the client
     void connectionPool(S* server);                     //!< allocates the sockets at setup time and creates the Connections
     void connectionPool(U* udp);                        //!< allocates the UDP Sockets at setup time and creates the Connection
+    Connection* cliConnection = 0;                      //!< Id if the connection used for the command line interface
+    bool cliConnected = false;                          //!< if we got a connection port 23 this is set to true
    
 public:
 
@@ -93,6 +95,10 @@ public:
 
     bool isConnected() {
         return connected;
+    }
+
+    Connection getConnection(byte i){
+        return connections[i];
     }
 
     Transport<S,C,U>();

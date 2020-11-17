@@ -5,6 +5,7 @@ var hierarchy =
       [ "Transport< S, C, U >", "class_transport.html", null ]
     ] ],
     [ "ArduinoUniqueID", "class_arduino_unique_i_d.html", null ],
+    [ "CLI", "class_c_l_i.html", null ],
     [ "Connection", "struct_connection.html", null ],
     [ "DCCNetwork", "class_d_c_c_network.html", null ],
     [ "Diag", "class_diag.html", null ],

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['dbg_826',['DBG',['../_network_diag_8h.html#a445a14d10ffdece08ce75cb22baf2c6e',1,'NetworkDiag.h']]],
-  ['dccex_5fcli_827',['DCCEX_CLI',['../_network_config_8h.html#a364697bba92cbad598418a91ddff9993',1,'NetworkConfig.h']]],
-  ['debug_828',['DEBUG',['../_network_diag_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'NetworkDiag.h']]],
-  ['diag_829',['DIAG',['../_d_i_a_g_8h.html#ad2390c07b2f83f490ae971a3fdc0c18b',1,'DIAG.h']]]
+  ['cli_5fenabled_855',['CLI_ENABLED',['../_network_config_8h.html#aa3e84b22f144b0fc10c717cdf8add0ff',1,'NetworkConfig.h']]],
+  ['clicommands_5fh_856',['CLICommands_h',['../_c_l_icommands_8h.html#a998de25b501ab5d51b67e386e63fc47d',1,'CLIcommands.h']]]
 ];

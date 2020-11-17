@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['shellcommandfunc_713',['ShellCommandFunc',['../_shell_8h.html#ad3aab40fbf685102df6bf7e9f163f22a',1,'Shell.h']]],
-  ['shellpasswordcheckfunc_714',['ShellPasswordCheckFunc',['../_login_shell_8h.html#a20b319df016a5503d88e18b7422bad2b',1,'LoginShell.h']]]
+  ['protocoltype_741',['protocolType',['../_network_interface_8h.html#a3d524451a44296541faccbb5c2d6bdfb',1,'NetworkInterface.h']]]
 ];

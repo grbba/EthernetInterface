@@ -1,5 +1,5 @@
-<map id="src/EthernetSetup.cpp" name="src/EthernetSetup.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="389,5,541,32"/>
+<map id="EthernetSetup.cpp" name="EthernetSetup.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="400,5,531,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="81,453,159,480"/>
 <area shape="rect" id="node3" href="$_network_diag_8h.html" title=" " alt="" coords="227,80,336,107"/>
 <area shape="rect" id="node13" href="$_network_setup_8h.html" title=" " alt="" coords="689,304,805,331"/>

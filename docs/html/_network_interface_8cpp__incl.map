@@ -1,5 +1,5 @@
-<map id="src/NetworkInterface.cpp" name="src/NetworkInterface.cpp">
-<area shape="rect" id="node1" title="This is some text about this class." alt="" coords="427,5,597,32"/>
+<map id="NetworkInterface.cpp" name="NetworkInterface.cpp">
+<area shape="rect" id="node1" title="This is some text about this class." alt="" coords="439,5,585,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="93,453,171,480"/>
 <area shape="rect" id="node3" href="$_network_diag_8h.html" title=" " alt="" coords="236,80,345,107"/>
 <area shape="rect" id="node9" href="$_transport_8h.html" title=" " alt="" coords="468,304,556,331"/>

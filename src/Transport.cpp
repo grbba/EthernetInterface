@@ -23,12 +23,23 @@
 #include "NetworkInterface.h"
 #include "Transport.h"
 
+#ifdef CLI_ENABLED
+
+#include "cli/LoginShell.h"
+#include "cli/Shell.h"
+#include "cli/CLIcommands.h"
+
+Shell shell;
+
+#endif
+
 #ifdef DCCEX_ENABLED
 #include "RingStream.h"
 #endif
 
 extern bool diagNetwork;
 extern uint8_t diagNetworkClient;
+
 
 /**
  * @brief Initalizes either the TCP or WiFi transport and creates the connecion pool. If the port for this transport is 23 and the protocol TCP it will start also the
@@ -47,13 +58,17 @@ bool Transport<S,C,U>::setup(NetworkInterface *nw) {
     t = new TransportProcessor();
 
     if (protocol == TCP) { 
-        if (port == 23 ){
+#ifdef CLI_ENABLED
+        if (port == 23){ 
+            INFO(F("CS-CLI session enabeled ...")); 
+            WARN(F("Connections limited to 1 ..."));
+            // networkInterface used for Telnet session so limit the connections to 1
+            // when we get a new client on port 23; Terminal used shall be set to no echo & CRLF 
             maxConnections = 1;
-            shell.setMachineName("CommandStation-EX");
-            shell.begin(clients[0], 5);  // 
         }
+#endif
         connectionPool(server);     // server should have started here so create the connection pool only for TCP though
-        t->udp = 0;
+        t->udp = nullptr;
     } else {
         connectionPool(udp);
         t->udp = udp;
@@ -76,7 +91,7 @@ void Transport<S,C,U>::loop() {
     case TCP:
     {
         DBG(F("Transport: %s"), this->transport == WIFI ? "WIFI" : "ETHERNET"); 
-        tcpSessionHandler(server);    
+        tcpSessionHandler(server);
     };
     case MQTT:
     {
@@ -97,14 +112,18 @@ void Transport<S, C, U>::connectionPool(S *server)
         connections[i].id = i;
         TRC(F("TCP Connection pool:       [%d:%x]"), i, connections[i].client);
     }
+#ifdef CLI_ENABLED
+    if ( port == 23 && !CLI::connected()) {
+        CLI::connect(&connections[0]);
+    }
+#endif
+
 }
 template<class S, class C, class U> 
 void Transport<S, C, U>::connectionPool(U *udp)
 {
     for (int i = 0; i < Transport::maxConnections; i++)
-    {
-        // clients[i] = server->accept();
-        // connections[i].client = &clients[i];              
+    {             
         memset(connections[i].overflow, 0, MAX_OVERFLOW); 
         connections[i].id = i;
 
@@ -136,11 +155,6 @@ void Transport<S, C, U>::udpHandler(U* udp)
 
         memset(t->buffer, 0, MAX_ETH_BUFFER);   // reset PacktBuffer
         return; 
-
-        // send the reply
-        // udp.beginPacket(udp.remoteIP(), udp.remotePort());
-        // parse(&udp, (byte *)buffer, true); //////////// Put into the TransportProcessor Attn the default udp TX buffer on ethernet is 24 on wifi its 256 ?? 
-        // udp.endPacket();
     }
     return;
 }
@@ -165,8 +179,19 @@ void Transport<S,C,U>::tcpSessionHandler(S* server)
             {
                 // On accept() the EthernetServer doesn't track the client anymore
                 // so we store it in our client array
+                
                 clients[i] = client;
                 INFO(F("New Client: [%d:%x]"), i, clients[i]);
+#ifdef CLI_ENABLED
+                if (port == 23 ){
+                    // new telnet client so start the shell
+                    
+                    // shell.setMachineName("cs-excli");
+                    shell.begin(clients[0], 5);  // 5 lines of history in the shell
+                    shell.println("Welcome to the CommandStation EX Command Line Interface\r\n");
+                    shell.flush();
+                }
+#endif
                 break;
             }
         }
@@ -177,7 +202,15 @@ void Transport<S,C,U>::tcpSessionHandler(S* server)
     {
         if (clients[i] && clients[i].available() > 0)
         {
+#ifdef CLI_ENABLED
+            if (port == 23 ) {
+                shell.loop();
+            } else {
+#endif
             t->readStream(&connections[i], true);
+#ifdef CLI_ENABLED
+            }
+#endif 
         }
         // stop any clients which disconnect
         for (byte i = 0; i < maxConnections; i++)

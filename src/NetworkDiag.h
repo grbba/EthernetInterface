@@ -105,10 +105,10 @@ extern byte _dOutput;           // where the diag messages shall be send; 1 = Se
 #define DBG(message...)
 #endif
 #if LOGLEVEL == LOGV_TRACE
-#define INFO(message...) EH_DW(EH_IFLL(LOGV_INFO, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F("::[INF]:%d:%d:%s:%d : "), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F("\n")); )) 
-#define WARN(message...) EH_DW(EH_IFLL(LOGV_WARN, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F("::[WRN]:%d:%d:%s:%d : "), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F("\n")); ))
-#define ERR(message...)  EH_DW(EH_IFLL(LOGV_ERROR, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F("::[ERR]:%d:%d:%s:%d : "), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F("\n")); ))
-#define TRC(message...)  EH_DW(EH_IFLL(LOGV_TRACE, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F("::[TRC]:%d:%d:%s:%d : "), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F("\n")); ))
+#define INFO(message...) EH_DW(EH_IFLL(LOGV_INFO, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F("\r\n")); NDIAG(F("::[INF]:%d:%d:%s:%d : "), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message);  )) 
+#define WARN(message...) EH_DW(EH_IFLL(LOGV_WARN, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F("\r\n")); NDIAG(F("::[WRN]:%d:%d:%s:%d : "), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message);  ))
+#define ERR(message...)  EH_DW(EH_IFLL(LOGV_ERROR, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F("\r\n")); NDIAG(F("::[ERR]:%d:%d:%s:%d : "), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message);  ))
+#define TRC(message...)  EH_DW(EH_IFLL(LOGV_TRACE, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F("\r\n")); NDIAG(F("::[TRC]:%d:%d:%s:%d : "), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message);  ))
 #define DBG(message...)
 #endif
 #if LOGLEVEL >= LOGV_DEBUG

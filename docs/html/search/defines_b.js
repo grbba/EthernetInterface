@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['trc_932',['TRC',['../_network_diag_8h.html#ae31fb81e1fe3e5c44839e319a44c8c5e',1,'NetworkDiag.h']]]
+  ['shell_5fmax_5fcmd_5flen_961',['SHELL_MAX_CMD_LEN',['../_shell_8h.html#a289fac62523ab75893db741e94e0d78e',1,'Shell.h']]]
 ];

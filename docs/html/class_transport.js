@@ -2,6 +2,7 @@ var class_transport =
 [
     [ "Transport", "class_transport.html#acf5554cc85f06a25556acdbac1d74140", null ],
     [ "~Transport", "class_transport.html#a627257d31f11c4606cae9942e4e7bdf6", null ],
+    [ "getConnection", "class_transport.html#a6bd5672582ed1ff8ea27ac470881da26", null ],
     [ "isConnected", "class_transport.html#ad0dc819be3128c9ec90d9027146161a9", null ],
     [ "loop", "class_transport.html#a8a77fae195b7c8352fdfe17fb4d5a59f", null ],
     [ "setup", "class_transport.html#a3758b46231aef33804c2b7c5acdec6c4", null ],

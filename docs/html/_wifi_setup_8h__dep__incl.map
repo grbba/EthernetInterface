@@ -1,5 +1,5 @@
-<map id="src/WifiSetup.h" name="src/WifiSetup.h">
-<area shape="rect" id="node1" title=" " alt="" coords="119,5,231,32"/>
-<area shape="rect" id="node2" href="$_network_interface_8cpp.html" title="This is some text about this class." alt="" coords="5,80,175,107"/>
-<area shape="rect" id="node3" href="$_wifi_setup_8cpp.html" title=" " alt="" coords="199,80,325,107"/>
+<map id="WifiSetup.h" name="WifiSetup.h">
+<area shape="rect" id="node1" title=" " alt="" coords="108,5,199,32"/>
+<area shape="rect" id="node2" href="$_network_interface_8cpp.html" title="This is some text about this class." alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$_wifi_setup_8cpp.html" title=" " alt="" coords="176,80,280,107"/>
 </map>

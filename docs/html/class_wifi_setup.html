@@ -92,13 +92,16 @@ $(document).ready(function(){initNavTree('class_wifi_setup.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 
+<p>Setting up an TCP/UDP WiFi connection.  
+ <a href="class_wifi_setup.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_wifi_setup_8h_source.html">WifiSetup.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for WifiSetup:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_wifi_setup__inherit__graph.png" border="0" usemap="#_wifi_setup_inherit__map" alt="Inheritance graph"/></div>
 <map name="_wifi_setup_inherit__map" id="_wifi_setup_inherit__map">
-<area shape="rect" title=" " alt="" coords="19,80,97,107"/>
+<area shape="rect" title="Setting up an TCP/UDP WiFi connection." alt="" coords="19,80,97,107"/>
 <area shape="rect" href="class_network_setup.html" title=" " alt="" coords="5,5,111,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -107,7 +110,7 @@ Collaboration diagram for WifiSetup:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_wifi_setup__coll__graph.png" border="0" usemap="#_wifi_setup_coll__map" alt="Collaboration graph"/></div>
 <map name="_wifi_setup_coll__map" id="_wifi_setup_coll__map">
-<area shape="rect" title=" " alt="" coords="19,80,97,107"/>
+<area shape="rect" title="Setting up an TCP/UDP WiFi connection." alt="" coords="19,80,97,107"/>
 <area shape="rect" href="class_network_setup.html" title=" " alt="" coords="5,5,111,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -115,6 +118,7 @@ Collaboration diagram for WifiSetup:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a63c1e8056faee13a274a941c59549907"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wifi_setup.html#a63c1e8056faee13a274a941c59549907">setup</a> ()</td></tr>
+<tr class="memdesc:a63c1e8056faee13a274a941c59549907"><td class="mdescLeft">&#160;</td><td class="mdescRight">WiFi specifi setup function.  <a href="class_wifi_setup.html#a63c1e8056faee13a274a941c59549907">More...</a><br /></td></tr>
 <tr class="separator:a63c1e8056faee13a274a941c59549907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b14ccc6c9714fb3dd6ea9a2bf4171b2"><td class="memItemLeft" align="right" valign="top">WiFiUDP *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wifi_setup.html#a1b14ccc6c9714fb3dd6ea9a2bf4171b2">getUDPServer</a> ()</td></tr>
 <tr class="separator:a1b14ccc6c9714fb3dd6ea9a2bf4171b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,7 +169,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a288853c00c2d32cd6496417a0c2c08cd inherit pub_static_attribs_class_network_setup"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_setup.html#a288853c00c2d32cd6496417a0c2c08cd">stWifiMacAddress</a> [6] = <a class="el" href="_network_config_8h.html#a0cb4fc37d244ce985851dd2958ae0b94">MAC_ADDRESS</a></td></tr>
 <tr class="separator:a288853c00c2d32cd6496417a0c2c08cd inherit pub_static_attribs_class_network_setup"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Setting up an TCP/UDP WiFi connection. </p>
+<p>Stores and provides acces to the Server and UDP instance currently setup. Once the setup is done for a given <a class="el" href="class_network_interface.html" title="Main entry point used to instatiate the network interface(s).">NetworkInterface</a> the instance of this class is not needed anymore. An instance will be created within the NetworInterface setup function ans go out of scope after the setup has been done. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a503c018bcd0e6b7ea51d86aa3d0d072b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a503c018bcd0e6b7ea51d86aa3d0d072b">&#9670;&nbsp;</a></span>WifiSetup() <span class="overload">[1/2]</span></h2>
 
@@ -311,13 +318,21 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>setup using SoftwareSerial or any other Hardware Serial port on the mega (i.e. 2 or 3);</dd></dl>
+
+<p>WiFi specifi setup function. </p>
+<p>Currently only for Serial1 to connect to the ESP chip.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the connection has been established </dd>
+<dd>
+false something went wrong </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>AP setup if no persistent network &amp; credentials found / reset persistent setup &amp; change Network; Forcing AP only mode; </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>setup using SoftwareSerial or any other Hardware Serial port on the mega (i.e. 2 or 3);</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Can we have multiple UDP instances? Do we always get back the same ? if not possible we should catch this condition. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_wifi_setup_a63c1e8056faee13a274a941c59549907_cgraph.png" border="0" usemap="#class_wifi_setup_a63c1e8056faee13a274a941c59549907_cgraph" alt=""/></div>
 <map name="class_wifi_setup_a63c1e8056faee13a274a941c59549907_cgraph" id="class_wifi_setup_a63c1e8056faee13a274a941c59549907_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,124,57"/>
+<area shape="rect" title="WiFi specifi setup function." alt="" coords="5,31,124,57"/>
 <area shape="rect" href="class_network_setup.html#ab4d0396258d5f80f8cd71b8d86c8498b" title=" " alt="" coords="172,5,383,32"/>
 <area shape="rect" href="_wifi_setup_8cpp.html#a28ad06154d7067e5e154885a813d933f" title=" " alt="" coords="229,56,325,83"/>
 </map>
@@ -327,7 +342,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_wifi_setup_a63c1e8056faee13a274a941c59549907_icgraph.png" border="0" usemap="#class_wifi_setup_a63c1e8056faee13a274a941c59549907_icgraph" alt=""/></div>
 <map name="class_wifi_setup_a63c1e8056faee13a274a941c59549907_icgraph" id="class_wifi_setup_a63c1e8056faee13a274a941c59549907_icgraph">
-<area shape="rect" title=" " alt="" coords="216,5,335,32"/>
+<area shape="rect" title="WiFi specifi setup function." alt="" coords="216,5,335,32"/>
 <area shape="rect" href="class_network_interface.html#a8f05744c8bc994934df83686131bbc63" title="Used for specific port nummber; default is 2560." alt="" coords="5,5,168,32"/>
 </map>
 </div>
@@ -335,8 +350,8 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="_wifi_setup_8h_source.html">WifiSetup.h</a></li>
-<li>src/<a class="el" href="_wifi_setup_8cpp.html">WifiSetup.cpp</a></li>
+<li><a class="el" href="_wifi_setup_8h_source.html">WifiSetup.h</a></li>
+<li><a class="el" href="_wifi_setup_8cpp.html">WifiSetup.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

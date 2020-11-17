@@ -21,7 +21,7 @@
 // Build configuration
 
 // #define DCCEX_ENABLED            // uncomment to enable CS-EX integration; Commented will operate as standalone and only echo commands as replies
-#define DCCEX_CLI                // enables the Command Line Interface either on serial or any network client; active for network clients if an interface on port 23 eists
+#define CLI_ENABLED                // enables the Command Line Interface either on serial or any network client; active for network clients if an interface on port 23 eists
 
 // Network operational configuration
 

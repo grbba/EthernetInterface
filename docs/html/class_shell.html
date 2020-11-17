@@ -363,19 +363,19 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Command-line shell access. </p>
 <p>This class provides a command-line shell via serial ports, TCP connections, or any other type of Stream.</p>
 <p>The following example is the minimal setup for a command-line shell on a serial port. The application calls <a class="el" href="class_shell.html#ad9acba905b6e0b661cce19d57c067990" title="Begin shell handling on an underlying character stream.">begin()</a> to set the underlying Stream, and periodically calls <a class="el" href="class_shell.html#afc45cae4ccfc76321a254bb617dce08c" title="Performs regular activities on the shell.">loop()</a> to manage shell-related events.</p>
-<div class="fragment"><div class="line"><a class="code" href="class_shell.html">Shell</a> shell;</div>
+<div class="fragment"><div class="line"><a class="code" href="class_shell.html">Shell</a> <a class="code" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
 <div class="line">    <a class="code" href="class_terminal.html#a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6">Serial</a>.begin(9600);</div>
-<div class="line">    shell.<a class="code" href="class_shell.html#a89d802eae5b716e80b2c4dfbce0a0a75">setPrompt</a>(<span class="stringliteral">&quot;$ &quot;</span>);</div>
-<div class="line">    shell.<a class="code" href="class_shell.html#ad9acba905b6e0b661cce19d57c067990">begin</a>(<a class="code" href="class_terminal.html#a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6">Serial</a>);</div>
+<div class="line">    <a class="code" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a>.<a class="code" href="class_shell.html#a89d802eae5b716e80b2c4dfbce0a0a75">setPrompt</a>(<span class="stringliteral">&quot;$ &quot;</span>);</div>
+<div class="line">    <a class="code" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a>.<a class="code" href="class_shell.html#ad9acba905b6e0b661cce19d57c067990">begin</a>(<a class="code" href="class_terminal.html#a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6">Serial</a>);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> <a class="code" href="class_shell.html#afc45cae4ccfc76321a254bb617dce08c">loop</a>() {</div>
-<div class="line">    shell.<a class="code" href="class_shell.html#afc45cae4ccfc76321a254bb617dce08c">loop</a>();</div>
+<div class="line">    <a class="code" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a>.<a class="code" href="class_shell.html#afc45cae4ccfc76321a254bb617dce08c">loop</a>();</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Commands can be registered with the shell by the application to be invoked when the user types in the corresponding command. Each command is associated with a handler function:</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> cmdMotor(<a class="code" href="class_shell.html">Shell</a> &amp;shell, <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <a class="code" href="class_shell_arguments.html">ShellArguments</a> &amp;argv)</div>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> cmdMotor(<a class="code" href="class_shell.html">Shell</a> &amp;<a class="code" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a>, <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <a class="code" href="class_shell_arguments.html">ShellArguments</a> &amp;argv)</div>
 <div class="line">{</div>
 <div class="line">    ...</div>
 <div class="line">}</div>
@@ -384,7 +384,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- fragment --><p>There are two standard commands built into <a class="el" href="class_shell.html" title="Command-line shell access.">Shell</a>: "help" and "exit". The "help" command provides a list of all registered commands with the short help string from the <a class="el" href="class_shell.html#a809d96cf913bf11d02f3c0d51a120740" title="Registers a command with the shell.">ShellCommand()</a> registration. The "exit" command logs the user out and returns to the login prompt, or stops the underlying connection in the case of TCP streams.</p>
 <p>The F1 key can be used as a synonym for "help" and CTRL-D can be used as a synonym for "exit".</p>
 <p><a class="el" href="class_shell.html" title="Command-line shell access.">Shell</a> provides some limited history editing for scrolling back through previous commands. The size of the history stack is provided in the second argument to <a class="el" href="class_shell.html#ad9acba905b6e0b661cce19d57c067990" title="Begin shell handling on an underlying character stream.">begin()</a>:</p>
-<div class="fragment"><div class="line">shell.<a class="code" href="class_shell.html#ad9acba905b6e0b661cce19d57c067990">begin</a>(<a class="code" href="class_terminal.html#a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6">Serial</a>, 5);</div>
+<div class="fragment"><div class="line"><a class="code" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a>.<a class="code" href="class_shell.html#ad9acba905b6e0b661cce19d57c067990">begin</a>(<a class="code" href="class_terminal.html#a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6">Serial</a>, 5);</div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_login_shell.html" title="Command-line shell access via a login shell.">LoginShell</a>, <a class="el" href="class_terminal.html" title="Extended stream interface for terminal operations.">Terminal</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad613444a902075e8fd26b1f51c4d3b63"></a>
@@ -536,8 +536,8 @@ Here is the call graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>Returns false if there is insufficient memory for the history stack. The session will continue but without command history.</dd></dl>
 <p>This function will print the <a class="el" href="class_shell.html#a7a8bbb229b0c49e32a8ef9e9c00c697e" title="Gets the prompt string to display in the shell.">prompt()</a> in preparation for entry of the first command. The default prompt is "$ "; call <a class="el" href="class_shell.html#a89d802eae5b716e80b2c4dfbce0a0a75" title="Sets the prompt string to display in the shell.">setPrompt()</a> before <a class="el" href="class_shell.html#ad9acba905b6e0b661cce19d57c067990" title="Begin shell handling on an underlying character stream.">begin()</a> to change this:</p>
 <div class="fragment"><div class="line"><a class="code" href="class_terminal.html#a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6">Serial</a>.begin(9600);</div>
-<div class="line">shell.<a class="code" href="class_shell.html#a89d802eae5b716e80b2c4dfbce0a0a75">setPrompt</a>(<span class="stringliteral">&quot;Command: &quot;</span>);</div>
-<div class="line">shell.<a class="code" href="class_shell.html#ad9acba905b6e0b661cce19d57c067990">begin</a>(<a class="code" href="class_terminal.html#a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6">Serial</a>);</div>
+<div class="line"><a class="code" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a>.<a class="code" href="class_shell.html#a89d802eae5b716e80b2c4dfbce0a0a75">setPrompt</a>(<span class="stringliteral">&quot;Command: &quot;</span>);</div>
+<div class="line"><a class="code" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a>.<a class="code" href="class_shell.html#ad9acba905b6e0b661cce19d57c067990">begin</a>(<a class="code" href="class_terminal.html#a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6">Serial</a>);</div>
 </div><!-- fragment --><p>The <em>maxHistory</em> parameter indicates the number of commands of maximum length that can be stored in the history. If the actual entered commands are shorter, then more commands can be stored in the history.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_shell.html#a8a654aadd0b6a379309bb1007749e41d" title="Ends shell processing on the underlying stream.">end()</a>, <a class="el" href="class_shell.html#a89d802eae5b716e80b2c4dfbce0a0a75" title="Sets the prompt string to display in the shell.">setPrompt()</a> </dd></dl>
 <div class="dynheader">
@@ -1152,7 +1152,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <p>The <em>name</em> and <em>help</em> parameters must be constant strings that can be placed into program memory.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> cmdMotor(<a class="code" href="class_shell.html">Shell</a> &amp;shell, <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <a class="code" href="class_shell_arguments.html">ShellArguments</a> &amp;argv)</div>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> cmdMotor(<a class="code" href="class_shell.html">Shell</a> &amp;<a class="code" href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a>, <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <a class="code" href="class_shell_arguments.html">ShellArguments</a> &amp;argv)</div>
 <div class="line">{</div>
 <div class="line">    ...</div>
 <div class="line">}</div>
@@ -1205,18 +1205,19 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/cli/<a class="el" href="_shell_8h_source.html">Shell.h</a></li>
-<li>src/cli/<a class="el" href="_shell_8cpp.html">Shell.cpp</a></li>
+<li><a class="el" href="_shell_8h_source.html">Shell.h</a></li>
+<li><a class="el" href="_shell_8cpp.html">Shell.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_shell_html_ad9acba905b6e0b661cce19d57c067990"><div class="ttname"><a href="class_shell.html#ad9acba905b6e0b661cce19d57c067990">Shell::begin</a></div><div class="ttdeci">bool begin(Stream &amp;stream, size_t maxHistory=0, Terminal::Mode mode=Serial)</div><div class="ttdoc">Begin shell handling on an underlying character stream.</div><div class="ttdef"><b>Definition:</b> Shell.cpp:176</div></div>
+<div class="ttc" id="aclass_shell_html_ad9acba905b6e0b661cce19d57c067990"><div class="ttname"><a href="class_shell.html#ad9acba905b6e0b661cce19d57c067990">Shell::begin</a></div><div class="ttdeci">bool begin(Stream &amp;stream, size_t maxHistory=0, Terminal::Mode mode=Serial)</div><div class="ttdoc">Begin shell handling on an underlying character stream.</div><div class="ttdef"><b>Definition:</b> Shell.cpp:178</div></div>
 <div class="ttc" id="aclass_terminal_html_a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6"><div class="ttname"><a href="class_terminal.html#a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6">Terminal::Serial</a></div><div class="ttdeci">@ Serial</div><div class="ttdoc">Operates the terminal in serial mode.</div><div class="ttdef"><b>Definition:</b> Terminal.h:44</div></div>
 <div class="ttc" id="aclass_shell_html_a89d802eae5b716e80b2c4dfbce0a0a75"><div class="ttname"><a href="class_shell.html#a89d802eae5b716e80b2c4dfbce0a0a75">Shell::setPrompt</a></div><div class="ttdeci">void setPrompt(const char *prompt)</div><div class="ttdoc">Sets the prompt string to display in the shell.</div><div class="ttdef"><b>Definition:</b> Shell.h:77</div></div>
-<div class="ttc" id="aclass_shell_html_afc45cae4ccfc76321a254bb617dce08c"><div class="ttname"><a href="class_shell.html#afc45cae4ccfc76321a254bb617dce08c">Shell::loop</a></div><div class="ttdeci">void loop()</div><div class="ttdoc">Performs regular activities on the shell.</div><div class="ttdef"><b>Definition:</b> Shell.cpp:294</div></div>
+<div class="ttc" id="aclass_shell_html_afc45cae4ccfc76321a254bb617dce08c"><div class="ttname"><a href="class_shell.html#afc45cae4ccfc76321a254bb617dce08c">Shell::loop</a></div><div class="ttdeci">void loop()</div><div class="ttdoc">Performs regular activities on the shell.</div><div class="ttdef"><b>Definition:</b> Shell.cpp:298</div></div>
 <div class="ttc" id="aclass_shell_html_a809d96cf913bf11d02f3c0d51a120740"><div class="ttname"><a href="class_shell.html#a809d96cf913bf11d02f3c0d51a120740">Shell::ShellCommand</a></div><div class="ttdeci">#define ShellCommand(name, help, function)</div><div class="ttdoc">Registers a command with the shell.</div><div class="ttdef"><b>Definition:</b> Shell.h:153</div></div>
 <div class="ttc" id="a_terminal_8cpp_html_ad725b10d18aacac2902dd26ca569e861"><div class="ttname"><a href="_terminal_8cpp.html#ad725b10d18aacac2902dd26ca569e861">PROGMEM</a></div><div class="ttdeci">static uint8_t const keymap[459] PROGMEM</div><div class="ttdef"><b>Definition:</b> Terminal.cpp:1373</div></div>
-<div class="ttc" id="aclass_shell_html_a58b0e9104d1f6c7ec7d1663c69cd03dd"><div class="ttname"><a href="class_shell.html#a58b0e9104d1f6c7ec7d1663c69cd03dd">Shell::help</a></div><div class="ttdeci">void help()</div><div class="ttdoc">Displays help for all supported commands.</div><div class="ttdef"><b>Definition:</b> Shell.cpp:542</div></div>
+<div class="ttc" id="aclass_shell_html_a58b0e9104d1f6c7ec7d1663c69cd03dd"><div class="ttname"><a href="class_shell.html#a58b0e9104d1f6c7ec7d1663c69cd03dd">Shell::help</a></div><div class="ttdeci">void help()</div><div class="ttdoc">Displays help for all supported commands.</div><div class="ttdef"><b>Definition:</b> Shell.cpp:546</div></div>
+<div class="ttc" id="a_transport_8cpp_html_ae1bf58c4a1fd09ecd2dadcd745104365"><div class="ttname"><a href="_transport_8cpp.html#ae1bf58c4a1fd09ecd2dadcd745104365">shell</a></div><div class="ttdeci">Shell shell</div><div class="ttdef"><b>Definition:</b> Transport.cpp:32</div></div>
 <div class="ttc" id="aclass_shell_arguments_html"><div class="ttname"><a href="class_shell_arguments.html">ShellArguments</a></div><div class="ttdoc">Convenience class that encapsulates an array of shell command arguments.</div><div class="ttdef"><b>Definition:</b> Shell.h:120</div></div>
 <div class="ttc" id="aclass_shell_html"><div class="ttname"><a href="class_shell.html">Shell</a></div><div class="ttdoc">Command-line shell access.</div><div class="ttdef"><b>Definition:</b> Shell.h:63</div></div>
 <!-- start footer part -->

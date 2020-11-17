@@ -26,10 +26,12 @@ Collaboration diagram for Transport$<$ S, C, U $>$\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{class_transport_a3758b46231aef33804c2b7c5acdec6c4}{setup}} (\mbox{\hyperlink{class_network_interface}{Network\+Interface}} $\ast$nwi)
-\item 
+\begin{DoxyCompactList}\small\item\em Initalizes either the T\+CP or Wi\+Fi transport and creates the connecion pool. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_transport_a8a77fae195b7c8352fdfe17fb4d5a59f}{loop}} ()
 \item 
 bool \mbox{\hyperlink{class_transport_ad0dc819be3128c9ec90d9027146161a9}{is\+Connected}} ()
+\item 
+\mbox{\hyperlink{struct_connection}{Connection}} \mbox{\hyperlink{class_transport_a6bd5672582ed1ff8ea27ac470881da26}{get\+Connection}} (byte i)
 \item 
 \mbox{\hyperlink{class_transport_acf5554cc85f06a25556acdbac1d74140}{Transport}} ()
 \item 
@@ -54,6 +56,21 @@ uint8\+\_\+t \mbox{\hyperlink{class_transport_ac283da242dbdb924071c1f54b8c12150}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class S, class C, class U$>$\newline
+class Transport$<$ S, C, U $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S} & Server (either Ethernet\+Server or Wi\+Fi\+Server) \\
+\hline
+{\em C} & Client (either Ethernet\+Client or Wi\+Fi\+Client) \\
+\hline
+{\em U} & U\+DP (either Ethernet\+U\+DP or Wi\+Fi\+U\+DP) \\
+\hline
+\end{DoxyTemplParams}
+
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_transport_acf5554cc85f06a25556acdbac1d74140}\label{class_transport_acf5554cc85f06a25556acdbac1d74140}} 
 \index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!Transport@{Transport}}
@@ -72,6 +89,13 @@ uint8\+\_\+t \mbox{\hyperlink{class_transport_ac283da242dbdb924071c1f54b8c12150}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_transport_a6bd5672582ed1ff8ea27ac470881da26}\label{class_transport_a6bd5672582ed1ff8ea27ac470881da26}} 
+\index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!getConnection@{getConnection}}
+\index{getConnection@{getConnection}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
+\doxysubsubsection{\texorpdfstring{getConnection()}{getConnection()}}
+{\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
+\mbox{\hyperlink{struct_connection}{Connection}} \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::get\+Connection (\begin{DoxyParamCaption}\item[{byte}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{class_transport_ad0dc819be3128c9ec90d9027146161a9}\label{class_transport_ad0dc819be3128c9ec90d9027146161a9}} 
 \index{Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}!isConnected@{isConnected}}
 \index{isConnected@{isConnected}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
@@ -98,8 +122,33 @@ Here is the caller graph for this function\+:\nopagebreak
 \index{setup@{setup}!Transport$<$ S, C, U $>$@{Transport$<$ S, C, U $>$}}
 \doxysubsubsection{\texorpdfstring{setup()}{setup()}}
 {\footnotesize\ttfamily template$<$class S , class C , class U $>$ \\
-bool \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_network_interface}{Network\+Interface}} $\ast$}]{nwi }\end{DoxyParamCaption})}
+bool \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_network_interface}{Network\+Interface}} $\ast$}]{nw }\end{DoxyParamCaption})}
 
+
+
+Initalizes either the T\+CP or Wi\+Fi transport and creates the connecion pool. 
+
+If the port for this transport is 23 and the protocol T\+CP it will start also the telnet server and set the max\+Connections to 1 ( only one telnet connection will be allowed )
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S} & Server type \\
+\hline
+{\em C} & Client type \\
+\hline
+{\em U} & U\+DP type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em nw} & \mbox{\hyperlink{class_network_interface}{Network\+Interface}} for this transport instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
@@ -156,5 +205,5 @@ U$\ast$ \mbox{\hyperlink{class_transport}{Transport}}$<$ S, C, U $>$\+::udp}
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\mbox{\hyperlink{_transport_8h}{Transport.\+h}}\item 
-src/\mbox{\hyperlink{_transport_8cpp}{Transport.\+cpp}}\end{DoxyCompactItemize}
+\mbox{\hyperlink{_transport_8h}{Transport.\+h}}\item 
+\mbox{\hyperlink{_transport_8cpp}{Transport.\+cpp}}\end{DoxyCompactItemize}

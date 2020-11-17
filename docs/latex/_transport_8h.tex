@@ -1,5 +1,5 @@
-\hypertarget{_transport_8h}{}\doxysection{src/\+Transport.h File Reference}
-\label{_transport_8h}\index{src/Transport.h@{src/Transport.h}}
+\hypertarget{_transport_8h}{}\doxysection{Transport.\+h File Reference}
+\label{_transport_8h}\index{Transport.h@{Transport.h}}
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
 {\ttfamily \#include $<$Ethernet.\+h$>$}\newline
 {\ttfamily \#include $<$Wi\+Fi\+Esp\+A\+T.\+h$>$}\newline
@@ -31,6 +31,8 @@ class \mbox{\hyperlink{class_transport}{Transport$<$ S, C, U $>$}}
 \begin{DoxyCompactItemize}
 \item 
 using \mbox{\hyperlink{_transport_8h_a1e2f1fb81692457c4b64d606dc1c9217}{app\+Protocol\+Callback}} = void($\ast$)(\mbox{\hyperlink{struct_connection}{Connection}} $\ast$c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}} $\ast$t)
+\item 
+using \mbox{\hyperlink{_transport_8h_a498e679a10f06d3daf64e85fb8ad9b58}{loop\+Handler}} = void($\ast$)()
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -53,6 +55,12 @@ enum \mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885}{app\+Prot
 \doxysubsubsection{\texorpdfstring{appProtocolCallback}{appProtocolCallback}}
 {\footnotesize\ttfamily using \mbox{\hyperlink{_transport_8h_a1e2f1fb81692457c4b64d606dc1c9217}{app\+Protocol\+Callback}} =  void ($\ast$)(\mbox{\hyperlink{struct_connection}{Connection}}$\ast$ c, \mbox{\hyperlink{class_transport_processor}{Transport\+Processor}}$\ast$ t)}
 
+\mbox{\Hypertarget{_transport_8h_a498e679a10f06d3daf64e85fb8ad9b58}\label{_transport_8h_a498e679a10f06d3daf64e85fb8ad9b58}} 
+\index{Transport.h@{Transport.h}!loopHandler@{loopHandler}}
+\index{loopHandler@{loopHandler}!Transport.h@{Transport.h}}
+\doxysubsubsection{\texorpdfstring{loopHandler}{loopHandler}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_transport_8h_a498e679a10f06d3daf64e85fb8ad9b58}{loop\+Handler}} =  void($\ast$)()}
+
 
 
 \doxysubsection{Enumeration Type Documentation}
@@ -64,7 +72,7 @@ enum \mbox{\hyperlink{_transport_8h_ab41ff1ef7a956f31a30538470dca0885}{app\+Prot
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{DCCEX@{DCCEX}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!DCCEX@{DCCEX}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885ab3d2d83b672e0d6843574389aa5dd3e3}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885ab3d2d83b672e0d6843574389aa5dd3e3}} 
-D\+C\+C\+EX&\\
+D\+C\+C\+EX&if char\mbox{[}0\mbox{]} = $<$ opening bracket the client should be a J\+M\+RI / D\+CC EX client\+\_\+h \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{WITHROTTLE@{WITHROTTLE}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!WITHROTTLE@{WITHROTTLE}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a588219683faf075b63c78c5447d0fb6e}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a588219683faf075b63c78c5447d0fb6e}} 
@@ -72,11 +80,11 @@ W\+I\+T\+H\+R\+O\+T\+T\+LE&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{HTTP@{HTTP}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!HTTP@{HTTP}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a67e044074f46e6cea22788527da5f02e}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a67e044074f46e6cea22788527da5f02e}} 
-H\+T\+TP&\\
+H\+T\+TP&If char\mbox{[}0\mbox{]} = G $\vert$$\vert$ P $\vert$$\vert$ D; if P then char \mbox{[}1\mbox{]} = U $\vert$$\vert$ O $\vert$$\vert$ A. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{N\_DIAG@{N\_DIAG}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!N\_DIAG@{N\_DIAG}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a25c8381e5763b59a0b174f0bcf2a09f2}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885a25c8381e5763b59a0b174f0bcf2a09f2}} 
-N\+\_\+\+D\+I\+AG&\\
+N\+\_\+\+D\+I\+AG&\textquotesingle{}\#\textquotesingle{} send form a telnet client as F\+I\+R\+ST message will then reroute all D\+I\+AG messages to that client whilst being able to send any raw text (jmri/\+Wi\+Throttle) type commands \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{UNKNOWN\_PROTOCOL@{UNKNOWN\_PROTOCOL}!Transport.h@{Transport.h}}\index{Transport.h@{Transport.h}!UNKNOWN\_PROTOCOL@{UNKNOWN\_PROTOCOL}}}\mbox{\Hypertarget{_transport_8h_ab41ff1ef7a956f31a30538470dca0885acbc06c5821471c08ec5e22e757d27b8d}\label{_transport_8h_ab41ff1ef7a956f31a30538470dca0885acbc06c5821471c08ec5e22e757d27b8d}} 

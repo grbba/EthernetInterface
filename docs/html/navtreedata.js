@@ -25,8 +25,8 @@
 var NAVTREE =
 [
   [ "CS-EX NetworkInterface", "index.html", [
-    [ "The CommandStation EX NetworkInterface", "md_src_docs__c_s_network_interface.html", null ],
-    [ "How to flash your ESP for the right AT commandset", "md_src_docs__flash_your__e_s_p_with__a_t_1_87_commandset.html", null ],
+    [ "The CommandStation EX NetworkInterface", "md___users_gregor__documents__platform_i_o__projects__ethernet_interface_src_docs__c_s_network_interface.html", null ],
+    [ "How to flash your ESP for the right AT commandset", "md___users_gregor__documents__platform_i_o__projects__ethernet_interface_src_docs__flash_your__e_s_p_with__a_t_1_87_commandset.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -67,8 +67,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_arduino_unique_i_d_8cpp.html",
-"_transport_processor_8cpp.html#adffd99c797adf573a9d65073d1595d53",
-"class_transport.html#aac1116a2fe836bdaba90171fc7a65a3b"
+"_transport_processor_8cpp.html",
+"class_terminal.html#aa3a460ae0bcb33d5673b457c258dc64e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
