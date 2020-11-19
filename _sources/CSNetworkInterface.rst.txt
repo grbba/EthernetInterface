@@ -27,6 +27,7 @@ Networking
 
 WiFi
 ^^^^
+* Automatic detection of the WiFi connection setup
 
 Ethernet
 ^^^^^^^^
