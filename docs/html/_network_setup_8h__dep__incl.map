@@ -1,9 +1,0 @@
-<map id="NetworkSetup.h" name="NetworkSetup.h">
-<area shape="rect" id="node1" title=" " alt="" coords="231,5,347,32"/>
-<area shape="rect" id="node2" href="$_ethernet_setup_8cpp.html" title=" " alt="" coords="5,155,136,181"/>
-<area shape="rect" id="node3" href="$_ethernet_setup_8h.html" title=" " alt="" coords="94,80,210,107"/>
-<area shape="rect" id="node4" href="$_network_interface_8cpp.html" title="This is some text about this class." alt="" coords="175,155,321,181"/>
-<area shape="rect" id="node5" href="$_wifi_setup_8h.html" title=" " alt="" coords="285,80,376,107"/>
-<area shape="rect" id="node6" href="$_wifi_setup_8cpp.html" title=" " alt="" coords="353,155,457,181"/>
-<area shape="rect" id="node7" href="$_network_setup_8cpp.html" title=" " alt="" coords="451,80,581,107"/>
-</map>

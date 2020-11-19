@@ -1,8 +1,0 @@
-<map id="NetworkSetup.h" name="NetworkSetup.h">
-<area shape="rect" id="node1" title=" " alt="" coords="29,5,145,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="117,229,199,256"/>
-<area shape="rect" id="node3" href="$_network_config_8h.html" title=" " alt="" coords="27,155,147,181"/>
-<area shape="rect" id="node4" href="$_network_interface_8h.html" title=" " alt="" coords="134,80,267,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="171,155,249,181"/>
-<area shape="rect" id="node6" href="$_http_request_8h.html" title="creates a HttpRequest object for the user callback." alt="" coords="273,155,379,181"/>
-</map>

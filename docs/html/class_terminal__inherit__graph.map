@@ -1,6 +1,0 @@
-<map id="Terminal" name="Terminal">
-<area shape="rect" id="node1" title="Extended stream interface for terminal operations." alt="" coords="11,80,82,107"/>
-<area shape="rect" id="node3" href="$class_shell.html" title="Command&#45;line shell access." alt="" coords="21,155,72,181"/>
-<area shape="rect" id="node2" title=" " alt="" coords="15,5,79,32"/>
-<area shape="rect" id="node4" href="$class_login_shell.html" title="Command&#45;line shell access via a login shell." alt="" coords="5,229,88,256"/>
-</map>

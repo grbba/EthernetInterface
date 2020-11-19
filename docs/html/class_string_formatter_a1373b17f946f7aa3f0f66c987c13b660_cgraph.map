@@ -1,5 +1,0 @@
-<map id="StringFormatter::printEscapes" name="StringFormatter::printEscapes">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,201,57"/>
-<area shape="rect" id="node2" href="$class_string_formatter.html#aa8a4572d33f5cd26bb55450a5e469c40" title=" " alt="" coords="249,5,439,32"/>
-<area shape="rect" id="node3" href="$class_terminal.html#a910099d74409456914f83e88ba1d4aec" title="Returns a pointer to the underlying Stream, or NULL if the stream has not been set with begin() yet." alt="" coords="487,31,605,57"/>
-</map>

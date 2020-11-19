@@ -1,4 +1,0 @@
-<map id="Terminal::cursorRight" name="Terminal::cursorRight">
-<area shape="rect" id="node1" title="Moves the cursor right by one character." alt="" coords="5,5,152,32"/>
-<area shape="rect" id="node2" href="$class_terminal.html#ae0b908585ec355e0f299579a015c1170" title="Writes a static string that is stored in program memory." alt="" coords="200,5,363,32"/>
-</map>

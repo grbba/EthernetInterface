@@ -1,4 +1,0 @@
-<map id="Terminal::bold" name="Terminal::bold">
-<area shape="rect" id="node1" title="Enables bold text." alt="" coords="160,5,263,32"/>
-<area shape="rect" id="node2" href="$class_terminal.html#ad1fc2be31d49124a1d32e8afddaa57b8" title="Selects a text foreground color with the default background color." alt="" coords="5,5,112,32"/>
-</map>

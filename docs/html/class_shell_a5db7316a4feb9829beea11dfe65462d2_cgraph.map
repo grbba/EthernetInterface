@@ -1,4 +1,0 @@
-<map id="Shell::setUserid" name="Shell::setUserid">
-<area shape="rect" id="node1" title="Sets the user identifier for the currently logged in user." alt="" coords="5,5,120,32"/>
-<area shape="rect" id="node2" href="$class_shell.html#a57a0635d19db9ecaf07bc57fad587ab7" title="Gets the user identifier for the currently logged in user, or &#45;1 if there is no user logged in curren..." alt="" coords="168,5,263,32"/>
-</map>

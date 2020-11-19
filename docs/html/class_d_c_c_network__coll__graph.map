@@ -1,4 +1,0 @@
-<map id="DCCNetwork" name="DCCNetwork">
-<area shape="rect" id="node1" title="Core class holding and running the instantiated Transport objects initalized through the NetworkInter..." alt="" coords="18,95,119,121"/>
-<area shape="rect" id="node2" href="$struct_abstract_transport.html" title="Abstract parent class of the templated ( Ethernet or Wifi ) Transport class." alt="" coords="5,5,132,32"/>
-</map>

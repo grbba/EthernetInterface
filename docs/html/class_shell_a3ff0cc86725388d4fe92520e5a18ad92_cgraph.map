@@ -1,4 +1,0 @@
-<map id="Shell::begin" name="Shell::begin">
-<area shape="rect" id="node1" title="Begin shell handling on a connected TCP client." alt="" coords="5,5,96,32"/>
-<area shape="rect" id="node2" href="$class_terminal.html#aa3a460ae0bcb33d5673b457c258dc64e" title="Returns the mode this terminal is operating in, Serial or Telnet." alt="" coords="144,5,255,32"/>
-</map>

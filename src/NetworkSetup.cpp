@@ -25,9 +25,9 @@
 bool NetworkSetup::deviceIdSet = false;
 bool NetworkSetup::macAddressSet = false;
 char NetworkSetup::_deviceId[MAXDEVICEID] = {0};
-uint8_t NetworkSetup::mac[6] = MAC_ADDRESS;       // default MacAddress
-uint8_t NetworkSetup::apWifiMacAddress[6] = MAC_ADDRESS;       // default MacAddress
-uint8_t NetworkSetup::stWifiMacAddress[6] = MAC_ADDRESS;       // default MacAddress
+uint8_t NetworkSetup::mac[6] = MAC_ADDRESS;                //!< default EthernetShield MacAddress
+uint8_t NetworkSetup::apWifiMacAddress[6] = MAC_ADDRESS;   //!< default WiFi (ESP) Station MacAddress
+uint8_t NetworkSetup::stWifiMacAddress[6] = MAC_ADDRESS;   //!< default WiFi (ESP) AP MacAddress
 
 static void array_to_string(byte array[], unsigned int len, char buffer[])
 {
@@ -41,6 +41,10 @@ static void array_to_string(byte array[], unsigned int len, char buffer[])
     buffer[len * 2] = '\0';
 }
 
+/**
+ * @brief Generates the unique DeviceID from the processor on the arduino board and stores it in _deviceId
+ * 
+ */
 void NetworkSetup::setDeviceId()
 {
     array_to_string(UniqueID, UniqueIDsize, _deviceId);
@@ -70,7 +74,3 @@ void NetworkSetup::genMacAddress() {
 
 NetworkSetup::NetworkSetup() {}
 NetworkSetup::~NetworkSetup() {}
-
-    
-    // WiFi.apMacAddress(apWifiMacAddress);
-    // WiFi.macAddress(stWifiMacAddress);

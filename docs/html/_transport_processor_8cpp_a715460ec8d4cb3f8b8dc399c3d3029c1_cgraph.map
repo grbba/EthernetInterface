@@ -1,4 +1,0 @@
-<map id="processStream" name="processStream">
-<area shape="rect" id="node1" title="Parses the buffer to extract commands to be executed." alt="" coords="5,5,116,32"/>
-<area shape="rect" id="node2" href="$_transport_processor_8cpp.html#a3af0ecf3a10ec36ab4835f7837bc1f13" title="Sending a reply without going through the StringFormatter." alt="" coords="164,5,248,32"/>
-</map>

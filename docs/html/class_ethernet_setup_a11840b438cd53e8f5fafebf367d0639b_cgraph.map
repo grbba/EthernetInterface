@@ -1,7 +1,0 @@
-<map id="EthernetSetup::setup" name="EthernetSetup::setup">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,151,57"/>
-<area shape="rect" id="node2" href="$class_network_setup.html#a7d944672b5d9dd4fa4a8ff9b93be4bee" title="generates Mac Addresses for Ethernet and WiFi" alt="" coords="201,5,407,32"/>
-<area shape="rect" id="node5" href="$class_network_setup.html#ab4d0396258d5f80f8cd71b8d86c8498b" title=" " alt="" coords="199,56,409,83"/>
-<area shape="rect" id="node3" href="$class_network_setup.html#a0f8f5fa00940427cf41ad7e2205b8104" title=" " alt="" coords="457,5,640,32"/>
-<area shape="rect" id="node4" href="$_network_setup_8cpp.html#a1904f854f9998a47c16408358ce64e30" title=" " alt="" coords="688,5,796,32"/>
-</map>

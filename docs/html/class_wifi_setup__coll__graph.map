@@ -1,4 +1,0 @@
-<map id="WifiSetup" name="WifiSetup">
-<area shape="rect" id="node1" title="Setting up an TCP/UDP WiFi connection." alt="" coords="19,80,97,107"/>
-<area shape="rect" id="node2" href="$class_network_setup.html" title=" " alt="" coords="5,5,111,32"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="withrottleProcessor" name="withrottleProcessor">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,140,32"/>
-<area shape="rect" id="node2" href="$_transport_processor_8cpp.html#a715460ec8d4cb3f8b8dc399c3d3029c1" title="Parses the buffer to extract commands to be executed." alt="" coords="188,5,299,32"/>
-<area shape="rect" id="node3" href="$_transport_processor_8cpp.html#a3af0ecf3a10ec36ab4835f7837bc1f13" title="Sending a reply without going through the StringFormatter." alt="" coords="347,5,431,32"/>
-</map>

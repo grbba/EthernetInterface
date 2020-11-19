@@ -1,5 +1,0 @@
-<map id="Terminal::writeUnicode" name="Terminal::writeUnicode">
-<area shape="rect" id="node1" title="Writes a Unicode code point to the output in UTF&#45;8 encoding." alt="" coords="5,31,160,57"/>
-<area shape="rect" id="node2" href="$class_terminal.html#ae6478319776ecb726613b38429d7cdec" title="Formats a Unicode code point in a buffer in the UTF&#45;8 encoding." alt="" coords="208,5,351,32"/>
-<area shape="rect" id="node3" href="$class_terminal.html#ae723f16d4f97954fb45550fa05d600bb" title="Writes a single byte to the underlying stream." alt="" coords="226,56,333,83"/>
-</map>

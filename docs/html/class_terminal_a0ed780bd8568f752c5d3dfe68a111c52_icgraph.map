@@ -1,4 +1,0 @@
-<map id="Terminal::utf8Length" name="Terminal::utf8Length">
-<area shape="rect" id="node1" title="Determines the length of a Unicode code point in the UTF&#45;8 encoding." alt="" coords="136,5,276,32"/>
-<area shape="rect" id="node2" href="$class_shell.html#afc45cae4ccfc76321a254bb617dce08c" title="Performs regular activities on the shell." alt="" coords="5,5,88,32"/>
-</map>

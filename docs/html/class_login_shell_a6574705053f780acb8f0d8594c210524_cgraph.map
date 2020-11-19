@@ -1,4 +1,0 @@
-<map id="LoginShell::printPrompt" name="LoginShell::printPrompt">
-<area shape="rect" id="node1" title="Prints the current prompt string." alt="" coords="5,5,163,32"/>
-<area shape="rect" id="node2" href="$class_terminal.html#ae0b908585ec355e0f299579a015c1170" title="Writes a static string that is stored in program memory." alt="" coords="211,5,373,32"/>
-</map>

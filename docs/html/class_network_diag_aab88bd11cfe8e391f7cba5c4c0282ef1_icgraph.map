@@ -1,5 +1,0 @@
-<map id="NetworkDiag::setDiagOut" name="NetworkDiag::setDiagOut">
-<area shape="rect" id="node1" title=" " alt="" coords="348,13,520,39"/>
-<area shape="rect" id="node2" href="$_transport_processor_8cpp.html#a2db43fc4f27865830ec6fef653704a79" title="Set the App Protocol." alt="" coords="189,13,300,39"/>
-<area shape="rect" id="node3" href="$class_transport_processor.html#a637ca2c349ef86aedffa266570fe26b5" title="Reads what is available on the incomming TCP stream and hands it over to the protocol handler." alt="" coords="5,5,141,47"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="Terminal::readKey" name="Terminal::readKey">
-<area shape="rect" id="node1" title="Reads the next key that was typed on this terminal." alt="" coords="5,31,132,57"/>
-<area shape="rect" id="node2" href="$_terminal_8cpp.html#a9b301b0513979d71c4ba77a06007efda" title="Determine if a character starts an escape sequence after ESC." alt="" coords="190,5,341,32"/>
-<area shape="rect" id="node3" href="$class_terminal.html#af8957afd199718a809114dc5236f1a62" title="Sets the number of columns and rows in the window." alt="" coords="180,56,351,83"/>
-<area shape="rect" id="node4" href="$class_terminal.html#a6d8451ffa6a80afdd3daa4bec96258e3" title="Gets the number of columns in the window; defaults to 80." alt="" coords="399,31,527,57"/>
-<area shape="rect" id="node5" href="$class_terminal.html#a56611fcbeb5eadf3665e568760952ee4" title="Gets the number of rows in the window; defaults to 24." alt="" coords="409,81,516,108"/>
-</map>

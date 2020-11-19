@@ -1,7 +1,0 @@
-<map id="Shell::end" name="Shell::end">
-<area shape="rect" id="node1" title="Ends shell processing on the underlying stream." alt="" coords="471,31,551,57"/>
-<area shape="rect" id="node2" href="$class_shell.html#ab9dab65bc0757ce3bb0ac926bbefcee3" title="Exit from the shell back to the login prompt." alt="" coords="343,5,423,32"/>
-<area shape="rect" id="node5" href="$class_shell.html#afc45cae4ccfc76321a254bb617dce08c" title="Performs regular activities on the shell." alt="" coords="32,56,115,83"/>
-<area shape="rect" id="node3" href="$class_shell.html#ab4a3f80dc5ff779ac99116a1f7e35cda" title="Executes the command in the buffer." alt="" coords="189,5,295,32"/>
-<area shape="rect" id="node4" href="$class_login_shell.html#af54c5c14adac7955cf5e4f9460bd9ca5" title="Executes the command in the buffer." alt="" coords="5,5,141,32"/>
-</map>

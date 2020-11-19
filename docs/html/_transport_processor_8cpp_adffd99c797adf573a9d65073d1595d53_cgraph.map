@@ -1,7 +1,0 @@
-<map id="httpProcessor" name="httpProcessor">
-<area shape="rect" id="node1" title=" " alt="" coords="5,81,108,108"/>
-<area shape="rect" id="node2" href="$class_http_request.html#ac5c97d0c01259bb87d0c15edf5bc6190" title=" " alt="" coords="168,5,356,32"/>
-<area shape="rect" id="node3" href="$class_http_request.html#aabb9f60cc17b991ba63c97b1854ca542" title=" " alt="" coords="156,56,368,83"/>
-<area shape="rect" id="node4" href="$class_http_request.html#a9b7cc5e9df08b6296e5f17dafa7898a8" title=" " alt="" coords="169,107,355,133"/>
-<area shape="rect" id="node5" href="$class_http_request.html#a3e66d6341c11a42d5e74f58420ffca7f" title=" " alt="" coords="171,157,353,184"/>
-</map>

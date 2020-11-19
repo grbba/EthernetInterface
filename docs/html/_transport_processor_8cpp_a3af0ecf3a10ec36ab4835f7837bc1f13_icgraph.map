@@ -1,7 +1,0 @@
-<map id="sendReply" name="sendReply">
-<area shape="rect" id="node1" title="Sending a reply without going through the StringFormatter." alt="" coords="531,31,615,57"/>
-<area shape="rect" id="node2" href="$_transport_processor_8cpp.html#a715460ec8d4cb3f8b8dc399c3d3029c1" title="Parses the buffer to extract commands to be executed." alt="" coords="372,31,483,57"/>
-<area shape="rect" id="node3" href="$_transport_processor_8cpp.html#ae99c9311978b9a5d08837fe5f9d929cc" title=" " alt="" coords="205,5,308,32"/>
-<area shape="rect" id="node5" href="$_transport_processor_8cpp.html#abb4e43a46551501a6057f1405addb873" title=" " alt="" coords="189,56,324,83"/>
-<area shape="rect" id="node4" href="$class_transport_processor.html#a637ca2c349ef86aedffa266570fe26b5" title="Reads what is available on the incomming TCP stream and hands it over to the protocol handler." alt="" coords="5,23,141,65"/>
-</map>

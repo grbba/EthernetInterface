@@ -1,4 +1,0 @@
-<map id="Terminal::cursorUp" name="Terminal::cursorUp">
-<area shape="rect" id="node1" title="Moves the cursor up by one line." alt="" coords="5,5,137,32"/>
-<area shape="rect" id="node2" href="$class_terminal.html#ae0b908585ec355e0f299579a015c1170" title="Writes a static string that is stored in program memory." alt="" coords="185,5,348,32"/>
-</map>

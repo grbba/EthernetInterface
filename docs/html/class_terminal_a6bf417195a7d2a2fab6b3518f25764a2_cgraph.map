@@ -1,5 +1,0 @@
-<map id="Terminal::begin" name="Terminal::begin">
-<area shape="rect" id="node1" title="Begins terminal operations on an underlying stream." alt="" coords="5,31,116,57"/>
-<area shape="rect" id="node2" href="$class_terminal.html#aa3a460ae0bcb33d5673b457c258dc64e" title="Returns the mode this terminal is operating in, Serial or Telnet." alt="" coords="168,5,279,32"/>
-<area shape="rect" id="node3" href="$class_terminal.html#a910099d74409456914f83e88ba1d4aec" title="Returns a pointer to the underlying Stream, or NULL if the stream has not been set with begin() yet." alt="" coords="164,56,283,83"/>
-</map>

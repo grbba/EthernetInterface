@@ -1,6 +1,0 @@
-<map id="NetworkSetup::setDeviceId" name="NetworkSetup::setDeviceId">
-<area shape="rect" id="node1" title=" " alt="" coords="664,31,847,57"/>
-<area shape="rect" id="node2" href="$class_network_setup.html#a7d944672b5d9dd4fa4a8ff9b93be4bee" title="generates Mac Addresses for Ethernet and WiFi" alt="" coords="409,5,616,32"/>
-<area shape="rect" id="node4" href="$class_network_interface.html#a8f05744c8bc994934df83686131bbc63" title="Used for specific port nummber; default is 2560." alt="" coords="5,31,168,57"/>
-<area shape="rect" id="node3" href="$class_ethernet_setup.html#a11840b438cd53e8f5fafebf367d0639b" title=" " alt="" coords="216,5,361,32"/>
-</map>

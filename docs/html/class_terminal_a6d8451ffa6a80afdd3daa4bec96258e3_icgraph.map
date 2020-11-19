@@ -1,6 +1,0 @@
-<map id="Terminal::columns" name="Terminal::columns">
-<area shape="rect" id="node1" title="Gets the number of columns in the window; defaults to 80." alt="" coords="529,5,657,32"/>
-<area shape="rect" id="node2" href="$class_terminal.html#af8957afd199718a809114dc5236f1a62" title="Sets the number of columns and rows in the window." alt="" coords="311,5,481,32"/>
-<area shape="rect" id="node3" href="$class_terminal.html#aa82621ea174422601cc7384c8185eb96" title="Reads the next key that was typed on this terminal." alt="" coords="136,5,263,32"/>
-<area shape="rect" id="node4" href="$class_shell.html#afc45cae4ccfc76321a254bb617dce08c" title="Performs regular activities on the shell." alt="" coords="5,5,88,32"/>
-</map>

@@ -3,6 +3,9 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
-docs/html
-docs/latex
-docs/xml
+build/
+docs/_build/
+docs/_static/
+docs/_templates/
+docs/api/
+docs/doxyoutput/

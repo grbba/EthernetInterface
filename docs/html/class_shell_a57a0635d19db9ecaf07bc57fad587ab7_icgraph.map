@@ -1,5 +1,0 @@
-<map id="Shell::userid" name="Shell::userid">
-<area shape="rect" id="node1" title="Gets the user identifier for the currently logged in user, or &#45;1 if there is no user logged in curren..." alt="" coords="189,31,284,57"/>
-<area shape="rect" id="node2" href="$class_login_shell.html#af54c5c14adac7955cf5e4f9460bd9ca5" title="Executes the command in the buffer." alt="" coords="5,5,141,32"/>
-<area shape="rect" id="node3" href="$class_shell.html#a5db7316a4feb9829beea11dfe65462d2" title="Sets the user identifier for the currently logged in user." alt="" coords="16,56,131,83"/>
-</map>
