@@ -1,0 +1,941 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File Shell.cpp &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File Shell.cpp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_src_cli_Shell.cpp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-shell-cpp">
+<span id="program-listing-file-src-cli-shell-cpp"></span><h1>Program Listing for File Shell.cpp<a class="headerlink" href="#program-listing-for-file-shell-cpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_src_cli_Shell.cpp.html#file-src-cli-shell-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/cli/Shell.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Copyright (C) 2016 Southern Storm Software, Pty Ltd.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Permission is hereby granted, free of charge, to any person obtaining a</span>
+<span class="cm"> * copy of this software and associated documentation files (the &quot;Software&quot;),</span>
+<span class="cm"> * to deal in the Software without restriction, including without limitation</span>
+<span class="cm"> * the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span class="cm"> * and/or sell copies of the Software, and to permit persons to whom the</span>
+<span class="cm"> * Software is furnished to do so, subject to the following conditions:</span>
+<span class="cm"> *</span>
+<span class="cm"> * The above copyright notice and this permission notice shall be included</span>
+<span class="cm"> * in all copies or substantial portions of the Software.</span>
+<span class="cm"> *</span>
+<span class="cm"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
+<span class="cm"> * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="cm"> * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="cm"> * DEALINGS IN THE SOFTWARE.</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;Shell.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;LoginShell.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stddef.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;../NetworkDiag.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// Modes for line editing (flags).</span>
+<span class="cp">#define LINEMODE_NORMAL     0x01</span>
+<span class="cp">#define LINEMODE_ECHO       0x02</span>
+<span class="cp">#define LINEMODE_USERNAME   0x04</span>
+<span class="cp">#define LINEMODE_PASSWORD   0x08</span>
+<span class="cp">#define LINEMODE_PROMPT     0x10</span>
+<span class="cp">#define LINEMODE_DELAY      0x20</span>
+
+<span class="c1">// Delay to insert after a failed login to slow down brute force attacks (ms).</span>
+<span class="cp">#define LOGIN_SHELL_DELAY   3000</span>
+
+<span class="n">Shell</span><span class="o">::</span><span class="n">Shell</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">curStart</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">curLen</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">curMax</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span>
+    <span class="p">,</span> <span class="n">history</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">historyWrite</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">historyRead</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">historySize</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">prom</span><span class="p">(</span><span class="s">&quot;$ &quot;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">isClient</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">lineMode</span><span class="p">(</span><span class="n">LINEMODE_NORMAL</span> <span class="o">|</span> <span class="n">LINEMODE_ECHO</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">uid</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">timer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="n">Shell</span><span class="o">::~</span><span class="n">Shell</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">clearHistory</span><span class="p">();</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">history</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">Shell</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">Stream</span> <span class="o">&amp;</span><span class="n">stream</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">maxHistory</span><span class="p">,</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">Mode</span> <span class="n">mode</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">beginShell</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">maxHistory</span><span class="p">,</span> <span class="n">mode</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">isClient</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">Welcome to the CommandStation-EX Command Line Interface</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">));</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">Shell</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">Client</span> <span class="o">&amp;</span><span class="n">client</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">maxHistory</span><span class="p">,</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">Mode</span> <span class="n">mode</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">beginShell</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">maxHistory</span><span class="p">,</span> <span class="n">mode</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">isClient</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">Terminal</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">Shell</span><span class="o">::</span><span class="n">beginShell</span><span class="p">(</span><span class="n">Stream</span> <span class="o">&amp;</span><span class="n">stream</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">maxHistory</span><span class="p">,</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">Mode</span> <span class="n">mode</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Initialize the Terminal base class with the underlying stream.</span>
+    <span class="n">Terminal</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">mode</span><span class="p">);</span>
+
+    <span class="c1">// Create the history buffer.</span>
+    <span class="kt">bool</span> <span class="n">ok</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">history</span><span class="p">;</span>
+    <span class="n">historySize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">*</span> <span class="n">maxHistory</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">maxHistory</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">history</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span> <span class="p">[</span><span class="n">historySize</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">history</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">memset</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">historySize</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">maxHistory</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">historySize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">history</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Clear other variables.</span>
+    <span class="n">curStart</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">curLen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">curMax</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+    <span class="n">historyWrite</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">historyRead</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">uid</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+
+    <span class="c1">// Begins the login session.</span>
+    <span class="n">beginSession</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">end</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Terminal</span><span class="o">::</span><span class="n">end</span><span class="p">();</span>
+    <span class="n">clearHistory</span><span class="p">();</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">history</span><span class="p">;</span>
+    <span class="n">curStart</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">curLen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">curMax</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">historyWrite</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">historyRead</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">historySize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">isClient</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">lineMode</span> <span class="o">=</span> <span class="n">LINEMODE_NORMAL</span> <span class="o">|</span> <span class="n">LINEMODE_ECHO</span><span class="p">;</span>
+    <span class="n">uid</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Standard builtin command names.</span>
+<span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">builtin_cmd_exit</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;exit&quot;</span><span class="p">;</span>
+<span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">builtin_cmd_help</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;help&quot;</span><span class="p">;</span>
+<span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">builtin_cmd_help_alt</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;?&quot;</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// If the stream is a TCP client, then check for disconnection.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isClient</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">((</span><span class="n">Client</span> <span class="o">*</span><span class="p">)</span><span class="n">stream</span><span class="p">())</span><span class="o">-&gt;</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">end</span><span class="p">();</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If the login delay is active, then suppress all input.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_DELAY</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">timer</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">LOGIN_SHELL_DELAY</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">lineMode</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">LINEMODE_DELAY</span><span class="p">;</span>
+            <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">readKey</span><span class="p">();</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Print the prompt if necessary.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_PROMPT</span><span class="p">)</span>
+        <span class="n">printPrompt</span><span class="p">();</span>
+
+    <span class="c1">// Read the next key and bail out if none.  We only process a single</span>
+    <span class="c1">// key each time we enter this function to prevent other tasks in the</span>
+    <span class="c1">// system from becoming starved of time resources if the bytes are</span>
+    <span class="c1">// arriving rapidly from the underyling stream.</span>
+    <span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="n">readKey</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+
+    <span class="c1">// Process the key.</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">KEY_BACKSPACE</span><span class="p">:</span>
+        <span class="c1">// Backspace over the last character.</span>
+        <span class="n">clearCharacters</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">KEY_RETURN</span><span class="p">:</span>
+        <span class="c1">// CR, LF, or CRLF pressed, so execute the current command.</span>
+        <span class="n">execute</span><span class="p">();</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="mh">0x15</span><span class="o">:</span>
+        <span class="c1">// CTRL-U - clear the entire command.</span>
+        <span class="n">clearCharacters</span><span class="p">(</span><span class="n">curLen</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="mh">0x04</span><span class="o">:</span>
+        <span class="c1">// CTRL-D - equivalent to the &quot;exit&quot; command.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_NORMAL</span><span class="p">)</span>
+            <span class="n">executeBuiltin</span><span class="p">(</span><span class="n">builtin_cmd_exit</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">KEY_UP_ARROW</span><span class="p">:</span>
+        <span class="c1">// Go back one item in the command history.</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_NORMAL</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+                <span class="n">history</span> <span class="o">&amp;&amp;</span> <span class="n">historyRead</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">changeHistory</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">KEY_DOWN_ARROW</span><span class="p">:</span>
+        <span class="c1">// Go forward one item in the command history.</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_NORMAL</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+                <span class="n">history</span> <span class="o">&amp;&amp;</span> <span class="n">historyRead</span> <span class="o">&lt;</span> <span class="n">historyWrite</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">changeHistory</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">KEY_F1</span><span class="p">:</span>
+        <span class="c1">// F1 is equivalent to the &quot;help&quot; command.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_NORMAL</span><span class="p">)</span>
+            <span class="n">executeBuiltin</span><span class="p">(</span><span class="n">builtin_cmd_help</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">KEY_UNICODE</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// Add the Unicode code point to the buffer if it will fit.</span>
+        <span class="kt">long</span> <span class="n">code</span> <span class="o">=</span> <span class="n">unicodeKey</span><span class="p">();</span>
+        <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">utf8Length</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">curLen</span> <span class="o">+</span> <span class="n">size</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">curMax</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">Terminal</span><span class="o">::</span><span class="n">utf8Format</span><span class="p">((</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)(</span><span class="n">buffer</span> <span class="o">+</span> <span class="n">curLen</span><span class="p">),</span> <span class="n">code</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_ECHO</span><span class="p">)</span>
+                <span class="n">write</span><span class="p">((</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)(</span><span class="n">buffer</span> <span class="o">+</span> <span class="n">curLen</span><span class="p">),</span> <span class="n">size</span><span class="p">);</span>
+            <span class="n">curLen</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">default</span><span class="o">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">&gt;=</span> <span class="mh">0x20</span> <span class="o">&amp;&amp;</span> <span class="n">key</span> <span class="o">&lt;=</span> <span class="mh">0x7E</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Printable ASCII character - echo and add it to the buffer.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">curLen</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">curMax</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_ECHO</span><span class="p">)</span>
+                    <span class="n">write</span><span class="p">((</span><span class="kt">uint8_t</span><span class="p">)</span><span class="n">key</span><span class="p">);</span>
+                <span class="n">buffer</span><span class="p">[</span><span class="n">curLen</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">key</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#if defined(__AVR__)</span>
+
+<span class="c1">// String compare of two strings in program memory.</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="n">progmem_strcmp</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str1</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="n">ch1</span><span class="p">,</span> <span class="n">ch2</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span>
+        <span class="n">ch1</span> <span class="o">=</span> <span class="n">pgm_read_byte</span><span class="p">((</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">str1</span><span class="p">);</span>
+        <span class="n">ch2</span> <span class="o">=</span> <span class="n">pgm_read_byte</span><span class="p">((</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">str2</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ch1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ch2</span><span class="p">)</span>
+                <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ch2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch1</span> <span class="o">!=</span> <span class="n">ch2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">ch1</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">ch2</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="o">++</span><span class="n">str1</span><span class="p">;</span>
+        <span class="o">++</span><span class="n">str2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#else</span>
+
+<span class="cp">#define progmem_strcmp(str1,str2) (strcmp((str1), (str2)))</span>
+
+<span class="cp">#endif</span>
+
+<span class="c1">// Reads the &quot;name&quot; field from a command information block in program memory.</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">readInfoName</span><span class="p">(</span><span class="k">const</span> <span class="n">ShellCommandInfo</span> <span class="o">*</span><span class="n">info</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if defined(__AVR__)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">pgm_read_word</span>
+        <span class="p">(((</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">info</span><span class="p">)</span> <span class="o">+</span> <span class="n">offsetof</span><span class="p">(</span><span class="n">ShellCommandInfo</span><span class="p">,</span> <span class="n">name</span><span class="p">));</span>
+<span class="cp">#else</span>
+    <span class="k">return</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="c1">// Reads the &quot;help&quot; field from a command information block in program memory.</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">readInfoHelp</span><span class="p">(</span><span class="k">const</span> <span class="n">ShellCommandInfo</span> <span class="o">*</span><span class="n">info</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if defined(__AVR__)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">pgm_read_word</span>
+        <span class="p">(((</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">info</span><span class="p">)</span> <span class="o">+</span> <span class="n">offsetof</span><span class="p">(</span><span class="n">ShellCommandInfo</span><span class="p">,</span> <span class="n">help</span><span class="p">));</span>
+<span class="cp">#else</span>
+    <span class="k">return</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">help</span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="c1">// Reads the &quot;func&quot; field from a command information block in program memory.</span>
+<span class="k">static</span> <span class="n">ShellCommandFunc</span> <span class="n">readInfoFunc</span><span class="p">(</span><span class="k">const</span> <span class="n">ShellCommandInfo</span> <span class="o">*</span><span class="n">info</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if defined(__AVR__)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">ShellCommandFunc</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">ShellCommandFunc</span><span class="p">)</span><span class="n">pgm_read_word</span>
+            <span class="p">(((</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">info</span><span class="p">)</span> <span class="o">+</span> <span class="n">offsetof</span><span class="p">(</span><span class="n">ShellCommandInfo</span><span class="p">,</span> <span class="n">func</span><span class="p">));</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">ShellCommandFunc</span><span class="p">)</span><span class="n">pgm_read_dword</span>
+            <span class="p">(((</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">info</span><span class="p">)</span> <span class="o">+</span> <span class="n">offsetof</span><span class="p">(</span><span class="n">ShellCommandInfo</span><span class="p">,</span> <span class="n">func</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="cp">#else</span>
+    <span class="k">return</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">func</span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="n">ShellCommandRegister</span> <span class="o">*</span><span class="n">firstCmd</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">registerCommand</span><span class="p">(</span><span class="n">ShellCommandRegister</span> <span class="o">*</span><span class="n">cmd</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Insert the command into the list in alphanumeric order.</span>
+    <span class="c1">// We cannot rely upon the construction order to sort the list for us.</span>
+    <span class="n">ShellCommandRegister</span> <span class="o">*</span><span class="n">prev</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">ShellCommandRegister</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">firstCmd</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">progmem_strcmp</span><span class="p">(</span><span class="n">readInfoName</span><span class="p">(</span><span class="n">cmd</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">),</span> <span class="n">readInfoName</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">prev</span><span class="p">)</span>
+        <span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">firstCmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">;</span>
+    <span class="n">cmd</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">help</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Find the command with the maximum length.</span>
+    <span class="n">ShellCommandRegister</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">firstCmd</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">len</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">len</span> <span class="o">=</span> <span class="n">strlen_P</span><span class="p">(</span><span class="n">readInfoName</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">&gt;</span> <span class="n">maxLen</span><span class="p">)</span>
+            <span class="n">maxLen</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">maxLen</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="c1">// Print the commands with the help strings aligned on the right.</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">firstCmd</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">writeProgMem</span><span class="p">(</span><span class="n">readInfoName</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">));</span>
+        <span class="n">len</span> <span class="o">=</span> <span class="n">maxLen</span> <span class="o">-</span> <span class="n">strlen_P</span><span class="p">(</span><span class="n">readInfoName</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">));</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">len</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">write</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span>
+            <span class="o">--</span><span class="n">len</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">writeProgMem</span><span class="p">(</span><span class="n">readInfoHelp</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">));</span>
+        <span class="n">println</span><span class="p">();</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">exit</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Stream</span> <span class="o">*</span><span class="n">stream</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">stream</span><span class="p">();</span>
+    <span class="n">uid</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isClient</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">end</span><span class="p">();</span>
+        <span class="p">((</span><span class="n">Client</span> <span class="o">*</span><span class="p">)</span><span class="n">stream</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">stop</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">clearHistory</span><span class="p">();</span>
+        <span class="n">println</span><span class="p">();</span>
+        <span class="n">beginSession</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">beginSession</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// No login support in the base class, so enter normal mode immediately.</span>
+    <span class="n">lineMode</span> <span class="o">=</span> <span class="n">LINEMODE_NORMAL</span> <span class="o">|</span> <span class="n">LINEMODE_ECHO</span> <span class="o">|</span> <span class="n">LINEMODE_PROMPT</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">printPrompt</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">prom</span><span class="p">)</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">prom</span><span class="p">);</span>
+    <span class="n">lineMode</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">LINEMODE_PROMPT</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">execute</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Terminate the current line.</span>
+    <span class="n">println</span><span class="p">();</span>
+
+    <span class="c1">// Make sure the command is properly NUL-terminated.</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">curLen</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+
+    <span class="c1">// If we have a history stack and the new command is different from</span>
+    <span class="c1">// the previous command, then copy the command into the stack.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">history</span> <span class="o">&amp;&amp;</span> <span class="n">curLen</span> <span class="o">&gt;</span> <span class="n">curStart</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">prevCmd</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="n">newCmd</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">historyWrite</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">prevCmd</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">memrchr</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">historyWrite</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">prevCmd</span><span class="p">)</span>
+                <span class="o">++</span><span class="n">prevCmd</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">prevCmd</span> <span class="o">=</span> <span class="n">history</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">prevCmd</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">+</span> <span class="n">curStart</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">newCmd</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">newCmd</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="n">curLen</span> <span class="o">-</span> <span class="n">curStart</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">((</span><span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">historySize</span> <span class="o">-</span> <span class="n">historyWrite</span><span class="p">))</span> <span class="p">{</span>
+                <span class="c1">// History stack is full.  Pop older entries to get some room.</span>
+                <span class="n">prevCmd</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">memchr</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">historyWrite</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">prevCmd</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="kt">size_t</span> <span class="n">histLen</span> <span class="o">=</span> <span class="n">historyWrite</span> <span class="o">-</span> <span class="p">((</span><span class="n">prevCmd</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">history</span><span class="p">);</span>
+                    <span class="n">memmove</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">prevCmd</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">histLen</span><span class="p">);</span>
+                    <span class="n">historyWrite</span> <span class="o">=</span> <span class="n">histLen</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">historyWrite</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">memcpy</span><span class="p">(</span><span class="n">history</span> <span class="o">+</span> <span class="n">historyWrite</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">+</span> <span class="n">curStart</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+            <span class="n">historyWrite</span> <span class="o">+=</span> <span class="n">len</span><span class="p">;</span>
+            <span class="n">history</span><span class="p">[</span><span class="n">historyWrite</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Reset the history read position to the top of the stack.</span>
+    <span class="n">historyRead</span> <span class="o">=</span> <span class="n">historyWrite</span><span class="p">;</span>
+
+    <span class="c1">// Break the command up into arguments and populate the argument array.</span>
+    <span class="n">ShellArguments</span> <span class="nf">argv</span><span class="p">(</span><span class="n">buffer</span> <span class="o">+</span> <span class="n">curStart</span><span class="p">,</span> <span class="n">curLen</span> <span class="o">-</span> <span class="n">curStart</span><span class="p">);</span>
+
+    <span class="c1">// Clear the line buffer.</span>
+    <span class="n">curLen</span> <span class="o">=</span> <span class="n">curStart</span><span class="p">;</span>
+
+    <span class="c1">// Execute the command.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">argv</span><span class="p">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">execute</span><span class="p">(</span><span class="n">argv</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// Could not find a matching command, try the builtin &quot;help&quot;.</span>
+            <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv0</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">strcmp_P</span><span class="p">(</span><span class="n">argv0</span><span class="p">,</span> <span class="n">builtin_cmd_help</span><span class="p">)</span> <span class="o">||</span>
+                    <span class="o">!</span><span class="n">strcmp_P</span><span class="p">(</span><span class="n">argv0</span><span class="p">,</span> <span class="n">builtin_cmd_help_alt</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">help</span><span class="p">();</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">strcmp_P</span><span class="p">(</span><span class="n">argv0</span><span class="p">,</span> <span class="n">builtin_cmd_exit</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">exit</span><span class="p">();</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">unknown_cmd</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;Unknown command: &quot;</span><span class="p">;</span>
+                <span class="n">writeProgMem</span><span class="p">(</span><span class="n">unknown_cmd</span><span class="p">);</span>
+                <span class="n">print</span><span class="p">(</span><span class="n">argv0</span><span class="p">);</span>
+                <span class="n">println</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Prepare to print the prompt for the next command.</span>
+    <span class="n">lineMode</span> <span class="o">|=</span> <span class="n">LINEMODE_PROMPT</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">Shell</span><span class="o">::</span><span class="n">execute</span><span class="p">(</span><span class="k">const</span> <span class="n">ShellArguments</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv0</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">ShellCommandRegister</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">firstCmd</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">strcmp_P</span><span class="p">(</span><span class="n">argv0</span><span class="p">,</span> <span class="n">readInfoName</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">)))</span> <span class="p">{</span>
+            <span class="n">ShellCommandFunc</span> <span class="n">func</span> <span class="o">=</span> <span class="n">readInfoFunc</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">);</span>
+            <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="n">argv</span><span class="p">.</span><span class="n">count</span><span class="p">(),</span> <span class="n">argv</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">executeBuiltin</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cmd</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">clearCharacters</span><span class="p">(</span><span class="n">curLen</span><span class="p">);</span>
+    <span class="n">curLen</span> <span class="o">=</span> <span class="n">strlen_P</span><span class="p">(</span><span class="n">cmd</span><span class="p">);</span>
+    <span class="n">strncpy_P</span><span class="p">(</span><span class="n">buffer</span> <span class="o">+</span> <span class="n">curStart</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">curLen</span><span class="p">);</span>
+    <span class="n">write</span><span class="p">((</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)(</span><span class="n">buffer</span> <span class="o">+</span> <span class="n">curStart</span><span class="p">),</span> <span class="n">curLen</span><span class="p">);</span>
+    <span class="n">curLen</span> <span class="o">+=</span> <span class="n">curStart</span><span class="p">;</span>
+    <span class="n">execute</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">clearCharacters</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// If the characters are hidden, then there&#39;s nothing to backspace over.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_ECHO</span><span class="p">))</span>
+        <span class="k">return</span><span class="p">;</span>
+
+    <span class="c1">// Backspace over all characters in the buffer.</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">len</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">curLen</span> <span class="o">&gt;</span> <span class="n">curStart</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">uint8_t</span> <span class="n">ch</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">buffer</span><span class="p">[</span><span class="n">curLen</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">backspace</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// UTF-8 character sequence.  Back up some more and</span>
+            <span class="c1">// determine the value of the Unicode code point.</span>
+            <span class="kt">long</span> <span class="n">code</span> <span class="o">=</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">);</span>
+            <span class="kt">uint8_t</span> <span class="n">shift</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">curLen</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="o">--</span><span class="n">curLen</span><span class="p">;</span>
+                <span class="n">ch</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">buffer</span><span class="p">[</span><span class="n">curLen</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+                <span class="k">if</span> <span class="p">((</span><span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0xC0</span><span class="p">)</span> <span class="o">!=</span> <span class="mh">0x80</span><span class="p">)</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="n">code</span> <span class="o">|=</span> <span class="p">((</span><span class="kt">long</span><span class="p">)(</span><span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">shift</span><span class="p">;</span>
+                <span class="n">shift</span> <span class="o">+=</span> <span class="mi">6</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0xE0</span><span class="p">)</span> <span class="o">==</span> <span class="mh">0xC0</span><span class="p">)</span>
+                <span class="n">ch</span> <span class="o">&amp;=</span> <span class="mh">0x1F</span><span class="p">;</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="p">((</span><span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0xF0</span><span class="p">)</span> <span class="o">==</span> <span class="mh">0xE0</span><span class="p">)</span>
+                <span class="n">ch</span> <span class="o">&amp;=</span> <span class="mh">0x0F</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">ch</span> <span class="o">&amp;=</span> <span class="mh">0x07</span><span class="p">;</span>
+            <span class="n">code</span> <span class="o">|=</span> <span class="p">((</span><span class="kt">long</span><span class="p">)</span><span class="n">ch</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">shift</span><span class="p">;</span>
+
+            <span class="c1">// If the character is wide, we need to emit two backspaces.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">isWideCharacter</span><span class="p">(</span><span class="n">code</span><span class="p">))</span>
+                <span class="n">backspace</span><span class="p">();</span>
+            <span class="n">backspace</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="o">--</span><span class="n">len</span><span class="p">;</span>
+        <span class="o">--</span><span class="n">curLen</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">changeHistory</span><span class="p">(</span><span class="kt">bool</span> <span class="n">up</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">cmd</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">up</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">memrchr</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">historyRead</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="n">historyRead</span> <span class="o">=</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)(</span><span class="n">cmd</span> <span class="o">-</span> <span class="n">history</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">else</span>
+            <span class="n">historyRead</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">memchr</span><span class="p">(</span><span class="n">history</span> <span class="o">+</span> <span class="n">historyRead</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">historyWrite</span> <span class="o">-</span> <span class="n">historyRead</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="n">historyRead</span> <span class="o">=</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)(</span><span class="n">cmd</span> <span class="o">-</span> <span class="n">history</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">else</span>
+            <span class="n">historyRead</span> <span class="o">=</span> <span class="n">historyWrite</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">clearCharacters</span><span class="p">(</span><span class="n">curLen</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">historyRead</span> <span class="o">&lt;</span> <span class="n">historyWrite</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">history</span> <span class="o">+</span> <span class="n">historyRead</span><span class="p">;</span>
+        <span class="n">curLen</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">cmd</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">curLen</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">curMax</span> <span class="o">-</span> <span class="n">curStart</span><span class="p">))</span>
+            <span class="n">curLen</span> <span class="o">=</span> <span class="n">curMax</span> <span class="o">-</span> <span class="n">curStart</span><span class="p">;</span>
+        <span class="n">memcpy</span><span class="p">(</span><span class="n">buffer</span> <span class="o">+</span> <span class="n">curStart</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">curLen</span><span class="p">);</span>
+        <span class="n">write</span><span class="p">((</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">cmd</span><span class="p">,</span> <span class="n">curLen</span><span class="p">);</span>
+        <span class="n">curLen</span> <span class="o">+=</span> <span class="n">curStart</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Shell</span><span class="o">::</span><span class="n">clearHistory</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">history</span><span class="p">)</span>
+        <span class="n">memset</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">historySize</span><span class="p">);</span>
+    <span class="n">historyRead</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">historyWrite</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">memset</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">ShellArguments</span><span class="o">::</span><span class="n">ShellArguments</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">line</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">argc</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">currentIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">currentPosn</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Break the command up into arguments and add NUL terminators.</span>
+    <span class="kt">size_t</span> <span class="n">posn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">outposn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">quote</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">posn</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="o">++</span><span class="n">posn</span><span class="p">;</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="o">++</span><span class="n">argc</span><span class="p">;</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">ch</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;&quot;&#39;</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">quote</span> <span class="o">==</span> <span class="n">ch</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">quote</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                    <span class="o">++</span><span class="n">posn</span><span class="p">;</span>
+                    <span class="k">continue</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">quote</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">quote</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+                    <span class="o">++</span><span class="n">posn</span><span class="p">;</span>
+                    <span class="k">continue</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">quote</span> <span class="o">&amp;&amp;</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">buffer</span><span class="p">[</span><span class="n">outposn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+            <span class="o">++</span><span class="n">posn</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">posn</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">);</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">outposn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">posn</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">)</span>
+            <span class="o">++</span><span class="n">posn</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">outposn</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">ShellArguments</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">argc</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Argument index is out of range.</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">==</span> <span class="n">currentIndex</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// We already found this argument last time.</span>
+        <span class="k">return</span> <span class="n">line</span> <span class="o">+</span> <span class="n">currentPosn</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Search forwards or backwards for the next argument.</span>
+        <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">temp</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;</span> <span class="n">currentIndex</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">memchr</span>
+                <span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="n">currentPosn</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">-</span> <span class="n">currentPosn</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">temp</span><span class="p">)</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">currentPosn</span> <span class="o">=</span> <span class="p">((</span><span class="kt">size_t</span><span class="p">)(</span><span class="n">temp</span> <span class="o">-</span> <span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="o">++</span><span class="n">currentIndex</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">currentIndex</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">memrchr</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">currentPosn</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+                <span class="n">currentPosn</span> <span class="o">=</span> <span class="p">((</span><span class="kt">size_t</span><span class="p">)(</span><span class="n">temp</span> <span class="o">-</span> <span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">currentPosn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="o">--</span><span class="n">currentIndex</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">line</span> <span class="o">+</span> <span class="n">currentPosn</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">LoginShell</span><span class="o">::</span><span class="n">beginSession</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">lineMode</span> <span class="o">=</span> <span class="n">LINEMODE_USERNAME</span> <span class="o">|</span> <span class="n">LINEMODE_ECHO</span> <span class="o">|</span> <span class="n">LINEMODE_PROMPT</span><span class="p">;</span>
+    <span class="n">curStart</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">curLen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">curMax</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">LoginShell</span><span class="o">::</span><span class="n">printPrompt</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">loginString</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;login: &quot;</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">passwordString</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;Password: &quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_NORMAL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Print the prompt for normal command entry.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">prom</span><span class="p">)</span>
+            <span class="n">print</span><span class="p">(</span><span class="n">prom</span><span class="p">);</span>
+
+        <span class="c1">// Normal commands occupy the full command buffer.</span>
+        <span class="n">curStart</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">curLen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">curMax</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_USERNAME</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Print the machine name and the login prompt.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">machName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="n">machName</span><span class="p">);</span>
+            <span class="c1">// write((uint8_t)&#39; &#39;);</span>
+        <span class="p">}</span>
+        <span class="n">writeProgMem</span><span class="p">(</span><span class="n">loginString</span><span class="p">);</span>
+
+        <span class="c1">// Login name is placed into the first half of the line buffer.</span>
+        <span class="n">curStart</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">curLen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">curMax</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_PASSWORD</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Print the password prompt.</span>
+        <span class="n">writeProgMem</span><span class="p">(</span><span class="n">passwordString</span><span class="p">);</span>
+
+        <span class="c1">// Password is placed into the second half of the line buffer.</span>
+        <span class="n">curStart</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">curLen</span> <span class="o">=</span> <span class="n">curStart</span><span class="p">;</span>
+        <span class="n">curMax</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">lineMode</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">LINEMODE_PROMPT</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Default password checking function.  This is not a very good security check!</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="n">defaultPasswordCheckFunc</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">username</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">password</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">defaultUsername</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;root&quot;</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">defaultPassword</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;arduino&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">strcmp_P</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">defaultUsername</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+            <span class="o">!</span><span class="n">strcmp_P</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">defaultPassword</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">LoginShell</span><span class="o">::</span><span class="n">execute</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_NORMAL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Normal command execution.</span>
+        <span class="n">Shell</span><span class="o">::</span><span class="n">execute</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_USERNAME</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Prompting for the login username.</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">curLen</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="n">lineMode</span> <span class="o">=</span> <span class="n">LINEMODE_PASSWORD</span> <span class="o">|</span> <span class="n">LINEMODE_PROMPT</span><span class="p">;</span>
+        <span class="n">println</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">lineMode</span> <span class="o">&amp;</span> <span class="n">LINEMODE_PASSWORD</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Prompting for the login password.</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">curLen</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="n">println</span><span class="p">();</span>
+
+        <span class="c1">// Check the user name and password.</span>
+        <span class="kt">int</span> <span class="n">userid</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">checkFunc</span><span class="p">)</span>
+            <span class="n">userid</span> <span class="o">=</span> <span class="n">checkFunc</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">+</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="k">else</span>
+            <span class="n">userid</span> <span class="o">=</span> <span class="n">defaultPasswordCheckFunc</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">buffer</span> <span class="o">+</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+
+        <span class="c1">// Clear the user name and password from memory after they are checked.</span>
+        <span class="n">memset</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>
+
+        <span class="c1">// Go to either normal mode or back to username mode.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">userid</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">uid</span> <span class="o">=</span> <span class="n">userid</span><span class="p">;</span>
+            <span class="n">lineMode</span> <span class="o">=</span> <span class="n">LINEMODE_NORMAL</span> <span class="o">|</span> <span class="n">LINEMODE_ECHO</span> <span class="o">|</span> <span class="n">LINEMODE_PROMPT</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">lineMode</span> <span class="o">=</span> <span class="n">LINEMODE_USERNAME</span> <span class="o">|</span> <span class="n">LINEMODE_ECHO</span> <span class="o">|</span>
+                       <span class="n">LINEMODE_PROMPT</span> <span class="o">|</span> <span class="n">LINEMODE_DELAY</span><span class="p">;</span>
+            <span class="n">timer</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

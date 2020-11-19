@@ -1,0 +1,13 @@
+.. _exhale_define__network_config_8h_1aa3e84b22f144b0fc10c717cdf8add0ff:
+
+Define CLI_ENABLED
+==================
+
+- Defined in :ref:`file_src_NetworkConfig.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: CLI_ENABLED

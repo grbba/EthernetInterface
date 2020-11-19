@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1a1e9a449dee19c686a2af4edcdc1a1042:
+
+Define KEY_BACKSPACE
+====================
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_BACKSPACE

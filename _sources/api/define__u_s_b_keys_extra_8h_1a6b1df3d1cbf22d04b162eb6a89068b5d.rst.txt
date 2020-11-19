@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1a6b1df3d1cbf22d04b162eb6a89068b5d:
+
+Define KEY_RIGHT_ARROW
+======================
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_RIGHT_ARROW

@@ -1,0 +1,43 @@
+
+.. _file_src_HttpRequest.cpp:
+
+File HttpRequest.cpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/HttpRequest.cpp``)
+------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_HttpRequest.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Arduino.h``
+
+- ``HttpRequest.h`` (:ref:`file_src_HttpRequest.h`)
+
+- ``NetworkDiag.h`` (:ref:`file_src_NetworkDiag.h`)
+
+- ``NetworkInterface.h`` (:ref:`file_src_NetworkInterface.h`)
+
+
+
+
+

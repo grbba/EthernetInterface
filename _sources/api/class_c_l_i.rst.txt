@@ -1,0 +1,16 @@
+.. _exhale_class_class_c_l_i:
+
+Class CLI
+=========
+
+- Defined in :ref:`file_src_cli_CLIcommands.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: CLI
+   :members:
+   :protected-members:
+   :undoc-members:

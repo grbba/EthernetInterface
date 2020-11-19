@@ -1,0 +1,16 @@
+.. _exhale_class_class_network_interface:
+
+Class NetworkInterface
+======================
+
+- Defined in :ref:`file_src_NetworkInterface.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: NetworkInterface
+   :members:
+   :protected-members:
+   :undoc-members:

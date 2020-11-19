@@ -1,0 +1,13 @@
+.. _exhale_function__c_l_icommands_8cpp_1aef9b3fb883126b6e90fcfc2f433b96ef:
+
+Function cmdAttach
+==================
+
+- Defined in :ref:`file_src_cli_CLIcommands.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: cmdAttach(Shell&, int, const ShellArguments&)

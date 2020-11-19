@@ -1,0 +1,213 @@
+:orphan:
+
+
+Full API
+========
+
+Directories
+***********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_cli.rst
+
+Files
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_ArduinoUniqueID.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_ArduinoUniqueID.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_CLIcommands.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_CLIcommands.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_DIAG.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_EthernetSetup.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_EthernetSetup.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_freeMemory.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_freeMemory.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_HttpRequest.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_HttpRequest.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_LoginShell.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_LoginShell.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_MemoryFree.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_MemoryFree.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_MemStream.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_MemStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_NetworkConfig.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_NetworkDiag.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_NetworkDiag.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_NetworkInterface.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_NetworkInterface.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_NetworkSetup.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_NetworkSetup.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_Shell.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_Shell.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_StringFormatter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_StringFormatter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_TelnetDefs.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_Terminal.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_Terminal.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_Transport.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_Transport.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_TransportProcessor.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_TransportProcessor.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cli_USBKeysExtra.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_WifiSetup.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_WifiSetup.h.rst

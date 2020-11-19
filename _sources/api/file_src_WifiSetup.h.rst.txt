@@ -1,0 +1,61 @@
+
+.. _file_src_WifiSetup.h:
+
+File WifiSetup.h
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/WifiSetup.h``)
+--------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_WifiSetup.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``NetworkSetup.h`` (:ref:`file_src_NetworkSetup.h`)
+
+- ``WiFiEspAT.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_NetworkInterface.cpp`
+
+- :ref:`file_src_WifiSetup.cpp`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_class_wifi_setup`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define__wifi_setup_8h_1a7b427b491a712490620b56f1c67af59b`
+

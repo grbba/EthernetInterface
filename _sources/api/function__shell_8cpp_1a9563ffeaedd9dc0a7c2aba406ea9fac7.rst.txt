@@ -1,0 +1,13 @@
+.. _exhale_function__shell_8cpp_1a9563ffeaedd9dc0a7c2aba406ea9fac7:
+
+Function defaultPasswordCheckFunc
+=================================
+
+- Defined in :ref:`file_src_cli_Shell.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: defaultPasswordCheckFunc(const char *, const char *)

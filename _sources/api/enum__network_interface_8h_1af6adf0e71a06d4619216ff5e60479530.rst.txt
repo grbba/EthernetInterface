@@ -1,0 +1,13 @@
+.. _exhale_enum__network_interface_8h_1af6adf0e71a06d4619216ff5e60479530:
+
+Enum protocolType
+=================
+
+- Defined in :ref:`file_src_NetworkInterface.h`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: protocolType

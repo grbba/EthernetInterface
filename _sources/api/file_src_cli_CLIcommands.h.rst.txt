@@ -1,0 +1,59 @@
+
+.. _file_src_cli_CLIcommands.h:
+
+File CLIcommands.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_cli>` (``src/cli``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/cli/CLIcommands.h``)
+--------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_cli_CLIcommands.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Transport.h`` (:ref:`file_src_Transport.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_cli_CLIcommands.cpp`
+
+- :ref:`file_src_Transport.cpp`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_class_c_l_i`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define__c_l_icommands_8h_1a998de25b501ab5d51b67e386e63fc47d`
+

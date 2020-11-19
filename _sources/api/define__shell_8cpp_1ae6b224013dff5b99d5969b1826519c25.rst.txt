@@ -1,0 +1,13 @@
+.. _exhale_define__shell_8cpp_1ae6b224013dff5b99d5969b1826519c25:
+
+Define LINEMODE_PROMPT
+======================
+
+- Defined in :ref:`file_src_cli_Shell.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: LINEMODE_PROMPT

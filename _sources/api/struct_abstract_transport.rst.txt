@@ -1,0 +1,25 @@
+.. _exhale_struct_struct_abstract_transport:
+
+Struct AbstractTransport
+========================
+
+- Defined in :ref:`file_src_NetworkInterface.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public Transport< S, C, U >`` (:ref:`exhale_class_class_transport`)
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: AbstractTransport
+   :members:
+   :protected-members:
+   :undoc-members:

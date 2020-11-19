@@ -1,0 +1,58 @@
+
+.. _file_src_StringFormatter.h:
+
+File StringFormatter.h
+======================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/StringFormatter.h``)
+--------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_StringFormatter.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Arduino.h``
+
+- ``TransportProcessor.h`` (:ref:`file_src_TransportProcessor.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_DIAG.h`
+
+- :ref:`file_src_NetworkDiag.h`
+
+- :ref:`file_src_StringFormatter.cpp`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_class_diag`
+
+- :ref:`exhale_class_class_string_formatter`
+

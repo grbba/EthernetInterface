@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1a83760e7f00c16682c746c2844c712b01:
+
+Define KEY_PAGE_DOWN
+====================
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_PAGE_DOWN

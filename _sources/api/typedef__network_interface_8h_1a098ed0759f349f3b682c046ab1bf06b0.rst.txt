@@ -1,0 +1,13 @@
+.. _exhale_typedef__network_interface_8h_1a098ed0759f349f3b682c046ab1bf06b0:
+
+Typedef transportType
+=====================
+
+- Defined in :ref:`file_src_NetworkInterface.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: transportType

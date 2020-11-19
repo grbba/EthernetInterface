@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1ab94d4309f6059492ef7dbf1a880cf7e0:
+
+Define KEY_SCROLL_LOCK
+======================
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_SCROLL_LOCK

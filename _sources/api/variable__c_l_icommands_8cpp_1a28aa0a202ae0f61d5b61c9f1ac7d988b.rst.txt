@@ -1,0 +1,13 @@
+.. _exhale_variable__c_l_icommands_8cpp_1a28aa0a202ae0f61d5b61c9f1ac7d988b:
+
+Variable shell_info_led
+=======================
+
+- Defined in :ref:`file_src_cli_CLIcommands.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: shell_info_led

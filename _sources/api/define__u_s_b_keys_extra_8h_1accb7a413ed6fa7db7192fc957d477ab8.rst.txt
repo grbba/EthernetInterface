@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1accb7a413ed6fa7db7192fc957d477ab8:
+
+Define KEY_NUM_LOCK
+===================
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_NUM_LOCK

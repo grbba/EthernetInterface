@@ -1,0 +1,13 @@
+.. _exhale_define__d_i_a_g_8h_1ad2390c07b2f83f490ae971a3fdc0c18b:
+
+Define DIAG
+===========
+
+- Defined in :ref:`file_src_DIAG.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: DIAG

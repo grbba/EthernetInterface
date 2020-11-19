@@ -1,0 +1,60 @@
+
+.. _file_src_Transport.cpp:
+
+File Transport.cpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/Transport.cpp``)
+----------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_Transport.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Arduino.h``
+
+- ``NetworkDiag.h`` (:ref:`file_src_NetworkDiag.h`)
+
+- ``NetworkInterface.h`` (:ref:`file_src_NetworkInterface.h`)
+
+- ``Transport.h`` (:ref:`file_src_Transport.h`)
+
+- ``cli/CLIcommands.h`` (:ref:`file_src_cli_CLIcommands.h`)
+
+- ``cli/LoginShell.h`` (:ref:`file_src_cli_LoginShell.h`)
+
+- ``cli/Shell.h`` (:ref:`file_src_cli_Shell.h`)
+
+
+
+
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable__transport_8cpp_1af7edababa419584d038a5bcbf1cc771d`
+
+- :ref:`exhale_variable__transport_8cpp_1a90538335e7e6e7f444374f84213c0409`
+
+- :ref:`exhale_variable__transport_8cpp_1ae1bf58c4a1fd09ecd2dadcd745104365`
+

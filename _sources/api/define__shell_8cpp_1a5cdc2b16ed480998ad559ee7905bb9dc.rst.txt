@@ -1,0 +1,13 @@
+.. _exhale_define__shell_8cpp_1a5cdc2b16ed480998ad559ee7905bb9dc:
+
+Define LINEMODE_NORMAL
+======================
+
+- Defined in :ref:`file_src_cli_Shell.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: LINEMODE_NORMAL

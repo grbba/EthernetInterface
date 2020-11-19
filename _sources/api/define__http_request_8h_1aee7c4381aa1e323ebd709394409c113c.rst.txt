@@ -1,0 +1,13 @@
+.. _exhale_define__http_request_8h_1aee7c4381aa1e323ebd709394409c113c:
+
+Define HTTP_COOKIE_NAME
+=======================
+
+- Defined in :ref:`file_src_HttpRequest.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: HTTP_COOKIE_NAME

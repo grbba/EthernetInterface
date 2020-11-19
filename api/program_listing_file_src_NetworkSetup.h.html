@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File NetworkSetup.h &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File NetworkSetup.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_src_NetworkSetup.h.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-networksetup-h">
+<span id="program-listing-file-src-networksetup-h"></span><h1>Program Listing for File NetworkSetup.h<a class="headerlink" href="#program-listing-for-file-networksetup-h" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_src_NetworkSetup.h.html#file-src-networksetup-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/NetworkSetup.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * © 2020 Gregor Baues. All rights reserved.</span>
+<span class="cm"> *</span>
+<span class="cm"> * This is free software: you can redistribute it and/or modify it under</span>
+<span class="cm"> * the terms of the GNU General Public License as published by the</span>
+<span class="cm"> * Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm"> * (at your option) any later version.</span>
+<span class="cm"> *</span>
+<span class="cm"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
+<span class="cm"> * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="cm"> * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="cm"> * DEALINGS IN THE SOFTWARE.</span>
+<span class="cm"> *</span>
+<span class="cm"> * See the GNU General Public License for more details &lt;https://www.gnu.org/licenses/&gt;</span>
+<span class="cm"> */</span>
+
+<span class="cp">#ifndef NetworkSetup_h</span>
+<span class="cp">#define NetworkSetup_h</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;Ethernet.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;NetworkConfig.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;NetworkInterface.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#define MAXDEVICEID 20</span>
+
+<span class="k">class</span> <span class="nc">NetworkSetup</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+
+
+    <span class="k">static</span> <span class="kt">char</span> <span class="n">_deviceId</span><span class="p">[</span><span class="n">MAXDEVICEID</span><span class="p">];</span>
+    <span class="k">static</span> <span class="kt">bool</span> <span class="n">macAddressSet</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">bool</span> <span class="n">deviceIdSet</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">IPAddress</span>       <span class="n">dnsip</span><span class="p">;</span>
+    <span class="n">IPAddress</span>       <span class="n">ip</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span>  <span class="n">mac</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>              <span class="c1">// Default if not set automatically for EthernetShield</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span>  <span class="n">apWifiMacAddress</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="c1">// for the WiFi AP</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span>  <span class="n">stWifiMacAddress</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="c1">// for the normal WiFi connection</span>
+
+    <span class="kt">uint8_t</span>         <span class="n">maxConnections</span><span class="p">;</span>
+    <span class="kt">bool</span>            <span class="n">connected</span><span class="p">;</span>                  <span class="c1">// semantics is that the server has successfullt started  or not; client connections will be started in the Transport object</span>
+    <span class="n">protocolType</span>    <span class="n">protocol</span><span class="p">;</span>
+    <span class="kt">uint16_t</span>        <span class="n">port</span> <span class="o">=</span> <span class="n">LISTEN_PORT</span><span class="p">;</span>         <span class="c1">// Default port</span>
+
+    <span class="k">static</span> <span class="kt">void</span> <span class="n">setDeviceId</span><span class="p">();</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="nf">getDeviceId</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_deviceId</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">static</span> <span class="kt">void</span> <span class="n">genMacAddress</span><span class="p">();</span>
+    <span class="k">static</span> <span class="kt">void</span> <span class="n">printMacAddress</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">a</span><span class="p">[]);</span>
+
+    <span class="n">NetworkSetup</span><span class="p">();</span>
+    <span class="o">~</span><span class="n">NetworkSetup</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

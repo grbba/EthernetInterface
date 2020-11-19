@@ -1,0 +1,13 @@
+.. _exhale_function__transport_processor_8cpp_1a3af0ecf3a10ec36ab4835f7837bc1f13:
+
+Function sendReply
+==================
+
+- Defined in :ref:`file_src_TransportProcessor.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: sendReply(Connection *, TransportProcessor *)

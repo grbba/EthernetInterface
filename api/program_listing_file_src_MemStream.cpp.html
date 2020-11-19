@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File MemStream.cpp &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File MemStream.cpp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_src_MemStream.cpp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-memstream-cpp">
+<span id="program-listing-file-src-memstream-cpp"></span><h1>Program Listing for File MemStream.cpp<a class="headerlink" href="#program-listing-for-file-memstream-cpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_src_MemStream.cpp.html#file-src-memstream-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/MemStream.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+
+<span class="cm"> (c) 2015 Ingo Fischer</span>
+<span class="cm"> buffer serial device</span>
+<span class="cm"> based on Arduino SoftwareSerial</span>
+
+<span class="cm"> Constructor warning messages fixed by Chris Harlow.</span>
+
+<span class="cm">This library is free software; you can redistribute it and/or</span>
+<span class="cm">modify it under the terms of the GNU Lesser General Public</span>
+<span class="cm">License as published by the Free Software Foundation; either</span>
+<span class="cm">version 2.1 of the License, or (at your option) any later version.</span>
+
+<span class="cm">This library is distributed in the hope that it will be useful,</span>
+<span class="cm">but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="cm">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span>
+<span class="cm">Lesser General Public License for more details.</span>
+
+<span class="cm">You should have received a copy of the GNU Lesser General Public</span>
+<span class="cm">License along with this library; if not, write to the Free Software</span>
+<span class="cm">Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</span>
+
+<span class="cm">*/</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;MemStream.h&quot;</span><span class="cp"></span>
+
+<span class="n">MemStream</span><span class="o">::</span><span class="n">MemStream</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">content_len</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">allowWrite</span><span class="p">)</span>
+<span class="o">:</span><span class="n">_buffer</span><span class="p">(</span><span class="n">buffer</span><span class="p">),</span><span class="n">_len</span><span class="p">(</span><span class="n">len</span><span class="p">),</span> <span class="n">_buffer_overflow</span><span class="p">(</span><span class="nb">false</span><span class="p">),</span>  <span class="n">_pos_read</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">_allowWrite</span><span class="p">(</span><span class="n">allowWrite</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">content_len</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">memset</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">_len</span><span class="p">);</span>
+  <span class="n">_pos_write</span><span class="o">=</span><span class="p">(</span><span class="n">content_len</span><span class="o">&gt;</span><span class="n">len</span><span class="p">)</span><span class="o">?</span> <span class="nl">len</span><span class="p">:</span> <span class="n">content_len</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">size_t</span> <span class="n">MemStream</span><span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">byte</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">_allowWrite</span><span class="p">)</span> <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">_pos_write</span> <span class="o">&gt;=</span> <span class="n">_len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">_buffer_overflow</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">_buffer</span><span class="p">[</span><span class="n">_pos_write</span><span class="p">]</span> <span class="o">=</span> <span class="n">byte</span><span class="p">;</span>
+  <span class="o">++</span><span class="n">_pos_write</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">MemStream</span><span class="o">::</span><span class="n">flush</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">memset</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">_len</span><span class="p">);</span>
+  <span class="n">_pos_write</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">_pos_read</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">MemStream</span><span class="o">::</span><span class="n">read</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">_pos_read</span> <span class="o">&gt;=</span> <span class="n">_len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">_buffer_overflow</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">_pos_read</span> <span class="o">&gt;=</span> <span class="n">_pos_write</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">_buffer</span><span class="p">[</span><span class="n">_pos_read</span><span class="o">++</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">MemStream</span><span class="o">::</span><span class="n">peek</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">_pos_read</span> <span class="o">&gt;=</span> <span class="n">_len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">_buffer_overflow</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">_pos_read</span> <span class="o">&gt;=</span> <span class="n">_pos_write</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">_buffer</span><span class="p">[</span><span class="n">_pos_read</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">MemStream</span><span class="o">::</span><span class="n">available</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">ret</span><span class="o">=</span><span class="n">_pos_write</span><span class="o">-</span><span class="n">_pos_read</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">ret</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="n">ret</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">MemStream</span><span class="o">::</span><span class="n">setBufferContent</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">content_len</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">memset</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">_len</span><span class="p">);</span>
+  <span class="n">memcpy</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">content_len</span><span class="p">);</span>
+  <span class="n">_buffer_overflow</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+  <span class="n">_pos_write</span><span class="o">=</span><span class="n">content_len</span><span class="p">;</span>
+  <span class="n">_pos_read</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">MemStream</span><span class="o">::</span><span class="n">setBufferContentFromProgmem</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">content_len</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">memset</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">_len</span><span class="p">);</span>
+  <span class="n">memcpy_P</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">content_len</span><span class="p">);</span>
+  <span class="n">_buffer_overflow</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+  <span class="n">_pos_write</span><span class="o">=</span><span class="n">content_len</span><span class="p">;</span>
+  <span class="n">_pos_read</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">MemStream</span><span class="o">::</span><span class="n">setBufferContentPosition</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">read_pos</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">write_pos</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">_pos_write</span><span class="o">=</span><span class="n">write_pos</span><span class="p">;</span>
+    <span class="n">_pos_read</span><span class="o">=</span><span class="n">read_pos</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

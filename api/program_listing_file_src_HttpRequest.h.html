@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File HttpRequest.h &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File HttpRequest.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_src_HttpRequest.h.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-httprequest-h">
+<span id="program-listing-file-src-httprequest-h"></span><h1>Program Listing for File HttpRequest.h<a class="headerlink" href="#program-listing-for-file-httprequest-h" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_src_HttpRequest.h.html#file-src-httprequest-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/HttpRequest.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * © 2020 Francisco G. Paletta, Gregor Baues. All rights reserved.</span>
+<span class="cm"> *</span>
+<span class="cm"> * This is free software: you can redistribute it and/or modify it under</span>
+<span class="cm"> * the terms of the GNU General Public License as published by the</span>
+<span class="cm"> * Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm"> * (at your option) any later version.</span>
+<span class="cm"> *</span>
+<span class="cm"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
+<span class="cm"> * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="cm"> * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="cm"> * DEALINGS IN THE SOFTWARE.</span>
+<span class="cm"> *</span>
+<span class="cm"> * See the GNU General Public License for more details &lt;https://www.gnu.org/licenses/&gt;</span>
+<span class="cm"> */</span>
+
+<span class="cp">#ifndef HttpRequest_h</span>
+<span class="cp">#define HttpRequest_h</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;Ethernet.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// Buffer lengths</span>
+<span class="cp">#define HTTP_REQ_METHOD_LENGTH          10      </span><span class="c1">//10 is enough</span>
+<span class="cp">#define HTTP_REQ_URI_LENGTH             32      </span><span class="c1">//adjust if you have long path/file names</span>
+<span class="cp">#define HTTP_REQ_VERSION_LENGTH         10      </span><span class="c1">//10 is enough</span>
+<span class="cp">#define HTTP_REQ_PARAM_NAME_LENGTH      16      </span><span class="c1">//adjust to meet your needs</span>
+<span class="cp">#define HTTP_REQ_PARAM_VALUE_LENGTH     16      </span><span class="c1">//adjust to meet your needs</span>
+<span class="cp">#define HTTP_REQ_ATTRIB_NAME_LENGTH     16      </span><span class="c1">//enough to track attribute name</span>
+<span class="cp">#define HTTP_REQ_ATTRIB_VALUE_LENGTH    16      </span><span class="c1">//enough to track &quot;Content-Length&quot; value</span>
+<span class="cp">#define HTTP_REQ_COOKIE_NAME_LENGTH     10      </span><span class="c1">//adjust to meet your needs</span>
+<span class="cp">#define HTTP_REQ_COOKIE_VALUE_LENGTH    16      </span><span class="c1">//adjust to meet your needs</span>
+
+<span class="c1">// Parsing status</span>
+<span class="cp">#define HTTP_PARSE_INIT     0       </span><span class="c1">//Initial Parser Status</span>
+<span class="cp">#define HTTP_METHOD         0       </span><span class="c1">//Parse the Method: GET POST UPDATE etc</span>
+<span class="cp">#define HTTP_URI            1       </span><span class="c1">//Parse the URI</span>
+<span class="cp">#define HTTP_GET_NAME       11      </span><span class="c1">//Parse the GET parameter NAME</span>
+<span class="cp">#define HTTP_GET_VALUE      12      </span><span class="c1">//Parse the GET parameter VALUE</span>
+<span class="cp">#define HTTP_VERSION        2       </span><span class="c1">//Parse the version: HTTP1.1</span>
+<span class="cp">#define HTTP_NEW_LINE       3       </span><span class="c1">//Starts reading a new line</span>
+<span class="cp">#define HTTP_ATTRIB_NAME    41      </span><span class="c1">//Read the attibutes NAME</span>
+<span class="cp">#define HTTP_ATTRIB_VALUE   42      </span><span class="c1">//Read the attribute VALUE</span>
+<span class="cp">#define HTTP_POST_NAME      51      </span><span class="c1">//Read the POST parameter NAME</span>
+<span class="cp">#define HTTP_POST_VALUE     52      </span><span class="c1">//Read the POST paramenter VALUE</span>
+<span class="cp">#define HTTP_COOKIE_NAME    61      </span><span class="c1">//Read the COOKIE NAME</span>
+<span class="cp">#define HTTP_COOKIE_VALUE   62      </span><span class="c1">//Read the COOKIE VALUE</span>
+<span class="cp">#define HTTP_REQUEST_END    99      </span><span class="c1">//Finished reading the HTTP Request</span>
+
+<span class="c1">// returned to the callback</span>
+<span class="k">struct</span> <span class="nc">ParsedRequest</span> <span class="p">{</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">method</span><span class="p">;</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">uri</span><span class="p">;</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">version</span><span class="p">;</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">paramCount</span><span class="p">;</span>
+    <span class="c1">// uint8_t (*getByIndex)(int, char*, char*);</span>
+    <span class="c1">// uint8_t (*getByName)(char*, char*);</span>
+<span class="p">};</span>
+
+    <span class="k">struct</span> <span class="nc">Params</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="n">HTTP_REQ_PARAM_NAME_LENGTH</span><span class="p">];</span>
+        <span class="kt">char</span> <span class="n">value</span><span class="p">[</span><span class="n">HTTP_REQ_PARAM_VALUE_LENGTH</span><span class="p">];</span>
+        <span class="n">Params</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">HttpRequest</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+
+    <span class="c1">// no Cookies</span>
+    <span class="k">struct</span> <span class="nc">Cookies</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="n">HTTP_REQ_COOKIE_NAME_LENGTH</span><span class="p">];</span>
+        <span class="kt">char</span> <span class="n">value</span><span class="p">[</span><span class="n">HTTP_REQ_COOKIE_VALUE_LENGTH</span><span class="p">];</span>
+        <span class="n">Cookies</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="kt">uint8_t</span> <span class="n">parseStatus</span><span class="p">;</span>
+    <span class="n">Params</span> <span class="o">*</span><span class="n">firstParam</span><span class="p">;</span>
+    <span class="n">Cookies</span> <span class="o">*</span><span class="n">firstCookie</span><span class="p">;</span>
+
+    <span class="kt">char</span> <span class="n">tmpParamName</span><span class="p">[</span><span class="n">HTTP_REQ_PARAM_NAME_LENGTH</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">tmpParamValue</span><span class="p">[</span><span class="n">HTTP_REQ_PARAM_VALUE_LENGTH</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">tmpAttribName</span><span class="p">[</span><span class="n">HTTP_REQ_ATTRIB_NAME_LENGTH</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">tmpAttribValue</span><span class="p">[</span><span class="n">HTTP_REQ_ATTRIB_NAME_LENGTH</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">tmpCookieName</span><span class="p">[</span><span class="n">HTTP_REQ_COOKIE_NAME_LENGTH</span><span class="p">];</span> <span class="c1">// no use</span>
+    <span class="kt">char</span> <span class="n">tmpCookieValue</span><span class="p">[</span><span class="n">HTTP_REQ_COOKIE_VALUE_LENGTH</span><span class="p">];</span> <span class="c1">// no use</span>
+
+    <span class="kt">uint16_t</span> <span class="n">dataBlockLength</span><span class="p">,</span> <span class="n">dataCount</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="nf">addParam</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">addAttrib</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">addCookie</span><span class="p">();</span>                               <span class="c1">// no use</span>
+    <span class="kt">void</span> <span class="nf">freeParamMem</span><span class="p">(</span><span class="n">Params</span> <span class="o">*</span><span class="n">paramNode</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">freeCookieMem</span><span class="p">(</span><span class="n">Cookies</span> <span class="o">*</span><span class="n">cookieNode</span><span class="p">);</span>
+
+    <span class="kt">char</span> <span class="n">method</span><span class="p">[</span><span class="n">HTTP_REQ_METHOD_LENGTH</span><span class="p">];</span>                <span class="c1">// user</span>
+    <span class="kt">char</span> <span class="n">uri</span><span class="p">[</span><span class="n">HTTP_REQ_URI_LENGTH</span><span class="p">];</span>                      <span class="c1">// user</span>
+    <span class="kt">char</span> <span class="n">version</span><span class="p">[</span><span class="n">HTTP_REQ_VERSION_LENGTH</span><span class="p">];</span>              <span class="c1">// user</span>
+
+    <span class="kt">uint8_t</span> <span class="n">paramCount</span><span class="p">;</span>                                     <span class="c1">// user</span>
+    <span class="kt">uint8_t</span> <span class="n">cookieCount</span><span class="p">;</span>                                    <span class="c1">// no use - no cookie support</span>
+
+    <span class="kt">uint8_t</span> <span class="nf">getParam</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">paramNum</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">value</span><span class="p">);</span>  <span class="c1">// user</span>
+    <span class="kt">uint8_t</span> <span class="nf">getParam</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">value</span><span class="p">);</span>                <span class="c1">// user</span>
+    <span class="kt">uint8_t</span> <span class="nf">getCookie</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">cookieNum</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">value</span><span class="p">);</span> <span class="c1">// no use</span>
+    <span class="kt">uint8_t</span> <span class="nf">getCookie</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">value</span><span class="p">);</span>                <span class="c1">// no use</span>
+
+    <span class="n">ParsedRequest</span> <span class="n">req</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">HttpRequest</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">resetRequest</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">parseRequest</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">);</span>
+    <span class="kt">bool</span> <span class="nf">endOfRequest</span><span class="p">();</span>
+    <span class="n">ParsedRequest</span> <span class="nf">getParsedRequest</span><span class="p">();</span>
+    <span class="n">Params</span><span class="o">*</span> <span class="nf">getParam</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">paramNum</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">callback</span><span class="p">)(</span><span class="n">ParsedRequest</span> <span class="o">*</span><span class="n">req</span><span class="p">,</span> <span class="n">Client</span> <span class="o">*</span><span class="n">client</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

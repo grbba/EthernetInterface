@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File USBKeysExtra.h &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File USBKeysExtra.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_src_cli_USBKeysExtra.h.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-usbkeysextra-h">
+<span id="program-listing-file-src-cli-usbkeysextra-h"></span><h1>Program Listing for File USBKeysExtra.h<a class="headerlink" href="#program-listing-for-file-usbkeysextra-h" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_src_cli_USBKeysExtra.h.html#file-src-cli-usbkeysextra-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/cli/USBKeysExtra.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Copyright (C) 2016 Southern Storm Software, Pty Ltd.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Permission is hereby granted, free of charge, to any person obtaining a</span>
+<span class="cm"> * copy of this software and associated documentation files (the &quot;Software&quot;),</span>
+<span class="cm"> * to deal in the Software without restriction, including without limitation</span>
+<span class="cm"> * the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span class="cm"> * and/or sell copies of the Software, and to permit persons to whom the</span>
+<span class="cm"> * Software is furnished to do so, subject to the following conditions:</span>
+<span class="cm"> *</span>
+<span class="cm"> * The above copyright notice and this permission notice shall be included</span>
+<span class="cm"> * in all copies or substantial portions of the Software.</span>
+<span class="cm"> *</span>
+<span class="cm"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
+<span class="cm"> * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="cm"> * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="cm"> * DEALINGS IN THE SOFTWARE.</span>
+<span class="cm"> */</span>
+
+<span class="cp">#ifndef USBKEYSEXTRA_h</span>
+<span class="cp">#define USBKEYSEXTRA_h</span>
+
+<span class="c1">// Extra key codes that are not included in the standard USBAPI.h header.</span>
+<span class="c1">// Reference: http://www.usb.org/developers/hidpage/Hut1_12v2.pdf</span>
+<span class="c1">// Note: USBAPI.h shifts the Hut codes by adding 136 (0x88) so that</span>
+<span class="c1">// they don&#39;t intersect with ASCII.  We do that here as well so</span>
+<span class="c1">// that these codes can be used with Keyboard.press().  We use #ifndef</span>
+<span class="c1">// here in case the core Arduino libraries add these in the future.</span>
+
+<span class="cp">#ifndef KEY_PRINT_SCREEN</span>
+<span class="cp">#define KEY_PRINT_SCREEN        (0x46 + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_SCROLL_LOCK</span>
+<span class="cp">#define KEY_SCROLL_LOCK         (0x47 + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_PAUSE</span>
+<span class="cp">#define KEY_PAUSE               (0x48 + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_NUM_LOCK</span>
+<span class="cp">#define KEY_NUM_LOCK            (0x53 + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_NUMPAD_5</span>
+<span class="cp">#define KEY_NUMPAD_5            (0x5D + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F13</span>
+<span class="cp">#define KEY_F13                 (0x68 + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F14</span>
+<span class="cp">#define KEY_F14                 (0x69 + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F15</span>
+<span class="cp">#define KEY_F15                 (0x6A + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F16</span>
+<span class="cp">#define KEY_F16                 (0x6B + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F17</span>
+<span class="cp">#define KEY_F17                 (0x6C + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F18</span>
+<span class="cp">#define KEY_F18                 (0x6D + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F19</span>
+<span class="cp">#define KEY_F19                 (0x6E + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F20</span>
+<span class="cp">#define KEY_F20                 (0x6F + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F21</span>
+<span class="cp">#define KEY_F21                 (0x70 + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F22</span>
+<span class="cp">#define KEY_F22                 (0x71 + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F23</span>
+<span class="cp">#define KEY_F23                 (0x72 + 0x88)</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifndef KEY_F24</span>
+<span class="cp">#define KEY_F24                 (0x73 + 0x88)</span>
+<span class="cp">#endif</span>
+
+<span class="c1">// USB does not have a code for &quot;Back Tab&quot; as it is usually Shift-TAB.</span>
+<span class="c1">// For convenience, we map it to the ASCII vertical tab character (0x0B).</span>
+<span class="cp">#define KEY_BACK_TAB            0x0B</span>
+
+<span class="cp">#ifndef KEY_RETURN</span>
+
+<span class="c1">// If the Arduino variant does not support USB, then USBAPI.h will not</span>
+<span class="c1">// define the key codes that we need.  So we define them here instead.</span>
+
+<span class="cp">#define KEY_RETURN              (0x28 + 0x88)</span>
+<span class="cp">#define KEY_ESC                 (0x29 + 0x88)</span>
+<span class="cp">#define KEY_BACKSPACE           (0x2A + 0x88)</span>
+<span class="cp">#define KEY_TAB                 (0x2B + 0x88)</span>
+<span class="cp">#define KEY_CAPS_LOCK           (0x39 + 0x88)</span>
+<span class="cp">#define KEY_F1                  (0x3A + 0x88)</span>
+<span class="cp">#define KEY_F2                  (0x3B + 0x88)</span>
+<span class="cp">#define KEY_F3                  (0x3C + 0x88)</span>
+<span class="cp">#define KEY_F4                  (0x3D + 0x88)</span>
+<span class="cp">#define KEY_F5                  (0x3E + 0x88)</span>
+<span class="cp">#define KEY_F6                  (0x3F + 0x88)</span>
+<span class="cp">#define KEY_F7                  (0x40 + 0x88)</span>
+<span class="cp">#define KEY_F8                  (0x41 + 0x88)</span>
+<span class="cp">#define KEY_F9                  (0x42 + 0x88)</span>
+<span class="cp">#define KEY_F10                 (0x43 + 0x88)</span>
+<span class="cp">#define KEY_F11                 (0x44 + 0x88)</span>
+<span class="cp">#define KEY_F12                 (0x45 + 0x88)</span>
+<span class="cp">#define KEY_INSERT              (0x49 + 0x88)</span>
+<span class="cp">#define KEY_HOME                (0x4A + 0x88)</span>
+<span class="cp">#define KEY_PAGE_UP             (0x4B + 0x88)</span>
+<span class="cp">#define KEY_DELETE              (0x4C + 0x88)</span>
+<span class="cp">#define KEY_END                 (0x4D + 0x88)</span>
+<span class="cp">#define KEY_PAGE_DOWN           (0x4E + 0x88)</span>
+<span class="cp">#define KEY_RIGHT_ARROW         (0x4F + 0x88)</span>
+<span class="cp">#define KEY_LEFT_ARROW          (0x50 + 0x88)</span>
+<span class="cp">#define KEY_DOWN_ARROW          (0x51 + 0x88)</span>
+<span class="cp">#define KEY_UP_ARROW            (0x52 + 0x88)</span>
+
+<span class="cp">#endif</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

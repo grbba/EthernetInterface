@@ -1,0 +1,13 @@
+.. _exhale_define__shell_8cpp_1ab091102d2c3f669a120e84367a265ddc:
+
+Define LINEMODE_ECHO
+====================
+
+- Defined in :ref:`file_src_cli_Shell.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: LINEMODE_ECHO

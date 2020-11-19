@@ -1,0 +1,13 @@
+.. _exhale_variable__memory_free_8cpp_1a8d18204366e8a385c441663ed41f1ae4:
+
+Variable __brkval
+=================
+
+- Defined in :ref:`file_src_MemoryFree.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: __brkval

@@ -1,0 +1,75 @@
+
+.. _file_src_cli_CLIcommands.cpp:
+
+File CLIcommands.cpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_cli>` (``src/cli``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/cli/CLIcommands.cpp``)
+----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_cli_CLIcommands.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``../NetworkConfig.h``
+
+- ``../NetworkDiag.h``
+
+- ``../Transport.h``
+
+- ``Arduino.h``
+
+- ``CLIcommands.h`` (:ref:`file_src_cli_CLIcommands.h`)
+
+- ``LoginShell.h`` (:ref:`file_src_cli_LoginShell.h`)
+
+- ``Shell.h`` (:ref:`file_src_cli_LoginShell.h`)
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function__c_l_icommands_8cpp_1aef9b3fb883126b6e90fcfc2f433b96ef`
+
+- :ref:`exhale_function__c_l_icommands_8cpp_1a4d0f67731a5e2d309fc1fd8802c623a3`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable__c_l_icommands_8cpp_1af7edababa419584d038a5bcbf1cc771d`
+
+- :ref:`exhale_variable__c_l_icommands_8cpp_1a90538335e7e6e7f444374f84213c0409`
+
+- :ref:`exhale_variable__c_l_icommands_8cpp_1afdd77f1aa3023f9ba5f49bb1f6c68b51`
+
+- :ref:`exhale_variable__c_l_icommands_8cpp_1ab37864cf3fab6cc29d0d467556eb43b0`
+
+- :ref:`exhale_variable__c_l_icommands_8cpp_1a509db2befcf6ab4273dc5c64b2983646`
+
+- :ref:`exhale_variable__c_l_icommands_8cpp_1a28aa0a202ae0f61d5b61c9f1ac7d988b`
+

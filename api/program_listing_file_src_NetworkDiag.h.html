@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File NetworkDiag.h &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File NetworkDiag.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_src_NetworkDiag.h.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-networkdiag-h">
+<span id="program-listing-file-src-networkdiag-h"></span><h1>Program Listing for File NetworkDiag.h<a class="headerlink" href="#program-listing-for-file-networkdiag-h" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_src_NetworkDiag.h.html#file-src-networkdiag-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/NetworkDiag.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * © 2020 Gregor Baues. All rights reserved.</span>
+<span class="cm"> *</span>
+<span class="cm"> * This is free software: you can redistribute it and/or modify it under</span>
+<span class="cm"> * the terms of the GNU General Public License as published by the</span>
+<span class="cm"> * Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm"> * (at your option) any later version.</span>
+<span class="cm"> *</span>
+<span class="cm"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
+<span class="cm"> * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="cm"> * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="cm"> * DEALINGS IN THE SOFTWARE.</span>
+<span class="cm"> *</span>
+<span class="cm"> * See the GNU General Public License for more details &lt;https://www.gnu.org/licenses/&gt;</span>
+<span class="cm"> */</span>
+
+<span class="cp">#ifndef NetworkDiag_h</span>
+<span class="cp">#define NetworkDiag_h</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;freeMemory.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;StringFormatter.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;TransportProcessor.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#define EH_DW(code) \</span>
+<span class="cp">    do              \</span>
+<span class="cp">    {               \</span>
+<span class="cp">        code        \</span>
+<span class="cp">    } while (0) </span><span class="c1">//wraps in a do while(0) so that the syntax is correct.</span>
+
+
+<span class="c1">// enable/ disbale the loglevel at runtime everything up to the compile time level will be shown the rest not !</span>
+<span class="cp">#define EH_IFLL(LL,code) if(_nLogLevel &gt;= LL){code}</span>
+<span class="cp">#define EH_IFIL(IL,code) if(_nInfoLevel &gt;= IL){code}</span>
+
+<span class="cp">#ifndef DEBUG</span>
+<span class="cp">#define DEBUG</span>
+<span class="cp">#ifndef LOGLEVEL</span>
+<span class="cp">#define LOGLEVEL 4             </span><span class="c1">// compile time level by default up to error can be overridden at compiletime with a -D flag in build_flags (PIO) extra.comiler.flags on Arduino IDE</span>
+<span class="cp">#endif</span>
+<span class="cp">#endif</span>
+
+<span class="k">class</span> <span class="nc">NetworkDiag</span><span class="o">:</span> <span class="k">public</span> <span class="n">StringFormatter</span> <span class="p">{</span>
+
+<span class="k">public</span><span class="o">:</span>
+
+    <span class="k">static</span> <span class="kt">void</span> <span class="n">setDiagOut</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">connected</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">diagSerial</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="kt">void</span> <span class="n">resetDiagOut</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">diagSerial</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">Serial</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+
+<span class="cp">#define NDIAG NetworkDiag::diag</span>
+
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">_dMem</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">_cMem</span><span class="p">;</span>
+<span class="k">extern</span> <span class="n">byte</span> <span class="n">_nLogLevel</span><span class="p">;</span>         <span class="c1">// runtime level set by &lt;D NET #level &gt;; by default set to 0 i.e. silent excpet for network startup at level 3 to get the init mesages shown</span>
+<span class="k">extern</span> <span class="n">byte</span> <span class="n">_nInfoLevel</span><span class="p">;</span>        <span class="c1">// runtime lvel of the details of the messages displayed - TBD</span>
+<span class="k">extern</span> <span class="n">byte</span> <span class="n">_dOutput</span><span class="p">;</span>           <span class="c1">// where the diag messages shall be send; 1 = Serial, 2 = future CLI on port 23 - TBD</span>
+
+<span class="cp">#define LOGV_DEBUG 5</span>
+<span class="cp">#define LOGV_TRACE 4</span>
+<span class="cp">#define LOGV_ERROR 3</span>
+<span class="cp">#define LOGV_WARN 2</span>
+<span class="cp">#define LOGV_INFO 1</span>
+<span class="cp">#define LOGV_SILENT 0</span>
+
+<span class="cp">#ifdef LOGLEVEL</span>
+<span class="cp">#if LOGLEVEL == LOGV_SILENT</span>
+<span class="cp">#define INFO(message...)</span>
+<span class="cp">#define WARN(message...)</span>
+<span class="cp">#define ERR(message...)</span>
+<span class="cp">#define TRC(message...)</span>
+<span class="cp">#define DBG(message...)</span>
+<span class="cp">#endif</span>
+<span class="cp">#if LOGLEVEL == LOGV_INFO</span>
+<span class="cp">#define INFO(message...) EH_DW(EH_IFLL(LOGV_INFO, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[INF]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define WARN(message...)</span>
+<span class="cp">#define ERR(message...)</span>
+<span class="cp">#define TRC(message...)</span>
+<span class="cp">#define DBG(message...)</span>
+<span class="cp">#endif</span>
+<span class="cp">#if LOGLEVEL == LOGV_WARN</span>
+<span class="cp">#define INFO(message...) EH_DW(EH_IFLL(LOGV_INFO, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[INF]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define WARN(message...) EH_DW(EH_IFLL(LOGV_ERROR, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[WRN]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define ERR(message...)</span>
+<span class="cp">#define TRC(message...)</span>
+<span class="cp">#define DBG(message...)</span>
+<span class="cp">#endif</span>
+<span class="cp">#if LOGLEVEL == LOGV_ERROR</span>
+<span class="cp">#define INFO(message...) EH_DW(EH_IFLL(LOGV_INFO, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[INF]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define WARN(message...) EH_DW(EH_IFLL(LOGV_WARN, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[WRN]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define ERR(message...)  EH_DW(EH_IFLL(LOGV_ERROR, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[ERR]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define TRC(message...)</span>
+<span class="cp">#define DBG(message...)</span>
+<span class="cp">#endif</span>
+<span class="cp">#if LOGLEVEL == LOGV_TRACE</span>
+<span class="cp">#define INFO(message...) EH_DW(EH_IFLL(LOGV_INFO, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;\r\n&quot;)); NDIAG(F(&quot;::[INF]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message);  ))</span>
+<span class="cp">#define WARN(message...) EH_DW(EH_IFLL(LOGV_WARN, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;\r\n&quot;)); NDIAG(F(&quot;::[WRN]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message);  ))</span>
+<span class="cp">#define ERR(message...)  EH_DW(EH_IFLL(LOGV_ERROR, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;\r\n&quot;)); NDIAG(F(&quot;::[ERR]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message);  ))</span>
+<span class="cp">#define TRC(message...)  EH_DW(EH_IFLL(LOGV_TRACE, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;\r\n&quot;)); NDIAG(F(&quot;::[TRC]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message);  ))</span>
+<span class="cp">#define DBG(message...)</span>
+<span class="cp">#endif</span>
+<span class="cp">#if LOGLEVEL &gt;= LOGV_DEBUG</span>
+<span class="cp">#define INFO(message...) EH_DW(EH_IFLL(LOGV_INFO, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[INF]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define WARN(message...) EH_DW(EH_IFLL(LOGV_WARN, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[WRN]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define ERR(message...)  EH_DW(EH_IFLL(LOGV_ERROR, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[ERR]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define TRC(message...)  EH_DW(EH_IFLL(LOGV_TRACE, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[TRC]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#define DBG(message...)  EH_DW(EH_IFLL(LOGV_DEBUG, _cMem = freeMemory(); _dMem = _cMem - _dMem; NDIAG(F(&quot;::[DBG]:%d:%d:%s:%d : &quot;), _cMem, _dMem, __FILE__, __LINE__); _dMem = _cMem; NDIAG(message); NDIAG(F(&quot;\n&quot;)); ))</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#endif</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

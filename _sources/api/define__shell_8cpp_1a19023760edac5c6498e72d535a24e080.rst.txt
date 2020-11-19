@@ -1,0 +1,13 @@
+.. _exhale_define__shell_8cpp_1a19023760edac5c6498e72d535a24e080:
+
+Define LINEMODE_DELAY
+=====================
+
+- Defined in :ref:`file_src_cli_Shell.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: LINEMODE_DELAY

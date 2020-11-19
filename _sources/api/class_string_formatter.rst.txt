@@ -1,0 +1,25 @@
+.. _exhale_class_class_string_formatter:
+
+Class StringFormatter
+=====================
+
+- Defined in :ref:`file_src_StringFormatter.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public NetworkDiag`` (:ref:`exhale_class_class_network_diag`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: StringFormatter
+   :members:
+   :protected-members:
+   :undoc-members:

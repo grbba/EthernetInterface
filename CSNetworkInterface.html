@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The CommandStation EX NetworkInterface &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to flash your ESP for the right AT commandset" href="FlashESP.html" />
+    <link rel="prev" title="Welcome to the CommandStation EX NetworkInterface documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The CommandStation EX NetworkInterface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#networking">Networking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wifi">WiFi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethernet">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagnostics">Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commandstation-ex-integration">CommandStation EX Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#throttles">Throttles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#telnet">Telnet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#roadmap">Roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-ino-file-for-setting-up-the-networkinterface">Example .ino file for setting up the NetworkInterface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>The CommandStation EX NetworkInterface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/CSNetworkInterface.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-commandstation-ex-networkinterface">
+<h1>The CommandStation EX NetworkInterface<a class="headerlink" href="#the-commandstation-ex-networkinterface" title="Permalink to this headline">¶</a></h1>
+<blockquote class="epigraph">
+<div><p>No matter where you go, there you are.</p>
+<p class="attribution">—Buckaroo Banzai</p>
+</div></blockquote>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>The CommandStation-EX NetworkInterface provides Ethernet and/or WiFi capabilities to CommandStation-EX. It supports TCP as well as UDP for sending data containing CommandStationEX recognized protocols i.e. JMRI or WiThrottle. Those commands can be transfered either as raw text or over HTTP.</p>
+<p>For more information about CommandStation-EX can be found on <a class="reference external" href="https://github.com/DCC-EX/CommandStation-EX">GitHub</a> or on the <a class="reference external" href="https:////dcc-ex.com">DCC-EX</a>  website</p>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="networking">
+<h3>Networking<a class="headerlink" href="#networking" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Network types supported</strong> : Ethernet and WiFi</p></li>
+<li><p><strong>Network protocol support</strong> : TCP and UDP</p></li>
+<li><p><strong>Application Transport protcols</strong> : Raw text and HTTP; HTTPS for the ESP only and MQTT are to be done;</p></li>
+<li><p><strong>Application Payload - CommandStation EX protocols</strong>: JMRI format as well as WitHrottle</p></li>
+</ul>
+</div>
+<div class="section" id="wifi">
+<h3>WiFi<a class="headerlink" href="#wifi" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="ethernet">
+<h3>Ethernet<a class="headerlink" href="#ethernet" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Automatic detection of the EthernetShield capabilities and number of possible concurrent connections for TCP</p></li>
+<li><p>UDP will have only one connection available as its a non-connected stateless protocol and all clients will use the same connection</p></li>
+<li><p>Ethernet and WiFi can be mixed if a EtherNet Shield and ESP are both connected to the MCU</p></li>
+</ul>
+<p>The interface also supports multiple connections on different ports for TCP and UDP.
+You can also mix Ethernet and WiFi ( my setup has actually both connected currently )
+WiThrottle over UDP should also support multiple clients as i know the remote IP and ports to reply to to the contrary of TCP as a connected protocol but that i can’t test yet</p>
+</div>
+<div class="section" id="diagnostics">
+<h3>Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>WiFi</p></li>
+</ul>
+<p>The WiFi connection makes use of the WiFiEspAT library from Juraj Andrássy which can be found here on <a class="reference external" href="https://github.com/jandrassy/WiFiEspAT">GitHub</a> .</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This library requires that the ESP, providing the WiFi hardware, supports the AT command set version 1.7 or 2.1 as of today. All different ESP modules should be supported.</p>
+</div>
+<p>Unfortunately most ESP modules shipped today come with an older AT command set installed by default. Therefore flashing your ESP may be required. Plans exist to build
+our own ESP WiFi AT library also supporting older AT command sets.
+This library is available from the PIO library manager as well as from the Arduino IDE library manager. Please refer to the platformio.ini file on how to use the library.
+Using VSC together with PIO, instead of looking for the library in PIO library manager, can just add the relevant file in your platformio.ini file and the compiler will
+find and download, if required, the library for you.</p>
+<p>Instructions for flashing your ESP can be found <a class="reference external" href="FlashESP.html">here</a></p>
+</div>
+<div class="section" id="commandstation-ex-integration">
+<h3>CommandStation EX Integration<a class="headerlink" href="#commandstation-ex-integration" title="Permalink to this headline">¶</a></h3>
+<p>There are some code changes in the CommandStation EX code required which may be integrated into master eventually;</p>
+<ul class="simple">
+<li><p>Include files</p></li>
+<li><p>RingBuffer</p></li>
+</ul>
+</div>
+<div class="section" id="throttles">
+<h3>Throttles<a class="headerlink" href="#throttles" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="telnet">
+<h3>Telnet<a class="headerlink" href="#telnet" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>In NetworkConfig.h : uncomment #define DCC_ENABLED; If that is commented out the NetworkInterface runs standalone
+Once NetworkInterface is part of the CommandStation EX master this step has been done already</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ul class="simple">
+<li><p>Memory Consumption: Every network interface instantiated will consume valuable memory/processing time needed also by other parts of the CommandStation. It is recommended to instantiate at most 2. If you don’t have enough memory for Accessories, Sensors, Turnouts etc. please look if one network interface would be sufficient.</p></li>
+</ul>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ul class="simple">
+<li><p>For WiFi you need to reserve Serial 1 for the connection to the ESP due to a limitation from the WiFiATEsp library. Otherwise you could use SoftwareSerial (less recommended/feature has to be added)</p></li>
+</ul>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ul class="simple">
+<li><p>UNO is not supported due to ressource limitation. An Arduino Mega is required.</p></li>
+</ul>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ul class="simple">
+<li><p>Individual commands send shall not be longer than half of the MAX_ETH_BUFFER size in order to make sure that no command which spans two recieved packets is lost. The default settings should be sufficient for most use cases.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Allow user defined application payload protocols</p></li>
+<li><p>Integrate MQTT as an application transport protocol</p></li>
+<li><p>Add SoftwareSerial to add the WiFi ESP</p></li>
+<li><p>AP Access mode for WiFi</p></li>
+<li><p>Reset persistent WiFi credentials</p></li>
+</ul>
+</div>
+<div class="section" id="example-ino-file-for-setting-up-the-networkinterface">
+<h2>Example .ino file for setting up the NetworkInterface<a class="headerlink" href="#example-ino-file-for-setting-up-the-networkinterface" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;DIAG.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;freeMemory.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// (0) Include the header file</span>
+<span class="cp">#include</span> <span class="cpf">&quot;NetworkInterface.h&quot;</span><span class="cp"></span>
+
+
+
+<span class="c1">// (1) Declare NetworkInterfaces; Two interfaces have been defined here</span>
+<span class="n">NetworkInterface</span> <span class="n">nwi1</span><span class="p">;</span>
+<span class="n">NetworkInterface</span> <span class="n">nwi2</span><span class="p">;</span>
+<span class="c1">// (1) Declared NetworkInterfaces</span>
+<span class="c1">// (2) Start NetworkInterface - HTTP callback</span>
+
+<span class="kt">void</span> <span class="nf">httpRequestHandler</span><span class="p">(</span><span class="n">ParsedRequest</span> <span class="o">*</span><span class="n">req</span><span class="p">,</span> <span class="n">Client</span><span class="o">*</span> <span class="n">client</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Parsed Request:&quot;</span><span class="p">));</span>
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Method:         [%s]&quot;</span><span class="p">),</span> <span class="n">req</span><span class="o">-&gt;</span><span class="n">method</span><span class="p">);</span>
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">URI:            [%s]&quot;</span><span class="p">),</span> <span class="n">req</span><span class="o">-&gt;</span><span class="n">uri</span><span class="p">);</span>
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">HTTP version:   [%s]&quot;</span><span class="p">),</span> <span class="n">req</span><span class="o">-&gt;</span><span class="n">version</span><span class="p">);</span>
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Parameter count:[%d]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">),</span> <span class="o">*</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">paramCount</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// (2) End NetworkInterface - HTTP callback</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// The main sketch has responsibilities during setup()</span>
+
+  <span class="c1">// Responsibility 1: Start the usb connection for diagnostics</span>
+  <span class="c1">// This is normally Serial but uses SerialUSB on a SAMD processor</span>
+
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;DCC++ EX NetworkInterface Standalone&quot;</span><span class="p">));</span>
+
+  <span class="c1">// (3) Start NetworkInterface - The original WifiInterface is still there but disabled</span>
+
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Free RAM before network init: [%d]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">),</span><span class="n">freeMemory</span><span class="p">());</span>
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Network Setup In Progress ...</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">));</span>
+
+  <span class="n">nwi1</span><span class="p">.</span><span class="n">setup</span><span class="p">(</span><span class="n">ETHERNET</span><span class="p">,</span> <span class="n">TCP</span><span class="p">,</span> <span class="mi">8888</span><span class="p">);</span>               <span class="c1">// ETHERNET/TCP on Port 8888</span>
+  <span class="n">nwi1</span><span class="p">.</span><span class="n">setHttpCallback</span><span class="p">(</span><span class="n">httpRequestHandler</span><span class="p">);</span>      <span class="c1">// HTTP callback</span>
+
+  <span class="n">nwi2</span><span class="p">.</span><span class="n">setup</span><span class="p">(</span><span class="n">WIFI</span><span class="p">,</span> <span class="n">TCP</span><span class="p">);</span>                         <span class="c1">// WIFI/TCP on Port 2560</span>
+
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Network Setup done ...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">));</span>
+  <span class="n">DIAG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Free RAM after network init: [%d]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">),</span><span class="n">freeMemory</span><span class="p">());</span>
+
+  <span class="c1">// (2) End starting NetworkInterface</span>
+
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="c1">// (3) Start Loop NetworkInterface</span>
+<span class="n">NetworkInterface</span><span class="o">::</span><span class="n">loop</span><span class="p">();</span>
+<span class="c1">// (3) End Loop NetworkInterface</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FlashESP.html" class="btn btn-neutral float-right" title="How to flash your ESP for the right AT commandset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the CommandStation EX NetworkInterface documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

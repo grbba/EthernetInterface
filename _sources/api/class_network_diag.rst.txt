@@ -1,0 +1,25 @@
+.. _exhale_class_class_network_diag:
+
+Class NetworkDiag
+=================
+
+- Defined in :ref:`file_src_NetworkDiag.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public StringFormatter`` (:ref:`exhale_class_class_string_formatter`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: NetworkDiag
+   :members:
+   :protected-members:
+   :undoc-members:

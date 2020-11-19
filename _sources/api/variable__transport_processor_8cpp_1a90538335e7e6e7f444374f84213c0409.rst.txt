@@ -1,0 +1,13 @@
+.. _exhale_variable__transport_processor_8cpp_1a90538335e7e6e7f444374f84213c0409:
+
+Variable diagNetworkClient
+==========================
+
+- Defined in :ref:`file_src_TransportProcessor.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: diagNetworkClient

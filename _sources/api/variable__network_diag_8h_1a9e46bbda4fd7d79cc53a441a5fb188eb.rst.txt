@@ -1,0 +1,13 @@
+.. _exhale_variable__network_diag_8h_1a9e46bbda4fd7d79cc53a441a5fb188eb:
+
+Variable _nInfoLevel
+====================
+
+- Defined in :ref:`file_src_NetworkDiag.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: _nInfoLevel

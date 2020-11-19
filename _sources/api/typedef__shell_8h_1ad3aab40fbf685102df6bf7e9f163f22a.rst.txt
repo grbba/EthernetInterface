@@ -1,0 +1,13 @@
+.. _exhale_typedef__shell_8h_1ad3aab40fbf685102df6bf7e9f163f22a:
+
+Typedef ShellCommandFunc
+========================
+
+- Defined in :ref:`file_src_cli_Shell.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ShellCommandFunc

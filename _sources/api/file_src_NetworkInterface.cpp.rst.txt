@@ -1,0 +1,79 @@
+
+.. _file_src_NetworkInterface.cpp:
+
+File NetworkInterface.cpp
+=========================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+This is some text about this class. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/NetworkInterface.cpp``)
+-----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_NetworkInterface.cpp.rst
+
+
+
+Detailed Description
+--------------------
+
+Gregor Baues (gr2bba@gmail.com) 
+
+0.1 
+
+12-11-2020
+
+Copyright (c) 2020
+
+Licence 
+
+
+
+
+Includes
+--------
+
+
+- ``Arduino.h``
+
+- ``EthernetSetup.h`` (:ref:`file_src_EthernetSetup.h`)
+
+- ``NetworkDiag.h`` (:ref:`file_src_NetworkDiag.h`)
+
+- ``NetworkInterface.h`` (:ref:`file_src_NetworkInterface.h`)
+
+- ``NetworkSetup.h`` (:ref:`file_src_NetworkSetup.h`)
+
+- ``Transport.h`` (:ref:`file_src_Transport.h`)
+
+- ``WifiSetup.h`` (:ref:`file_src_WifiSetup.h`)
+
+
+
+
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable__network_interface_8cpp_1a4cfc1ea22cf22b36b55355e20166aa69`
+
+- :ref:`exhale_variable__network_interface_8cpp_1a16a00081cc75bf1396bda88f79ec5cf6`
+
+- :ref:`exhale_variable__network_interface_8cpp_1a5f3db7b62ec540f0a24486bcd5692827`
+

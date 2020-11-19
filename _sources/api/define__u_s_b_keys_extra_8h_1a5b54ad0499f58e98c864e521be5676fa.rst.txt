@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1a5b54ad0499f58e98c864e521be5676fa:
+
+Define KEY_UP_ARROW
+===================
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_UP_ARROW

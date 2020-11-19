@@ -1,0 +1,1091 @@
+
+Full API
+--------
+
+Namespaces
+**********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_TelnetDefs.rst
+
+Classes and Structs
+*******************
+
+
+.. toctree::
+   :maxdepth: 5
+
+   struct____freelist.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_abstract_transport.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_connection.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_http_request_1_1_cookies.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_params.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_parsed_request.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_arduino_unique_i_d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_c_l_i.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_d_c_c_network.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_diag.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_ethernet_setup.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_http_request.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_login_shell.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_mem_stream.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_network_diag.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_network_interface.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_network_setup.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_shell.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_shell_arguments.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_string_formatter.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_terminal.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_transport.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_transport_processor.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_wifi_setup.rst
+
+Enums
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   enum__transport_8h_1ab41ff1ef7a956f31a30538470dca0885.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   enum__network_interface_8h_1af6adf0e71a06d4619216ff5e60479530.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   enum__telnet_defs_8h_1a70e4e49046205b4a7a389dcb423703fe.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   enum__telnet_defs_8h_1a7a962a63ec5bb787849b544df4c2c0da.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   enum__network_interface_8h_1a59eb013c6734195b94b275310e167df1.rst
+
+Functions
+*********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   function__network_setup_8cpp_1a1904f854f9998a47c16408358ce64e30.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__c_l_icommands_8cpp_1aef9b3fb883126b6e90fcfc2f433b96ef.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__c_l_icommands_8cpp_1a4d0f67731a5e2d309fc1fd8802c623a3.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__shell_8cpp_1a9563ffeaedd9dc0a7c2aba406ea9fac7.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__transport_processor_8cpp_1a92da7dae58087b5b75125e1e1ebf5f49.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__terminal_8cpp_1a9b301b0513979d71c4ba77a06007efda.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__memory_free_8cpp_1a04e1cfe100b396e57c2581502de5e5ca.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_free_memory_8cpp_1a8d862dc01c44bfabc8d952bb77f8da89.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_free_memory_8h_1a8d862dc01c44bfabc8d952bb77f8da89.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__memory_free_8cpp_1a8d862dc01c44bfabc8d952bb77f8da89.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__memory_free_8h_1a8d862dc01c44bfabc8d952bb77f8da89.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__transport_processor_8cpp_1adffd99c797adf573a9d65073d1595d53.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__transport_processor_8cpp_1ae99c9311978b9a5d08837fe5f9d929cc.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__transport_processor_8cpp_1a4c1d147693aeb4dd642efcfd08eaadc3.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__transport_processor_8cpp_1a715460ec8d4cb3f8b8dc399c3d3029c1.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__shell_8cpp_1ab88d8413641c82b76f4a900f078c9c9a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__shell_8cpp_1a5e58d9ce472c021f6de2580cf186a52b.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__shell_8cpp_1a4a7dfcd79f34a1b8ada21fe099217f62.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__wifi_setup_8cpp_1a28ad06154d7067e5e154885a813d933f.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__transport_processor_8cpp_1a3af0ecf3a10ec36ab4835f7837bc1f13.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__transport_processor_8cpp_1a2db43fc4f27865830ec6fef653704a79.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__transport_processor_8cpp_1abb4e43a46551501a6057f1405addb873.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function__terminal_8cpp_1ab9f8ebed3be695428256a5bbbf81fde3.rst
+
+Variables
+*********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__memory_free_8cpp_1a8d18204366e8a385c441663ed41f1ae4.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__memory_free_8cpp_1a9cfd748d9cb8a517422fa4e4f0b3320f.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__memory_free_8cpp_1aa84b5136d382ee274a86572892e5e007.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8cpp_1ae18f5366af227ae3ecf084dde54c555c.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8h_1ae18f5366af227ae3ecf084dde54c555c.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_interface_8cpp_1a4cfc1ea22cf22b36b55355e20166aa69.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8cpp_1ad548e02bb802224da4f15de29be3f758.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8h_1ad548e02bb802224da4f15de29be3f758.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8cpp_1a155bd5f482b472779779a7e91f3d7461.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8h_1a155bd5f482b472779779a7e91f3d7461.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_processor_8cpp_1aabf9409f0d890442fd454fbff4af9905.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8cpp_1a9e46bbda4fd7d79cc53a441a5fb188eb.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8h_1a9e46bbda4fd7d79cc53a441a5fb188eb.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8cpp_1a611cac484729e35cb94f29fda8924a9f.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_diag_8h_1a611cac484729e35cb94f29fda8924a9f.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_processor_8cpp_1a9a4ee75f1cc5ee8c8e55e5f371779d88.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_processor_8cpp_1a61b0e27dd0a5761fe0cbc6580ff3df14.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_processor_8cpp_1a94a3e82f0d3db2fd514acadf392994de.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_processor_8cpp_1a009e1e0b46f2c7e335549258bb5b6230.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__arduino_unique_i_d_8cpp_1a4ebddd6ffbf4ee77d34d51d7e87c85d2.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__arduino_unique_i_d_8h_1a4ebddd6ffbf4ee77d34d51d7e87c85d2.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__c_l_icommands_8cpp_1af7edababa419584d038a5bcbf1cc771d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_8cpp_1af7edababa419584d038a5bcbf1cc771d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_processor_8cpp_1af7edababa419584d038a5bcbf1cc771d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__c_l_icommands_8cpp_1a90538335e7e6e7f444374f84213c0409.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_8cpp_1a90538335e7e6e7f444374f84213c0409.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_processor_8cpp_1a90538335e7e6e7f444374f84213c0409.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_interface_8cpp_1a16a00081cc75bf1396bda88f79ec5cf6.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__shell_8cpp_1adc22b9a2a7887a4a3b66e86d6927bc0a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_processor_8cpp_1afa7eb7acfa8d633cb3155e420cd49391.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__c_l_icommands_8cpp_1afdd77f1aa3023f9ba5f49bb1f6c68b51.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__c_l_icommands_8cpp_1ab37864cf3fab6cc29d0d467556eb43b0.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__terminal_8cpp_1ad725b10d18aacac2902dd26ca569e861.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_processor_8cpp_1a015b3e76f7deb14fbdffea26513a0538.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__transport_8cpp_1ae1bf58c4a1fd09ecd2dadcd745104365.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__c_l_icommands_8cpp_1a509db2befcf6ab4273dc5c64b2983646.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__c_l_icommands_8cpp_1a28aa0a202ae0f61d5b61c9f1ac7d988b.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable__network_interface_8cpp_1a5f3db7b62ec540f0a24486bcd5692827.rst
+
+Defines
+*******
+
+
+.. toctree::
+   :maxdepth: 5
+
+   define__wifi_setup_8h_1a7b427b491a712490620b56f1c67af59b.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1aa3e84b22f144b0fc10c717cdf8add0ff.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__c_l_icommands_8h_1a998de25b501ab5d51b67e386e63fc47d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1a445a14d10ffdece08ce75cb22baf2c6e.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1ad72dbcf6d0153db1b8d8a58001feed83.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__d_i_a_g_8h_1ad2390c07b2f83f490ae971a3fdc0c18b.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1ace431af7538cd4bbd56d61731e08b887.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1ac4d460558dd2106b51b9d5216a2527fa.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1a6d98b0bab9c715fda514c71e0100d038.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1aa173aaa724787eeb93e96de0e5556d76.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a67735749f977e22e06c4e13c82c0e526.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a3a0993fad8078fbf81256623c4129f8c.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1aee7c4381aa1e323ebd709394409c113c.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1adb1584d945b1a14133ed0c237470d930.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a81875c11cc2e55296b23f93e56ce0864.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1aa7a2d22acb34eb9559ddd20dc2146a29.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1ae5e76edf6a6480d83a76c1544bad01e7.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1ad839df06d1c3091999bdc312fb441368.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a682fff48755d27329498caec73c2e61d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1ae01c18f9d4e3679c292e9b21be9e9206.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a0973776a5f7bdf62699d3e914ff97003.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a7afe30feaf4e98aab92485c4ec8068da.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a0c3608ec4c75bcde9c38eaa60ada668f.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a99c2a5fc310d8f352e4b59087737b88a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a33e32a04064e548efc28d95c723e1933.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1aca58fe395280cd8077ea5d1999145ddc.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a82083c89dc72c1776355fe0a152277b8.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a87519df87eaaafa2fc14b27379d63470.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a0ec530c60ebb3f6de9bf47c7c4f894ef.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a420af414119513f2f7c3db18c457122e.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a25ba2975bc595fc3657ba9dffa5f3dbb.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a07de66a85d4c2f42a9f71e46278c34ca.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__http_request_8h_1a8bb9017f30ff8959b7916f558c82d306.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1ae19e2dbb70909d3e3311b8577efa9f93.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1ad8a262037cbfb38d1512f0073eeb7a66.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1af8ebcd5ffe52d71cacb96b0fdff0fa91.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a1e9a449dee19c686a2af4edcdc1a1042.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1aaac34940ff83d1431044aaca015639ce.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a1d654db2e04ad94a58f880fb9e127ad6.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a882b457a13b4fd20a9f7c1ccba5a62d0.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a912861b945e779c29f718cdcd62be10c.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a86b2b2d4eda22067d85d2287c118e2d8.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a2772a1f7024ba1fd62e88ec1adb541f8.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1ad37282615edb2c357149c2a1342b4a85.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1abd820bb8b4b2a47e4210401b13789106.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a0a3de83275f6bbc2b88692f947f0d595.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1af87d33df472dd073863b12035c7bd1d4.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1ad566421e6cb409e725578835e9e328bb.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a4835f0dc20db5a4d3433acab66236595.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1afea8064b70679bb9e0389d5f6621a2f2.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a6fa230f5d490af7d6ef87a88ca2db5ae.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a2f93cd984f0472309d8af80e1e2f947f.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a5bf91538e8323ad995199c817045b26e.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1ae2e2edb31bb7796786da12f85f2d5cd1.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a49e680a4ea19e73fb97fe98b0891b0b5.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a0084ae075bfc60dc50f2a11c2fdf299f.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1ab481f83ccc2f1af97e32fcef5bf5c7f3.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1aae4824ffb7a7f7e29443290c503e6718.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1aa495d7fdfc50768240f0838fcebbd54b.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a38ebe8e5c5f1d5727c9638bf79fc3952.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1ab99474b01ffcbc57d74b60a77895e5e8.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a2a0aae1931111382ade29fd75ef64790.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1ad31281b771b8b85f4aa98bbd527d91a0.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a7eed6766ef9ddb721c6a2bce807fc9dc.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a7a8ad03f07f2e4757a70385e88fbbe3c.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a417a382624f91fb0cdfdf1c33adc8c90.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1af6806366178266b3eaf1fb16f991cbee.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1aaa67a531439790dc20ed750f482d4a3e.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a9a8100ac50bf8e0227c66f85312d1eec.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1accb7a413ed6fa7db7192fc957d477ab8.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1af4f1ead45029692ae2581de5ecd567d5.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a83760e7f00c16682c746c2844c712b01.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a148dd567ca75b9320e8862d54139406a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1ae176aa9af3d2acaeba5b8453aff5bbbf.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a77e8247cb7e0a962a50ecdc6c1dd4a8d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1afe5716cf1626fceab51044a6c2492831.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a6b1df3d1cbf22d04b162eb6a89068b5d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1ab94d4309f6059492ef7dbf1a880cf7e0.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a4fa9fbcc86d5ee884a821459a87f3a54.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__terminal_8h_1a77654215ca6bdb1a31744bb97e755a18.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__u_s_b_keys_extra_8h_1a5b54ad0499f58e98c864e521be5676fa.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__terminal_8h_1a4fb31cc7c408cd5c0ab57f11bb2727d3.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__shell_8cpp_1a19023760edac5c6498e72d535a24e080.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__shell_8cpp_1ab091102d2c3f669a120e84367a265ddc.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__shell_8cpp_1a5cdc2b16ed480998ad559ee7905bb9dc.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__shell_8cpp_1a31d3833f84e577834845a901e94abd09.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__shell_8cpp_1ae6b224013dff5b99d5969b1826519c25.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__shell_8cpp_1a944a3710774a951739eae184f2297608.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1a4fba0963c20988d1f1a45afb1c636e44.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__shell_8cpp_1a6412422f2ff6dcecc4b2cdc946983838.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1a6c6fd5e242df15a7a42e9b75d55d5d3c.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1a842c7e9c95f3e750b4b4b380f815299b.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1a14b0d6e9a6faa5377922541e7a316827.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1ac1f1602d76ec20977954bb9b7d20e725.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1aba82502c9613ef37b458cc3886a5e076.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1ac3a1abc6581e61b0186914e18e4e2149.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1ac900b15ffe42dd649338b2ef5b4c0ccc.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1a0cb4fc37d244ce985851dd2958ae0b94.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1a4662280c82f67a3cdb4c528fde9e682c.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1a10bf2917a6a4297e21e03f60c487f591.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1a4fc9bdc92501e74ac247760dc0c8f3ad.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1a09fdbf3d9ac8ffe5a6bc5a7c3c29293a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1ae5a2e3b1eefb3a10a2485e28a4ccdb59.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_config_8h_1a425484190fd0727155e363d1c9d2083e.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_setup_8h_1a881258fce424df363d3100d830f76f1d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1aa66e672fcdfed1de0546b847396c6380.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__shell_8cpp_1a83f51b90088a8538fb233b1e9ebd2daf.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__shell_8h_1a289fac62523ab75893db741e94e0d78e.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1ae31fb81e1fe3e5c44839e319a44c8c5e.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__arduino_unique_i_d_8h_1a7dcb5f192e52fca99d06f966a9ae9716.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__arduino_unique_i_d_8h_1af3b60fbf2a19753bbf26a0267eb7403b.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__arduino_unique_i_d_8h_1a60c7f6e6c50aa1b25ebee781ff7ef7e6.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__arduino_unique_i_d_8h_1a218d287b966ad6a63e214504f640302d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define__network_diag_8h_1a899e8c12f9c3b0c57e70fa25e87db5a0.rst
+
+Typedefs
+********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   typedef__transport_8h_1a1e2f1fb81692457c4b64d606dc1c9217.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   typedef__network_interface_8h_1a956a1a6eb4f3ad86434c3e9d1ea45907.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   typedef__transport_8h_1a498e679a10f06d3daf64e85fb8ad9b58.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   typedef__network_interface_8h_1a3d524451a44296541faccbb5c2d6bdfb.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   typedef__shell_8h_1ad3aab40fbf685102df6bf7e9f163f22a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   typedef__login_shell_8h_1a20b319df016a5503d88e18b7422bad2b.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   typedef__network_interface_8h_1a098ed0759f349f3b682c046ab1bf06b0.rst

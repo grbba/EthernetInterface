@@ -1,0 +1,1113 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File Terminal.cpp &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File Terminal.cpp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_src_cli_Terminal.cpp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-terminal-cpp">
+<span id="program-listing-file-src-cli-terminal-cpp"></span><h1>Program Listing for File Terminal.cpp<a class="headerlink" href="#program-listing-for-file-terminal-cpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_src_cli_Terminal.cpp.html#file-src-cli-terminal-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/cli/Terminal.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Copyright (C) 2016 Southern Storm Software, Pty Ltd.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Permission is hereby granted, free of charge, to any person obtaining a</span>
+<span class="cm"> * copy of this software and associated documentation files (the &quot;Software&quot;),</span>
+<span class="cm"> * to deal in the Software without restriction, including without limitation</span>
+<span class="cm"> * the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span class="cm"> * and/or sell copies of the Software, and to permit persons to whom the</span>
+<span class="cm"> * Software is furnished to do so, subject to the following conditions:</span>
+<span class="cm"> *</span>
+<span class="cm"> * The above copyright notice and this permission notice shall be included</span>
+<span class="cm"> * in all copies or substantial portions of the Software.</span>
+<span class="cm"> *</span>
+<span class="cm"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
+<span class="cm"> * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="cm"> * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="cm"> * DEALINGS IN THE SOFTWARE.</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;Terminal.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;TelnetDefs.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// States for the key recognition state machine.</span>
+<span class="cp">#define STATE_INIT      0       </span><span class="c1">// Initial state.</span>
+<span class="cp">#define STATE_CR        1       </span><span class="c1">// Last character was CR, eat following LF.</span>
+<span class="cp">#define STATE_ESC       2       </span><span class="c1">// Last character was ESC.</span>
+<span class="cp">#define STATE_MATCH     3       </span><span class="c1">// Matching an escape sequence.</span>
+<span class="cp">#define STATE_UTF8      4       </span><span class="c1">// Recognizing a UTF-8 sequence.</span>
+<span class="cp">#define STATE_IAC       5       </span><span class="c1">// Recognizing telnet command after IAC (0xFF).</span>
+<span class="cp">#define STATE_WILL      6       </span><span class="c1">// Waiting for option code for WILL command.</span>
+<span class="cp">#define STATE_WONT      7       </span><span class="c1">// Waiting for option code for WONT command.</span>
+<span class="cp">#define STATE_DO        8       </span><span class="c1">// Waiting for option code for DO command.</span>
+<span class="cp">#define STATE_DONT      9       </span><span class="c1">// Waiting for option code for DONT command.</span>
+<span class="cp">#define STATE_SB        10      </span><span class="c1">// Option sub-negotiation.</span>
+<span class="cp">#define STATE_SB_IAC    11      </span><span class="c1">// Option sub-negotiation, byte after IAC.</span>
+
+<span class="c1">// Number of milliseconds to wait after an ESC character before</span>
+<span class="c1">// concluding that it is KEY_ESC rather than an escape sequence.</span>
+<span class="cp">#define ESC_TIMEOUT_MS  40</span>
+
+<span class="c1">// Number of milliseconds to wait for a new character within an</span>
+<span class="c1">// escape sequence before concluding that the sequence was invalid</span>
+<span class="c1">// or truncated, or not actually an escape sequence at all.</span>
+<span class="cp">#define SEQ_TIMEOUT_MS  200</span>
+
+<span class="n">Terminal</span><span class="o">::</span><span class="n">Terminal</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">_stream</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">ucode</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">ncols</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">nrows</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">timer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">offset</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">state</span><span class="p">(</span><span class="n">STATE_INIT</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">utf8len</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">mod</span><span class="p">(</span><span class="n">Terminal</span><span class="o">::</span><span class="n">Serial</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">flags</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="n">Terminal</span><span class="o">::~</span><span class="n">Terminal</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">Stream</span> <span class="o">&amp;</span><span class="n">stream</span><span class="p">,</span> <span class="n">Mode</span> <span class="n">mode</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">_stream</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">stream</span><span class="p">;</span>
+    <span class="n">ucode</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+    <span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">mode</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">end</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">_stream</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">available</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_stream</span> <span class="o">?</span> <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">available</span><span class="p">()</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">peek</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_stream</span> <span class="o">?</span> <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">peek</span><span class="p">()</span> <span class="o">:</span> <span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">read</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Clear the key recognition state because we are bypassing readKey().</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+    <span class="n">ucode</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+
+    <span class="c1">// Read the next byte from the underlying stream.</span>
+    <span class="k">return</span> <span class="n">_stream</span> <span class="o">?</span> <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">()</span> <span class="o">:</span> <span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">flush</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">_stream</span><span class="p">)</span>
+        <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">flush</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">size_t</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">c</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_stream</span> <span class="o">?</span> <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">size_t</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_stream</span> <span class="o">?</span> <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">writeProgMem</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+    <span class="kt">uint8_t</span> <span class="n">posn</span><span class="p">;</span>
+    <span class="kt">uint8_t</span> <span class="n">ch</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_stream</span> <span class="o">||</span> <span class="o">!</span><span class="n">str</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="n">posn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">ch</span> <span class="o">=</span> <span class="n">pgm_read_byte</span><span class="p">((</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">str</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">posn</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">posn</span><span class="p">);</span>
+            <span class="n">posn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="o">++</span><span class="n">str</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">posn</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">posn</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">bool</span> <span class="n">escapeSequenceStart</span><span class="p">(</span><span class="kt">int</span> <span class="n">ch</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;[&#39;</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;?&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&gt;=</span> <span class="sc">&#39;A&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="sc">&#39;Z&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">readKey</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ch</span><span class="p">;</span>
+
+    <span class="c1">// Bail out if there is no underlying stream.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_stream</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+
+    <span class="c1">// Read the next character and bail out if nothing yet.  Some special</span>
+    <span class="c1">// peek-ahead handling is needed just after the ESC character.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="n">STATE_ESC</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">peek</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// We just saw an ESC.  If there has been a timeout</span>
+            <span class="c1">// then the key is KEY_ESC rather than the start of a</span>
+            <span class="c1">// VT100 escape sequence.</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">timer</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">ESC_TIMEOUT_MS</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+                <span class="n">ucode</span> <span class="o">=</span> <span class="mh">0x1B</span><span class="p">;</span>
+                <span class="k">return</span> <span class="n">KEY_ESC</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">escapeSequenceStart</span><span class="p">(</span><span class="n">ch</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// The next character is not legitimate as the start of</span>
+            <span class="c1">// an escape sequence, so the ESC must have been KEY_ESC.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mh">0x1B</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">KEY_ESC</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Part of an escape sequence.  Read the character properly.</span>
+            <span class="n">ch</span> <span class="o">=</span> <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Read the next character without any peek-ahead.</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="n">STATE_MATCH</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">timer</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">SEQ_TIMEOUT_MS</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Timeout while waiting for the next character in an</span>
+            <span class="c1">// escape sequence.  Abort and return to the initial state.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">ucode</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Determine what to do based on the key recognition state.</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">STATE_CR</span><span class="p">:</span>
+        <span class="c1">// We just saw a CR, so check for CRLF and eat the LF.</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mh">0x0A</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mh">0x00</span> <span class="o">&amp;&amp;</span> <span class="n">mod</span> <span class="o">==</span> <span class="n">Telnet</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// In telnet mode, CR NUL is a literal carriage return,</span>
+            <span class="c1">// separate from the newline sequence CRLF.  Eat the NUL.</span>
+            <span class="c1">// We already reported KEY_RETURN for the CR character.</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Fall through to the next case.</span>
+
+    <span class="k">case</span> <span class="nl">STATE_INIT</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&gt;=</span> <span class="mh">0x20</span> <span class="o">&amp;&amp;</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="mh">0x7E</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Printable ASCII character.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mh">0x1B</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Start of an escape sequence, or the escape character itself.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_ESC</span><span class="p">;</span>
+            <span class="n">timer</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mh">0x0D</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// CR which may be followed by an LF.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_CR</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">KEY_RETURN</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mh">0x0A</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// LF on its own without a preceding CR.</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">KEY_RETURN</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mh">0x08</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="mh">0x7F</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Backspace or DEL character.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">KEY_BACKSPACE</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mh">0x09</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// TAB character.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">KEY_TAB</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Some other ASCII control character.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&gt;=</span> <span class="mh">0xC1</span> <span class="o">&amp;&amp;</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="mh">0xDF</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Two-byte UTF-8 sequence.</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0x1F</span><span class="p">;</span>
+            <span class="n">utf8len</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_UTF8</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&gt;=</span> <span class="mh">0xE1</span> <span class="o">&amp;&amp;</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="mh">0xEF</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Three-byte UTF-8 sequence.</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0x0F</span><span class="p">;</span>
+            <span class="n">utf8len</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_UTF8</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&gt;=</span> <span class="mh">0xF1</span> <span class="o">&amp;&amp;</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="mh">0xF7</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Four-byte UTF-8 sequence.</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0x07</span><span class="p">;</span>
+            <span class="n">utf8len</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_UTF8</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mh">0xFF</span> <span class="o">&amp;&amp;</span> <span class="n">mod</span> <span class="o">==</span> <span class="n">Telnet</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Start of a telnet command (IAC byte).</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_IAC</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">STATE_ESC</span><span class="p">:</span>
+        <span class="c1">// Next character just after the ESC.  Start the escape</span>
+        <span class="c1">// sequence matching engine at offset zero in the keymap table.</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_MATCH</span><span class="p">;</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="c1">// Fall through to the next case.</span>
+
+    <span class="k">case</span> <span class="nl">STATE_MATCH</span><span class="p">:</span>
+        <span class="c1">// In the middle of matching an escape sequence.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mh">0x1B</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// ESC character seen in the middle of an escape sequence.</span>
+            <span class="c1">// The previous escape sequence is invalid so abort and restart.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_ESC</span><span class="p">;</span>
+            <span class="n">timer</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">matchEscape</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Need more characters before knowing what this is.</span>
+            <span class="n">timer</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="mi">-2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Invalid escape sequence so abort and restart.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Escape sequence corresponds to a normal ASCII character.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Extended keycode for an arrow or function key.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">STATE_UTF8</span><span class="p">:</span>
+        <span class="c1">// Recognize a multi-byte UTF-8 character encoding.</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0xC0</span><span class="p">)</span> <span class="o">==</span> <span class="mh">0x80</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">utf8len</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// Final character in the sequence.</span>
+                <span class="n">ucode</span> <span class="o">=</span> <span class="p">(((</span><span class="kt">long</span><span class="p">)</span><span class="n">offset</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">);</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">ucode</span> <span class="o">&gt;</span> <span class="mh">0x10FFFFL</span><span class="p">)</span>
+                    <span class="k">break</span><span class="p">;</span>      <span class="c1">// The code point is out of range.</span>
+                <span class="k">return</span> <span class="n">KEY_UNICODE</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="c1">// More characters still yet to come.</span>
+                <span class="o">--</span><span class="n">utf8len</span><span class="p">;</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">ch</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// This character is invalid as part of a UTF-8 sequence.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">STATE_IAC</span><span class="p">:</span>
+        <span class="c1">// Telnet command byte just after an IAC (0xFF) character.</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">ch</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">EndOfFile</span><span class="p">:</span>
+            <span class="c1">// Convert EOF into CTRL-D.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mh">0x04</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mh">0x04</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">EndOfRecord</span><span class="p">:</span>
+            <span class="c1">// Convert end of record markers into CR.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mh">0x0D</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">KEY_RETURN</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">Interrupt</span><span class="p">:</span>
+            <span class="c1">// Convert interrupt into CTRL-C.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mh">0x03</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mh">0x03</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">EraseChar</span><span class="p">:</span>
+            <span class="c1">// Convert erase character into DEL.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mh">0x7F</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">KEY_BACKSPACE</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">EraseLine</span><span class="p">:</span>
+            <span class="c1">// Convert erase line into CTRL-U.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="n">ucode</span> <span class="o">=</span> <span class="mh">0x15</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mh">0x15</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">SubStart</span><span class="p">:</span>
+            <span class="c1">// Option sub-negotiation.</span>
+            <span class="n">utf8len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_SB</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">WILL</span><span class="p">:</span>
+            <span class="c1">// Option negotiation, WILL command.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_WILL</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">WONT</span><span class="p">:</span>
+            <span class="c1">// Option negotiation, WONT command.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_WONT</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">DO</span><span class="p">:</span>
+            <span class="c1">// Option negotiation, DO command.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_DO</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">DONT</span><span class="p">:</span>
+            <span class="c1">// Option negotiation, DONT command.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_DONT</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="nl">IAC</span><span class="p">:</span>
+            <span class="c1">// IAC followed by IAC is the literal byte 0xFF,</span>
+            <span class="c1">// but that isn&#39;t valid UTF-8 so we just drop it.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">default</span><span class="o">:</span>
+            <span class="c1">// Everything else is treated as a NOP.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">STATE_WILL</span><span class="p">:</span>
+        <span class="c1">// Telnet option negotiation, WILL command.  Note: We don&#39;t do any</span>
+        <span class="c1">// loop detection.  We assume that the client will eventually break</span>
+        <span class="c1">// the loop as it probably has more memory than us to store state.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="n">WindowSize</span> <span class="o">||</span>
+                <span class="n">ch</span> <span class="o">==</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="n">RemoteFlowControl</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Send a DO command in response - we accept this option.</span>
+            <span class="n">telnetCommand</span><span class="p">(</span><span class="n">TelnetDefs</span><span class="o">::</span><span class="n">DO</span><span class="p">,</span> <span class="n">ch</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Send a DONT command in response - we don&#39;t accept this option.</span>
+            <span class="n">telnetCommand</span><span class="p">(</span><span class="n">TelnetDefs</span><span class="o">::</span><span class="n">DONT</span><span class="p">,</span> <span class="n">ch</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="mh">0x01</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// The first time we see a WILL command from the client we</span>
+            <span class="c1">// send a request back saying that we will handle echoing.</span>
+            <span class="n">flags</span> <span class="o">|=</span> <span class="mh">0x01</span><span class="p">;</span>
+            <span class="n">telnetCommand</span><span class="p">(</span><span class="n">TelnetDefs</span><span class="o">::</span><span class="n">WILL</span><span class="p">,</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="n">Echo</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">STATE_WONT</span><span class="p">:</span>
+    <span class="k">case</span> <span class="nl">STATE_DONT</span><span class="p">:</span>
+        <span class="c1">// Telnet option negotiation, WONT/DONT command.  The other side</span>
+        <span class="c1">// is telling us that it does not understand this option or wants</span>
+        <span class="c1">// us to stop using it.  For now there is nothing to do.</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">STATE_DO</span><span class="p">:</span>
+        <span class="c1">// Telnet option negotiation, DO command.  Note: Other than Echo</span>
+        <span class="c1">// we don&#39;t do any loop detection.  We assume that the client will</span>
+        <span class="c1">// break the loop as it probably has more memory than us to store state.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="n">Echo</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Special handling needed for Echo - don&#39;t say WILL again</span>
+            <span class="c1">// when the client acknowledges us with a DO command.</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="n">SuppressGoAhead</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Send a WILL command in response - we accept this option.</span>
+            <span class="n">telnetCommand</span><span class="p">(</span><span class="n">TelnetDefs</span><span class="o">::</span><span class="n">WILL</span><span class="p">,</span> <span class="n">ch</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Send a WONT command in response - we don&#39;t accept this option.</span>
+            <span class="n">telnetCommand</span><span class="p">(</span><span class="n">TelnetDefs</span><span class="o">::</span><span class="n">WONT</span><span class="p">,</span> <span class="n">ch</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">STATE_SB</span><span class="p">:</span>
+        <span class="c1">// Telnet option sub-negotiation.  Collect up all bytes and</span>
+        <span class="c1">// then execute the option once &quot;IAC SubEnd&quot; is seen.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="n">IAC</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// IAC byte, which will be followed by either IAC or SubEnd.</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_SB_IAC</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">utf8len</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">sb</span><span class="p">))</span>
+            <span class="n">sb</span><span class="p">[</span><span class="n">utf8len</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">STATE_SB_IAC</span><span class="p">:</span>
+        <span class="c1">// Telnet option sub-negotiation, byte after IAC.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="n">IAC</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Two IAC bytes in a row is a single escaped 0xFF byte.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">utf8len</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">sb</span><span class="p">))</span>
+                <span class="n">sb</span><span class="p">[</span><span class="n">utf8len</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xFF</span><span class="p">;</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_SB</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="n">SubEnd</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// End of the sub-negotiation field.  Handle window size changes.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">utf8len</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">sb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">TelnetDefs</span><span class="o">::</span><span class="n">WindowSize</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">width</span>  <span class="o">=</span> <span class="p">(((</span><span class="kt">int</span><span class="p">)(</span><span class="n">sb</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">sb</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+                <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="p">(((</span><span class="kt">int</span><span class="p">)(</span><span class="n">sb</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">sb</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">width</span><span class="p">)</span>         <span class="c1">// Zero width or height means &quot;unspecified&quot;.</span>
+                    <span class="n">width</span> <span class="o">=</span> <span class="n">ncols</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">height</span><span class="p">)</span>
+                    <span class="n">height</span> <span class="o">=</span> <span class="n">nrows</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">setWindowSize</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="c1">// The window size has changed; notify the caller.</span>
+                    <span class="n">ucode</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+                    <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+                    <span class="k">return</span> <span class="n">KEY_WINSIZE</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_INIT</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If we get here, then we&#39;re still waiting for a full sequence.</span>
+    <span class="n">ucode</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">size_t</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">writeUnicode</span><span class="p">(</span><span class="kt">long</span> <span class="n">code</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="n">utf8</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+    <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="n">utf8Format</span><span class="p">(</span><span class="n">utf8</span><span class="p">,</span> <span class="n">code</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">write</span><span class="p">(</span><span class="n">utf8</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">size</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">setWindowSize</span><span class="p">(</span><span class="kt">int</span> <span class="n">columns</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rows</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Sanity-check the range first.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">columns</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">columns</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">)</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rows</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">rows</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ncols</span> <span class="o">!=</span> <span class="n">columns</span> <span class="o">||</span> <span class="n">nrows</span> <span class="o">!=</span> <span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ncols</span> <span class="o">=</span> <span class="n">columns</span><span class="p">;</span>
+        <span class="n">nrows</span> <span class="o">=</span> <span class="n">rows</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">clear</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[H</span><span class="se">\033</span><span class="s">[J&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">clearToEOL</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[K&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Writes a decimal number to a buffer.</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">writeNumber</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">&amp;</span><span class="n">posn</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">divisor</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">haveDigits</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">divisor</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">digit</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="n">divisor</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">digit</span> <span class="o">||</span> <span class="n">haveDigits</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">buf</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span> <span class="o">+</span> <span class="n">digit</span><span class="p">;</span>
+            <span class="n">haveDigits</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">value</span> <span class="o">%=</span> <span class="n">divisor</span><span class="p">;</span>
+        <span class="n">divisor</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">haveDigits</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">buf</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">cursorMove</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_stream</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+
+    <span class="c1">// Range check the arguments.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">ncols</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">ncols</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">nrows</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">nrows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// Format the command &quot;ESC[row;colH&quot; and send it.</span>
+    <span class="kt">uint8_t</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+    <span class="kt">uint8_t</span> <span class="n">posn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x1B</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;[&#39;</span><span class="p">;</span>
+    <span class="n">writeNumber</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">posn</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;;&#39;</span><span class="p">;</span>
+    <span class="n">writeNumber</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">posn</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;H&#39;</span><span class="p">;</span>
+    <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">posn</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">cursorLeft</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[D&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">cursorRight</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[C&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">cursorUp</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[A&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">cursorDown</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[B&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">backspace</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\b</span><span class="s"> </span><span class="se">\b</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">insertLine</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[L&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">insertChar</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[@&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">deleteLine</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[M&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">deleteChar</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[P&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">scrollUp</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[S&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">scrollDown</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[T&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">normal</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[0m&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">bold</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[1m&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">underline</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[4m&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">blink</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[5m&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">reverse</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">escape</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\033</span><span class="s">[7m&quot;</span><span class="p">;</span>
+    <span class="n">writeProgMem</span><span class="p">(</span><span class="n">escape</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">color</span><span class="p">(</span><span class="n">Color</span> <span class="n">fg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="n">code</span> <span class="o">=</span> <span class="p">(</span><span class="n">fg</span> <span class="o">&amp;</span> <span class="mh">0x07</span><span class="p">);</span>
+    <span class="kt">uint8_t</span> <span class="n">bold</span> <span class="o">=</span> <span class="p">(</span><span class="n">fg</span> <span class="o">&amp;</span> <span class="mh">0x08</span><span class="p">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_stream</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="kt">uint8_t</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+    <span class="kt">uint8_t</span> <span class="n">posn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x1B</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;[&#39;</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>   <span class="c1">// reset all attributes first</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;;&#39;</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;3&#39;</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span> <span class="o">+</span> <span class="n">code</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">bold</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;;&#39;</span><span class="p">;</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;m&#39;</span><span class="p">;</span>
+    <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">posn</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">color</span><span class="p">(</span><span class="n">Color</span> <span class="n">fg</span><span class="p">,</span> <span class="n">Color</span> <span class="n">bg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="n">codefg</span> <span class="o">=</span> <span class="p">(</span><span class="n">fg</span> <span class="o">&amp;</span> <span class="mh">0x07</span><span class="p">);</span>
+    <span class="kt">uint8_t</span> <span class="n">boldfg</span> <span class="o">=</span> <span class="p">(</span><span class="n">fg</span> <span class="o">&amp;</span> <span class="mh">0x08</span><span class="p">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">uint8_t</span> <span class="n">codebg</span> <span class="o">=</span> <span class="p">(</span><span class="n">bg</span> <span class="o">&amp;</span> <span class="mh">0x07</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_stream</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="kt">uint8_t</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+    <span class="kt">uint8_t</span> <span class="n">posn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x1B</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;[&#39;</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>   <span class="c1">// reset all attributes first</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;;&#39;</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;3&#39;</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span> <span class="o">+</span> <span class="n">codefg</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">boldfg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;;&#39;</span><span class="p">;</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;;&#39;</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;4&#39;</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span> <span class="o">+</span> <span class="n">codebg</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">posn</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;m&#39;</span><span class="p">;</span>
+    <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">posn</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">isWideCharacter</span><span class="p">(</span><span class="kt">long</span> <span class="n">code</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// This function was automatically generated by genwcwidth.c</span>
+    <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">range3000</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mh">0xF1</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xF3</span><span class="p">,</span> <span class="mh">0x3F</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x78</span><span class="p">,</span>
+        <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+        <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x80</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+        <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x88</span>
+    <span class="p">};</span>
+    <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="k">const</span> <span class="n">rangeFE00</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x80</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xE1</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span>
+        <span class="mh">0x9F</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7F</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+        <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+        <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+        <span class="mh">0x10</span><span class="p">,</span> <span class="mh">0x3F</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xF8</span><span class="p">,</span>
+        <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xF8</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+        <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+        <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span>
+    <span class="p">};</span>
+    <span class="kt">unsigned</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;</span> <span class="mh">0x2300</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0x3000</span> <span class="o">&amp;&amp;</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x30FF</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span><span class="p">)(</span><span class="n">code</span> <span class="o">-</span> <span class="mh">0x3000</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">pgm_read_byte</span><span class="p">(</span><span class="n">range3000</span> <span class="o">+</span> <span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="mi">8</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">c</span> <span class="o">%</span> <span class="mi">8</span><span class="p">)))</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0xFE00</span> <span class="o">&amp;&amp;</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0xFFFF</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span><span class="p">)(</span><span class="n">code</span> <span class="o">-</span> <span class="mh">0xFE00</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">pgm_read_byte</span><span class="p">(</span><span class="n">rangeFE00</span> <span class="o">+</span> <span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="mi">8</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">c</span> <span class="o">%</span> <span class="mi">8</span><span class="p">)))</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0x3400</span> <span class="o">&amp;&amp;</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x4DBF</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0x4E00</span> <span class="o">&amp;&amp;</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x9FFF</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0xF900</span> <span class="o">&amp;&amp;</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0xFAFF</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0x20000</span> <span class="o">&amp;&amp;</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x2FFFD</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0x30000</span> <span class="o">&amp;&amp;</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x3FFFD</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">==</span> <span class="mh">0x2329</span> <span class="o">||</span>
+               <span class="n">code</span> <span class="o">==</span> <span class="mh">0x232A</span> <span class="o">||</span>
+               <span class="n">code</span> <span class="o">==</span> <span class="mh">0x3250</span> <span class="o">||</span>
+               <span class="n">code</span> <span class="o">==</span> <span class="mh">0xA015</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">size_t</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">utf8Length</span><span class="p">(</span><span class="kt">long</span> <span class="n">code</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Reference: https://tools.ietf.org/html/rfc3629</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x7FL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x07FFL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0xD800L</span> <span class="o">&amp;&amp;</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0xDFFF</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// UTF-16 surrogate pairs are not valid in UTF-8.</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0xFFFFL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x10FFFFL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">size_t</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">utf8Format</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">long</span> <span class="n">code</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Reference: https://tools.ietf.org/html/rfc3629</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x7FL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)</span><span class="n">code</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x07FFL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xC0</span> <span class="o">|</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">code</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">);</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x80</span> <span class="o">|</span> <span class="p">(((</span><span class="kt">uint8_t</span><span class="p">)</span><span class="n">code</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;=</span> <span class="mh">0xD800L</span> <span class="o">&amp;&amp;</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0xDFFF</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// UTF-16 surrogate pairs are not valid in UTF-8.</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0xFFFFL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xE0</span> <span class="o">|</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">code</span> <span class="o">&gt;&gt;</span> <span class="mi">12</span><span class="p">);</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x80</span> <span class="o">|</span> <span class="p">(((</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">code</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">);</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x80</span> <span class="o">|</span> <span class="p">(((</span><span class="kt">uint8_t</span><span class="p">)</span><span class="n">code</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&lt;=</span> <span class="mh">0x10FFFFL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xF0</span> <span class="o">|</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">code</span> <span class="o">&gt;&gt;</span> <span class="mi">18</span><span class="p">);</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x80</span> <span class="o">|</span> <span class="p">(((</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">code</span> <span class="o">&gt;&gt;</span> <span class="mi">12</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">);</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x80</span> <span class="o">|</span> <span class="p">(((</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">code</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">);</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x80</span> <span class="o">|</span> <span class="p">(((</span><span class="kt">uint8_t</span><span class="p">)</span><span class="n">code</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Keymap rule table.  Compact representation of a recognition tree.</span>
+<span class="c1">// Each tree node is an array of entries of the following forms:</span>
+<span class="c1">//      0           End of this tree level.</span>
+<span class="c1">//      ch code     Leaf node: ASCII character (bit 7 clear) plus 8-bit keycode.</span>
+<span class="c1">//      ch offset   Interior node: ASCII character with the high bit set</span>
+<span class="c1">//                  plus a 16-bit offset to the first child node.</span>
+<span class="c1">// This table was generated with the &quot;genkeymap&quot; tool.  Do not edit this</span>
+<span class="c1">// table but rather edit the tool and rebuild the table from it.</span>
+<span class="k">static</span> <span class="kt">uint8_t</span> <span class="k">const</span> <span class="n">keymap</span><span class="p">[</span><span class="mi">459</span><span class="p">]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mh">0xDB</span><span class="p">,</span> <span class="mh">0x1A</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xCF</span><span class="p">,</span> <span class="mh">0x57</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">,</span> <span class="mh">0xDA</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0xD9</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span> <span class="mh">0xD7</span><span class="p">,</span>
+    <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0xD8</span><span class="p">,</span> <span class="mh">0xBF</span><span class="p">,</span> <span class="mh">0xA2</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x50</span><span class="p">,</span> <span class="mh">0xC2</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0xC3</span><span class="p">,</span> <span class="mh">0x52</span><span class="p">,</span> <span class="mh">0xC4</span><span class="p">,</span> <span class="mh">0x53</span><span class="p">,</span>
+    <span class="mh">0xC5</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">,</span> <span class="mh">0xDA</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0xD9</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span> <span class="mh">0xD7</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0xD8</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0xD2</span><span class="p">,</span>
+    <span class="mh">0xB1</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x46</span><span class="p">,</span> <span class="mh">0xD5</span><span class="p">,</span> <span class="mh">0xB4</span><span class="p">,</span> <span class="mh">0xC9</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0xCC</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB3</span><span class="p">,</span>
+    <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB5</span><span class="p">,</span> <span class="mh">0x46</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB6</span><span class="p">,</span> <span class="mh">0x49</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xDB</span><span class="p">,</span> <span class="mh">0x4C</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x5A</span><span class="p">,</span>
+    <span class="mh">0x0B</span><span class="p">,</span> <span class="mh">0x50</span><span class="p">,</span> <span class="mh">0xD0</span><span class="p">,</span> <span class="mh">0x47</span><span class="p">,</span> <span class="mh">0xE5</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xD2</span><span class="p">,</span> <span class="mh">0xB1</span><span class="p">,</span> <span class="mh">0x5D</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span>
+    <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB3</span><span class="p">,</span> <span class="mh">0x7B</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB4</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB5</span><span class="p">,</span> <span class="mh">0x95</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB7</span><span class="p">,</span>
+    <span class="mh">0xA2</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB8</span><span class="p">,</span> <span class="mh">0xAF</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB9</span><span class="p">,</span> <span class="mh">0xBC</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xC2</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span>
+    <span class="mh">0x65</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0xFA</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0x69</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF0</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+    <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xC3</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0x74</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0xFB</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0x78</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+    <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF1</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xC4</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0x81</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0x85</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF2</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xC5</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0x8E</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0x92</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF3</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xC6</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0x9B</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span>
+    <span class="mh">0x9F</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF4</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xC7</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0xA8</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+    <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0xAC</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF5</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xC8</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0xB5</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0xB9</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF6</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xC9</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0xC2</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0xC6</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF7</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xD5</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+    <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xD1</span><span class="p">,</span> <span class="mh">0xB0</span><span class="p">,</span> <span class="mh">0xE7</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB1</span><span class="p">,</span> <span class="mh">0xF4</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB3</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB4</span><span class="p">,</span>
+    <span class="mh">0x10</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB5</span><span class="p">,</span> <span class="mh">0x1F</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB6</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB8</span><span class="p">,</span> <span class="mh">0x25</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB9</span><span class="p">,</span>
+    <span class="mh">0x28</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xCA</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0xED</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0xF1</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF8</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xCB</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0xFA</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0xFE</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF9</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xCC</span><span class="p">,</span> <span class="mh">0x24</span><span class="p">,</span> <span class="mh">0xF8</span><span class="p">,</span> <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0x0D</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xFA</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xCD</span><span class="p">,</span> <span class="mh">0x24</span><span class="p">,</span> <span class="mh">0xF9</span><span class="p">,</span>
+    <span class="mh">0xBB</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xFB</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span>
+    <span class="mh">0xF0</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF1</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF2</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF3</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span>
+    <span class="mh">0xD4</span><span class="p">,</span> <span class="mh">0xB1</span><span class="p">,</span> <span class="mh">0x3A</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0x3D</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB3</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0xB4</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span>
+    <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF4</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF5</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xF6</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span>
+    <span class="mh">0xF7</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xD3</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0xD6</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">,</span> <span class="mh">0xC2</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0xC3</span><span class="p">,</span>
+    <span class="mh">0x43</span><span class="p">,</span> <span class="mh">0xC4</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0xC5</span><span class="p">,</span> <span class="mh">0x45</span><span class="p">,</span> <span class="mh">0xC6</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">,</span> <span class="mh">0xDA</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0xD9</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span>
+    <span class="mh">0xD7</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0xD8</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0xD2</span><span class="p">,</span> <span class="mh">0x46</span><span class="p">,</span> <span class="mh">0xD5</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x49</span><span class="p">,</span> <span class="mh">0xB3</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span>
+    <span class="mh">0xB0</span><span class="p">,</span> <span class="mh">0x6A</span><span class="p">,</span> <span class="mh">0x2A</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0x6D</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x6E</span><span class="p">,</span> <span class="mh">0x2E</span><span class="p">,</span> <span class="mh">0x6F</span><span class="p">,</span>
+    <span class="mh">0x2F</span><span class="p">,</span> <span class="mh">0x70</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x71</span><span class="p">,</span> <span class="mh">0x31</span><span class="p">,</span> <span class="mh">0x72</span><span class="p">,</span> <span class="mh">0x32</span><span class="p">,</span> <span class="mh">0x73</span><span class="p">,</span> <span class="mh">0x33</span><span class="p">,</span> <span class="mh">0x74</span><span class="p">,</span> <span class="mh">0x34</span><span class="p">,</span> <span class="mh">0x75</span><span class="p">,</span>
+    <span class="mh">0x35</span><span class="p">,</span> <span class="mh">0x76</span><span class="p">,</span> <span class="mh">0x36</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x37</span><span class="p">,</span> <span class="mh">0x78</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">,</span> <span class="mh">0x79</span><span class="p">,</span> <span class="mh">0x39</span><span class="p">,</span> <span class="mh">0x58</span><span class="p">,</span> <span class="mh">0x3D</span><span class="p">,</span> <span class="mh">0x50</span><span class="p">,</span>
+    <span class="mh">0xC2</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0xC3</span><span class="p">,</span> <span class="mh">0x52</span><span class="p">,</span> <span class="mh">0xC4</span><span class="p">,</span> <span class="mh">0x53</span><span class="p">,</span> <span class="mh">0xC5</span><span class="p">,</span> <span class="mh">0xB2</span><span class="p">,</span> <span class="mh">0x99</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x5A</span><span class="p">,</span> <span class="mh">0x0B</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x50</span><span class="p">,</span> <span class="mh">0xF0</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0xF1</span><span class="p">,</span> <span class="mh">0x52</span><span class="p">,</span> <span class="mh">0xF2</span><span class="p">,</span> <span class="mh">0x53</span><span class="p">,</span> <span class="mh">0xF3</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span>
+    <span class="mh">0x49</span><span class="p">,</span> <span class="mh">0xB3</span><span class="p">,</span> <span class="mh">0x4D</span><span class="p">,</span> <span class="mh">0xB0</span><span class="p">,</span> <span class="mh">0x6A</span><span class="p">,</span> <span class="mh">0x2A</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0x6D</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span>
+    <span class="mh">0x6E</span><span class="p">,</span> <span class="mh">0x2E</span><span class="p">,</span> <span class="mh">0x6F</span><span class="p">,</span> <span class="mh">0x2F</span><span class="p">,</span> <span class="mh">0x70</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x71</span><span class="p">,</span> <span class="mh">0x31</span><span class="p">,</span> <span class="mh">0x72</span><span class="p">,</span> <span class="mh">0x32</span><span class="p">,</span> <span class="mh">0x73</span><span class="p">,</span> <span class="mh">0x33</span><span class="p">,</span>
+    <span class="mh">0x74</span><span class="p">,</span> <span class="mh">0x34</span><span class="p">,</span> <span class="mh">0x75</span><span class="p">,</span> <span class="mh">0x35</span><span class="p">,</span> <span class="mh">0x76</span><span class="p">,</span> <span class="mh">0x36</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x37</span><span class="p">,</span> <span class="mh">0x78</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">,</span> <span class="mh">0x79</span><span class="p">,</span> <span class="mh">0x39</span><span class="p">,</span>
+    <span class="mh">0x58</span><span class="p">,</span> <span class="mh">0x3D</span><span class="p">,</span> <span class="mh">0x00</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">matchEscape</span><span class="p">(</span><span class="kt">int</span> <span class="n">ch</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="n">kch</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span>
+        <span class="n">kch</span> <span class="o">=</span> <span class="n">pgm_read_byte</span><span class="p">(</span><span class="n">keymap</span> <span class="o">+</span> <span class="n">offset</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">kch</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// No match at this level, so the escape sequence is invalid.</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">kch</span> <span class="o">&amp;</span> <span class="mh">0x80</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Interior node.</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">kch</span> <span class="o">&amp;</span> <span class="mh">0x7F</span><span class="p">)</span> <span class="o">==</span> <span class="n">ch</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// Interior node matches.  Go down one tree level.</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">pgm_read_byte</span><span class="p">(</span><span class="n">keymap</span> <span class="o">+</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">|</span>
+                        <span class="p">(((</span><span class="kt">int</span><span class="p">)(</span><span class="n">pgm_read_byte</span><span class="p">(</span><span class="n">keymap</span> <span class="o">+</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)))</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">offset</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Leaf node.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">kch</span> <span class="o">==</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)</span><span class="n">ch</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// We have found a match on a full escape sequence.</span>
+                <span class="k">return</span> <span class="nf">pgm_read_byte</span><span class="p">(</span><span class="n">keymap</span> <span class="o">+</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">offset</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">-2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Terminal</span><span class="o">::</span><span class="n">telnetCommand</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">type</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">option</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="n">buf</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+    <span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)</span><span class="n">TelnetDefs</span><span class="o">::</span><span class="n">IAC</span><span class="p">;</span>
+    <span class="n">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">type</span><span class="p">;</span>
+    <span class="n">buf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">option</span><span class="p">;</span>
+    <span class="n">_stream</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

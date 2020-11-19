@@ -1,0 +1,16 @@
+.. _exhale_class_class_diag:
+
+Class Diag
+==========
+
+- Defined in :ref:`file_src_StringFormatter.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: Diag
+   :members:
+   :protected-members:
+   :undoc-members:

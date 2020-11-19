@@ -1,0 +1,13 @@
+.. _exhale_variable__arduino_unique_i_d_8cpp_1a4ebddd6ffbf4ee77d34d51d7e87c85d2:
+
+Variable _UniqueID
+==================
+
+- Defined in :ref:`file_src_ArduinoUniqueID.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: _UniqueID

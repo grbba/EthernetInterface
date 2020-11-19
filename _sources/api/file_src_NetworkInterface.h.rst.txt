@@ -1,0 +1,90 @@
+
+.. _file_src_NetworkInterface.h:
+
+File NetworkInterface.h
+=======================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/NetworkInterface.h``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_NetworkInterface.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Arduino.h``
+
+- ``HttpRequest.h`` (:ref:`file_src_HttpRequest.h`)
+
+- ``NetworkConfig.h`` (:ref:`file_src_NetworkConfig.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_HttpRequest.cpp`
+
+- :ref:`file_src_NetworkInterface.cpp`
+
+- :ref:`file_src_NetworkSetup.h`
+
+- :ref:`file_src_Transport.cpp`
+
+- :ref:`file_src_Transport.h`
+
+- :ref:`file_src_TransportProcessor.cpp`
+
+- :ref:`file_src_TransportProcessor.h`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_struct_abstract_transport`
+
+- :ref:`exhale_class_class_d_c_c_network`
+
+- :ref:`exhale_class_class_network_interface`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum__network_interface_8h_1af6adf0e71a06d4619216ff5e60479530`
+
+- :ref:`exhale_enum__network_interface_8h_1a59eb013c6734195b94b275310e167df1`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef__network_interface_8h_1a956a1a6eb4f3ad86434c3e9d1ea45907`
+
+- :ref:`exhale_typedef__network_interface_8h_1a3d524451a44296541faccbb5c2d6bdfb`
+
+- :ref:`exhale_typedef__network_interface_8h_1a098ed0759f349f3b682c046ab1bf06b0`
+

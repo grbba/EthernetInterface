@@ -1,0 +1,13 @@
+.. _exhale_define__http_request_8h_1a99c2a5fc310d8f352e4b59087737b88a:
+
+Define HTTP_REQ_COOKIE_NAME_LENGTH
+==================================
+
+- Defined in :ref:`file_src_HttpRequest.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: HTTP_REQ_COOKIE_NAME_LENGTH

@@ -1,0 +1,13 @@
+.. _exhale_typedef__transport_8h_1a1e2f1fb81692457c4b64d606dc1c9217:
+
+Typedef appProtocolCallback
+===========================
+
+- Defined in :ref:`file_src_Transport.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: appProtocolCallback

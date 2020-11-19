@@ -1,0 +1,13 @@
+.. _exhale_define__shell_8cpp_1a83f51b90088a8538fb233b1e9ebd2daf:
+
+Define progmem_strcmp
+=====================
+
+- Defined in :ref:`file_src_cli_Shell.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: progmem_strcmp

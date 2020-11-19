@@ -1,0 +1,16 @@
+.. _exhale_class_class_arduino_unique_i_d:
+
+Class ArduinoUniqueID
+=====================
+
+- Defined in :ref:`file_src_ArduinoUniqueID.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ArduinoUniqueID
+   :members:
+   :protected-members:
+   :undoc-members:

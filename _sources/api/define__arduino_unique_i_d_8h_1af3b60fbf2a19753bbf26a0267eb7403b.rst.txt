@@ -1,0 +1,13 @@
+.. _exhale_define__arduino_unique_i_d_8h_1af3b60fbf2a19753bbf26a0267eb7403b:
+
+Define UniqueID8
+================
+
+- Defined in :ref:`file_src_ArduinoUniqueID.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: UniqueID8

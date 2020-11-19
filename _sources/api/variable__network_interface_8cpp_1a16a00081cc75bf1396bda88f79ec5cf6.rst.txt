@@ -1,0 +1,13 @@
+.. _exhale_variable__network_interface_8cpp_1a16a00081cc75bf1396bda88f79ec5cf6:
+
+Variable ethernetTransport
+==========================
+
+- Defined in :ref:`file_src_NetworkInterface.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ethernetTransport

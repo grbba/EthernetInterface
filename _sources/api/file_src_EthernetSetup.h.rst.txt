@@ -1,0 +1,54 @@
+
+.. _file_src_EthernetSetup.h:
+
+File EthernetSetup.h
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/EthernetSetup.h``)
+------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_EthernetSetup.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Ethernet.h``
+
+- ``NetworkSetup.h`` (:ref:`file_src_NetworkSetup.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_EthernetSetup.cpp`
+
+- :ref:`file_src_NetworkInterface.cpp`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_class_ethernet_setup`
+

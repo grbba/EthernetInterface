@@ -1,0 +1,13 @@
+.. _exhale_variable__c_l_icommands_8cpp_1ab37864cf3fab6cc29d0d467556eb43b0:
+
+Variable PROGMEM
+================
+
+- Defined in :ref:`file_src_cli_CLIcommands.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: PROGMEM

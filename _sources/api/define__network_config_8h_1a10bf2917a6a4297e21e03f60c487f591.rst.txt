@@ -1,0 +1,13 @@
+.. _exhale_define__network_config_8h_1a10bf2917a6a4297e21e03f60c487f591:
+
+Define MAX_INTERFACES
+=====================
+
+- Defined in :ref:`file_src_NetworkConfig.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: MAX_INTERFACES

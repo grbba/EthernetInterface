@@ -1,0 +1,31 @@
+.. _exhale_class_class_shell:
+
+Class Shell
+===========
+
+- Defined in :ref:`file_src_cli_Shell.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public Terminal`` (:ref:`exhale_class_class_terminal`)
+
+
+Derived Type
+************
+
+- ``public LoginShell`` (:ref:`exhale_class_class_login_shell`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: Shell
+   :members:
+   :protected-members:
+   :undoc-members:

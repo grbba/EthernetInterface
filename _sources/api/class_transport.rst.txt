@@ -1,0 +1,25 @@
+.. _exhale_class_class_transport:
+
+Template Class Transport
+========================
+
+- Defined in :ref:`file_src_Transport.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public AbstractTransport`` (:ref:`exhale_struct_struct_abstract_transport`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: Transport
+   :members:
+   :protected-members:
+   :undoc-members:

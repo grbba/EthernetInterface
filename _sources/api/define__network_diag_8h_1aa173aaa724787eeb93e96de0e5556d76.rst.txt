@@ -1,0 +1,13 @@
+.. _exhale_define__network_diag_8h_1aa173aaa724787eeb93e96de0e5556d76:
+
+Define ERR
+==========
+
+- Defined in :ref:`file_src_NetworkDiag.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: ERR

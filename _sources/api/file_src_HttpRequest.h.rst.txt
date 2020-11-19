@@ -1,0 +1,139 @@
+
+.. _file_src_HttpRequest.h:
+
+File HttpRequest.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+creates a :ref:`exhale_class_class_http_request` object for the user callback. Some conditions apply esp reagrding the length of the items in the Request can be found in 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/HttpRequest.h``)
+----------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_HttpRequest.h.rst
+
+
+
+Detailed Description
+--------------------
+
+
+
+client
+
+
+Client object from whom we receievd the data 
+
+
+
+
+c
+
+
+id of the Client object 
+
+
+
+
+
+
+
+
+Includes
+--------
+
+
+- ``Ethernet.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_HttpRequest.cpp`
+
+- :ref:`file_src_NetworkInterface.h`
+
+- :ref:`file_src_TransportProcessor.cpp`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_struct_http_request_1_1_cookies`
+
+- :ref:`exhale_struct_struct_params`
+
+- :ref:`exhale_struct_struct_parsed_request`
+
+- :ref:`exhale_class_class_http_request`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define__http_request_8h_1a67735749f977e22e06c4e13c82c0e526`
+
+- :ref:`exhale_define__http_request_8h_1a3a0993fad8078fbf81256623c4129f8c`
+
+- :ref:`exhale_define__http_request_8h_1aee7c4381aa1e323ebd709394409c113c`
+
+- :ref:`exhale_define__http_request_8h_1adb1584d945b1a14133ed0c237470d930`
+
+- :ref:`exhale_define__http_request_8h_1a81875c11cc2e55296b23f93e56ce0864`
+
+- :ref:`exhale_define__http_request_8h_1aa7a2d22acb34eb9559ddd20dc2146a29`
+
+- :ref:`exhale_define__http_request_8h_1ae5e76edf6a6480d83a76c1544bad01e7`
+
+- :ref:`exhale_define__http_request_8h_1ad839df06d1c3091999bdc312fb441368`
+
+- :ref:`exhale_define__http_request_8h_1a682fff48755d27329498caec73c2e61d`
+
+- :ref:`exhale_define__http_request_8h_1ae01c18f9d4e3679c292e9b21be9e9206`
+
+- :ref:`exhale_define__http_request_8h_1a0973776a5f7bdf62699d3e914ff97003`
+
+- :ref:`exhale_define__http_request_8h_1a7afe30feaf4e98aab92485c4ec8068da`
+
+- :ref:`exhale_define__http_request_8h_1a0c3608ec4c75bcde9c38eaa60ada668f`
+
+- :ref:`exhale_define__http_request_8h_1a99c2a5fc310d8f352e4b59087737b88a`
+
+- :ref:`exhale_define__http_request_8h_1a33e32a04064e548efc28d95c723e1933`
+
+- :ref:`exhale_define__http_request_8h_1aca58fe395280cd8077ea5d1999145ddc`
+
+- :ref:`exhale_define__http_request_8h_1a82083c89dc72c1776355fe0a152277b8`
+
+- :ref:`exhale_define__http_request_8h_1a87519df87eaaafa2fc14b27379d63470`
+
+- :ref:`exhale_define__http_request_8h_1a0ec530c60ebb3f6de9bf47c7c4f894ef`
+
+- :ref:`exhale_define__http_request_8h_1a420af414119513f2f7c3db18c457122e`
+
+- :ref:`exhale_define__http_request_8h_1a25ba2975bc595fc3657ba9dffa5f3dbb`
+
+- :ref:`exhale_define__http_request_8h_1a07de66a85d4c2f42a9f71e46278c34ca`
+
+- :ref:`exhale_define__http_request_8h_1a8bb9017f30ff8959b7916f558c82d306`
+

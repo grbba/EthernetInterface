@@ -1,0 +1,13 @@
+.. _exhale_enum__network_interface_8h_1a59eb013c6734195b94b275310e167df1:
+
+Enum transportType
+==================
+
+- Defined in :ref:`file_src_NetworkInterface.h`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: transportType

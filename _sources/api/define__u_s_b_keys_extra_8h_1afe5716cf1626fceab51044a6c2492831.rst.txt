@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1afe5716cf1626fceab51044a6c2492831:
+
+Define KEY_RETURN
+=================
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_RETURN

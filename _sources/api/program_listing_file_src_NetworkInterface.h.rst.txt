@@ -1,0 +1,90 @@
+
+.. _program_listing_file_src_NetworkInterface.h:
+
+Program Listing for File NetworkInterface.h
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_src_NetworkInterface.h>` (``src/NetworkInterface.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    * © 2020 Gregor Baues. All rights reserved.
+    *  
+    * This is free software: you can redistribute it and/or modify it under
+    * the terms of the GNU General Public License as published by the 
+    * Free Software Foundation, either version 3 of the License, or
+    * (at your option) any later version.
+    * 
+    * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    * DEALINGS IN THE SOFTWARE.
+    * 
+    * See the GNU General Public License for more details <https://www.gnu.org/licenses/>
+    */
+   
+   #ifndef NetworkInterface_h
+   #define NetworkInterface_h
+   
+   #include <Arduino.h>
+   
+   #include "NetworkConfig.h"
+   #include "HttpRequest.h"
+   
+   typedef enum protocolType {
+       TCP,             
+       UDPR,            
+       MQTT             
+   } protocolType;
+   
+   typedef enum transportType {
+       WIFI,                   // using an AT (Version >= V1.7) command enabled ESP8266 not to be used in conjunction with the WifiInterface though! not tested for conflicts
+       ETHERNET                // using the EthernetShield
+   } transportType;
+   
+   using HttpCallback = void(*)(ParsedRequest *req, Client *client);
+   
+   struct AbstractTransport {
+       virtual ~AbstractTransport(){};  
+   };
+   
+   class DCCNetwork {
+       private:
+           byte _tCounter = 0;
+           transportType _t[MAX_INTERFACES];
+       
+       public: 
+           AbstractTransport *transports[MAX_INTERFACES];
+   
+           byte add(AbstractTransport* t, transportType _t);
+           void loop();
+   };
+   
+   class NetworkInterface
+   {
+   private:
+       HttpCallback httpCallback;
+       transportType t;
+   
+   public:
+   
+       void setHttpCallback(HttpCallback callback);                       
+       HttpCallback getHttpCallback();                                   
+       void setup(transportType t, protocolType p, uint16_t port);        
+       void setup(transportType t, protocolType p);                       
+       void setup(transportType t);                                       
+       
+       void setup();                                                      
+       static void loop();
+   
+       NetworkInterface();
+       ~NetworkInterface();
+   };
+   
+   #endif

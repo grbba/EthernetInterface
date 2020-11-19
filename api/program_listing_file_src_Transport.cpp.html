@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File Transport.cpp &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File Transport.cpp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_src_Transport.cpp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-transport-cpp">
+<span id="program-listing-file-src-transport-cpp"></span><h1>Program Listing for File Transport.cpp<a class="headerlink" href="#program-listing-for-file-transport-cpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_src_Transport.cpp.html#file-src-transport-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/Transport.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * © 2020 Gregor Baues. All rights reserved.</span>
+<span class="cm"> *</span>
+<span class="cm"> * This is free software: you can redistribute it and/or modify it under</span>
+<span class="cm"> * the terms of the GNU General Public License as published by the</span>
+<span class="cm"> * Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm"> * (at your option) any later version.</span>
+<span class="cm"> *</span>
+<span class="cm"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
+<span class="cm"> * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="cm"> * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="cm"> * DEALINGS IN THE SOFTWARE.</span>
+<span class="cm"> *</span>
+<span class="cm"> * See the GNU General Public License for more details &lt;https://www.gnu.org/licenses/&gt;</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;NetworkDiag.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;NetworkInterface.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;Transport.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#ifdef CLI_ENABLED</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;cli/LoginShell.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;cli/Shell.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;cli/CLIcommands.h&quot;</span><span class="cp"></span>
+
+<span class="n">Shell</span> <span class="n">shell</span><span class="p">;</span>
+
+<span class="cp">#endif</span>
+
+<span class="cp">#ifdef DCCEX_ENABLED</span>
+<span class="cp">#include</span> <span class="cpf">&quot;RingStream.h&quot;</span><span class="cp"></span>
+<span class="cp">#endif</span>
+
+<span class="k">extern</span> <span class="kt">bool</span> <span class="n">diagNetwork</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">uint8_t</span> <span class="n">diagNetworkClient</span><span class="p">;</span>
+
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">Transport</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">U</span><span class="o">&gt;::</span><span class="n">setup</span><span class="p">(</span><span class="n">NetworkInterface</span> <span class="o">*</span><span class="n">nw</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransportProcessor</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">protocol</span> <span class="o">==</span> <span class="n">TCP</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#ifdef CLI_ENABLED</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">port</span> <span class="o">==</span> <span class="mi">23</span><span class="p">){</span>
+            <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;CS-CLI session enabeled ...&quot;</span><span class="p">));</span>
+            <span class="n">WARN</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Connections limited to 1 ...&quot;</span><span class="p">));</span>
+            <span class="c1">// networkInterface used for Telnet session so limit the connections to 1</span>
+            <span class="c1">// when we get a new client on port 23; Terminal used shall be set to no echo &amp; CRLF</span>
+            <span class="n">maxConnections</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="cp">#endif</span>
+        <span class="n">connectionPool</span><span class="p">(</span><span class="n">server</span><span class="p">);</span>     <span class="c1">// server should have started here so create the connection pool only for TCP though</span>
+        <span class="n">t</span><span class="o">-&gt;</span><span class="n">udp</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">connectionPool</span><span class="p">(</span><span class="n">udp</span><span class="p">);</span>
+        <span class="n">t</span><span class="o">-&gt;</span><span class="n">udp</span> <span class="o">=</span> <span class="n">udp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">t</span><span class="o">-&gt;</span><span class="n">nwi</span> <span class="o">=</span> <span class="n">nw</span><span class="p">;</span>                    <span class="c1">// The TransportProcessor needs to know which Interface he is connected to</span>
+    <span class="n">connected</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>               <span class="c1">// server &amp; clients which will recieve/send data have all e setup and are available</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">Transport</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">U</span><span class="o">&gt;::</span><span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">protocol</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">UDPR</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="n">udpHandler</span><span class="p">(</span><span class="n">udp</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="k">case</span> <span class="nl">TCP</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Transport: %s&quot;</span><span class="p">),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">transport</span> <span class="o">==</span> <span class="n">WIFI</span> <span class="o">?</span> <span class="s">&quot;WIFI&quot;</span> <span class="o">:</span> <span class="s">&quot;ETHERNET&quot;</span><span class="p">);</span>
+        <span class="n">tcpSessionHandler</span><span class="p">(</span><span class="n">server</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="k">case</span> <span class="nl">MQTT</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="c1">// MQTT</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">Transport</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;::</span><span class="n">connectionPool</span><span class="p">(</span><span class="n">S</span> <span class="o">*</span><span class="n">server</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">Transport</span><span class="o">::</span><span class="n">maxConnections</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">server</span><span class="o">-&gt;</span><span class="n">accept</span><span class="p">();</span>
+        <span class="n">connections</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">client</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">memset</span><span class="p">(</span><span class="n">connections</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">overflow</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MAX_OVERFLOW</span><span class="p">);</span>
+        <span class="n">connections</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="n">TRC</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;TCP Connection pool:       [%d:%x]&quot;</span><span class="p">),</span> <span class="n">i</span><span class="p">,</span> <span class="n">connections</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">client</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="cp">#ifdef CLI_ENABLED</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">port</span> <span class="o">==</span> <span class="mi">23</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">CLI</span><span class="o">::</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">CLI</span><span class="o">::</span><span class="n">connect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">connections</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="cp">#endif</span>
+
+<span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">Transport</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;::</span><span class="n">connectionPool</span><span class="p">(</span><span class="n">U</span> <span class="o">*</span><span class="n">udp</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">Transport</span><span class="o">::</span><span class="n">maxConnections</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">memset</span><span class="p">(</span><span class="n">connections</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">overflow</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MAX_OVERFLOW</span><span class="p">);</span>
+        <span class="n">connections</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+
+        <span class="n">TRC</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;UDP Connection pool:       [%d:%x]&quot;</span><span class="p">),</span> <span class="n">i</span><span class="p">,</span> <span class="n">udp</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">Transport</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;::</span><span class="n">udpHandler</span><span class="p">(</span><span class="n">U</span><span class="o">*</span> <span class="n">udp</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">packetSize</span> <span class="o">=</span> <span class="n">udp</span><span class="o">-&gt;</span><span class="n">parsePacket</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">packetSize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">TRC</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Received packet of size:[%d]&quot;</span><span class="p">),</span> <span class="n">packetSize</span><span class="p">);</span>
+        <span class="n">IPAddress</span> <span class="n">remote</span> <span class="o">=</span> <span class="n">udp</span><span class="o">-&gt;</span><span class="n">remoteIP</span><span class="p">();</span>
+        <span class="kt">char</span> <span class="n">portBuffer</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+        <span class="n">TRC</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;From: [%d.%d.%d.%d: %s]&quot;</span><span class="p">),</span> <span class="n">remote</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">remote</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">remote</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">remote</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">utoa</span><span class="p">(</span><span class="n">udp</span><span class="o">-&gt;</span><span class="n">remotePort</span><span class="p">(),</span> <span class="n">portBuffer</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span> <span class="c1">// DIAG has issues with unsigend int&#39;s so go through utoa</span>
+
+        <span class="n">udp</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">buffer</span><span class="p">,</span> <span class="n">MAX_ETH_BUFFER</span><span class="p">);</span>
+        <span class="n">t</span><span class="o">-&gt;</span><span class="n">buffer</span><span class="p">[</span><span class="n">packetSize</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>           <span class="c1">// terminate buffer</span>
+        <span class="n">t</span><span class="o">-&gt;</span><span class="n">readStream</span><span class="p">(</span><span class="o">&amp;</span><span class="n">connections</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">false</span> <span class="p">);</span>  <span class="c1">// there is only one connection for UDP; reading into the buffer has been done</span>
+
+        <span class="n">memset</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MAX_ETH_BUFFER</span><span class="p">);</span>   <span class="c1">// reset PacktBuffer</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">Transport</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">U</span><span class="o">&gt;::</span><span class="n">tcpSessionHandler</span><span class="p">(</span><span class="n">S</span><span class="o">*</span> <span class="n">server</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// get client from the server</span>
+    <span class="n">C</span> <span class="n">client</span> <span class="o">=</span> <span class="n">server</span><span class="o">-&gt;</span><span class="n">accept</span><span class="p">();</span>
+
+    <span class="c1">// check for new client</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">byte</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxConnections</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="p">{</span>
+                <span class="c1">// On accept() the EthernetServer doesn&#39;t track the client anymore</span>
+                <span class="c1">// so we store it in our client array</span>
+
+                <span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">client</span><span class="p">;</span>
+                <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;New Client: [%d:%x]&quot;</span><span class="p">),</span> <span class="n">i</span><span class="p">,</span> <span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="cp">#ifdef CLI_ENABLED</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">port</span> <span class="o">==</span> <span class="mi">23</span> <span class="p">){</span>
+                    <span class="c1">// new telnet client so start the shell</span>
+
+                    <span class="c1">// shell.setMachineName(&quot;cs-excli&quot;);</span>
+                    <span class="n">shell</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">clients</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">5</span><span class="p">);</span>  <span class="c1">// 5 lines of history in the shell</span>
+                    <span class="n">shell</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Welcome to the CommandStation EX Command Line Interface</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+                    <span class="n">shell</span><span class="p">.</span><span class="n">flush</span><span class="p">();</span>
+                <span class="p">}</span>
+<span class="cp">#endif</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// check for incoming data from all possible clients</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">byte</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxConnections</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+<span class="cp">#ifdef CLI_ENABLED</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">port</span> <span class="o">==</span> <span class="mi">23</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">shell</span><span class="p">.</span><span class="n">loop</span><span class="p">();</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="cp">#endif</span>
+            <span class="n">t</span><span class="o">-&gt;</span><span class="n">readStream</span><span class="p">(</span><span class="o">&amp;</span><span class="n">connections</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">true</span><span class="p">);</span>
+<span class="cp">#ifdef CLI_ENABLED</span>
+            <span class="p">}</span>
+<span class="cp">#endif</span>
+        <span class="p">}</span>
+        <span class="c1">// stop any clients which disconnect</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">byte</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxConnections</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">connected</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Disconnect client #%d&quot;</span><span class="p">),</span> <span class="n">i</span><span class="p">);</span>
+                <span class="n">clients</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">stop</span><span class="p">();</span>
+                <span class="n">connections</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">isProtocolDefined</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">diagNetworkClient</span> <span class="o">==</span> <span class="n">i</span> <span class="o">&amp;&amp;</span> <span class="n">diagNetwork</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">diagNetwork</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+                    <span class="n">NetworkDiag</span><span class="o">::</span><span class="n">resetDiagOut</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="n">Transport</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">U</span><span class="o">&gt;::</span><span class="n">Transport</span><span class="p">(){}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">C</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="n">Transport</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">U</span><span class="o">&gt;::~</span><span class="n">Transport</span><span class="p">(){}</span>
+
+<span class="c1">// explicitly instatiate to get the relevant copies for ethernet / wifi build @compile time</span>
+<span class="k">template</span> <span class="k">class</span> <span class="nc">Transport</span><span class="o">&lt;</span><span class="n">EthernetServer</span><span class="p">,</span><span class="n">EthernetClient</span><span class="p">,</span><span class="n">EthernetUDP</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">template</span> <span class="k">class</span> <span class="nc">Transport</span><span class="o">&lt;</span><span class="n">WiFiServer</span><span class="p">,</span> <span class="n">WiFiClient</span><span class="p">,</span> <span class="n">WiFiUDP</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

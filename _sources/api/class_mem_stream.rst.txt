@@ -1,0 +1,25 @@
+.. _exhale_class_class_mem_stream:
+
+Class MemStream
+===============
+
+- Defined in :ref:`file_src_MemStream.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public Stream``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: MemStream
+   :members:
+   :protected-members:
+   :undoc-members:

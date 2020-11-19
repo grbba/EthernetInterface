@@ -1,0 +1,13 @@
+.. _exhale_function__transport_processor_8cpp_1a4c1d147693aeb4dd642efcfd08eaadc3:
+
+Function parse
+==============
+
+- Defined in :ref:`file_src_TransportProcessor.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: parse(Print *, byte *, bool)

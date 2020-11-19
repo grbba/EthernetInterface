@@ -1,0 +1,2248 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NetworkInterface API &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Namespace TelnetDefs" href="namespace_TelnetDefs.html" />
+    <link rel="prev" title="How to flash your ESP for the right AT commandset" href="../FlashESP.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NetworkInterface API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#full-api">Full API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_TelnetDefs.html">Namespace TelnetDefs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="struct____freelist.html">Struct __freelist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_abstract_transport.html">Struct AbstractTransport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_connection.html">Struct Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_http_request_1_1_cookies.html">Struct HttpRequest::Cookies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_params.html">Struct Params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_parsed_request.html">Struct ParsedRequest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_arduino_unique_i_d.html">Class ArduinoUniqueID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_c_l_i.html">Class CLI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_d_c_c_network.html">Class DCCNetwork</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_diag.html">Class Diag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_ethernet_setup.html">Class EthernetSetup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_http_request.html">Class HttpRequest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_login_shell.html">Class LoginShell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_mem_stream.html">Class MemStream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_network_diag.html">Class NetworkDiag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_network_interface.html">Class NetworkInterface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_network_setup.html">Class NetworkSetup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_shell.html">Class Shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_shell_arguments.html">Class ShellArguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_string_formatter.html">Class StringFormatter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_terminal.html">Class Terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_transport.html">Template Class Transport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_transport_processor.html">Class TransportProcessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_wifi_setup.html">Class WifiSetup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enum__transport_8h_1ab41ff1ef7a956f31a30538470dca0885.html">Enum appProtocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum__network_interface_8h_1af6adf0e71a06d4619216ff5e60479530.html">Enum protocolType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum__telnet_defs_8h_1a70e4e49046205b4a7a389dcb423703fe.html">Enum Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum__telnet_defs_8h_1a7a962a63ec5bb787849b544df4c2c0da.html">Enum Option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum__network_interface_8h_1a59eb013c6734195b94b275310e167df1.html">Enum transportType</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function__network_setup_8cpp_1a1904f854f9998a47c16408358ce64e30.html">Function array_to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__c_l_icommands_8cpp_1aef9b3fb883126b6e90fcfc2f433b96ef.html">Function cmdAttach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__c_l_icommands_8cpp_1a4d0f67731a5e2d309fc1fd8802c623a3.html">Function cmdLed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__shell_8cpp_1a9563ffeaedd9dc0a7c2aba406ea9fac7.html">Function defaultPasswordCheckFunc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__transport_processor_8cpp_1a92da7dae58087b5b75125e1e1ebf5f49.html">Function echoProcessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__terminal_8cpp_1a9b301b0513979d71c4ba77a06007efda.html">Function escapeSequenceStart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__memory_free_8cpp_1a04e1cfe100b396e57c2581502de5e5ca.html">Function freeListSize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_free_memory_8cpp_1a8d862dc01c44bfabc8d952bb77f8da89.html">Function freeMemory()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_free_memory_8h_1a8d862dc01c44bfabc8d952bb77f8da89.html">Function freeMemory()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__memory_free_8cpp_1a8d862dc01c44bfabc8d952bb77f8da89.html">Function freeMemory()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__memory_free_8h_1a8d862dc01c44bfabc8d952bb77f8da89.html">Function freeMemory()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__transport_processor_8cpp_1adffd99c797adf573a9d65073d1595d53.html">Function httpProcessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__transport_processor_8cpp_1ae99c9311978b9a5d08837fe5f9d929cc.html">Function jmriProcessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__transport_processor_8cpp_1a4c1d147693aeb4dd642efcfd08eaadc3.html">Function parse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__transport_processor_8cpp_1a715460ec8d4cb3f8b8dc399c3d3029c1.html">Function processStream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__shell_8cpp_1ab88d8413641c82b76f4a900f078c9c9a.html">Function readInfoFunc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__shell_8cpp_1a5e58d9ce472c021f6de2580cf186a52b.html">Function readInfoHelp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__shell_8cpp_1a4a7dfcd79f34a1b8ada21fe099217f62.html">Function readInfoName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__wifi_setup_8cpp_1a28ad06154d7067e5e154885a813d933f.html">Function reverseArray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__transport_processor_8cpp_1a3af0ecf3a10ec36ab4835f7837bc1f13.html">Function sendReply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__transport_processor_8cpp_1a2db43fc4f27865830ec6fef653704a79.html">Function setAppProtocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__transport_processor_8cpp_1abb4e43a46551501a6057f1405addb873.html">Function withrottleProcessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function__terminal_8cpp_1ab9f8ebed3be695428256a5bbbf81fde3.html">Function writeNumber</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="variable__memory_free_8cpp_1a8d18204366e8a385c441663ed41f1ae4.html">Variable __brkval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__memory_free_8cpp_1a9cfd748d9cb8a517422fa4e4f0b3320f.html">Variable __flp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__memory_free_8cpp_1aa84b5136d382ee274a86572892e5e007.html">Variable __heap_start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8cpp_1ae18f5366af227ae3ecf084dde54c555c.html">Variable _cMem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8h_1ae18f5366af227ae3ecf084dde54c555c.html">Variable _cMem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_interface_8cpp_1a4cfc1ea22cf22b36b55355e20166aa69.html">Variable _dccNet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8cpp_1ad548e02bb802224da4f15de29be3f758.html">Variable _dMem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8h_1ad548e02bb802224da4f15de29be3f758.html">Variable _dMem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8cpp_1a155bd5f482b472779779a7e91f3d7461.html">Variable _dOutput</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8h_1a155bd5f482b472779779a7e91f3d7461.html">Variable _dOutput</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_processor_8cpp_1aabf9409f0d890442fd454fbff4af9905.html">Variable _nCmds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8cpp_1a9e46bbda4fd7d79cc53a441a5fb188eb.html">Variable _nInfoLevel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8h_1a9e46bbda4fd7d79cc53a441a5fb188eb.html">Variable _nInfoLevel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8cpp_1a611cac484729e35cb94f29fda8924a9f.html">Variable _nLogLevel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_diag_8h_1a611cac484729e35cb94f29fda8924a9f.html">Variable _nLogLevel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_processor_8cpp_1a9a4ee75f1cc5ee8c8e55e5f371779d88.html">Variable _pNum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_processor_8cpp_1a61b0e27dd0a5761fe0cbc6580ff3df14.html">Variable _rseq</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_processor_8cpp_1a94a3e82f0d3db2fd514acadf392994de.html">Variable _sseq</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_processor_8cpp_1a009e1e0b46f2c7e335549258bb5b6230.html">Variable _tPayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__arduino_unique_i_d_8cpp_1a4ebddd6ffbf4ee77d34d51d7e87c85d2.html">Variable _UniqueID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__arduino_unique_i_d_8h_1a4ebddd6ffbf4ee77d34d51d7e87c85d2.html">Variable _UniqueID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__c_l_icommands_8cpp_1af7edababa419584d038a5bcbf1cc771d.html">Variable diagNetwork</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_8cpp_1af7edababa419584d038a5bcbf1cc771d.html">Variable diagNetwork</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_processor_8cpp_1af7edababa419584d038a5bcbf1cc771d.html">Variable diagNetwork</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__c_l_icommands_8cpp_1a90538335e7e6e7f444374f84213c0409.html">Variable diagNetworkClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_8cpp_1a90538335e7e6e7f444374f84213c0409.html">Variable diagNetworkClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_processor_8cpp_1a90538335e7e6e7f444374f84213c0409.html">Variable diagNetworkClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_interface_8cpp_1a16a00081cc75bf1396bda88f79ec5cf6.html">Variable ethernetTransport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__shell_8cpp_1adc22b9a2a7887a4a3b66e86d6927bc0a.html">Variable firstCmd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_processor_8cpp_1afa7eb7acfa8d633cb3155e420cd49391.html">Variable httpReq</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__c_l_icommands_8cpp_1afdd77f1aa3023f9ba5f49bb1f6c68b51.html">Variable ledPin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__c_l_icommands_8cpp_1ab37864cf3fab6cc29d0d467556eb43b0.html">Variable PROGMEM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__terminal_8cpp_1ad725b10d18aacac2902dd26ca569e861.html">Variable PROGMEM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_processor_8cpp_1a015b3e76f7deb14fbdffea26513a0538.html">Variable protocolName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__transport_8cpp_1ae1bf58c4a1fd09ecd2dadcd745104365.html">Variable shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__c_l_icommands_8cpp_1a509db2befcf6ab4273dc5c64b2983646.html">Variable shell_info_attach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__c_l_icommands_8cpp_1a28aa0a202ae0f61d5b61c9f1ac7d988b.html">Variable shell_info_led</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable__network_interface_8cpp_1a5f3db7b62ec540f0a24486bcd5692827.html">Variable wifiTransport</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#defines">Defines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="define__wifi_setup_8h_1a7b427b491a712490620b56f1c67af59b.html">Define AT_BAUD_RATE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1aa3e84b22f144b0fc10c717cdf8add0ff.html">Define CLI_ENABLED</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__c_l_icommands_8h_1a998de25b501ab5d51b67e386e63fc47d.html">Define CLICommands_h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1a445a14d10ffdece08ce75cb22baf2c6e.html">Define DBG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1ad72dbcf6d0153db1b8d8a58001feed83.html">Define DEBUG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__d_i_a_g_8h_1ad2390c07b2f83f490ae971a3fdc0c18b.html">Define DIAG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1ace431af7538cd4bbd56d61731e08b887.html">Define EH_DW</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1ac4d460558dd2106b51b9d5216a2527fa.html">Define EH_IFIL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1a6d98b0bab9c715fda514c71e0100d038.html">Define EH_IFLL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1aa173aaa724787eeb93e96de0e5556d76.html">Define ERR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a67735749f977e22e06c4e13c82c0e526.html">Define HTTP_ATTRIB_NAME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a3a0993fad8078fbf81256623c4129f8c.html">Define HTTP_ATTRIB_VALUE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1aee7c4381aa1e323ebd709394409c113c.html">Define HTTP_COOKIE_NAME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1adb1584d945b1a14133ed0c237470d930.html">Define HTTP_COOKIE_VALUE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a81875c11cc2e55296b23f93e56ce0864.html">Define HTTP_GET_NAME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1aa7a2d22acb34eb9559ddd20dc2146a29.html">Define HTTP_GET_VALUE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1ae5e76edf6a6480d83a76c1544bad01e7.html">Define HTTP_METHOD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1ad839df06d1c3091999bdc312fb441368.html">Define HTTP_NEW_LINE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a682fff48755d27329498caec73c2e61d.html">Define HTTP_PARSE_INIT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1ae01c18f9d4e3679c292e9b21be9e9206.html">Define HTTP_POST_NAME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a0973776a5f7bdf62699d3e914ff97003.html">Define HTTP_POST_VALUE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a7afe30feaf4e98aab92485c4ec8068da.html">Define HTTP_REQ_ATTRIB_NAME_LENGTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a0c3608ec4c75bcde9c38eaa60ada668f.html">Define HTTP_REQ_ATTRIB_VALUE_LENGTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a99c2a5fc310d8f352e4b59087737b88a.html">Define HTTP_REQ_COOKIE_NAME_LENGTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a33e32a04064e548efc28d95c723e1933.html">Define HTTP_REQ_COOKIE_VALUE_LENGTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1aca58fe395280cd8077ea5d1999145ddc.html">Define HTTP_REQ_METHOD_LENGTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a82083c89dc72c1776355fe0a152277b8.html">Define HTTP_REQ_PARAM_NAME_LENGTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a87519df87eaaafa2fc14b27379d63470.html">Define HTTP_REQ_PARAM_VALUE_LENGTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a0ec530c60ebb3f6de9bf47c7c4f894ef.html">Define HTTP_REQ_URI_LENGTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a420af414119513f2f7c3db18c457122e.html">Define HTTP_REQ_VERSION_LENGTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a25ba2975bc595fc3657ba9dffa5f3dbb.html">Define HTTP_REQUEST_END</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a07de66a85d4c2f42a9f71e46278c34ca.html">Define HTTP_URI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__http_request_8h_1a8bb9017f30ff8959b7916f558c82d306.html">Define HTTP_VERSION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1ae19e2dbb70909d3e3311b8577efa9f93.html">Define INFO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1ad8a262037cbfb38d1512f0073eeb7a66.html">Define IP_ADDRESS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af8ebcd5ffe52d71cacb96b0fdff0fa91.html">Define KEY_BACK_TAB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a1e9a449dee19c686a2af4edcdc1a1042.html">Define KEY_BACKSPACE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aaac34940ff83d1431044aaca015639ce.html">Define KEY_CAPS_LOCK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a1d654db2e04ad94a58f880fb9e127ad6.html">Define KEY_DELETE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a882b457a13b4fd20a9f7c1ccba5a62d0.html">Define KEY_DOWN_ARROW</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a912861b945e779c29f718cdcd62be10c.html">Define KEY_END</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a86b2b2d4eda22067d85d2287c118e2d8.html">Define KEY_ESC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a2772a1f7024ba1fd62e88ec1adb541f8.html">Define KEY_F1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ad37282615edb2c357149c2a1342b4a85.html">Define KEY_F10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1abd820bb8b4b2a47e4210401b13789106.html">Define KEY_F11</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a0a3de83275f6bbc2b88692f947f0d595.html">Define KEY_F12</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af87d33df472dd073863b12035c7bd1d4.html">Define KEY_F13</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ad566421e6cb409e725578835e9e328bb.html">Define KEY_F14</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a4835f0dc20db5a4d3433acab66236595.html">Define KEY_F15</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1afea8064b70679bb9e0389d5f6621a2f2.html">Define KEY_F16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a6fa230f5d490af7d6ef87a88ca2db5ae.html">Define KEY_F17</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a2f93cd984f0472309d8af80e1e2f947f.html">Define KEY_F18</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a5bf91538e8323ad995199c817045b26e.html">Define KEY_F19</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ae2e2edb31bb7796786da12f85f2d5cd1.html">Define KEY_F2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a49e680a4ea19e73fb97fe98b0891b0b5.html">Define KEY_F20</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a0084ae075bfc60dc50f2a11c2fdf299f.html">Define KEY_F21</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ab481f83ccc2f1af97e32fcef5bf5c7f3.html">Define KEY_F22</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aae4824ffb7a7f7e29443290c503e6718.html">Define KEY_F23</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aa495d7fdfc50768240f0838fcebbd54b.html">Define KEY_F24</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a38ebe8e5c5f1d5727c9638bf79fc3952.html">Define KEY_F3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ab99474b01ffcbc57d74b60a77895e5e8.html">Define KEY_F4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a2a0aae1931111382ade29fd75ef64790.html">Define KEY_F5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ad31281b771b8b85f4aa98bbd527d91a0.html">Define KEY_F6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a7eed6766ef9ddb721c6a2bce807fc9dc.html">Define KEY_F7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a7a8ad03f07f2e4757a70385e88fbbe3c.html">Define KEY_F8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a417a382624f91fb0cdfdf1c33adc8c90.html">Define KEY_F9</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af6806366178266b3eaf1fb16f991cbee.html">Define KEY_HOME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aaa67a531439790dc20ed750f482d4a3e.html">Define KEY_INSERT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a9a8100ac50bf8e0227c66f85312d1eec.html">Define KEY_LEFT_ARROW</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1accb7a413ed6fa7db7192fc957d477ab8.html">Define KEY_NUM_LOCK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af4f1ead45029692ae2581de5ecd567d5.html">Define KEY_NUMPAD_5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a83760e7f00c16682c746c2844c712b01.html">Define KEY_PAGE_DOWN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a148dd567ca75b9320e8862d54139406a.html">Define KEY_PAGE_UP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ae176aa9af3d2acaeba5b8453aff5bbbf.html">Define KEY_PAUSE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a77e8247cb7e0a962a50ecdc6c1dd4a8d.html">Define KEY_PRINT_SCREEN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1afe5716cf1626fceab51044a6c2492831.html">Define KEY_RETURN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a6b1df3d1cbf22d04b162eb6a89068b5d.html">Define KEY_RIGHT_ARROW</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ab94d4309f6059492ef7dbf1a880cf7e0.html">Define KEY_SCROLL_LOCK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a4fa9fbcc86d5ee884a821459a87f3a54.html">Define KEY_TAB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__terminal_8h_1a77654215ca6bdb1a31744bb97e755a18.html">Define KEY_UNICODE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a5b54ad0499f58e98c864e521be5676fa.html">Define KEY_UP_ARROW</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__terminal_8h_1a4fb31cc7c408cd5c0ab57f11bb2727d3.html">Define KEY_WINSIZE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__shell_8cpp_1a19023760edac5c6498e72d535a24e080.html">Define LINEMODE_DELAY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__shell_8cpp_1ab091102d2c3f669a120e84367a265ddc.html">Define LINEMODE_ECHO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__shell_8cpp_1a5cdc2b16ed480998ad559ee7905bb9dc.html">Define LINEMODE_NORMAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__shell_8cpp_1a31d3833f84e577834845a901e94abd09.html">Define LINEMODE_PASSWORD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__shell_8cpp_1ae6b224013dff5b99d5969b1826519c25.html">Define LINEMODE_PROMPT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__shell_8cpp_1a944a3710774a951739eae184f2297608.html">Define LINEMODE_USERNAME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1a4fba0963c20988d1f1a45afb1c636e44.html">Define LISTEN_PORT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__shell_8cpp_1a6412422f2ff6dcecc4b2cdc946983838.html">Define LOGIN_SHELL_DELAY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1a6c6fd5e242df15a7a42e9b75d55d5d3c.html">Define LOGLEVEL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1a842c7e9c95f3e750b4b4b380f815299b.html">Define LOGV_DEBUG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1a14b0d6e9a6faa5377922541e7a316827.html">Define LOGV_ERROR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1ac1f1602d76ec20977954bb9b7d20e725.html">Define LOGV_INFO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1aba82502c9613ef37b458cc3886a5e076.html">Define LOGV_SILENT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1ac3a1abc6581e61b0186914e18e4e2149.html">Define LOGV_TRACE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1ac900b15ffe42dd649338b2ef5b4c0ccc.html">Define LOGV_WARN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1a0cb4fc37d244ce985851dd2958ae0b94.html">Define MAC_ADDRESS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1a4662280c82f67a3cdb4c528fde9e682c.html">Define MAX_ETH_BUFFER</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1a10bf2917a6a4297e21e03f60c487f591.html">Define MAX_INTERFACES</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1a4fc9bdc92501e74ac247760dc0c8f3ad.html">Define MAX_JMRI_CMD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1a09fdbf3d9ac8ffe5a6bc5a7c3c29293a.html">Define MAX_OVERFLOW</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1ae5a2e3b1eefb3a10a2485e28a4ccdb59.html">Define MAX_SOCK_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_config_8h_1a425484190fd0727155e363d1c9d2083e.html">Define MAX_WIFI_SOCK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_setup_8h_1a881258fce424df363d3100d830f76f1d.html">Define MAXDEVICEID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1aa66e672fcdfed1de0546b847396c6380.html">Define NDIAG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__shell_8cpp_1a83f51b90088a8538fb233b1e9ebd2daf.html">Define progmem_strcmp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__shell_8h_1a289fac62523ab75893db741e94e0d78e.html">Define SHELL_MAX_CMD_LEN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1ae31fb81e1fe3e5c44839e319a44c8c5e.html">Define TRC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__arduino_unique_i_d_8h_1a7dcb5f192e52fca99d06f966a9ae9716.html">Define UniqueID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__arduino_unique_i_d_8h_1af3b60fbf2a19753bbf26a0267eb7403b.html">Define UniqueID8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__arduino_unique_i_d_8h_1a60c7f6e6c50aa1b25ebee781ff7ef7e6.html">Define UniqueID8dump</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__arduino_unique_i_d_8h_1a218d287b966ad6a63e214504f640302d.html">Define UniqueIDdump</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define__network_diag_8h_1a899e8c12f9c3b0c57e70fa25e87db5a0.html">Define WARN</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="typedef__transport_8h_1a1e2f1fb81692457c4b64d606dc1c9217.html">Typedef appProtocolCallback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef__network_interface_8h_1a956a1a6eb4f3ad86434c3e9d1ea45907.html">Typedef HttpCallback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef__transport_8h_1a498e679a10f06d3daf64e85fb8ad9b58.html">Typedef loopHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef__network_interface_8h_1a3d524451a44296541faccbb5c2d6bdfb.html">Typedef protocolType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef__shell_8h_1ad3aab40fbf685102df6bf7e9f163f22a.html">Typedef ShellCommandFunc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef__login_shell_8h_1a20b319df016a5503d88e18b7422bad2b.html">Typedef ShellPasswordCheckFunc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef__network_interface_8h_1a098ed0759f349f3b682c046ab1bf06b0.html">Typedef transportType</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>NetworkInterface API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/library_root.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="networkinterface-api">
+<h1>NetworkInterface API<a class="headerlink" href="#networkinterface-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="class-hierarchy">
+<h2>Class Hierarchy<a class="headerlink" href="#class-hierarchy" title="Permalink to this headline">¶</a></h2>
+<ul class="treeView" id="class-treeView">
+  <li>
+    <ul class="collapsibleList">
+      <li>Namespace <a href="namespace_TelnetDefs.html#namespace-TelnetDefs">TelnetDefs</a><ul><li>Enum <a href="enum__telnet_defs_8h_1a70e4e49046205b4a7a389dcb423703fe.html#exhale-enum-telnet-defs-8h-1a70e4e49046205b4a7a389dcb423703fe">Command</a></li><li class="lastChild">Enum <a href="enum__telnet_defs_8h_1a7a962a63ec5bb787849b544df4c2c0da.html#exhale-enum-telnet-defs-8h-1a7a962a63ec5bb787849b544df4c2c0da">Option</a></li></ul></li><li>Struct <a href="struct____freelist.html#exhale-struct-struct--freelist">__freelist</a></li><li>Struct <a href="struct_abstract_transport.html#exhale-struct-struct-abstract-transport">AbstractTransport</a></li><li>Struct <a href="struct_connection.html#exhale-struct-struct-connection">Connection</a></li><li>Struct <a href="struct_params.html#exhale-struct-struct-params">Params</a></li><li>Struct <a href="struct_parsed_request.html#exhale-struct-struct-parsed-request">ParsedRequest</a></li><li>Class <a href="class_arduino_unique_i_d.html#exhale-class-class-arduino-unique-i-d">ArduinoUniqueID</a></li><li>Class <a href="class_c_l_i.html#exhale-class-class-c-l-i">CLI</a></li><li>Class <a href="class_d_c_c_network.html#exhale-class-class-d-c-c-network">DCCNetwork</a></li><li>Class <a href="class_diag.html#exhale-class-class-diag">Diag</a></li><li>Class <a href="class_ethernet_setup.html#exhale-class-class-ethernet-setup">EthernetSetup</a></li><li>Class <a href="class_http_request.html#exhale-class-class-http-request">HttpRequest</a><ul><li class="lastChild">Struct <a href="struct_http_request_1_1_cookies.html#exhale-struct-struct-http-request-1-1-cookies">HttpRequest::Cookies</a></li></ul></li><li>Class <a href="class_login_shell.html#exhale-class-class-login-shell">LoginShell</a></li><li>Class <a href="class_mem_stream.html#exhale-class-class-mem-stream">MemStream</a></li><li>Class <a href="class_network_diag.html#exhale-class-class-network-diag">NetworkDiag</a></li><li>Class <a href="class_network_interface.html#exhale-class-class-network-interface">NetworkInterface</a></li><li>Class <a href="class_network_setup.html#exhale-class-class-network-setup">NetworkSetup</a></li><li>Class <a href="class_shell.html#exhale-class-class-shell">Shell</a></li><li>Class <a href="class_shell_arguments.html#exhale-class-class-shell-arguments">ShellArguments</a></li><li>Class <a href="class_string_formatter.html#exhale-class-class-string-formatter">StringFormatter</a></li><li>Class <a href="class_terminal.html#exhale-class-class-terminal">Terminal</a></li><li>Template Class <a href="class_transport.html#exhale-class-class-transport">Transport</a></li><li>Class <a href="class_transport_processor.html#exhale-class-class-transport-processor">TransportProcessor</a></li><li>Class <a href="class_wifi_setup.html#exhale-class-class-wifi-setup">WifiSetup</a></li><li>Enum <a href="enum__transport_8h_1ab41ff1ef7a956f31a30538470dca0885.html#exhale-enum-transport-8h-1ab41ff1ef7a956f31a30538470dca0885">appProtocol</a></li><li>Enum <a href="enum__network_interface_8h_1af6adf0e71a06d4619216ff5e60479530.html#exhale-enum-network-interface-8h-1af6adf0e71a06d4619216ff5e60479530">protocolType</a></li><li class="lastChild">Enum <a href="enum__network_interface_8h_1a59eb013c6734195b94b275310e167df1.html#exhale-enum-network-interface-8h-1a59eb013c6734195b94b275310e167df1">transportType</a></li>
+    </ul>
+  </li><!-- only tree view element -->
+</ul><!-- /treeView class-treeView --></div>
+<div class="section" id="file-hierarchy">
+<h2>File Hierarchy<a class="headerlink" href="#file-hierarchy" title="Permalink to this headline">¶</a></h2>
+<ul class="treeView" id="file-treeView">
+  <li>
+    <ul class="collapsibleList">
+      <li class="lastChild">Directory <a href="dir_src.html#dir-src">src</a><ul><li>Directory <a href="dir_src_cli.html#dir-src-cli">cli</a><ul><li>File <a href="file_src_cli_CLIcommands.cpp.html#file-src-cli-CLIcommands.cpp">CLIcommands.cpp</a></li><li>File <a href="file_src_cli_CLIcommands.h.html#file-src-cli-CLIcommands.h">CLIcommands.h</a></li><li>File <a href="file_src_cli_LoginShell.cpp.html#file-src-cli-LoginShell.cpp">LoginShell.cpp</a></li><li>File <a href="file_src_cli_LoginShell.h.html#file-src-cli-LoginShell.h">LoginShell.h</a></li><li>File <a href="file_src_cli_Shell.cpp.html#file-src-cli-Shell.cpp">Shell.cpp</a></li><li>File <a href="file_src_cli_Shell.h.html#file-src-cli-Shell.h">Shell.h</a></li><li>File <a href="file_src_cli_TelnetDefs.h.html#file-src-cli-TelnetDefs.h">TelnetDefs.h</a></li><li>File <a href="file_src_cli_Terminal.cpp.html#file-src-cli-Terminal.cpp">Terminal.cpp</a></li><li>File <a href="file_src_cli_Terminal.h.html#file-src-cli-Terminal.h">Terminal.h</a></li><li class="lastChild">File <a href="file_src_cli_USBKeysExtra.h.html#file-src-cli-USBKeysExtra.h">USBKeysExtra.h</a></li></ul></li><li>File <a href="file_src_ArduinoUniqueID.cpp.html#file-src-ArduinoUniqueID.cpp">ArduinoUniqueID.cpp</a></li><li>File <a href="file_src_ArduinoUniqueID.h.html#file-src-ArduinoUniqueID.h">ArduinoUniqueID.h</a></li><li>File <a href="file_src_DIAG.h.html#file-src-DIAG.h">DIAG.h</a></li><li>File <a href="file_src_EthernetSetup.cpp.html#file-src-EthernetSetup.cpp">EthernetSetup.cpp</a></li><li>File <a href="file_src_EthernetSetup.h.html#file-src-EthernetSetup.h">EthernetSetup.h</a></li><li>File <a href="file_src_freeMemory.cpp.html#file-src-freeMemory.cpp">freeMemory.cpp</a></li><li>File <a href="file_src_freeMemory.h.html#file-src-freeMemory.h">freeMemory.h</a></li><li>File <a href="file_src_HttpRequest.cpp.html#file-src-HttpRequest.cpp">HttpRequest.cpp</a></li><li>File <a href="file_src_HttpRequest.h.html#file-src-HttpRequest.h">HttpRequest.h</a></li><li>File <a href="file_src_MemoryFree.cpp.html#file-src-MemoryFree.cpp">MemoryFree.cpp</a></li><li>File <a href="file_src_MemoryFree.h.html#file-src-MemoryFree.h">MemoryFree.h</a></li><li>File <a href="file_src_MemStream.cpp.html#file-src-MemStream.cpp">MemStream.cpp</a></li><li>File <a href="file_src_MemStream.h.html#file-src-MemStream.h">MemStream.h</a></li><li>File <a href="file_src_NetworkConfig.h.html#file-src-NetworkConfig.h">NetworkConfig.h</a></li><li>File <a href="file_src_NetworkDiag.cpp.html#file-src-NetworkDiag.cpp">NetworkDiag.cpp</a></li><li>File <a href="file_src_NetworkDiag.h.html#file-src-NetworkDiag.h">NetworkDiag.h</a></li><li>File <a href="file_src_NetworkInterface.cpp.html#file-src-NetworkInterface.cpp">NetworkInterface.cpp</a></li><li>File <a href="file_src_NetworkInterface.h.html#file-src-NetworkInterface.h">NetworkInterface.h</a></li><li>File <a href="file_src_NetworkSetup.cpp.html#file-src-NetworkSetup.cpp">NetworkSetup.cpp</a></li><li>File <a href="file_src_NetworkSetup.h.html#file-src-NetworkSetup.h">NetworkSetup.h</a></li><li>File <a href="file_src_StringFormatter.cpp.html#file-src-StringFormatter.cpp">StringFormatter.cpp</a></li><li>File <a href="file_src_StringFormatter.h.html#file-src-StringFormatter.h">StringFormatter.h</a></li><li>File <a href="file_src_Transport.cpp.html#file-src-Transport.cpp">Transport.cpp</a></li><li>File <a href="file_src_Transport.h.html#file-src-Transport.h">Transport.h</a></li><li>File <a href="file_src_TransportProcessor.cpp.html#file-src-TransportProcessor.cpp">TransportProcessor.cpp</a></li><li>File <a href="file_src_TransportProcessor.h.html#file-src-TransportProcessor.h">TransportProcessor.h</a></li><li>File <a href="file_src_WifiSetup.cpp.html#file-src-WifiSetup.cpp">WifiSetup.cpp</a></li><li class="lastChild">File <a href="file_src_WifiSetup.h.html#file-src-WifiSetup.h">WifiSetup.h</a></li></ul></li>
+    </ul>
+  </li><!-- only tree view element -->
+</ul><!-- /treeView file-treeView --></div>
+<div class="section" id="full-api">
+<h2>Full API<a class="headerlink" href="#full-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="namespaces">
+<h3>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespace_TelnetDefs.html">Namespace TelnetDefs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_TelnetDefs.html#enums">Enums</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="classes-and-structs">
+<h3>Classes and Structs<a class="headerlink" href="#classes-and-structs" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="struct____freelist.html">Struct __freelist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="struct____freelist.html#struct-documentation">Struct Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="struct_abstract_transport.html">Struct AbstractTransport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="struct_abstract_transport.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="struct_abstract_transport.html#derived-type">Derived Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="struct_abstract_transport.html#struct-documentation">Struct Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="struct_connection.html">Struct Connection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="struct_connection.html#struct-documentation">Struct Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="struct_http_request_1_1_cookies.html">Struct HttpRequest::Cookies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="struct_http_request_1_1_cookies.html#nested-relationships">Nested Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_http_request_1_1_cookies.html#struct-documentation">Struct Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="struct_params.html">Struct Params</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="struct_params.html#struct-documentation">Struct Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="struct_parsed_request.html">Struct ParsedRequest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="struct_parsed_request.html#struct-documentation">Struct Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_arduino_unique_i_d.html">Class ArduinoUniqueID</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_arduino_unique_i_d.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_c_l_i.html">Class CLI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_c_l_i.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_d_c_c_network.html">Class DCCNetwork</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_d_c_c_network.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_diag.html">Class Diag</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_diag.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_ethernet_setup.html">Class EthernetSetup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_ethernet_setup.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_ethernet_setup.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_ethernet_setup.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_http_request.html">Class HttpRequest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_http_request.html#nested-relationships">Nested Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_http_request.html#nested-types">Nested Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_http_request.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_login_shell.html">Class LoginShell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_login_shell.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_login_shell.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_login_shell.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_mem_stream.html">Class MemStream</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_mem_stream.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_mem_stream.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_mem_stream.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_network_diag.html">Class NetworkDiag</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_network_diag.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_network_diag.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_network_diag.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_network_interface.html">Class NetworkInterface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_network_interface.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_network_setup.html">Class NetworkSetup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_network_setup.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_network_setup.html#derived-types">Derived Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_network_setup.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_shell.html">Class Shell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_shell.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_shell.html#base-type">Base Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class_shell.html#derived-type">Derived Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_shell.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_shell_arguments.html">Class ShellArguments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_shell_arguments.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_string_formatter.html">Class StringFormatter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_string_formatter.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_string_formatter.html#derived-type">Derived Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_string_formatter.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_terminal.html">Class Terminal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_terminal.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_terminal.html#base-type">Base Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class_terminal.html#derived-type">Derived Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_terminal.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_transport.html">Template Class Transport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_transport.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_transport.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_transport.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_transport_processor.html">Class TransportProcessor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_transport_processor.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class_wifi_setup.html">Class WifiSetup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_wifi_setup.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class_wifi_setup.html#base-type">Base Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class_wifi_setup.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="enums">
+<h3>Enums<a class="headerlink" href="#enums" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enum__transport_8h_1ab41ff1ef7a956f31a30538470dca0885.html">Enum appProtocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enum__transport_8h_1ab41ff1ef7a956f31a30538470dca0885.html#enum-documentation">Enum Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enum__network_interface_8h_1af6adf0e71a06d4619216ff5e60479530.html">Enum protocolType</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enum__network_interface_8h_1af6adf0e71a06d4619216ff5e60479530.html#enum-documentation">Enum Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enum__telnet_defs_8h_1a70e4e49046205b4a7a389dcb423703fe.html">Enum Command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enum__telnet_defs_8h_1a70e4e49046205b4a7a389dcb423703fe.html#enum-documentation">Enum Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enum__telnet_defs_8h_1a7a962a63ec5bb787849b544df4c2c0da.html">Enum Option</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enum__telnet_defs_8h_1a7a962a63ec5bb787849b544df4c2c0da.html#enum-documentation">Enum Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enum__network_interface_8h_1a59eb013c6734195b94b275310e167df1.html">Enum transportType</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enum__network_interface_8h_1a59eb013c6734195b94b275310e167df1.html#enum-documentation">Enum Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__network_setup_8cpp_1a1904f854f9998a47c16408358ce64e30.html">Function array_to_string</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__network_setup_8cpp_1a1904f854f9998a47c16408358ce64e30.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__c_l_icommands_8cpp_1aef9b3fb883126b6e90fcfc2f433b96ef.html">Function cmdAttach</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__c_l_icommands_8cpp_1aef9b3fb883126b6e90fcfc2f433b96ef.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__c_l_icommands_8cpp_1a4d0f67731a5e2d309fc1fd8802c623a3.html">Function cmdLed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__c_l_icommands_8cpp_1a4d0f67731a5e2d309fc1fd8802c623a3.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__shell_8cpp_1a9563ffeaedd9dc0a7c2aba406ea9fac7.html">Function defaultPasswordCheckFunc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__shell_8cpp_1a9563ffeaedd9dc0a7c2aba406ea9fac7.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__transport_processor_8cpp_1a92da7dae58087b5b75125e1e1ebf5f49.html">Function echoProcessor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__transport_processor_8cpp_1a92da7dae58087b5b75125e1e1ebf5f49.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__terminal_8cpp_1a9b301b0513979d71c4ba77a06007efda.html">Function escapeSequenceStart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__terminal_8cpp_1a9b301b0513979d71c4ba77a06007efda.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__memory_free_8cpp_1a04e1cfe100b396e57c2581502de5e5ca.html">Function freeListSize</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__memory_free_8cpp_1a04e1cfe100b396e57c2581502de5e5ca.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_free_memory_8cpp_1a8d862dc01c44bfabc8d952bb77f8da89.html">Function freeMemory()</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_free_memory_8cpp_1a8d862dc01c44bfabc8d952bb77f8da89.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function_free_memory_8h_1a8d862dc01c44bfabc8d952bb77f8da89.html">Function freeMemory()</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_free_memory_8h_1a8d862dc01c44bfabc8d952bb77f8da89.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__memory_free_8cpp_1a8d862dc01c44bfabc8d952bb77f8da89.html">Function freeMemory()</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__memory_free_8cpp_1a8d862dc01c44bfabc8d952bb77f8da89.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__memory_free_8h_1a8d862dc01c44bfabc8d952bb77f8da89.html">Function freeMemory()</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__memory_free_8h_1a8d862dc01c44bfabc8d952bb77f8da89.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__transport_processor_8cpp_1adffd99c797adf573a9d65073d1595d53.html">Function httpProcessor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__transport_processor_8cpp_1adffd99c797adf573a9d65073d1595d53.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__transport_processor_8cpp_1ae99c9311978b9a5d08837fe5f9d929cc.html">Function jmriProcessor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__transport_processor_8cpp_1ae99c9311978b9a5d08837fe5f9d929cc.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__transport_processor_8cpp_1a4c1d147693aeb4dd642efcfd08eaadc3.html">Function parse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__transport_processor_8cpp_1a4c1d147693aeb4dd642efcfd08eaadc3.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__transport_processor_8cpp_1a715460ec8d4cb3f8b8dc399c3d3029c1.html">Function processStream</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__transport_processor_8cpp_1a715460ec8d4cb3f8b8dc399c3d3029c1.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__shell_8cpp_1ab88d8413641c82b76f4a900f078c9c9a.html">Function readInfoFunc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__shell_8cpp_1ab88d8413641c82b76f4a900f078c9c9a.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__shell_8cpp_1a5e58d9ce472c021f6de2580cf186a52b.html">Function readInfoHelp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__shell_8cpp_1a5e58d9ce472c021f6de2580cf186a52b.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__shell_8cpp_1a4a7dfcd79f34a1b8ada21fe099217f62.html">Function readInfoName</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__shell_8cpp_1a4a7dfcd79f34a1b8ada21fe099217f62.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__wifi_setup_8cpp_1a28ad06154d7067e5e154885a813d933f.html">Function reverseArray</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__wifi_setup_8cpp_1a28ad06154d7067e5e154885a813d933f.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__transport_processor_8cpp_1a3af0ecf3a10ec36ab4835f7837bc1f13.html">Function sendReply</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__transport_processor_8cpp_1a3af0ecf3a10ec36ab4835f7837bc1f13.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__transport_processor_8cpp_1a2db43fc4f27865830ec6fef653704a79.html">Function setAppProtocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__transport_processor_8cpp_1a2db43fc4f27865830ec6fef653704a79.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__transport_processor_8cpp_1abb4e43a46551501a6057f1405addb873.html">Function withrottleProcessor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__transport_processor_8cpp_1abb4e43a46551501a6057f1405addb873.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function__terminal_8cpp_1ab9f8ebed3be695428256a5bbbf81fde3.html">Function writeNumber</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function__terminal_8cpp_1ab9f8ebed3be695428256a5bbbf81fde3.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__memory_free_8cpp_1a8d18204366e8a385c441663ed41f1ae4.html">Variable __brkval</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__memory_free_8cpp_1a8d18204366e8a385c441663ed41f1ae4.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__memory_free_8cpp_1a9cfd748d9cb8a517422fa4e4f0b3320f.html">Variable __flp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__memory_free_8cpp_1a9cfd748d9cb8a517422fa4e4f0b3320f.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__memory_free_8cpp_1aa84b5136d382ee274a86572892e5e007.html">Variable __heap_start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__memory_free_8cpp_1aa84b5136d382ee274a86572892e5e007.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8cpp_1ae18f5366af227ae3ecf084dde54c555c.html">Variable _cMem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8cpp_1ae18f5366af227ae3ecf084dde54c555c.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8h_1ae18f5366af227ae3ecf084dde54c555c.html">Variable _cMem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8h_1ae18f5366af227ae3ecf084dde54c555c.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_interface_8cpp_1a4cfc1ea22cf22b36b55355e20166aa69.html">Variable _dccNet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_interface_8cpp_1a4cfc1ea22cf22b36b55355e20166aa69.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8cpp_1ad548e02bb802224da4f15de29be3f758.html">Variable _dMem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8cpp_1ad548e02bb802224da4f15de29be3f758.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8h_1ad548e02bb802224da4f15de29be3f758.html">Variable _dMem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8h_1ad548e02bb802224da4f15de29be3f758.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8cpp_1a155bd5f482b472779779a7e91f3d7461.html">Variable _dOutput</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8cpp_1a155bd5f482b472779779a7e91f3d7461.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8h_1a155bd5f482b472779779a7e91f3d7461.html">Variable _dOutput</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8h_1a155bd5f482b472779779a7e91f3d7461.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_processor_8cpp_1aabf9409f0d890442fd454fbff4af9905.html">Variable _nCmds</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_processor_8cpp_1aabf9409f0d890442fd454fbff4af9905.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8cpp_1a9e46bbda4fd7d79cc53a441a5fb188eb.html">Variable _nInfoLevel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8cpp_1a9e46bbda4fd7d79cc53a441a5fb188eb.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8h_1a9e46bbda4fd7d79cc53a441a5fb188eb.html">Variable _nInfoLevel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8h_1a9e46bbda4fd7d79cc53a441a5fb188eb.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8cpp_1a611cac484729e35cb94f29fda8924a9f.html">Variable _nLogLevel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8cpp_1a611cac484729e35cb94f29fda8924a9f.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_diag_8h_1a611cac484729e35cb94f29fda8924a9f.html">Variable _nLogLevel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_diag_8h_1a611cac484729e35cb94f29fda8924a9f.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_processor_8cpp_1a9a4ee75f1cc5ee8c8e55e5f371779d88.html">Variable _pNum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_processor_8cpp_1a9a4ee75f1cc5ee8c8e55e5f371779d88.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_processor_8cpp_1a61b0e27dd0a5761fe0cbc6580ff3df14.html">Variable _rseq</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_processor_8cpp_1a61b0e27dd0a5761fe0cbc6580ff3df14.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_processor_8cpp_1a94a3e82f0d3db2fd514acadf392994de.html">Variable _sseq</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_processor_8cpp_1a94a3e82f0d3db2fd514acadf392994de.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_processor_8cpp_1a009e1e0b46f2c7e335549258bb5b6230.html">Variable _tPayload</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_processor_8cpp_1a009e1e0b46f2c7e335549258bb5b6230.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__arduino_unique_i_d_8cpp_1a4ebddd6ffbf4ee77d34d51d7e87c85d2.html">Variable _UniqueID</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__arduino_unique_i_d_8cpp_1a4ebddd6ffbf4ee77d34d51d7e87c85d2.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__arduino_unique_i_d_8h_1a4ebddd6ffbf4ee77d34d51d7e87c85d2.html">Variable _UniqueID</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__arduino_unique_i_d_8h_1a4ebddd6ffbf4ee77d34d51d7e87c85d2.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__c_l_icommands_8cpp_1af7edababa419584d038a5bcbf1cc771d.html">Variable diagNetwork</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__c_l_icommands_8cpp_1af7edababa419584d038a5bcbf1cc771d.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_8cpp_1af7edababa419584d038a5bcbf1cc771d.html">Variable diagNetwork</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_8cpp_1af7edababa419584d038a5bcbf1cc771d.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_processor_8cpp_1af7edababa419584d038a5bcbf1cc771d.html">Variable diagNetwork</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_processor_8cpp_1af7edababa419584d038a5bcbf1cc771d.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__c_l_icommands_8cpp_1a90538335e7e6e7f444374f84213c0409.html">Variable diagNetworkClient</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__c_l_icommands_8cpp_1a90538335e7e6e7f444374f84213c0409.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_8cpp_1a90538335e7e6e7f444374f84213c0409.html">Variable diagNetworkClient</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_8cpp_1a90538335e7e6e7f444374f84213c0409.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_processor_8cpp_1a90538335e7e6e7f444374f84213c0409.html">Variable diagNetworkClient</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_processor_8cpp_1a90538335e7e6e7f444374f84213c0409.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_interface_8cpp_1a16a00081cc75bf1396bda88f79ec5cf6.html">Variable ethernetTransport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_interface_8cpp_1a16a00081cc75bf1396bda88f79ec5cf6.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__shell_8cpp_1adc22b9a2a7887a4a3b66e86d6927bc0a.html">Variable firstCmd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__shell_8cpp_1adc22b9a2a7887a4a3b66e86d6927bc0a.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_processor_8cpp_1afa7eb7acfa8d633cb3155e420cd49391.html">Variable httpReq</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_processor_8cpp_1afa7eb7acfa8d633cb3155e420cd49391.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__c_l_icommands_8cpp_1afdd77f1aa3023f9ba5f49bb1f6c68b51.html">Variable ledPin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__c_l_icommands_8cpp_1afdd77f1aa3023f9ba5f49bb1f6c68b51.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__c_l_icommands_8cpp_1ab37864cf3fab6cc29d0d467556eb43b0.html">Variable PROGMEM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__c_l_icommands_8cpp_1ab37864cf3fab6cc29d0d467556eb43b0.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__terminal_8cpp_1ad725b10d18aacac2902dd26ca569e861.html">Variable PROGMEM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__terminal_8cpp_1ad725b10d18aacac2902dd26ca569e861.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_processor_8cpp_1a015b3e76f7deb14fbdffea26513a0538.html">Variable protocolName</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_processor_8cpp_1a015b3e76f7deb14fbdffea26513a0538.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__transport_8cpp_1ae1bf58c4a1fd09ecd2dadcd745104365.html">Variable shell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__transport_8cpp_1ae1bf58c4a1fd09ecd2dadcd745104365.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__c_l_icommands_8cpp_1a509db2befcf6ab4273dc5c64b2983646.html">Variable shell_info_attach</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__c_l_icommands_8cpp_1a509db2befcf6ab4273dc5c64b2983646.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__c_l_icommands_8cpp_1a28aa0a202ae0f61d5b61c9f1ac7d988b.html">Variable shell_info_led</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__c_l_icommands_8cpp_1a28aa0a202ae0f61d5b61c9f1ac7d988b.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="variable__network_interface_8cpp_1a5f3db7b62ec540f0a24486bcd5692827.html">Variable wifiTransport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable__network_interface_8cpp_1a5f3db7b62ec540f0a24486bcd5692827.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="defines">
+<h3>Defines<a class="headerlink" href="#defines" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__wifi_setup_8h_1a7b427b491a712490620b56f1c67af59b.html">Define AT_BAUD_RATE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__wifi_setup_8h_1a7b427b491a712490620b56f1c67af59b.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1aa3e84b22f144b0fc10c717cdf8add0ff.html">Define CLI_ENABLED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1aa3e84b22f144b0fc10c717cdf8add0ff.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__c_l_icommands_8h_1a998de25b501ab5d51b67e386e63fc47d.html">Define CLICommands_h</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__c_l_icommands_8h_1a998de25b501ab5d51b67e386e63fc47d.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1a445a14d10ffdece08ce75cb22baf2c6e.html">Define DBG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1a445a14d10ffdece08ce75cb22baf2c6e.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1ad72dbcf6d0153db1b8d8a58001feed83.html">Define DEBUG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1ad72dbcf6d0153db1b8d8a58001feed83.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__d_i_a_g_8h_1ad2390c07b2f83f490ae971a3fdc0c18b.html">Define DIAG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__d_i_a_g_8h_1ad2390c07b2f83f490ae971a3fdc0c18b.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1ace431af7538cd4bbd56d61731e08b887.html">Define EH_DW</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1ace431af7538cd4bbd56d61731e08b887.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1ac4d460558dd2106b51b9d5216a2527fa.html">Define EH_IFIL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1ac4d460558dd2106b51b9d5216a2527fa.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1a6d98b0bab9c715fda514c71e0100d038.html">Define EH_IFLL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1a6d98b0bab9c715fda514c71e0100d038.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1aa173aaa724787eeb93e96de0e5556d76.html">Define ERR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1aa173aaa724787eeb93e96de0e5556d76.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a67735749f977e22e06c4e13c82c0e526.html">Define HTTP_ATTRIB_NAME</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a67735749f977e22e06c4e13c82c0e526.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a3a0993fad8078fbf81256623c4129f8c.html">Define HTTP_ATTRIB_VALUE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a3a0993fad8078fbf81256623c4129f8c.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1aee7c4381aa1e323ebd709394409c113c.html">Define HTTP_COOKIE_NAME</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1aee7c4381aa1e323ebd709394409c113c.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1adb1584d945b1a14133ed0c237470d930.html">Define HTTP_COOKIE_VALUE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1adb1584d945b1a14133ed0c237470d930.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a81875c11cc2e55296b23f93e56ce0864.html">Define HTTP_GET_NAME</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a81875c11cc2e55296b23f93e56ce0864.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1aa7a2d22acb34eb9559ddd20dc2146a29.html">Define HTTP_GET_VALUE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1aa7a2d22acb34eb9559ddd20dc2146a29.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1ae5e76edf6a6480d83a76c1544bad01e7.html">Define HTTP_METHOD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1ae5e76edf6a6480d83a76c1544bad01e7.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1ad839df06d1c3091999bdc312fb441368.html">Define HTTP_NEW_LINE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1ad839df06d1c3091999bdc312fb441368.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a682fff48755d27329498caec73c2e61d.html">Define HTTP_PARSE_INIT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a682fff48755d27329498caec73c2e61d.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1ae01c18f9d4e3679c292e9b21be9e9206.html">Define HTTP_POST_NAME</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1ae01c18f9d4e3679c292e9b21be9e9206.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a0973776a5f7bdf62699d3e914ff97003.html">Define HTTP_POST_VALUE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a0973776a5f7bdf62699d3e914ff97003.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a7afe30feaf4e98aab92485c4ec8068da.html">Define HTTP_REQ_ATTRIB_NAME_LENGTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a7afe30feaf4e98aab92485c4ec8068da.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a0c3608ec4c75bcde9c38eaa60ada668f.html">Define HTTP_REQ_ATTRIB_VALUE_LENGTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a0c3608ec4c75bcde9c38eaa60ada668f.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a99c2a5fc310d8f352e4b59087737b88a.html">Define HTTP_REQ_COOKIE_NAME_LENGTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a99c2a5fc310d8f352e4b59087737b88a.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a33e32a04064e548efc28d95c723e1933.html">Define HTTP_REQ_COOKIE_VALUE_LENGTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a33e32a04064e548efc28d95c723e1933.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1aca58fe395280cd8077ea5d1999145ddc.html">Define HTTP_REQ_METHOD_LENGTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1aca58fe395280cd8077ea5d1999145ddc.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a82083c89dc72c1776355fe0a152277b8.html">Define HTTP_REQ_PARAM_NAME_LENGTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a82083c89dc72c1776355fe0a152277b8.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a87519df87eaaafa2fc14b27379d63470.html">Define HTTP_REQ_PARAM_VALUE_LENGTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a87519df87eaaafa2fc14b27379d63470.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a0ec530c60ebb3f6de9bf47c7c4f894ef.html">Define HTTP_REQ_URI_LENGTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a0ec530c60ebb3f6de9bf47c7c4f894ef.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a420af414119513f2f7c3db18c457122e.html">Define HTTP_REQ_VERSION_LENGTH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a420af414119513f2f7c3db18c457122e.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a25ba2975bc595fc3657ba9dffa5f3dbb.html">Define HTTP_REQUEST_END</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a25ba2975bc595fc3657ba9dffa5f3dbb.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a07de66a85d4c2f42a9f71e46278c34ca.html">Define HTTP_URI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a07de66a85d4c2f42a9f71e46278c34ca.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__http_request_8h_1a8bb9017f30ff8959b7916f558c82d306.html">Define HTTP_VERSION</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__http_request_8h_1a8bb9017f30ff8959b7916f558c82d306.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1ae19e2dbb70909d3e3311b8577efa9f93.html">Define INFO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1ae19e2dbb70909d3e3311b8577efa9f93.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1ad8a262037cbfb38d1512f0073eeb7a66.html">Define IP_ADDRESS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1ad8a262037cbfb38d1512f0073eeb7a66.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af8ebcd5ffe52d71cacb96b0fdff0fa91.html">Define KEY_BACK_TAB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af8ebcd5ffe52d71cacb96b0fdff0fa91.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a1e9a449dee19c686a2af4edcdc1a1042.html">Define KEY_BACKSPACE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a1e9a449dee19c686a2af4edcdc1a1042.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aaac34940ff83d1431044aaca015639ce.html">Define KEY_CAPS_LOCK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aaac34940ff83d1431044aaca015639ce.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a1d654db2e04ad94a58f880fb9e127ad6.html">Define KEY_DELETE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a1d654db2e04ad94a58f880fb9e127ad6.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a882b457a13b4fd20a9f7c1ccba5a62d0.html">Define KEY_DOWN_ARROW</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a882b457a13b4fd20a9f7c1ccba5a62d0.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a912861b945e779c29f718cdcd62be10c.html">Define KEY_END</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a912861b945e779c29f718cdcd62be10c.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a86b2b2d4eda22067d85d2287c118e2d8.html">Define KEY_ESC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a86b2b2d4eda22067d85d2287c118e2d8.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a2772a1f7024ba1fd62e88ec1adb541f8.html">Define KEY_F1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a2772a1f7024ba1fd62e88ec1adb541f8.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ad37282615edb2c357149c2a1342b4a85.html">Define KEY_F10</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ad37282615edb2c357149c2a1342b4a85.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1abd820bb8b4b2a47e4210401b13789106.html">Define KEY_F11</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1abd820bb8b4b2a47e4210401b13789106.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a0a3de83275f6bbc2b88692f947f0d595.html">Define KEY_F12</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a0a3de83275f6bbc2b88692f947f0d595.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af87d33df472dd073863b12035c7bd1d4.html">Define KEY_F13</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af87d33df472dd073863b12035c7bd1d4.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ad566421e6cb409e725578835e9e328bb.html">Define KEY_F14</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ad566421e6cb409e725578835e9e328bb.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a4835f0dc20db5a4d3433acab66236595.html">Define KEY_F15</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a4835f0dc20db5a4d3433acab66236595.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1afea8064b70679bb9e0389d5f6621a2f2.html">Define KEY_F16</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1afea8064b70679bb9e0389d5f6621a2f2.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a6fa230f5d490af7d6ef87a88ca2db5ae.html">Define KEY_F17</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a6fa230f5d490af7d6ef87a88ca2db5ae.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a2f93cd984f0472309d8af80e1e2f947f.html">Define KEY_F18</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a2f93cd984f0472309d8af80e1e2f947f.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a5bf91538e8323ad995199c817045b26e.html">Define KEY_F19</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a5bf91538e8323ad995199c817045b26e.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ae2e2edb31bb7796786da12f85f2d5cd1.html">Define KEY_F2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ae2e2edb31bb7796786da12f85f2d5cd1.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a49e680a4ea19e73fb97fe98b0891b0b5.html">Define KEY_F20</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a49e680a4ea19e73fb97fe98b0891b0b5.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a0084ae075bfc60dc50f2a11c2fdf299f.html">Define KEY_F21</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a0084ae075bfc60dc50f2a11c2fdf299f.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ab481f83ccc2f1af97e32fcef5bf5c7f3.html">Define KEY_F22</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ab481f83ccc2f1af97e32fcef5bf5c7f3.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aae4824ffb7a7f7e29443290c503e6718.html">Define KEY_F23</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aae4824ffb7a7f7e29443290c503e6718.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aa495d7fdfc50768240f0838fcebbd54b.html">Define KEY_F24</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aa495d7fdfc50768240f0838fcebbd54b.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a38ebe8e5c5f1d5727c9638bf79fc3952.html">Define KEY_F3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a38ebe8e5c5f1d5727c9638bf79fc3952.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ab99474b01ffcbc57d74b60a77895e5e8.html">Define KEY_F4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ab99474b01ffcbc57d74b60a77895e5e8.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a2a0aae1931111382ade29fd75ef64790.html">Define KEY_F5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a2a0aae1931111382ade29fd75ef64790.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ad31281b771b8b85f4aa98bbd527d91a0.html">Define KEY_F6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ad31281b771b8b85f4aa98bbd527d91a0.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a7eed6766ef9ddb721c6a2bce807fc9dc.html">Define KEY_F7</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a7eed6766ef9ddb721c6a2bce807fc9dc.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a7a8ad03f07f2e4757a70385e88fbbe3c.html">Define KEY_F8</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a7a8ad03f07f2e4757a70385e88fbbe3c.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a417a382624f91fb0cdfdf1c33adc8c90.html">Define KEY_F9</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a417a382624f91fb0cdfdf1c33adc8c90.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af6806366178266b3eaf1fb16f991cbee.html">Define KEY_HOME</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af6806366178266b3eaf1fb16f991cbee.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aaa67a531439790dc20ed750f482d4a3e.html">Define KEY_INSERT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1aaa67a531439790dc20ed750f482d4a3e.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a9a8100ac50bf8e0227c66f85312d1eec.html">Define KEY_LEFT_ARROW</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a9a8100ac50bf8e0227c66f85312d1eec.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1accb7a413ed6fa7db7192fc957d477ab8.html">Define KEY_NUM_LOCK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1accb7a413ed6fa7db7192fc957d477ab8.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af4f1ead45029692ae2581de5ecd567d5.html">Define KEY_NUMPAD_5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1af4f1ead45029692ae2581de5ecd567d5.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a83760e7f00c16682c746c2844c712b01.html">Define KEY_PAGE_DOWN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a83760e7f00c16682c746c2844c712b01.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a148dd567ca75b9320e8862d54139406a.html">Define KEY_PAGE_UP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a148dd567ca75b9320e8862d54139406a.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ae176aa9af3d2acaeba5b8453aff5bbbf.html">Define KEY_PAUSE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ae176aa9af3d2acaeba5b8453aff5bbbf.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a77e8247cb7e0a962a50ecdc6c1dd4a8d.html">Define KEY_PRINT_SCREEN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a77e8247cb7e0a962a50ecdc6c1dd4a8d.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1afe5716cf1626fceab51044a6c2492831.html">Define KEY_RETURN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1afe5716cf1626fceab51044a6c2492831.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a6b1df3d1cbf22d04b162eb6a89068b5d.html">Define KEY_RIGHT_ARROW</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a6b1df3d1cbf22d04b162eb6a89068b5d.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ab94d4309f6059492ef7dbf1a880cf7e0.html">Define KEY_SCROLL_LOCK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1ab94d4309f6059492ef7dbf1a880cf7e0.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a4fa9fbcc86d5ee884a821459a87f3a54.html">Define KEY_TAB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a4fa9fbcc86d5ee884a821459a87f3a54.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__terminal_8h_1a77654215ca6bdb1a31744bb97e755a18.html">Define KEY_UNICODE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__terminal_8h_1a77654215ca6bdb1a31744bb97e755a18.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a5b54ad0499f58e98c864e521be5676fa.html">Define KEY_UP_ARROW</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__u_s_b_keys_extra_8h_1a5b54ad0499f58e98c864e521be5676fa.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__terminal_8h_1a4fb31cc7c408cd5c0ab57f11bb2727d3.html">Define KEY_WINSIZE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__terminal_8h_1a4fb31cc7c408cd5c0ab57f11bb2727d3.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__shell_8cpp_1a19023760edac5c6498e72d535a24e080.html">Define LINEMODE_DELAY</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__shell_8cpp_1a19023760edac5c6498e72d535a24e080.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__shell_8cpp_1ab091102d2c3f669a120e84367a265ddc.html">Define LINEMODE_ECHO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__shell_8cpp_1ab091102d2c3f669a120e84367a265ddc.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__shell_8cpp_1a5cdc2b16ed480998ad559ee7905bb9dc.html">Define LINEMODE_NORMAL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__shell_8cpp_1a5cdc2b16ed480998ad559ee7905bb9dc.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__shell_8cpp_1a31d3833f84e577834845a901e94abd09.html">Define LINEMODE_PASSWORD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__shell_8cpp_1a31d3833f84e577834845a901e94abd09.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__shell_8cpp_1ae6b224013dff5b99d5969b1826519c25.html">Define LINEMODE_PROMPT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__shell_8cpp_1ae6b224013dff5b99d5969b1826519c25.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__shell_8cpp_1a944a3710774a951739eae184f2297608.html">Define LINEMODE_USERNAME</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__shell_8cpp_1a944a3710774a951739eae184f2297608.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1a4fba0963c20988d1f1a45afb1c636e44.html">Define LISTEN_PORT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1a4fba0963c20988d1f1a45afb1c636e44.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__shell_8cpp_1a6412422f2ff6dcecc4b2cdc946983838.html">Define LOGIN_SHELL_DELAY</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__shell_8cpp_1a6412422f2ff6dcecc4b2cdc946983838.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1a6c6fd5e242df15a7a42e9b75d55d5d3c.html">Define LOGLEVEL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1a6c6fd5e242df15a7a42e9b75d55d5d3c.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1a842c7e9c95f3e750b4b4b380f815299b.html">Define LOGV_DEBUG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1a842c7e9c95f3e750b4b4b380f815299b.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1a14b0d6e9a6faa5377922541e7a316827.html">Define LOGV_ERROR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1a14b0d6e9a6faa5377922541e7a316827.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1ac1f1602d76ec20977954bb9b7d20e725.html">Define LOGV_INFO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1ac1f1602d76ec20977954bb9b7d20e725.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1aba82502c9613ef37b458cc3886a5e076.html">Define LOGV_SILENT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1aba82502c9613ef37b458cc3886a5e076.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1ac3a1abc6581e61b0186914e18e4e2149.html">Define LOGV_TRACE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1ac3a1abc6581e61b0186914e18e4e2149.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1ac900b15ffe42dd649338b2ef5b4c0ccc.html">Define LOGV_WARN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1ac900b15ffe42dd649338b2ef5b4c0ccc.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1a0cb4fc37d244ce985851dd2958ae0b94.html">Define MAC_ADDRESS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1a0cb4fc37d244ce985851dd2958ae0b94.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1a4662280c82f67a3cdb4c528fde9e682c.html">Define MAX_ETH_BUFFER</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1a4662280c82f67a3cdb4c528fde9e682c.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1a10bf2917a6a4297e21e03f60c487f591.html">Define MAX_INTERFACES</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1a10bf2917a6a4297e21e03f60c487f591.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1a4fc9bdc92501e74ac247760dc0c8f3ad.html">Define MAX_JMRI_CMD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1a4fc9bdc92501e74ac247760dc0c8f3ad.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1a09fdbf3d9ac8ffe5a6bc5a7c3c29293a.html">Define MAX_OVERFLOW</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1a09fdbf3d9ac8ffe5a6bc5a7c3c29293a.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1ae5a2e3b1eefb3a10a2485e28a4ccdb59.html">Define MAX_SOCK_NUM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1ae5a2e3b1eefb3a10a2485e28a4ccdb59.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_config_8h_1a425484190fd0727155e363d1c9d2083e.html">Define MAX_WIFI_SOCK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_config_8h_1a425484190fd0727155e363d1c9d2083e.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_setup_8h_1a881258fce424df363d3100d830f76f1d.html">Define MAXDEVICEID</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_setup_8h_1a881258fce424df363d3100d830f76f1d.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1aa66e672fcdfed1de0546b847396c6380.html">Define NDIAG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1aa66e672fcdfed1de0546b847396c6380.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__shell_8cpp_1a83f51b90088a8538fb233b1e9ebd2daf.html">Define progmem_strcmp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__shell_8cpp_1a83f51b90088a8538fb233b1e9ebd2daf.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__shell_8h_1a289fac62523ab75893db741e94e0d78e.html">Define SHELL_MAX_CMD_LEN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__shell_8h_1a289fac62523ab75893db741e94e0d78e.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1ae31fb81e1fe3e5c44839e319a44c8c5e.html">Define TRC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1ae31fb81e1fe3e5c44839e319a44c8c5e.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__arduino_unique_i_d_8h_1a7dcb5f192e52fca99d06f966a9ae9716.html">Define UniqueID</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__arduino_unique_i_d_8h_1a7dcb5f192e52fca99d06f966a9ae9716.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__arduino_unique_i_d_8h_1af3b60fbf2a19753bbf26a0267eb7403b.html">Define UniqueID8</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__arduino_unique_i_d_8h_1af3b60fbf2a19753bbf26a0267eb7403b.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__arduino_unique_i_d_8h_1a60c7f6e6c50aa1b25ebee781ff7ef7e6.html">Define UniqueID8dump</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__arduino_unique_i_d_8h_1a60c7f6e6c50aa1b25ebee781ff7ef7e6.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__arduino_unique_i_d_8h_1a218d287b966ad6a63e214504f640302d.html">Define UniqueIDdump</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__arduino_unique_i_d_8h_1a218d287b966ad6a63e214504f640302d.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="define__network_diag_8h_1a899e8c12f9c3b0c57e70fa25e87db5a0.html">Define WARN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define__network_diag_8h_1a899e8c12f9c3b0c57e70fa25e87db5a0.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="typedefs">
+<h3>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef__transport_8h_1a1e2f1fb81692457c4b64d606dc1c9217.html">Typedef appProtocolCallback</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef__transport_8h_1a1e2f1fb81692457c4b64d606dc1c9217.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef__network_interface_8h_1a956a1a6eb4f3ad86434c3e9d1ea45907.html">Typedef HttpCallback</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef__network_interface_8h_1a956a1a6eb4f3ad86434c3e9d1ea45907.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef__transport_8h_1a498e679a10f06d3daf64e85fb8ad9b58.html">Typedef loopHandler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef__transport_8h_1a498e679a10f06d3daf64e85fb8ad9b58.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef__network_interface_8h_1a3d524451a44296541faccbb5c2d6bdfb.html">Typedef protocolType</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef__network_interface_8h_1a3d524451a44296541faccbb5c2d6bdfb.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef__shell_8h_1ad3aab40fbf685102df6bf7e9f163f22a.html">Typedef ShellCommandFunc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef__shell_8h_1ad3aab40fbf685102df6bf7e9f163f22a.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef__login_shell_8h_1a20b319df016a5503d88e18b7422bad2b.html">Typedef ShellPasswordCheckFunc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef__login_shell_8h_1a20b319df016a5503d88e18b7422bad2b.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typedef__network_interface_8h_1a098ed0759f349f3b682c046ab1bf06b0.html">Typedef transportType</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef__network_interface_8h_1a098ed0759f349f3b682c046ab1bf06b0.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="namespace_TelnetDefs.html" class="btn btn-neutral float-right" title="Namespace TelnetDefs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../FlashESP.html" class="btn btn-neutral float-left" title="How to flash your ESP for the right AT commandset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

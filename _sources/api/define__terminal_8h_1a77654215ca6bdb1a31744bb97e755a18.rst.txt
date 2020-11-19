@@ -1,0 +1,13 @@
+.. _exhale_define__terminal_8h_1a77654215ca6bdb1a31744bb97e755a18:
+
+Define KEY_UNICODE
+==================
+
+- Defined in :ref:`file_src_cli_Terminal.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_UNICODE

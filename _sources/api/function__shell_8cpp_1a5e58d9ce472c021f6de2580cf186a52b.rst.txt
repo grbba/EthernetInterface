@@ -1,0 +1,13 @@
+.. _exhale_function__shell_8cpp_1a5e58d9ce472c021f6de2580cf186a52b:
+
+Function readInfoHelp
+=====================
+
+- Defined in :ref:`file_src_cli_Shell.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: readInfoHelp(const ShellCommandInfo *)

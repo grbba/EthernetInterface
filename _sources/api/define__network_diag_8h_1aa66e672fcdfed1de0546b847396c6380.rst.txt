@@ -1,0 +1,13 @@
+.. _exhale_define__network_diag_8h_1aa66e672fcdfed1de0546b847396c6380:
+
+Define NDIAG
+============
+
+- Defined in :ref:`file_src_NetworkDiag.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: NDIAG

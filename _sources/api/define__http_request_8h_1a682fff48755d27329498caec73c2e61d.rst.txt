@@ -1,0 +1,13 @@
+.. _exhale_define__http_request_8h_1a682fff48755d27329498caec73c2e61d:
+
+Define HTTP_PARSE_INIT
+======================
+
+- Defined in :ref:`file_src_HttpRequest.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: HTTP_PARSE_INIT

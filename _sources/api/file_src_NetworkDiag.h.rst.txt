@@ -1,0 +1,126 @@
+
+.. _file_src_NetworkDiag.h:
+
+File NetworkDiag.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/NetworkDiag.h``)
+----------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_NetworkDiag.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Arduino.h``
+
+- ``StringFormatter.h`` (:ref:`file_src_StringFormatter.h`)
+
+- ``TransportProcessor.h`` (:ref:`file_src_TransportProcessor.h`)
+
+- ``freeMemory.h`` (:ref:`file_src_freeMemory.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_cli_CLIcommands.cpp`
+
+- :ref:`file_src_cli_Shell.cpp`
+
+- :ref:`file_src_EthernetSetup.cpp`
+
+- :ref:`file_src_HttpRequest.cpp`
+
+- :ref:`file_src_NetworkInterface.cpp`
+
+- :ref:`file_src_NetworkSetup.cpp`
+
+- :ref:`file_src_Transport.cpp`
+
+- :ref:`file_src_TransportProcessor.cpp`
+
+- :ref:`file_src_WifiSetup.cpp`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_class_network_diag`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define__network_diag_8h_1a445a14d10ffdece08ce75cb22baf2c6e`
+
+- :ref:`exhale_define__network_diag_8h_1ad72dbcf6d0153db1b8d8a58001feed83`
+
+- :ref:`exhale_define__network_diag_8h_1ace431af7538cd4bbd56d61731e08b887`
+
+- :ref:`exhale_define__network_diag_8h_1ac4d460558dd2106b51b9d5216a2527fa`
+
+- :ref:`exhale_define__network_diag_8h_1a6d98b0bab9c715fda514c71e0100d038`
+
+- :ref:`exhale_define__network_diag_8h_1aa173aaa724787eeb93e96de0e5556d76`
+
+- :ref:`exhale_define__network_diag_8h_1ae19e2dbb70909d3e3311b8577efa9f93`
+
+- :ref:`exhale_define__network_diag_8h_1a6c6fd5e242df15a7a42e9b75d55d5d3c`
+
+- :ref:`exhale_define__network_diag_8h_1a842c7e9c95f3e750b4b4b380f815299b`
+
+- :ref:`exhale_define__network_diag_8h_1a14b0d6e9a6faa5377922541e7a316827`
+
+- :ref:`exhale_define__network_diag_8h_1ac1f1602d76ec20977954bb9b7d20e725`
+
+- :ref:`exhale_define__network_diag_8h_1aba82502c9613ef37b458cc3886a5e076`
+
+- :ref:`exhale_define__network_diag_8h_1ac3a1abc6581e61b0186914e18e4e2149`
+
+- :ref:`exhale_define__network_diag_8h_1ac900b15ffe42dd649338b2ef5b4c0ccc`
+
+- :ref:`exhale_define__network_diag_8h_1aa66e672fcdfed1de0546b847396c6380`
+
+- :ref:`exhale_define__network_diag_8h_1ae31fb81e1fe3e5c44839e319a44c8c5e`
+
+- :ref:`exhale_define__network_diag_8h_1a899e8c12f9c3b0c57e70fa25e87db5a0`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable__network_diag_8h_1ae18f5366af227ae3ecf084dde54c555c`
+
+- :ref:`exhale_variable__network_diag_8h_1ad548e02bb802224da4f15de29be3f758`
+
+- :ref:`exhale_variable__network_diag_8h_1a155bd5f482b472779779a7e91f3d7461`
+
+- :ref:`exhale_variable__network_diag_8h_1a9e46bbda4fd7d79cc53a441a5fb188eb`
+
+- :ref:`exhale_variable__network_diag_8h_1a611cac484729e35cb94f29fda8924a9f`
+

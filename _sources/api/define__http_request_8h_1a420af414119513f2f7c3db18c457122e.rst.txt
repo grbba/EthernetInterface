@@ -1,0 +1,13 @@
+.. _exhale_define__http_request_8h_1a420af414119513f2f7c3db18c457122e:
+
+Define HTTP_REQ_VERSION_LENGTH
+==============================
+
+- Defined in :ref:`file_src_HttpRequest.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: HTTP_REQ_VERSION_LENGTH

@@ -1,0 +1,13 @@
+.. _exhale_variable__c_l_icommands_8cpp_1afdd77f1aa3023f9ba5f49bb1f6c68b51:
+
+Variable ledPin
+===============
+
+- Defined in :ref:`file_src_cli_CLIcommands.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ledPin

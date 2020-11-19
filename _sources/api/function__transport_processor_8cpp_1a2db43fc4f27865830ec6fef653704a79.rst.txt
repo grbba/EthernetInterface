@@ -1,0 +1,13 @@
+.. _exhale_function__transport_processor_8cpp_1a2db43fc4f27865830ec6fef653704a79:
+
+Function setAppProtocol
+=======================
+
+- Defined in :ref:`file_src_TransportProcessor.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: setAppProtocol(char, char, Connection *)

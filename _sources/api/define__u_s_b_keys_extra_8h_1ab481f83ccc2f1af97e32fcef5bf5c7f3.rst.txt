@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1ab481f83ccc2f1af97e32fcef5bf5c7f3:
+
+Define KEY_F22
+==============
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_F22

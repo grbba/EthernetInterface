@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class Shell &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class ShellArguments" href="class_shell_arguments.html" />
+    <link rel="prev" title="Class NetworkSetup" href="class_network_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="library_root.html">NetworkInterface API</a> &raquo;</li>
+        
+      <li>Class Shell</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/class_shell.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-shell">
+<span id="exhale-class-class-shell"></span><h1>Class Shell<a class="headerlink" href="#class-shell" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_src_cli_Shell.h.html#file-src-cli-shell-h"><span class="std std-ref">File Shell.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Terminal</span></code> (<a class="reference internal" href="class_terminal.html#exhale-class-class-terminal"><span class="std std-ref">Class Terminal</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">LoginShell</span></code> (<a class="reference internal" href="class_login_shell.html#exhale-class-class-login-shell"><span class="std std-ref">Class LoginShell</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt id="_CPPv45Shell">
+<span id="_CPPv35Shell"></span><span id="_CPPv25Shell"></span><span id="Shell"></span><span class="target" id="class_shell"></span><em class="property">class </em><code class="sig-name descname">Shell</code> : <em class="property">public</em> <a class="reference internal" href="class_terminal.html#_CPPv48Terminal" title="Terminal">Terminal</a><a class="headerlink" href="#_CPPv45Shell" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Command-line shell access. </p>
+<p>This class provides a command-line shell via serial ports, TCP connections, or any other type of Stream.</p>
+<p>The following example is the minimal setup for a command-line shell on a serial port. The application calls <a class="reference internal" href="#class_shell_1ad9acba905b6e0b661cce19d57c067990"><span class="std std-ref">begin()</span></a> to set the underlying Stream, and periodically calls <a class="reference internal" href="#class_shell_1afc45cae4ccfc76321a254bb617dce08c"><span class="std std-ref">loop()</span></a> to manage shell-related events.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Shell</span> <span class="n">shell</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+    <span class="n">shell</span><span class="p">.</span><span class="n">setPrompt</span><span class="p">(</span><span class="s">&quot;$ &quot;</span><span class="p">);</span>
+    <span class="n">shell</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">Serial</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">shell</span><span class="p">.</span><span class="n">loop</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p>Commands can be registered with the shell by the application to be invoked when the user types in the corresponding command. Each command is associated with a handler function:</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">cmdMotor</span><span class="p">(</span><span class="n">Shell</span> <span class="o">&amp;</span><span class="n">shell</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="n">ShellArguments</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="n">ShellCommand</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="s">&quot;Turn the motor on or off&quot;</span><span class="p">,</span> <span class="n">cmdMotor</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p>There are two standard commands built into <a class="reference internal" href="#class_shell"><span class="std std-ref">Shell</span></a>: “help” and “exit”. The “help” command provides a list of all registered commands with the short help string from the <a class="reference internal" href="#class_shell_1a809d96cf913bf11d02f3c0d51a120740"><span class="std std-ref">ShellCommand()</span></a> registration. The “exit” command logs the user out and returns to the login prompt, or stops the underlying connection in the case of TCP streams.</p>
+<p>The F1 key can be used as a synonym for “help” and CTRL-D can be used as a synonym for “exit”.</p>
+<p><a class="reference internal" href="#class_shell"><span class="std std-ref">Shell</span></a> provides some limited history editing for scrolling back through previous commands. The size of the history stack is provided in the second argument to <a class="reference internal" href="#class_shell_1ad9acba905b6e0b661cce19d57c067990"><span class="std std-ref">begin()</span></a>:</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">shell</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">Serial</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="class_login_shell.html#class_login_shell"><span class="std std-ref">LoginShell</span></a>, <a class="reference internal" href="class_terminal.html#class_terminal"><span class="std std-ref">Terminal</span></a> </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="class_login_shell.html#class_login_shell"><span class="std std-ref">LoginShell</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell5ShellEv">
+<span id="_CPPv3N5Shell5ShellEv"></span><span id="_CPPv2N5Shell5ShellEv"></span><span id="Shell::Shell"></span><span class="target" id="class_shell_1ad613444a902075e8fd26b1f51c4d3b63"></span><code class="sig-name descname">Shell</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell5ShellEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs a new <a class="reference internal" href="#class_shell"><span class="std std-ref">Shell</span></a> instance. </p>
+<p>This constructor must be followed by a call to <a class="reference internal" href="#class_shell_1ad9acba905b6e0b661cce19d57c067990"><span class="std std-ref">begin()</span></a> to specify the underlying I/O stream. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5ShellD0Ev">
+<span id="_CPPv3N5ShellD0Ev"></span><span id="_CPPv2N5ShellD0Ev"></span><span id="Shell::~Shell"></span><span class="target" id="class_shell_1a95f78f499b3dfd9c83f4099cf90ef3df"></span><code class="sig-name descname">~Shell</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5ShellD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destroys this <a class="reference internal" href="#class_shell"><span class="std std-ref">Shell</span></a> object. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell5beginER6Stream6size_tN8Terminal4ModeE">
+<span id="_CPPv3N5Shell5beginER6Stream6size_tN8Terminal4ModeE"></span><span id="_CPPv2N5Shell5beginER6Stream6size_tN8Terminal4ModeE"></span><span id="Shell::begin__StreamR.s.Terminal::Mode"></span><span class="target" id="class_shell_1ad9acba905b6e0b661cce19d57c067990"></span>bool <code class="sig-name descname">begin</code><span class="sig-paren">(</span>Stream &amp;<em>stream</em>, size_t <em>maxHistory</em> = 0, <a class="reference internal" href="class_terminal.html#_CPPv48Terminal" title="Terminal">Terminal</a>::<a class="reference internal" href="class_terminal.html#_CPPv4N8Terminal4ModeE" title="Terminal::Mode">Mode</a> <em>mode</em> = Serial<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell5beginER6Stream6size_tN8Terminal4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Begin shell handling on an underlying character stream. </p>
+<p><p>This function will print the </p>
+<a class="reference internal" href="#class_shell_1a7a8bbb229b0c49e32a8ef9e9c00c697e"><span class="std std-ref">prompt()</span></a> in preparation for entry of the first command. The default prompt is “$ “; call <a class="reference internal" href="#class_shell_1a89d802eae5b716e80b2c4dfbce0a0a75"><span class="std std-ref">setPrompt()</span></a> before <a class="reference internal" href="#class_shell_1ad9acba905b6e0b661cce19d57c067990"><span class="std std-ref">begin()</span></a> to change this:<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Returns false if there is insufficient memory for the history stack. The session will continue but without command history.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stream</span></code>: The stream to apply the shell to. Usually this is a serial port or TCP network connection. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxHistory</span></code>: The number of commands to allocate in the history stack for scrolling back through using Up/Down arrow keys. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: The terminal mode to operate in, <a class="reference internal" href="class_terminal.html#class_terminal_1a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6"><span class="std std-ref">Terminal::Serial</span></a> or <a class="reference internal" href="class_terminal.html#class_terminal_1a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7"><span class="std std-ref">Terminal::Telnet</span></a>. Default is <a class="reference internal" href="class_terminal.html#class_terminal_1a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6"><span class="std std-ref">Terminal::Serial</span></a>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">setPrompt</span><span class="p">(</span><span class="s">&quot;Command: &quot;</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">Serial</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p>The <em>maxHistory</em> parameter indicates the number of commands of maximum length that can be stored in the history. If the actual entered commands are shorter, then more commands can be stored in the history.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_shell_1a8a654aadd0b6a379309bb1007749e41d"><span class="std std-ref">end()</span></a>, <a class="reference internal" href="#class_shell_1a89d802eae5b716e80b2c4dfbce0a0a75"><span class="std std-ref">setPrompt()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell5beginER6Client6size_tN8Terminal4ModeE">
+<span id="_CPPv3N5Shell5beginER6Client6size_tN8Terminal4ModeE"></span><span id="_CPPv2N5Shell5beginER6Client6size_tN8Terminal4ModeE"></span><span id="Shell::begin__ClientR.s.Terminal::Mode"></span><span class="target" id="class_shell_1a3ff0cc86725388d4fe92520e5a18ad92"></span>bool <code class="sig-name descname">begin</code><span class="sig-paren">(</span>Client &amp;<em>client</em>, size_t <em>maxHistory</em> = 0, <a class="reference internal" href="class_terminal.html#_CPPv48Terminal" title="Terminal">Terminal</a>::<a class="reference internal" href="class_terminal.html#_CPPv4N8Terminal4ModeE" title="Terminal::Mode">Mode</a> <em>mode</em> = Telnet<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell5beginER6Client6size_tN8Terminal4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Begin shell handling on a connected TCP client. </p>
+<p><p>This override is provided as a convenience for starting a shell on a TCP connection. This function also modifies the behaviour of the builtin “exit” command to forcibly stop the TCP connection rather than returning to the login prompt.</p>
+<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Returns true if the shell was initialized, or false if there is insufficient memory for the history stack.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">client</span></code>: The client to apply the shell to. This must be a connected TCP client. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxHistory</span></code>: The number of commands to allocate in the history stack for scrolling back through using Up/Down arrow keys. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: The terminal mode to operate in, <a class="reference internal" href="class_terminal.html#class_terminal_1a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6"><span class="std std-ref">Terminal::Serial</span></a> or <a class="reference internal" href="class_terminal.html#class_terminal_1a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7"><span class="std std-ref">Terminal::Telnet</span></a>. Default is <a class="reference internal" href="class_terminal.html#class_terminal_1a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7"><span class="std std-ref">Terminal::Telnet</span></a>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>The <em>maxHistory</em> parameter indicates the number of commands of maximum length that can be stored in the history. If the actual entered commands are shorter, then more commands can be stored in the history.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_shell_1a8a654aadd0b6a379309bb1007749e41d"><span class="std std-ref">end()</span></a>, <a class="reference internal" href="#class_shell_1a89d802eae5b716e80b2c4dfbce0a0a75"><span class="std std-ref">setPrompt()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell3endEv">
+<span id="_CPPv3N5Shell3endEv"></span><span id="_CPPv2N5Shell3endEv"></span><span id="Shell::end"></span><span class="target" id="class_shell_1a8a654aadd0b6a379309bb1007749e41d"></span>void <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Ends shell processing on the underlying stream. </p>
+<p>This function is intended to be called when a TCP network connection is closed to clean up the shell state that was in use by the connection.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_shell_1ad9acba905b6e0b661cce19d57c067990"><span class="std std-ref">begin()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell4loopEv">
+<span id="_CPPv3N5Shell4loopEv"></span><span id="_CPPv2N5Shell4loopEv"></span><span id="Shell::loop"></span><span class="target" id="class_shell_1afc45cae4ccfc76321a254bb617dce08c"></span>void <code class="sig-name descname">loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell4loopEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs regular activities on the shell. </p>
+<p>This function must be called regularly from the application’s main loop to process input for the shell. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK5Shell6promptEv">
+<span id="_CPPv3NK5Shell6promptEv"></span><span id="_CPPv2NK5Shell6promptEv"></span><span id="Shell::promptC"></span><span class="target" id="class_shell_1a7a8bbb229b0c49e32a8ef9e9c00c697e"></span><em class="property">const</em> char *<code class="sig-name descname">prompt</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK5Shell6promptEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the prompt string to display in the shell. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The current prompt. The default is “$ “.</p>
+</dd>
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_shell_1a89d802eae5b716e80b2c4dfbce0a0a75"><span class="std std-ref">setPrompt()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell9setPromptEPKc">
+<span id="_CPPv3N5Shell9setPromptEPKc"></span><span id="_CPPv2N5Shell9setPromptEPKc"></span><span id="Shell::setPrompt__cCP"></span><span class="target" id="class_shell_1a89d802eae5b716e80b2c4dfbce0a0a75"></span>void <code class="sig-name descname">setPrompt</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>prompt</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell9setPromptEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the prompt string to display in the shell. </p>
+<p><p>Calling this function will change the prompt for the next line of input.</p>
+<dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">prompt</span></code>: The new prompt string. The caller is responsible to ensure that the string persists after this call returns. The <a class="reference internal" href="#class_shell"><span class="std std-ref">Shell</span></a> class does not make a copy of the string.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_shell_1a7a8bbb229b0c49e32a8ef9e9c00c697e"><span class="std std-ref">prompt()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK5Shell6useridEv">
+<span id="_CPPv3NK5Shell6useridEv"></span><span id="_CPPv2NK5Shell6useridEv"></span><span id="Shell::useridC"></span><span class="target" id="class_shell_1a57a0635d19db9ecaf07bc57fad587ab7"></span>int <code class="sig-name descname">userid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK5Shell6useridEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the user identifier for the currently logged in user, or -1 if there is no user logged in currently. </p>
+<p>The user identifier can be used by applications to restrict the set of commands that are available to the user, or to restrict the behaviour of those commands when acting on critical resources.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_shell_1a5db7316a4feb9829beea11dfe65462d2"><span class="std std-ref">setUserid()</span></a>, <a class="reference internal" href="class_login_shell.html#class_login_shell_1adad54b04ec54d3577df4cd11944fff1d"><span class="std std-ref">ShellPasswordCheckFunc</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell9setUseridEi">
+<span id="_CPPv3N5Shell9setUseridEi"></span><span id="_CPPv2N5Shell9setUseridEi"></span><span id="Shell::setUserid__i"></span><span class="target" id="class_shell_1a5db7316a4feb9829beea11dfe65462d2"></span>void <code class="sig-name descname">setUserid</code><span class="sig-paren">(</span>int <em>userid</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell9setUseridEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the user identifier for the currently logged in user. </p>
+<p><p>Normally the user identifier is set when </p>
+<a class="reference internal" href="class_login_shell.html#class_login_shell"><span class="std std-ref">LoginShell</span></a> detects a successful login. This function can be used to alter the access rights of the logged-in user after login.<dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">userid</span></code>: The new user identifier to set, or -1 if there is no user logged in currently.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_shell_1a57a0635d19db9ecaf07bc57fad587ab7"><span class="std std-ref">userid()</span></a>, <a class="reference internal" href="class_login_shell.html#class_login_shell_1adad54b04ec54d3577df4cd11944fff1d"><span class="std std-ref">ShellPasswordCheckFunc</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell4helpEv">
+<span id="_CPPv3N5Shell4helpEv"></span><span id="_CPPv2N5Shell4helpEv"></span><span id="Shell::help"></span><span class="target" id="class_shell_1a58b0e9104d1f6c7ec7d1663c69cd03dd"></span>void <code class="sig-name descname">help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell4helpEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Displays help for all supported commands. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell4exitEv">
+<span id="_CPPv3N5Shell4exitEv"></span><span id="_CPPv2N5Shell4exitEv"></span><span id="Shell::exit"></span><span class="target" id="class_shell_1ab9dab65bc0757ce3bb0ac926bbefcee3"></span>void <code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell4exitEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exit from the shell back to the login prompt. </p>
+<p>If the underlying stream is a TCP client, then this function will stop the client, causing disconnection. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell15registerCommandEP20ShellCommandRegister">
+<span id="_CPPv3N5Shell15registerCommandEP20ShellCommandRegister"></span><span id="_CPPv2N5Shell15registerCommandEP20ShellCommandRegister"></span><span id="Shell::registerCommand__ShellCommandRegisterP"></span><span class="target" id="class_shell_1a03dfba66a0125a8c02dd71b3f3b37870"></span>void <code class="sig-name descname">registerCommand</code><span class="sig-paren">(</span>ShellCommandRegister *<em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell15registerCommandEP20ShellCommandRegister" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Registers a command with the shell. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This function is internal. The <a class="reference internal" href="#class_shell_1a809d96cf913bf11d02f3c0d51a120740"><span class="std std-ref">ShellCommand()</span></a> macro should be used instead. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell12beginSessionEv">
+<span id="_CPPv3N5Shell12beginSessionEv"></span><span id="_CPPv2N5Shell12beginSessionEv"></span><span id="Shell::beginSession"></span><span class="target" id="class_shell_1a3ad32b7cd3b48c78953ab9f7384d5a58"></span>void <code class="sig-name descname">beginSession</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell12beginSessionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Begins a login session. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell11printPromptEv">
+<span id="_CPPv3N5Shell11printPromptEv"></span><span id="_CPPv2N5Shell11printPromptEv"></span><span id="Shell::printPrompt"></span><span class="target" id="class_shell_1a720144957bf6462659017cc25c429beb"></span>void <code class="sig-name descname">printPrompt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell11printPromptEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Prints the current prompt string. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N5Shell7executeEv">
+<span id="_CPPv3N5Shell7executeEv"></span><span id="_CPPv2N5Shell7executeEv"></span><span id="Shell::execute"></span><span class="target" id="class_shell_1ab4a3f80dc5ff779ac99116a1f7e35cda"></span>void <code class="sig-name descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5Shell7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Executes the command in the buffer. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Related</p>
+<dl class="cpp function">
+<dt>
+<span class="target" id="class_shell_1ad5bac6a4033cd81e24c1345650bca744"></span><code class="sig-name descname">ShellCommandFunc</code></dt>
+<dd><p>Type of functions that provide shell command handlers. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_shell_1a809d96cf913bf11d02f3c0d51a120740"><span class="std std-ref">ShellCommand()</span></a> </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">shell</span></code>: Points to the shell instance that executed the command, which can be used to print command results or read more input. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">argc</span></code>: Number of arguments to the command, including the command’s name. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">argv</span></code>: The arguments to the command.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt id="c.ShellCommand">
+<span class="target" id="class_shell_1a809d96cf913bf11d02f3c0d51a120740"></span><code class="sig-name descname">ShellCommand</code><span class="sig-paren">(</span><em>name</em>, <em>help</em>, <em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#c.ShellCommand" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Registers a command with the shell. </p>
+<p><p>The </p>
+<em>name</em> and <em>help</em> parameters must be constant strings that can be placed into program memory.<dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the command. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">help</span></code>: Help string to display that describes the command. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code>: The function to call to handle the command.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">cmdMotor</span><span class="p">(</span><span class="n">Shell</span> <span class="o">&amp;</span><span class="n">shell</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="n">ShellArguments</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="n">ShellCommand</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="s">&quot;Turn the motor on or off&quot;</span><span class="p">,</span> <span class="n">cmdMotor</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p>If there are multiple <a class="reference internal" href="#class_shell"><span class="std std-ref">Shell</span></a> instances active in the system, then the command will be registered with all of them. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="class_shell_arguments.html" class="btn btn-neutral float-right" title="Class ShellArguments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="class_network_setup.html" class="btn btn-neutral float-left" title="Class NetworkSetup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

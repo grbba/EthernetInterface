@@ -1,0 +1,25 @@
+.. _exhale_class_class_login_shell:
+
+Class LoginShell
+================
+
+- Defined in :ref:`file_src_cli_LoginShell.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public Shell`` (:ref:`exhale_class_class_shell`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: LoginShell
+   :members:
+   :protected-members:
+   :undoc-members:

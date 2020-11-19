@@ -1,0 +1,13 @@
+.. _exhale_variable__memory_free_8cpp_1aa84b5136d382ee274a86572892e5e007:
+
+Variable __heap_start
+=====================
+
+- Defined in :ref:`file_src_MemoryFree.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: __heap_start

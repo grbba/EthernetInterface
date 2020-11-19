@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>File HttpRequest.h &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>File HttpRequest.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/file_src_HttpRequest.h.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="file-httprequest-h">
+<span id="file-src-httprequest-h"></span><h1>File HttpRequest.h<a class="headerlink" href="#file-httprequest-h" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="dir_src.html#dir-src"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">src</span></code>)</p>
+<p>creates a <a class="reference internal" href="class_http_request.html#exhale-class-class-http-request"><span class="std std-ref">Class HttpRequest</span></a> object for the user callback. Some conditions apply esp reagrding the length of the items in the Request can be found in</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-src-httprequest-h" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">src/HttpRequest.h</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#detailed-description" id="id2">Detailed Description</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id3">Includes</a></p></li>
+<li><p><a class="reference internal" href="#included-by" id="id4">Included By</a></p></li>
+<li><p><a class="reference internal" href="#classes" id="id5">Classes</a></p></li>
+<li><p><a class="reference internal" href="#defines" id="id6">Defines</a></p></li>
+</ul>
+</div>
+<div class="section" id="definition-src-httprequest-h">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">src/HttpRequest.h</span></code>)<a class="headerlink" href="#definition-src-httprequest-h" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file_src_HttpRequest.h.html">Program Listing for File HttpRequest.h</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="detailed-description">
+<h2>Detailed Description<a class="headerlink" href="#detailed-description" title="Permalink to this headline">¶</a></h2>
+<p>client</p>
+<p>Client object from whom we receievd the data</p>
+<p>c</p>
+<p>id of the Client object</p>
+</div>
+<div class="section" id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ethernet.h</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="included-by">
+<h2>Included By<a class="headerlink" href="#included-by" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="file_src_HttpRequest.cpp.html#file-src-httprequest-cpp"><span class="std std-ref">File HttpRequest.cpp</span></a></p></li>
+<li><p><a class="reference internal" href="file_src_NetworkInterface.h.html#file-src-networkinterface-h"><span class="std std-ref">File NetworkInterface.h</span></a></p></li>
+<li><p><a class="reference internal" href="file_src_TransportProcessor.cpp.html#file-src-transportprocessor-cpp"><span class="std std-ref">File TransportProcessor.cpp</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="struct_http_request_1_1_cookies.html#exhale-struct-struct-http-request-1-1-cookies"><span class="std std-ref">Struct HttpRequest::Cookies</span></a></p></li>
+<li><p><a class="reference internal" href="struct_params.html#exhale-struct-struct-params"><span class="std std-ref">Struct Params</span></a></p></li>
+<li><p><a class="reference internal" href="struct_parsed_request.html#exhale-struct-struct-parsed-request"><span class="std std-ref">Struct ParsedRequest</span></a></p></li>
+<li><p><a class="reference internal" href="class_http_request.html#exhale-class-class-http-request"><span class="std std-ref">Class HttpRequest</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="defines">
+<h2>Defines<a class="headerlink" href="#defines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="define__http_request_8h_1a67735749f977e22e06c4e13c82c0e526.html#exhale-define-http-request-8h-1a67735749f977e22e06c4e13c82c0e526"><span class="std std-ref">Define HTTP_ATTRIB_NAME</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a3a0993fad8078fbf81256623c4129f8c.html#exhale-define-http-request-8h-1a3a0993fad8078fbf81256623c4129f8c"><span class="std std-ref">Define HTTP_ATTRIB_VALUE</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1aee7c4381aa1e323ebd709394409c113c.html#exhale-define-http-request-8h-1aee7c4381aa1e323ebd709394409c113c"><span class="std std-ref">Define HTTP_COOKIE_NAME</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1adb1584d945b1a14133ed0c237470d930.html#exhale-define-http-request-8h-1adb1584d945b1a14133ed0c237470d930"><span class="std std-ref">Define HTTP_COOKIE_VALUE</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a81875c11cc2e55296b23f93e56ce0864.html#exhale-define-http-request-8h-1a81875c11cc2e55296b23f93e56ce0864"><span class="std std-ref">Define HTTP_GET_NAME</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1aa7a2d22acb34eb9559ddd20dc2146a29.html#exhale-define-http-request-8h-1aa7a2d22acb34eb9559ddd20dc2146a29"><span class="std std-ref">Define HTTP_GET_VALUE</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1ae5e76edf6a6480d83a76c1544bad01e7.html#exhale-define-http-request-8h-1ae5e76edf6a6480d83a76c1544bad01e7"><span class="std std-ref">Define HTTP_METHOD</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1ad839df06d1c3091999bdc312fb441368.html#exhale-define-http-request-8h-1ad839df06d1c3091999bdc312fb441368"><span class="std std-ref">Define HTTP_NEW_LINE</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a682fff48755d27329498caec73c2e61d.html#exhale-define-http-request-8h-1a682fff48755d27329498caec73c2e61d"><span class="std std-ref">Define HTTP_PARSE_INIT</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1ae01c18f9d4e3679c292e9b21be9e9206.html#exhale-define-http-request-8h-1ae01c18f9d4e3679c292e9b21be9e9206"><span class="std std-ref">Define HTTP_POST_NAME</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a0973776a5f7bdf62699d3e914ff97003.html#exhale-define-http-request-8h-1a0973776a5f7bdf62699d3e914ff97003"><span class="std std-ref">Define HTTP_POST_VALUE</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a7afe30feaf4e98aab92485c4ec8068da.html#exhale-define-http-request-8h-1a7afe30feaf4e98aab92485c4ec8068da"><span class="std std-ref">Define HTTP_REQ_ATTRIB_NAME_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a0c3608ec4c75bcde9c38eaa60ada668f.html#exhale-define-http-request-8h-1a0c3608ec4c75bcde9c38eaa60ada668f"><span class="std std-ref">Define HTTP_REQ_ATTRIB_VALUE_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a99c2a5fc310d8f352e4b59087737b88a.html#exhale-define-http-request-8h-1a99c2a5fc310d8f352e4b59087737b88a"><span class="std std-ref">Define HTTP_REQ_COOKIE_NAME_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a33e32a04064e548efc28d95c723e1933.html#exhale-define-http-request-8h-1a33e32a04064e548efc28d95c723e1933"><span class="std std-ref">Define HTTP_REQ_COOKIE_VALUE_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1aca58fe395280cd8077ea5d1999145ddc.html#exhale-define-http-request-8h-1aca58fe395280cd8077ea5d1999145ddc"><span class="std std-ref">Define HTTP_REQ_METHOD_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a82083c89dc72c1776355fe0a152277b8.html#exhale-define-http-request-8h-1a82083c89dc72c1776355fe0a152277b8"><span class="std std-ref">Define HTTP_REQ_PARAM_NAME_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a87519df87eaaafa2fc14b27379d63470.html#exhale-define-http-request-8h-1a87519df87eaaafa2fc14b27379d63470"><span class="std std-ref">Define HTTP_REQ_PARAM_VALUE_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a0ec530c60ebb3f6de9bf47c7c4f894ef.html#exhale-define-http-request-8h-1a0ec530c60ebb3f6de9bf47c7c4f894ef"><span class="std std-ref">Define HTTP_REQ_URI_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a420af414119513f2f7c3db18c457122e.html#exhale-define-http-request-8h-1a420af414119513f2f7c3db18c457122e"><span class="std std-ref">Define HTTP_REQ_VERSION_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a25ba2975bc595fc3657ba9dffa5f3dbb.html#exhale-define-http-request-8h-1a25ba2975bc595fc3657ba9dffa5f3dbb"><span class="std std-ref">Define HTTP_REQUEST_END</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a07de66a85d4c2f42a9f71e46278c34ca.html#exhale-define-http-request-8h-1a07de66a85d4c2f42a9f71e46278c34ca"><span class="std std-ref">Define HTTP_URI</span></a></p></li>
+<li><p><a class="reference internal" href="define__http_request_8h_1a8bb9017f30ff8959b7916f558c82d306.html#exhale-define-http-request-8h-1a8bb9017f30ff8959b7916f558c82d306"><span class="std std-ref">Define HTTP_VERSION</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

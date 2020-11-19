@@ -1,0 +1,13 @@
+.. _exhale_define__http_request_8h_1a0ec530c60ebb3f6de9bf47c7c4f894ef:
+
+Define HTTP_REQ_URI_LENGTH
+==========================
+
+- Defined in :ref:`file_src_HttpRequest.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: HTTP_REQ_URI_LENGTH

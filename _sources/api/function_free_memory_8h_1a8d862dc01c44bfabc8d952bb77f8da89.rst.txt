@@ -1,0 +1,13 @@
+.. _exhale_function_free_memory_8h_1a8d862dc01c44bfabc8d952bb77f8da89:
+
+Function freeMemory()
+=====================
+
+- Defined in :ref:`file_src_freeMemory.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: freeMemory()

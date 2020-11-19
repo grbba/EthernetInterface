@@ -1,0 +1,16 @@
+.. _exhale_struct_struct_connection:
+
+Struct Connection
+=================
+
+- Defined in :ref:`file_src_Transport.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: Connection
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,13 @@
+.. _exhale_define__wifi_setup_8h_1a7b427b491a712490620b56f1c67af59b:
+
+Define AT_BAUD_RATE
+===================
+
+- Defined in :ref:`file_src_WifiSetup.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: AT_BAUD_RATE

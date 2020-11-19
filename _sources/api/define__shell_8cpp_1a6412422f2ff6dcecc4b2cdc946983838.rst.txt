@@ -1,0 +1,13 @@
+.. _exhale_define__shell_8cpp_1a6412422f2ff6dcecc4b2cdc946983838:
+
+Define LOGIN_SHELL_DELAY
+========================
+
+- Defined in :ref:`file_src_cli_Shell.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: LOGIN_SHELL_DELAY

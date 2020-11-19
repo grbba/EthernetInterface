@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1aa495d7fdfc50768240f0838fcebbd54b:
+
+Define KEY_F24
+==============
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_F24

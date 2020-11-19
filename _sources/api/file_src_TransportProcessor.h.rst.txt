@@ -1,0 +1,66 @@
+
+.. _file_src_TransportProcessor.h:
+
+File TransportProcessor.h
+=========================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/TransportProcessor.h``)
+-----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_TransportProcessor.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Arduino.h``
+
+- ``Ethernet.h``
+
+- ``NetworkConfig.h`` (:ref:`file_src_NetworkConfig.h`)
+
+- ``NetworkInterface.h`` (:ref:`file_src_NetworkInterface.h`)
+
+- ``Transport.h`` (:ref:`file_src_Transport.h`)
+
+- ``WiFiEspAT.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_NetworkDiag.h`
+
+- :ref:`file_src_StringFormatter.h`
+
+- :ref:`file_src_Transport.h`
+
+- :ref:`file_src_TransportProcessor.cpp`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_class_transport_processor`
+

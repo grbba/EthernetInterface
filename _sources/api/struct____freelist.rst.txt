@@ -1,0 +1,16 @@
+.. _exhale_struct_struct____freelist:
+
+Struct __freelist
+=================
+
+- Defined in :ref:`file_src_MemoryFree.cpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: __freelist
+   :members:
+   :protected-members:
+   :undoc-members:

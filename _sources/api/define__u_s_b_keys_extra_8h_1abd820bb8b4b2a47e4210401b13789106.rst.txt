@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1abd820bb8b4b2a47e4210401b13789106:
+
+Define KEY_F11
+==============
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_F11

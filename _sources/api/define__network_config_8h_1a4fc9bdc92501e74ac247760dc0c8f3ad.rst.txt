@@ -1,0 +1,13 @@
+.. _exhale_define__network_config_8h_1a4fc9bdc92501e74ac247760dc0c8f3ad:
+
+Define MAX_JMRI_CMD
+===================
+
+- Defined in :ref:`file_src_NetworkConfig.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: MAX_JMRI_CMD

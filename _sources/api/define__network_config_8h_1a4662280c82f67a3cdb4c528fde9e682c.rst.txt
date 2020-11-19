@@ -1,0 +1,13 @@
+.. _exhale_define__network_config_8h_1a4662280c82f67a3cdb4c528fde9e682c:
+
+Define MAX_ETH_BUFFER
+=====================
+
+- Defined in :ref:`file_src_NetworkConfig.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: MAX_ETH_BUFFER

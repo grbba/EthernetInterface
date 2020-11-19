@@ -1,0 +1,13 @@
+.. _exhale_define__shell_8h_1a289fac62523ab75893db741e94e0d78e:
+
+Define SHELL_MAX_CMD_LEN
+========================
+
+- Defined in :ref:`file_src_cli_Shell.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: SHELL_MAX_CMD_LEN

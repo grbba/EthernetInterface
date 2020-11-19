@@ -1,0 +1,13 @@
+.. _exhale_variable__c_l_icommands_8cpp_1a509db2befcf6ab4273dc5c64b2983646:
+
+Variable shell_info_attach
+==========================
+
+- Defined in :ref:`file_src_cli_CLIcommands.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: shell_info_attach

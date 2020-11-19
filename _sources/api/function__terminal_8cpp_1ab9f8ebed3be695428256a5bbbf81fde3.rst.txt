@@ -1,0 +1,13 @@
+.. _exhale_function__terminal_8cpp_1ab9f8ebed3be695428256a5bbbf81fde3:
+
+Function writeNumber
+====================
+
+- Defined in :ref:`file_src_cli_Terminal.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: writeNumber(uint8_t *, uint8_t&, int)

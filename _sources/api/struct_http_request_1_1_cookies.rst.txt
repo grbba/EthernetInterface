@@ -1,0 +1,22 @@
+.. _exhale_struct_struct_http_request_1_1_cookies:
+
+Struct HttpRequest::Cookies
+===========================
+
+- Defined in :ref:`file_src_HttpRequest.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_class_http_request`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: HttpRequest::Cookies
+   :members:
+   :protected-members:
+   :undoc-members:

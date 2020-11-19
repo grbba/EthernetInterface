@@ -1,0 +1,13 @@
+.. _exhale_typedef__login_shell_8h_1a20b319df016a5503d88e18b7422bad2b:
+
+Typedef ShellPasswordCheckFunc
+==============================
+
+- Defined in :ref:`file_src_cli_LoginShell.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ShellPasswordCheckFunc

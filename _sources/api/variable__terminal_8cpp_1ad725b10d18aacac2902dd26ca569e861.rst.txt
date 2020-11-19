@@ -1,0 +1,13 @@
+.. _exhale_variable__terminal_8cpp_1ad725b10d18aacac2902dd26ca569e861:
+
+Variable PROGMEM
+================
+
+- Defined in :ref:`file_src_cli_Terminal.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: PROGMEM

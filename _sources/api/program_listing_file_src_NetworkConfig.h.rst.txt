@@ -1,0 +1,56 @@
+
+.. _program_listing_file_src_NetworkConfig.h:
+
+Program Listing for File NetworkConfig.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_src_NetworkConfig.h>` (``src/NetworkConfig.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    * © 2020 Gregor Baues. All rights reserved.
+    *  
+    * This is free software: you can redistribute it and/or modify it under
+    * the terms of the GNU General Public License as published by the 
+    * Free Software Foundation, either version 3 of the License, or
+    * (at your option) any later version.
+    * 
+    * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    * DEALINGS IN THE SOFTWARE.
+    * 
+    * See the GNU General Public License for more details <https://www.gnu.org/licenses/>
+    */
+   
+   
+   // Build configuration
+   
+   // #define DCCEX_ENABLED            // uncomment to enable CS-EX integration; Commented will operate as standalone and only echo commands as replies
+   #define CLI_ENABLED                // enables the Command Line Interface either on serial or any network client; active for network clients if an interface on port 23 eists
+   
+   // Network operational configuration
+   
+   #define LISTEN_PORT     2560                                    
+   #define MAC_ADDRESS     {0x52, 0xB8, 0x8A, 0x8E, 0xCE, 0x21}    
+   #define IP_ADDRESS      10, 0, 0, 101                           
+   
+   
+   // @brief NetworkInterface configuration
+   
+   #define MAX_INTERFACES  4                                       
+   #define MAX_SOCK_NUM    8                                       
+   #define MAX_WIFI_SOCK   5                                       
+   #define MAX_ETH_BUFFER  128                                     
+   #define MAX_OVERFLOW    MAX_ETH_BUFFER / 2                      
+   #define MAX_JMRI_CMD    MAX_ETH_BUFFER / 2                      
+   
+   
+   
+   

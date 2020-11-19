@@ -1,0 +1,13 @@
+.. _exhale_define__terminal_8h_1a4fb31cc7c408cd5c0ab57f11bb2727d3:
+
+Define KEY_WINSIZE
+==================
+
+- Defined in :ref:`file_src_cli_Terminal.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_WINSIZE

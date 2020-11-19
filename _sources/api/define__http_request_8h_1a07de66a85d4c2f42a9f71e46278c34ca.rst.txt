@@ -1,0 +1,13 @@
+.. _exhale_define__http_request_8h_1a07de66a85d4c2f42a9f71e46278c34ca:
+
+Define HTTP_URI
+===============
+
+- Defined in :ref:`file_src_HttpRequest.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: HTTP_URI

@@ -1,0 +1,13 @@
+.. _exhale_typedef__network_interface_8h_1a3d524451a44296541faccbb5c2d6bdfb:
+
+Typedef protocolType
+====================
+
+- Defined in :ref:`file_src_NetworkInterface.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: protocolType

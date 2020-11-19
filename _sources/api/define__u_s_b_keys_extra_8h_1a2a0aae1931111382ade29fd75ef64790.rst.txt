@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1a2a0aae1931111382ade29fd75ef64790:
+
+Define KEY_F5
+=============
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_F5

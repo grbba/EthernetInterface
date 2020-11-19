@@ -1,0 +1,13 @@
+.. _exhale_variable__network_diag_8cpp_1ad548e02bb802224da4f15de29be3f758:
+
+Variable _dMem
+==============
+
+- Defined in :ref:`file_src_NetworkDiag.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: _dMem

@@ -1,0 +1,13 @@
+.. _exhale_function__wifi_setup_8cpp_1a28ad06154d7067e5e154885a813d933f:
+
+Function reverseArray
+=====================
+
+- Defined in :ref:`file_src_WifiSetup.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: reverseArray(uint8_t, int, int)

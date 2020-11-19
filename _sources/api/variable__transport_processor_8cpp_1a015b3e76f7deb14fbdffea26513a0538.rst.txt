@@ -1,0 +1,13 @@
+.. _exhale_variable__transport_processor_8cpp_1a015b3e76f7deb14fbdffea26513a0538:
+
+Variable protocolName
+=====================
+
+- Defined in :ref:`file_src_TransportProcessor.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: protocolName

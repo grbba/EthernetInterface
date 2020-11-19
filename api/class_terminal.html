@@ -1,0 +1,1002 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class Terminal &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Template Class Transport" href="class_transport.html" />
+    <link rel="prev" title="Class StringFormatter" href="class_string_formatter.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="library_root.html">NetworkInterface API</a> &raquo;</li>
+        
+      <li>Class Terminal</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/class_terminal.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-terminal">
+<span id="exhale-class-class-terminal"></span><h1>Class Terminal<a class="headerlink" href="#class-terminal" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_src_cli_Terminal.h.html#file-src-cli-terminal-h"><span class="std std-ref">File Terminal.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Stream</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Shell</span></code> (<a class="reference internal" href="class_shell.html#exhale-class-class-shell"><span class="std std-ref">Class Shell</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt id="_CPPv48Terminal">
+<span id="_CPPv38Terminal"></span><span id="_CPPv28Terminal"></span><span id="Terminal"></span><span class="target" id="class_terminal"></span><em class="property">class </em><code class="sig-name descname">Terminal</code> : <em class="property">public</em> Stream<a class="headerlink" href="#_CPPv48Terminal" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extended stream interface for terminal operations. </p>
+<p>This class extends the standard Arduino Stream class with functions that are suitable for interfacing to VT100 terminal applications like PuTTY.</p>
+<p>The following example initializes a terminal running on the primary Arduino serial port:</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Terminal</span> <span class="n">term</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+    <span class="n">term</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">Serial</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p>The <a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a> function reads input from the underlying stream, decodes any VT100 key escape sequences that it finds, and reports them to the application using USB, ASCII, or Unicode key codes. This is typically used in the application’s main loop as follows:</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="n">term</span><span class="p">.</span><span class="n">readKey</span><span class="p">();</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">-1</span><span class="o">:</span>     <span class="k">break</span><span class="p">;</span>      <span class="c1">// No key available.</span>
+
+    <span class="k">case</span> <span class="nl">KEY_LEFT_ARROW</span><span class="p">:</span>
+        <span class="c1">// Left arrow key has been pressed.</span>
+        <span class="p">...</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">KEY_RIGHT_ARROW</span><span class="p">:</span>
+        <span class="c1">// Right arrow key has been pressed.</span>
+        <span class="p">...</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">KEY_ESC</span><span class="p">:</span>
+        <span class="c1">// Escape key has been pressed.</span>
+        <span class="p">...</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">default</span><span class="o">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">&gt;=</span> <span class="mh">0x20</span> <span class="o">&amp;&amp;</span> <span class="n">key</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="n">E</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Visible ASCII character has been typed.</span>
+            <span class="p">...</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p>This class understands extended characters in the UTF-8 encoding, allowing the full Unicode character set to be used in applications. Extended Unicode characters are reported by <a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a> with the key code KEY_UNICODE, with the actual code point returned via <a class="reference internal" href="#class_terminal_1ad0b704240c300615defdc76d33d5cac2"><span class="std std-ref">unicodeKey()</span></a>.</p>
+<p>On the output side, UTF-8 strings can be written to the terminal using <a class="reference internal" href="#class_terminal_1ae723f16d4f97954fb45550fa05d600bb"><span class="std std-ref">write()</span></a>, or <a class="reference internal" href="#class_terminal_1a25308d6b2a3d18820d8a0e641c7be937"><span class="std std-ref">writeUnicode()</span></a> can be used to write a single Unicode character in UTF-8.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class does not have any special support for right-to-left scripts or composed characters. Unicode characters are read and written in the order in which they arrive. Applications may need to alter strings to display them correctly in such scripts. Patches are welcome to fix this.</p>
+</dd>
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="class_shell.html#class_shell"><span class="std std-ref">Shell</span></a> </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="class_shell.html#class_shell"><span class="std std-ref">Shell</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp enum">
+<dt id="_CPPv4N8Terminal4ModeE">
+<span id="_CPPv3N8Terminal4ModeE"></span><span id="_CPPv2N8Terminal4ModeE"></span><span class="target" id="class_terminal_1a6fd7d021468962e9604bee0522b3a364"></span><em class="property">enum </em><code class="sig-name descname">Mode</code><a class="headerlink" href="#_CPPv4N8Terminal4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mode to operate in, Serial or Telnet. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal4Mode6SerialE">
+<span id="_CPPv3N8Terminal4Mode6SerialE"></span><span id="_CPPv2N8Terminal4Mode6SerialE"></span><span class="target" id="class_terminal_1a6fd7d021468962e9604bee0522b3a364a7efe0e37dae166c00d913190cd8f55f6"></span><em class="property">enumerator </em><code class="sig-name descname">Serial</code><a class="headerlink" href="#_CPPv4N8Terminal4Mode6SerialE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Operates the terminal in serial mode. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal4Mode6TelnetE">
+<span id="_CPPv3N8Terminal4Mode6TelnetE"></span><span id="_CPPv2N8Terminal4Mode6TelnetE"></span><span class="target" id="class_terminal_1a6fd7d021468962e9604bee0522b3a364a71eb4637496b7a884384c4250f3289a7"></span><em class="property">enumerator </em><code class="sig-name descname">Telnet</code><a class="headerlink" href="#_CPPv4N8Terminal4Mode6TelnetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Operates the terminal in telnet mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt id="_CPPv4N8Terminal5ColorE">
+<span id="_CPPv3N8Terminal5ColorE"></span><span id="_CPPv2N8Terminal5ColorE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20"></span><em class="property">enum </em><code class="sig-name descname">Color</code><a class="headerlink" href="#_CPPv4N8Terminal5ColorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#class_terminal"><span class="std std-ref">Terminal</span></a> foreground or background colors. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color5BlackE">
+<span id="_CPPv3N8Terminal5Color5BlackE"></span><span id="_CPPv2N8Terminal5Color5BlackE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20ae8891bcc826bd9843740727bd36481a4"></span><em class="property">enumerator </em><code class="sig-name descname">Black</code><a class="headerlink" href="#_CPPv4N8Terminal5Color5BlackE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is black. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color7DarkRedE">
+<span id="_CPPv3N8Terminal5Color7DarkRedE"></span><span id="_CPPv2N8Terminal5Color7DarkRedE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a7e02ffbae282462707f7fa9b521a5350"></span><em class="property">enumerator </em><code class="sig-name descname">DarkRed</code><a class="headerlink" href="#_CPPv4N8Terminal5Color7DarkRedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is dark red. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color9DarkGreenE">
+<span id="_CPPv3N8Terminal5Color9DarkGreenE"></span><span id="_CPPv2N8Terminal5Color9DarkGreenE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a3e3b823d801aa16880e837ee4b5a950a"></span><em class="property">enumerator </em><code class="sig-name descname">DarkGreen</code><a class="headerlink" href="#_CPPv4N8Terminal5Color9DarkGreenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is dark green. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color10DarkYellowE">
+<span id="_CPPv3N8Terminal5Color10DarkYellowE"></span><span id="_CPPv2N8Terminal5Color10DarkYellowE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20aa79363e8a838f09ac55b4be7ddabe625"></span><em class="property">enumerator </em><code class="sig-name descname">DarkYellow</code><a class="headerlink" href="#_CPPv4N8Terminal5Color10DarkYellowE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is dark yellow. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color8DarkBlueE">
+<span id="_CPPv3N8Terminal5Color8DarkBlueE"></span><span id="_CPPv2N8Terminal5Color8DarkBlueE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a857041b4a99e4a303f183a9881c32b8e"></span><em class="property">enumerator </em><code class="sig-name descname">DarkBlue</code><a class="headerlink" href="#_CPPv4N8Terminal5Color8DarkBlueE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is dark blue. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color11DarkMagentaE">
+<span id="_CPPv3N8Terminal5Color11DarkMagentaE"></span><span id="_CPPv2N8Terminal5Color11DarkMagentaE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a3c0cb0568e93ebf1ea54bea5991b40a9"></span><em class="property">enumerator </em><code class="sig-name descname">DarkMagenta</code><a class="headerlink" href="#_CPPv4N8Terminal5Color11DarkMagentaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is dark magenta. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color8DarkCyanE">
+<span id="_CPPv3N8Terminal5Color8DarkCyanE"></span><span id="_CPPv2N8Terminal5Color8DarkCyanE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a7770ad09b7bc5a420575bba06878efeb"></span><em class="property">enumerator </em><code class="sig-name descname">DarkCyan</code><a class="headerlink" href="#_CPPv4N8Terminal5Color8DarkCyanE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is dark cyan. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color9LightGrayE">
+<span id="_CPPv3N8Terminal5Color9LightGrayE"></span><span id="_CPPv2N8Terminal5Color9LightGrayE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a3b4388fbed1f6c20cbe706d49b968683"></span><em class="property">enumerator </em><code class="sig-name descname">LightGray</code><a class="headerlink" href="#_CPPv4N8Terminal5Color9LightGrayE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is light gray. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color8DarkGrayE">
+<span id="_CPPv3N8Terminal5Color8DarkGrayE"></span><span id="_CPPv2N8Terminal5Color8DarkGrayE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20ab5595f67da54848741ee2b31a38bafec"></span><em class="property">enumerator </em><code class="sig-name descname">DarkGray</code><a class="headerlink" href="#_CPPv4N8Terminal5Color8DarkGrayE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is dark gray. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color3RedE">
+<span id="_CPPv3N8Terminal5Color3RedE"></span><span id="_CPPv2N8Terminal5Color3RedE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20af2687d41cae4cb8276778be71c1e1efb"></span><em class="property">enumerator </em><code class="sig-name descname">Red</code><a class="headerlink" href="#_CPPv4N8Terminal5Color3RedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is light red. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color5GreenE">
+<span id="_CPPv3N8Terminal5Color5GreenE"></span><span id="_CPPv2N8Terminal5Color5GreenE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a884f0fec8e7a5adac3047b890fcbf491"></span><em class="property">enumerator </em><code class="sig-name descname">Green</code><a class="headerlink" href="#_CPPv4N8Terminal5Color5GreenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is light green. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color6YellowE">
+<span id="_CPPv3N8Terminal5Color6YellowE"></span><span id="_CPPv2N8Terminal5Color6YellowE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a5f04853bd0cf9cea91dae31cc5294f22"></span><em class="property">enumerator </em><code class="sig-name descname">Yellow</code><a class="headerlink" href="#_CPPv4N8Terminal5Color6YellowE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is light yellow. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color4BlueE">
+<span id="_CPPv3N8Terminal5Color4BlueE"></span><span id="_CPPv2N8Terminal5Color4BlueE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a70f0c34fa3b8055231e826454b9cf8be"></span><em class="property">enumerator </em><code class="sig-name descname">Blue</code><a class="headerlink" href="#_CPPv4N8Terminal5Color4BlueE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is light blue. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color7MagentaE">
+<span id="_CPPv3N8Terminal5Color7MagentaE"></span><span id="_CPPv2N8Terminal5Color7MagentaE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a438c102a577219f2b654bebce4d53ea0"></span><em class="property">enumerator </em><code class="sig-name descname">Magenta</code><a class="headerlink" href="#_CPPv4N8Terminal5Color7MagentaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is light magenta. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color4CyanE">
+<span id="_CPPv3N8Terminal5Color4CyanE"></span><span id="_CPPv2N8Terminal5Color4CyanE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20a12656e5c242667b489e639d399964077"></span><em class="property">enumerator </em><code class="sig-name descname">Cyan</code><a class="headerlink" href="#_CPPv4N8Terminal5Color4CyanE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is light cyan. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N8Terminal5Color5WhiteE">
+<span id="_CPPv3N8Terminal5Color5WhiteE"></span><span id="_CPPv2N8Terminal5Color5WhiteE"></span><span class="target" id="class_terminal_1a7a03a2e94316da7b2144dad5ba95ac20ae8296a3587847d6e0dd41efcc65251e8"></span><em class="property">enumerator </em><code class="sig-name descname">White</code><a class="headerlink" href="#_CPPv4N8Terminal5Color5WhiteE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color is white. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal8TerminalEv">
+<span id="_CPPv3N8Terminal8TerminalEv"></span><span id="_CPPv2N8Terminal8TerminalEv"></span><span id="Terminal::Terminal"></span><span class="target" id="class_terminal_1aa448509b5aa1ece53c3d86385655be0e"></span><code class="sig-name descname">Terminal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal8TerminalEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs a terminal object. </p>
+<p>This constructor must be followed by a call to <a class="reference internal" href="#class_terminal_1a6bf417195a7d2a2fab6b3518f25764a2"><span class="std std-ref">begin()</span></a> to specify the underlying stream to use for reading and writing.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a6bf417195a7d2a2fab6b3518f25764a2"><span class="std std-ref">begin()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8TerminalD0Ev">
+<span id="_CPPv3N8TerminalD0Ev"></span><span id="_CPPv2N8TerminalD0Ev"></span><span id="Terminal::~Terminal"></span><span class="target" id="class_terminal_1add5a7d4dd45b68af9a0afb1cc845af2f"></span><code class="sig-name descname">~Terminal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8TerminalD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destroys this terminal object. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal5beginER6Stream4Mode">
+<span id="_CPPv3N8Terminal5beginER6Stream4Mode"></span><span id="_CPPv2N8Terminal5beginER6Stream4Mode"></span><span id="Terminal::begin__StreamR.Mode"></span><span class="target" id="class_terminal_1a6bf417195a7d2a2fab6b3518f25764a2"></span>void <code class="sig-name descname">begin</code><span class="sig-paren">(</span>Stream &amp;<em>stream</em>, <a class="reference internal" href="#_CPPv4N8Terminal4ModeE" title="Terminal::Mode">Mode</a> <em>mode</em> = <a class="reference internal" href="#_CPPv4N8Terminal4Mode6SerialE" title="Terminal::Serial">Serial</a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal5beginER6Stream4Mode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Begins terminal operations on an underlying stream. </p>
+<p><p>If Telnet mode is selected, then embedded commands and options from the telnet protocol (</p>
+<a class="reference external" href="https://tools.ietf.org/html/rfc854">RFC 854</a>) will be interpreted. This is useful if the underlying <em>stream</em> is a TCP connection on port 23. The mode operates as a telnet server.<dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stream</span></code>: The underlying stream, whether a serial port, TCP connection, or some other stream. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: The mode to operate in, either Serial or Telnet.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a9e4c08d43a1a1c039e385d63aca049c0"><span class="std std-ref">end()</span></a>, <a class="reference internal" href="#class_terminal_1a910099d74409456914f83e88ba1d4aec"><span class="std std-ref">stream()</span></a>, <a class="reference internal" href="#class_terminal_1aa3a460ae0bcb33d5673b457c258dc64e"><span class="std std-ref">mode()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal3endEv">
+<span id="_CPPv3N8Terminal3endEv"></span><span id="_CPPv2N8Terminal3endEv"></span><span id="Terminal::end"></span><span class="target" id="class_terminal_1a9e4c08d43a1a1c039e385d63aca049c0"></span>void <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Ends terminal operations on an underlying stream. </p>
+<p>This function may be useful if you want to detach the terminal from the underlying stream so that it can be used for something else. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK8Terminal6streamEv">
+<span id="_CPPv3NK8Terminal6streamEv"></span><span id="_CPPv2NK8Terminal6streamEv"></span><span id="Terminal::streamC"></span><span class="target" id="class_terminal_1a910099d74409456914f83e88ba1d4aec"></span>Stream *<code class="sig-name descname">stream</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8Terminal6streamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a pointer to the underlying Stream, or NULL if the stream has not been set with <a class="reference internal" href="#class_terminal_1a6bf417195a7d2a2fab6b3518f25764a2"><span class="std std-ref">begin()</span></a> yet. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a6bf417195a7d2a2fab6b3518f25764a2"><span class="std std-ref">begin()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK8Terminal4modeEv">
+<span id="_CPPv3NK8Terminal4modeEv"></span><span id="_CPPv2NK8Terminal4modeEv"></span><span id="Terminal::modeC"></span><span class="target" id="class_terminal_1aa3a460ae0bcb33d5673b457c258dc64e"></span><a class="reference internal" href="#_CPPv48Terminal" title="Terminal">Terminal</a>::<a class="reference internal" href="#_CPPv4N8Terminal4ModeE" title="Terminal::Mode">Mode</a> <code class="sig-name descname">mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8Terminal4modeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the mode this terminal is operating in, Serial or Telnet. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a6bf417195a7d2a2fab6b3518f25764a2"><span class="std std-ref">begin()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal9availableEv">
+<span id="_CPPv3N8Terminal9availableEv"></span><span id="_CPPv2N8Terminal9availableEv"></span><span id="Terminal::available"></span><span class="target" id="class_terminal_1a111698c496d601ef7fe0ce4de8a6de9a"></span>int <code class="sig-name descname">available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal9availableEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the number of bytes that are available for reading. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>It is possible for this function to return a positive value while <a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a> does not produce a new key. This can happen with VT100 key escape sequences and UTF-8 characters that extend over multiple bytes.</p>
+</dd>
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal4peekEv">
+<span id="_CPPv3N8Terminal4peekEv"></span><span id="_CPPv2N8Terminal4peekEv"></span><span id="Terminal::peek"></span><span class="target" id="class_terminal_1a49f6aa694fae8a9ff8a526350dd8f8fc"></span>int <code class="sig-name descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal4peekEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Peeks at the next byte from the underlying stream. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The next byte or -1 if no bytes are available yet.</p>
+</dd>
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a14dfd6dc5c4a30acfb47ab24c22d1cd5"><span class="std std-ref">read()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal4readEv">
+<span id="_CPPv3N8Terminal4readEv"></span><span id="_CPPv2N8Terminal4readEv"></span><span id="Terminal::read"></span><span class="target" id="class_terminal_1a14dfd6dc5c4a30acfb47ab24c22d1cd5"></span>int <code class="sig-name descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal4readEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reads the next byte from the underlying stream. </p>
+<p><p>This function performs a low-level read on the underlying byte stream without applying any specific interpretation to the byte. In particular, escape sequences corresponding to arrow and function keys will not be recognized.</p>
+<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Returns 0x00 to 0xFF if a byte is ready, or -1 if none available.</p>
+</dd>
+</dl>
+</p>
+<p>Applications will usually want to call <a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a> instead to handle escape sequences for arrow and function keys. This function is provided as a convenience to implement the parent Stream interface.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal5flushEv">
+<span id="_CPPv3N8Terminal5flushEv"></span><span id="_CPPv2N8Terminal5flushEv"></span><span id="Terminal::flush"></span><span class="target" id="class_terminal_1a908cdfa64167279ed565d43b45470c3d"></span>void <code class="sig-name descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal5flushEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Flushes all data in the underlying stream. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal5writeE7uint8_t">
+<span id="_CPPv3N8Terminal5writeE7uint8_t"></span><span id="_CPPv2N8Terminal5writeE7uint8_t"></span><span id="Terminal::write__uint8_t"></span><span class="target" id="class_terminal_1ae723f16d4f97954fb45550fa05d600bb"></span>size_t <code class="sig-name descname">write</code><span class="sig-paren">(</span>uint8_t <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal5writeE7uint8_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Writes a single byte to the underlying stream. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The number of bytes written, zero on error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code>: The byte to write. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal5writeEPK7uint8_t6size_t">
+<span id="_CPPv3N8Terminal5writeEPK7uint8_t6size_t"></span><span id="_CPPv2N8Terminal5writeEPK7uint8_t6size_t"></span><span id="Terminal::write__uint8_tCP.s"></span><span class="target" id="class_terminal_1a134b9131e18b35af18c53eabec49186d"></span>size_t <code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="property">const</em> uint8_t *<em>buffer</em>, size_t <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal5writeEPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Writes a buffer of data to the underlying stream. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The number of bytes written, which may be short on error. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">buffer</span></code>: Points to the buffer to write. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: The number of bytes in the <em>buffer</em>.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal12writeProgMemEPKc">
+<span id="_CPPv3N8Terminal12writeProgMemEPKc"></span><span id="_CPPv2N8Terminal12writeProgMemEPKc"></span><span id="Terminal::writeProgMem__cCP"></span><span class="target" id="class_terminal_1ae0b908585ec355e0f299579a015c1170"></span>void <code class="sig-name descname">writeProgMem</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>str</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal12writeProgMemEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Writes a static string that is stored in program memory. </p>
+<p><p>This is a convenience function for printing static strings that are stored in program memory.</p>
+<dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: Points to the NUL-terminated string in program memory.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1ae723f16d4f97954fb45550fa05d600bb"><span class="std std-ref">write()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal7readKeyEv">
+<span id="_CPPv3N8Terminal7readKeyEv"></span><span id="_CPPv2N8Terminal7readKeyEv"></span><span id="Terminal::readKey"></span><span class="target" id="class_terminal_1aa82621ea174422601cc7384c8185eb96"></span>int <code class="sig-name descname">readKey</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal7readKeyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reads the next key that was typed on this terminal. </p>
+<p><p>For example, if the user types the Home key, then this function will return KEY_HOME. If the user types the capital letter A, then this function will return 0x41.</p>
+<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Returns -1 if there is no key ready yet; 0x00 to 0x7F for an ASCII character; KEY_UNICODE for an extended Unicode code point, or a USB keyboard code for special arrow or function keys.</p>
+</dd>
+</dl>
+</p>
+<p>If the user types an extended Unicode character (U+0080 and higher), then this function will return KEY_UNICODE. The application should call <a class="reference internal" href="#class_terminal_1ad0b704240c300615defdc76d33d5cac2"><span class="std std-ref">unicodeKey()</span></a> to retrieve the actual code point. All Unicode characters are assumed to be in the UTF-8 encoding on the stream.</p>
+<p>Some ASCII control characters correspond to special keys and will be mapped appropriately:</p>
+<p><ul class="simple">
+<li><p>0x08 (CTRL-H) and 0x7F (DEL) are mapped to KEY_BACKSPACE </p></li>
+<li><p>0x0D (CTRL-M) and 0x0A (CTRL-J) are mapped to KEY_RETURN </p></li>
+<li><p>0x09 (CTRL-I) is mapped to KEY_TAB </p></li>
+<li><p>0x1B (CTRL-[) is mapped to KEY_ESCAPE</p></li>
+</ul>
+<p>In all of these cases, the original ASCII code will be reported by </p>
+<a class="reference internal" href="#class_terminal_1ad0b704240c300615defdc76d33d5cac2"><span class="std std-ref">unicodeKey()</span></a>. As a special case, if 0x0D is immediately followed by 0x0A (that is, CRLF) then KEY_RETURN will be reported only once with <a class="reference internal" href="#class_terminal_1ad0b704240c300615defdc76d33d5cac2"><span class="std std-ref">unicodeKey()</span></a> set to 0x0D. This ensures that all line ending types are mapped to a single KEY_RETURN report.</p>
+<p>If the window size has changed due to a remote event, then KEY_WINSIZE will be returned. This can allow the caller to clear and redraw the window in the new size.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1ad0b704240c300615defdc76d33d5cac2"><span class="std std-ref">unicodeKey()</span></a>, <a class="reference internal" href="#class_terminal_1a14dfd6dc5c4a30acfb47ab24c22d1cd5"><span class="std std-ref">read()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK8Terminal10unicodeKeyEv">
+<span id="_CPPv3NK8Terminal10unicodeKeyEv"></span><span id="_CPPv2NK8Terminal10unicodeKeyEv"></span><span id="Terminal::unicodeKeyC"></span><span class="target" id="class_terminal_1ad0b704240c300615defdc76d33d5cac2"></span>long <code class="sig-name descname">unicodeKey</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8Terminal10unicodeKeyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the Unicode version of the last key returned by <a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a>. </p>
+<p>If <a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a> returned an ASCII character (0x00 to 0x7F) or KEY_UNICODE, then this function can be used to query the full Unicode code point for the key that was typed. If some other key is typed, or no key was typed, then this function will return -1.</p>
+<p>Unicode code points range between 0 and 0x10FFFF.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a>, <a class="reference internal" href="#class_terminal_1a25308d6b2a3d18820d8a0e641c7be937"><span class="std std-ref">writeUnicode()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal12writeUnicodeEl">
+<span id="_CPPv3N8Terminal12writeUnicodeEl"></span><span id="_CPPv2N8Terminal12writeUnicodeEl"></span><span id="Terminal::writeUnicode__l"></span><span class="target" id="class_terminal_1a25308d6b2a3d18820d8a0e641c7be937"></span>size_t <code class="sig-name descname">writeUnicode</code><span class="sig-paren">(</span>long <em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal12writeUnicodeEl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Writes a Unicode code point to the output in UTF-8 encoding. </p>
+<p><p>This function is useful when a specific Unicode character is desired; for example the code point 0x2264 corresponds to the less than or equal to operator “≤”. See the Unicode standard for more information.</p>
+<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The number of bytes that were written to the underlying stream to represent <em>code</em>. Returns zero if <em>code</em> is not a valid code point.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code>: The code point to be written between 0 and 0x10FFFF. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>Unicode characters between 0x00 and 0x7F and strings that are already in the UTF-8 encoding can also be written using <a class="reference internal" href="#class_terminal_1ae723f16d4f97954fb45550fa05d600bb"><span class="std std-ref">write()</span></a>.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1ae723f16d4f97954fb45550fa05d600bb"><span class="std std-ref">write()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK8Terminal7columnsEv">
+<span id="_CPPv3NK8Terminal7columnsEv"></span><span id="_CPPv2NK8Terminal7columnsEv"></span><span id="Terminal::columnsC"></span><span class="target" id="class_terminal_1a6d8451ffa6a80afdd3daa4bec96258e3"></span>int <code class="sig-name descname">columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8Terminal7columnsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the number of columns in the window; defaults to 80. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a56611fcbeb5eadf3665e568760952ee4"><span class="std std-ref">rows()</span></a>, <a class="reference internal" href="#class_terminal_1af8957afd199718a809114dc5236f1a62"><span class="std std-ref">setWindowSize()</span></a>, <a class="reference internal" href="#class_terminal_1a7f60537603bd91df3ff1371a895054ea"><span class="std std-ref">cursorMove()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK8Terminal4rowsEv">
+<span id="_CPPv3NK8Terminal4rowsEv"></span><span id="_CPPv2NK8Terminal4rowsEv"></span><span id="Terminal::rowsC"></span><span class="target" id="class_terminal_1a56611fcbeb5eadf3665e568760952ee4"></span>int <code class="sig-name descname">rows</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8Terminal4rowsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the number of rows in the window; defaults to 24. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a6d8451ffa6a80afdd3daa4bec96258e3"><span class="std std-ref">columns()</span></a>, <a class="reference internal" href="#class_terminal_1af8957afd199718a809114dc5236f1a62"><span class="std std-ref">setWindowSize()</span></a>, <a class="reference internal" href="#class_terminal_1a7f60537603bd91df3ff1371a895054ea"><span class="std std-ref">cursorMove()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal13setWindowSizeEii">
+<span id="_CPPv3N8Terminal13setWindowSizeEii"></span><span id="_CPPv2N8Terminal13setWindowSizeEii"></span><span id="Terminal::setWindowSize__i.i"></span><span class="target" id="class_terminal_1af8957afd199718a809114dc5236f1a62"></span>bool <code class="sig-name descname">setWindowSize</code><span class="sig-paren">(</span>int <em>columns</em>, int <em>rows</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal13setWindowSizeEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the number of columns and rows in the window. </p>
+<p><p>This function should be used if the application has some information about the actual window size. For serial ports, this usually isn’t available but telnet and ssh sessions can get the window size from the remote host.</p>
+<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Returns true if the window size has changed.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">columns</span></code>: The number of columns between 1 and 10000. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rows</span></code>: The number of rows between 1 and 10000.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>The window size defaults to 80x24 which is the standard default for terminal programs like PuTTY that emulate a VT100.</p>
+<p>If the window size changes due to a remote event, <a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a> will return KEY_WINSIZE to inform the application.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a6d8451ffa6a80afdd3daa4bec96258e3"><span class="std std-ref">columns()</span></a>, <a class="reference internal" href="#class_terminal_1a56611fcbeb5eadf3665e568760952ee4"><span class="std std-ref">rows()</span></a>, <a class="reference internal" href="#class_terminal_1aa82621ea174422601cc7384c8185eb96"><span class="std std-ref">readKey()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal5clearEv">
+<span id="_CPPv3N8Terminal5clearEv"></span><span id="_CPPv2N8Terminal5clearEv"></span><span id="Terminal::clear"></span><span class="target" id="class_terminal_1a4be741767b27739eec98901477e1c3d4"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move the cursor to the top-left position and clear the screen. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10clearToEOLEv">
+<span id="_CPPv3N8Terminal10clearToEOLEv"></span><span id="_CPPv2N8Terminal10clearToEOLEv"></span><span id="Terminal::clearToEOL"></span><span class="target" id="class_terminal_1aeb93d71925cdfb17065e7f1ef2e83414"></span>void <code class="sig-name descname">clearToEOL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10clearToEOLEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clears from the current cursor position to the end of the line. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10cursorMoveEii">
+<span id="_CPPv3N8Terminal10cursorMoveEii"></span><span id="_CPPv2N8Terminal10cursorMoveEii"></span><span id="Terminal::cursorMove__i.i"></span><span class="target" id="class_terminal_1a7f60537603bd91df3ff1371a895054ea"></span>void <code class="sig-name descname">cursorMove</code><span class="sig-paren">(</span>int <em>x</em>, int <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10cursorMoveEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Moves the cursor to a specific location in the window. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a2b8434f44885beabb668b70565bfbebe"><span class="std std-ref">cursorLeft()</span></a>, <a class="reference internal" href="#class_terminal_1a6d8451ffa6a80afdd3daa4bec96258e3"><span class="std std-ref">columns()</span></a>, <a class="reference internal" href="#class_terminal_1a56611fcbeb5eadf3665e568760952ee4"><span class="std std-ref">rows()</span></a>, <a class="reference internal" href="#class_terminal_1af8957afd199718a809114dc5236f1a62"><span class="std std-ref">setWindowSize()</span></a> </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: The x position for the cursor between 0 and <a class="reference internal" href="#class_terminal_1a6d8451ffa6a80afdd3daa4bec96258e3"><span class="std std-ref">columns()</span></a> - 1. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: The y position for the cursor between 0 and <a class="reference internal" href="#class_terminal_1a56611fcbeb5eadf3665e568760952ee4"><span class="std std-ref">rows()</span></a> - 1.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10cursorLeftEv">
+<span id="_CPPv3N8Terminal10cursorLeftEv"></span><span id="_CPPv2N8Terminal10cursorLeftEv"></span><span id="Terminal::cursorLeft"></span><span class="target" id="class_terminal_1a2b8434f44885beabb668b70565bfbebe"></span>void <code class="sig-name descname">cursorLeft</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10cursorLeftEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Moves the cursor left by one character. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1adba29515f7a2f7e3a8038cd583bd28dc"><span class="std std-ref">cursorRight()</span></a>, <a class="reference internal" href="#class_terminal_1ae5259872812d674e1fda215ddd18ee70"><span class="std std-ref">cursorUp()</span></a>, <a class="reference internal" href="#class_terminal_1a4068f1fd6087ff865b169da0a3d61ec5"><span class="std std-ref">cursorDown()</span></a>, <a class="reference internal" href="#class_terminal_1a7f60537603bd91df3ff1371a895054ea"><span class="std std-ref">cursorMove()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal11cursorRightEv">
+<span id="_CPPv3N8Terminal11cursorRightEv"></span><span id="_CPPv2N8Terminal11cursorRightEv"></span><span id="Terminal::cursorRight"></span><span class="target" id="class_terminal_1adba29515f7a2f7e3a8038cd583bd28dc"></span>void <code class="sig-name descname">cursorRight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal11cursorRightEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Moves the cursor right by one character. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a2b8434f44885beabb668b70565bfbebe"><span class="std std-ref">cursorLeft()</span></a>, <a class="reference internal" href="#class_terminal_1ae5259872812d674e1fda215ddd18ee70"><span class="std std-ref">cursorUp()</span></a>, <a class="reference internal" href="#class_terminal_1a4068f1fd6087ff865b169da0a3d61ec5"><span class="std std-ref">cursorDown()</span></a>, <a class="reference internal" href="#class_terminal_1a7f60537603bd91df3ff1371a895054ea"><span class="std std-ref">cursorMove()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal8cursorUpEv">
+<span id="_CPPv3N8Terminal8cursorUpEv"></span><span id="_CPPv2N8Terminal8cursorUpEv"></span><span id="Terminal::cursorUp"></span><span class="target" id="class_terminal_1ae5259872812d674e1fda215ddd18ee70"></span>void <code class="sig-name descname">cursorUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal8cursorUpEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Moves the cursor up by one line. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a4068f1fd6087ff865b169da0a3d61ec5"><span class="std std-ref">cursorDown()</span></a>, <a class="reference internal" href="#class_terminal_1a2b8434f44885beabb668b70565bfbebe"><span class="std std-ref">cursorLeft()</span></a>, <a class="reference internal" href="#class_terminal_1adba29515f7a2f7e3a8038cd583bd28dc"><span class="std std-ref">cursorRight()</span></a>, <a class="reference internal" href="#class_terminal_1a7f60537603bd91df3ff1371a895054ea"><span class="std std-ref">cursorMove()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10cursorDownEv">
+<span id="_CPPv3N8Terminal10cursorDownEv"></span><span id="_CPPv2N8Terminal10cursorDownEv"></span><span id="Terminal::cursorDown"></span><span class="target" id="class_terminal_1a4068f1fd6087ff865b169da0a3d61ec5"></span>void <code class="sig-name descname">cursorDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10cursorDownEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Moves the cursor down by one line. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1ae5259872812d674e1fda215ddd18ee70"><span class="std std-ref">cursorUp()</span></a>, <a class="reference internal" href="#class_terminal_1a2b8434f44885beabb668b70565bfbebe"><span class="std std-ref">cursorLeft()</span></a>, <a class="reference internal" href="#class_terminal_1adba29515f7a2f7e3a8038cd583bd28dc"><span class="std std-ref">cursorRight()</span></a>, <a class="reference internal" href="#class_terminal_1a7f60537603bd91df3ff1371a895054ea"><span class="std std-ref">cursorMove()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal9backspaceEv">
+<span id="_CPPv3N8Terminal9backspaceEv"></span><span id="_CPPv2N8Terminal9backspaceEv"></span><span id="Terminal::backspace"></span><span class="target" id="class_terminal_1ae4aec627f980fe0d26653401785d41bc"></span>void <code class="sig-name descname">backspace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal9backspaceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Backspaces over the last character. </p>
+<p>This function prints CTRL-H, a space, and another CTRL-H to backspace over and erase the last character on the current line.</p>
+<p>If the last character was a wide Unicode character, then two calls to this function are required to erase it. See <a class="reference internal" href="#class_terminal_1a25fdddd02378250799016cbb714c8a6b"><span class="std std-ref">isWideCharacter()</span></a> for more information.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a25fdddd02378250799016cbb714c8a6b"><span class="std std-ref">isWideCharacter()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10insertLineEv">
+<span id="_CPPv3N8Terminal10insertLineEv"></span><span id="_CPPv2N8Terminal10insertLineEv"></span><span id="Terminal::insertLine"></span><span class="target" id="class_terminal_1a9109858612082ffd3d91a88713b7448a"></span>void <code class="sig-name descname">insertLine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10insertLineEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inserts a line at the cursor position. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1af79ea5335f73762828087f5c813feafd"><span class="std std-ref">insertChar()</span></a>, <a class="reference internal" href="#class_terminal_1ae2f95592f13a1a5fe8464176a2b10298"><span class="std std-ref">deleteLine()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10insertCharEv">
+<span id="_CPPv3N8Terminal10insertCharEv"></span><span id="_CPPv2N8Terminal10insertCharEv"></span><span id="Terminal::insertChar"></span><span class="target" id="class_terminal_1af79ea5335f73762828087f5c813feafd"></span>void <code class="sig-name descname">insertChar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10insertCharEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inserts a blank character at the cursor position. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a9109858612082ffd3d91a88713b7448a"><span class="std std-ref">insertLine()</span></a>, <a class="reference internal" href="#class_terminal_1a7daffb0fe91d76678c5a9f22fe16e2c5"><span class="std std-ref">deleteChar()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10deleteLineEv">
+<span id="_CPPv3N8Terminal10deleteLineEv"></span><span id="_CPPv2N8Terminal10deleteLineEv"></span><span id="Terminal::deleteLine"></span><span class="target" id="class_terminal_1ae2f95592f13a1a5fe8464176a2b10298"></span>void <code class="sig-name descname">deleteLine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10deleteLineEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deletes a line at the cursor position. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a7daffb0fe91d76678c5a9f22fe16e2c5"><span class="std std-ref">deleteChar()</span></a>, <a class="reference internal" href="#class_terminal_1a9109858612082ffd3d91a88713b7448a"><span class="std std-ref">insertLine()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10deleteCharEv">
+<span id="_CPPv3N8Terminal10deleteCharEv"></span><span id="_CPPv2N8Terminal10deleteCharEv"></span><span id="Terminal::deleteChar"></span><span class="target" id="class_terminal_1a7daffb0fe91d76678c5a9f22fe16e2c5"></span>void <code class="sig-name descname">deleteChar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10deleteCharEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deletes the character at the cursor position. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1ae2f95592f13a1a5fe8464176a2b10298"><span class="std std-ref">deleteLine()</span></a>, <a class="reference internal" href="#class_terminal_1af79ea5335f73762828087f5c813feafd"><span class="std std-ref">insertChar()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal8scrollUpEv">
+<span id="_CPPv3N8Terminal8scrollUpEv"></span><span id="_CPPv2N8Terminal8scrollUpEv"></span><span id="Terminal::scrollUp"></span><span class="target" id="class_terminal_1a30d8d69fd84cafc6c2c94ae6fc65b690"></span>void <code class="sig-name descname">scrollUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal8scrollUpEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Scrolls the contents of the window up one line. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a661474bb4790aa82178b3ce9a85e5dea"><span class="std std-ref">scrollDown()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10scrollDownEv">
+<span id="_CPPv3N8Terminal10scrollDownEv"></span><span id="_CPPv2N8Terminal10scrollDownEv"></span><span id="Terminal::scrollDown"></span><span class="target" id="class_terminal_1a661474bb4790aa82178b3ce9a85e5dea"></span>void <code class="sig-name descname">scrollDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10scrollDownEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Scrolls the contents of the window down one line. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a30d8d69fd84cafc6c2c94ae6fc65b690"><span class="std std-ref">scrollUp()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal6normalEv">
+<span id="_CPPv3N8Terminal6normalEv"></span><span id="_CPPv2N8Terminal6normalEv"></span><span id="Terminal::normal"></span><span class="target" id="class_terminal_1a928023c8125f226ab0851f8b4bb6302f"></span>void <code class="sig-name descname">normal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal6normalEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Selects normal text with all attributes and colors off. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1ad1fc2be31d49124a1d32e8afddaa57b8"><span class="std std-ref">color()</span></a>, <a class="reference internal" href="#class_terminal_1a2e8dd341fc1ce63aa120be6066a89bea"><span class="std std-ref">bold()</span></a>, <a class="reference internal" href="#class_terminal_1a0e23c452353e7fdf0881d37521f3d105"><span class="std std-ref">underline()</span></a>, <a class="reference internal" href="#class_terminal_1a8485c7073e94e77f9873b80e9cac3151"><span class="std std-ref">blink()</span></a>, <a class="reference internal" href="#class_terminal_1a4d770065054af95c2b8f98b561619ede"><span class="std std-ref">reverse()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal4boldEv">
+<span id="_CPPv3N8Terminal4boldEv"></span><span id="_CPPv2N8Terminal4boldEv"></span><span id="Terminal::bold"></span><span class="target" id="class_terminal_1a2e8dd341fc1ce63aa120be6066a89bea"></span>void <code class="sig-name descname">bold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal4boldEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enables bold text. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a928023c8125f226ab0851f8b4bb6302f"><span class="std std-ref">normal()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal9underlineEv">
+<span id="_CPPv3N8Terminal9underlineEv"></span><span id="_CPPv2N8Terminal9underlineEv"></span><span id="Terminal::underline"></span><span class="target" id="class_terminal_1a0e23c452353e7fdf0881d37521f3d105"></span>void <code class="sig-name descname">underline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal9underlineEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enables underlined text. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal5blinkEv">
+<span id="_CPPv3N8Terminal5blinkEv"></span><span id="_CPPv2N8Terminal5blinkEv"></span><span id="Terminal::blink"></span><span class="target" id="class_terminal_1a8485c7073e94e77f9873b80e9cac3151"></span>void <code class="sig-name descname">blink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal5blinkEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enables blinking text. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal7reverseEv">
+<span id="_CPPv3N8Terminal7reverseEv"></span><span id="_CPPv2N8Terminal7reverseEv"></span><span id="Terminal::reverse"></span><span class="target" id="class_terminal_1a4d770065054af95c2b8f98b561619ede"></span>void <code class="sig-name descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal7reverseEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reverse the foreground and background colors for inverted text. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal5colorE5Color">
+<span id="_CPPv3N8Terminal5colorE5Color"></span><span id="_CPPv2N8Terminal5colorE5Color"></span><span id="Terminal::color__Color"></span><span class="target" id="class_terminal_1ad1fc2be31d49124a1d32e8afddaa57b8"></span>void <code class="sig-name descname">color</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8Terminal5ColorE" title="Terminal::Color">Color</a> <em>fg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal5colorE5Color" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Selects a text foreground color with the default background color. </p>
+<p><p>All other text attributes (reverse, underline, etc) are disabled.</p>
+<dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fg</span></code>: The foreground color to select.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>The following example displays a warning string with the initial word in red and all following words in normal text:</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">term</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="n">Terminal</span><span class="o">::</span><span class="n">Red</span><span class="p">);</span>
+<span class="n">term</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;WARNING: &quot;</span><span class="p">);</span>
+<span class="n">term</span><span class="p">.</span><span class="n">normal</span><span class="p">();</span>
+<span class="n">term</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;All files on the SD card will be deleted!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a928023c8125f226ab0851f8b4bb6302f"><span class="std std-ref">normal()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal5colorE5Color5Color">
+<span id="_CPPv3N8Terminal5colorE5Color5Color"></span><span id="_CPPv2N8Terminal5colorE5Color5Color"></span><span id="Terminal::color__Color.Color"></span><span class="target" id="class_terminal_1ae22436e478a854e8b559fe73182bc329"></span>void <code class="sig-name descname">color</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8Terminal5ColorE" title="Terminal::Color">Color</a> <em>fg</em>, <a class="reference internal" href="#_CPPv4N8Terminal5ColorE" title="Terminal::Color">Color</a> <em>bg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal5colorE5Color5Color" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Selects text foreground and background colors. </p>
+<p><p>All other text attributes (reverse, underline, etc) are disabled.</p>
+<dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fg</span></code>: The foreground color to select. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bg</span></code>: The background color to select.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a928023c8125f226ab0851f8b4bb6302f"><span class="std std-ref">normal()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal15isWideCharacterEl">
+<span id="_CPPv3N8Terminal15isWideCharacterEl"></span><span id="_CPPv2N8Terminal15isWideCharacterEl"></span><span id="Terminal::isWideCharacter__l"></span><span class="target" id="class_terminal_1a25fdddd02378250799016cbb714c8a6b"></span>bool <code class="sig-name descname">isWideCharacter</code><span class="sig-paren">(</span>long <em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal15isWideCharacterEl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determine if a Unicode character is wide. </p>
+<p><p>Wide characters typically come from East Asian languages and occupy two spaces in a terminal. Two calls to </p>
+<a class="reference internal" href="#class_terminal_1ae4aec627f980fe0d26653401785d41bc"><span class="std std-ref">backspace()</span></a> are required to erase such characters.<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Returns true if <em>code</em> is a wide character, false otherwise.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code>: The code point for the Unicode character. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>References: <a class="reference external" href="http://www.unicode.org/reports/tr11/">http://www.unicode.org/reports/tr11/</a>, <a class="reference external" href="http://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt">http://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt</a></p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1ae4aec627f980fe0d26653401785d41bc"><span class="std std-ref">backspace()</span></a>, <a class="reference internal" href="#class_terminal_1a25308d6b2a3d18820d8a0e641c7be937"><span class="std std-ref">writeUnicode()</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10utf8LengthEl">
+<span id="_CPPv3N8Terminal10utf8LengthEl"></span><span id="_CPPv2N8Terminal10utf8LengthEl"></span><span id="Terminal::utf8Length__l"></span><span class="target" id="class_terminal_1a0ed780bd8568f752c5d3dfe68a111c52"></span>size_t <code class="sig-name descname">utf8Length</code><span class="sig-paren">(</span>long <em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10utf8LengthEl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determines the length of a Unicode code point in the UTF-8 encoding. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The number of bytes that makes up the UTF-8 encoding of <em>code</em>. Returns zero if <em>code</em> is not a valid code point.</p>
+</dd>
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1ae6478319776ecb726613b38429d7cdec"><span class="std std-ref">utf8Format()</span></a>, <a class="reference internal" href="#class_terminal_1a25308d6b2a3d18820d8a0e641c7be937"><span class="std std-ref">writeUnicode()</span></a> </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code>: The code point to be written between 0 and 0x10FFFF. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N8Terminal10utf8FormatEP7uint8_tl">
+<span id="_CPPv3N8Terminal10utf8FormatEP7uint8_tl"></span><span id="_CPPv2N8Terminal10utf8FormatEP7uint8_tl"></span><span id="Terminal::utf8Format__uint8_tP.l"></span><span class="target" id="class_terminal_1ae6478319776ecb726613b38429d7cdec"></span>size_t <code class="sig-name descname">utf8Format</code><span class="sig-paren">(</span>uint8_t *<em>buffer</em>, long <em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8Terminal10utf8FormatEP7uint8_tl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Formats a Unicode code point in a buffer in the UTF-8 encoding. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The number of bytes that were written to <em>buffer</em> to represent <em>code</em>. Returns zero if <em>code</em> is not a valid code point.</p>
+</dd>
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#class_terminal_1a0ed780bd8568f752c5d3dfe68a111c52"><span class="std std-ref">utf8Length()</span></a>, <a class="reference internal" href="#class_terminal_1a25308d6b2a3d18820d8a0e641c7be937"><span class="std std-ref">writeUnicode()</span></a> </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">buffer</span></code>: The buffer to write the UTF-8 encoding to. At most 4 bytes will be written to this buffer. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code>: The code point to be written between 0 and 0x10FFFF. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="class_transport.html" class="btn btn-neutral float-right" title="Template Class Transport" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="class_string_formatter.html" class="btn btn-neutral float-left" title="Class StringFormatter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

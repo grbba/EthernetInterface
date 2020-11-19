@@ -1,0 +1,13 @@
+.. _exhale_function__c_l_icommands_8cpp_1a4d0f67731a5e2d309fc1fd8802c623a3:
+
+Function cmdLed
+===============
+
+- Defined in :ref:`file_src_cli_CLIcommands.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: cmdLed(Shell&, int, const ShellArguments&)

@@ -1,0 +1,86 @@
+
+.. _file_src_Transport.h:
+
+File Transport.h
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/Transport.h``)
+--------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_Transport.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Arduino.h``
+
+- ``Ethernet.h``
+
+- ``NetworkConfig.h`` (:ref:`file_src_NetworkConfig.h`)
+
+- ``NetworkInterface.h`` (:ref:`file_src_NetworkInterface.h`)
+
+- ``TransportProcessor.h`` (:ref:`file_src_TransportProcessor.h`)
+
+- ``WiFiEspAT.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_cli_CLIcommands.cpp`
+
+- :ref:`file_src_cli_CLIcommands.h`
+
+- :ref:`file_src_NetworkInterface.cpp`
+
+- :ref:`file_src_Transport.cpp`
+
+- :ref:`file_src_TransportProcessor.h`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_struct_connection`
+
+- :ref:`exhale_class_class_transport`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum__transport_8h_1ab41ff1ef7a956f31a30538470dca0885`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef__transport_8h_1a1e2f1fb81692457c4b64d606dc1c9217`
+
+- :ref:`exhale_typedef__transport_8h_1a498e679a10f06d3daf64e85fb8ad9b58`
+

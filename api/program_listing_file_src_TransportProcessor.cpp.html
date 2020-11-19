@@ -1,0 +1,667 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File TransportProcessor.cpp &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">NetworkInterface API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CommandStation EX NetworkInterface</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File TransportProcessor.cpp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_src_TransportProcessor.cpp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-transportprocessor-cpp">
+<span id="program-listing-file-src-transportprocessor-cpp"></span><h1>Program Listing for File TransportProcessor.cpp<a class="headerlink" href="#program-listing-for-file-transportprocessor-cpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_src_TransportProcessor.cpp.html#file-src-transportprocessor-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/TransportProcessor.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * © 2020 Gregor Baues. All rights reserved.</span>
+<span class="cm"> *</span>
+<span class="cm"> * This is free software: you can redistribute it and/or modify it under</span>
+<span class="cm"> * the terms of the GNU General Public License as published by the</span>
+<span class="cm"> * Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm"> * (at your option) any later version.</span>
+<span class="cm"> *</span>
+<span class="cm"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
+<span class="cm"> * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="cm"> * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="cm"> * DEALINGS IN THE SOFTWARE.</span>
+<span class="cm"> *</span>
+<span class="cm"> * See the GNU General Public License for more details &lt;https://www.gnu.org/licenses/&gt;</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;NetworkDiag.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;NetworkInterface.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;HttpRequest.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;TransportProcessor.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#ifdef DCCEX_ENABLED</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;DCCEXParser.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;WiThrottle.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;MemStream.h&quot;</span><span class="cp"></span>
+
+<span class="n">DCCEXParser</span> <span class="n">dccParser</span><span class="p">;</span>
+
+<span class="cp">#endif</span>
+
+<span class="n">HttpRequest</span> <span class="n">httpReq</span><span class="p">;</span>
+
+<span class="kt">uint16_t</span> <span class="n">_rseq</span><span class="p">[</span><span class="n">MAX_SOCK_NUM</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">// sequence number for packets recieved per connection</span>
+<span class="kt">uint16_t</span> <span class="n">_sseq</span><span class="p">[</span><span class="n">MAX_SOCK_NUM</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">// sequence number for replies send per connection</span>
+<span class="kt">uint16_t</span> <span class="n">_pNum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                 <span class="c1">// number of total packets recieved</span>
+<span class="kt">uint64_t</span> <span class="n">_tPayload</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>             <span class="c1">// number of total bytes recieved</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">_nCmds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                <span class="c1">// total number of commands processed</span>
+
+<span class="kt">char</span> <span class="n">protocolName</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;JMRI&quot;</span><span class="p">,</span> <span class="s">&quot;WITHROTTLE&quot;</span><span class="p">,</span> <span class="s">&quot;HTTP&quot;</span><span class="p">,</span> <span class="s">&quot;DIAG&quot;</span><span class="p">,</span> <span class="s">&quot;UNKNOWN&quot;</span><span class="p">};</span> <span class="c1">// change for Progmem</span>
+
+<span class="kt">bool</span> <span class="n">diagNetwork</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>      <span class="c1">// if true diag data will be send to the connected telnet client</span>
+<span class="kt">uint8_t</span> <span class="n">diagNetworkClient</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// client id for diag output</span>
+
+<span class="cp">#ifdef DCCEX_ENABLED</span>
+
+<span class="kt">void</span> <span class="nf">dumpRingStreamBuffer</span><span class="p">(</span><span class="n">byte</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">TRC</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;RingStream buffer length [%d] out of [%d] bytes&quot;</span><span class="p">),</span> <span class="n">strlen</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">b</span><span class="p">),</span> <span class="n">len</span><span class="p">);</span>
+    <span class="n">TRC</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;%e&quot;</span><span class="p">),</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">RingStream</span> <span class="nf">streamer</span><span class="p">(</span><span class="mi">512</span><span class="p">);</span> <span class="c1">// buffer into which to feed the commands for handling; there will not be an immediate reply</span>
+                          <span class="c1">// as this is async written to another RingStream i.e. we have to see where in the loop we</span>
+                          <span class="c1">// generate the replies.</span>
+
+<span class="kt">void</span> <span class="nf">sendWiThrottleToDCC</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">TransportProcessor</span> <span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">blocking</span><span class="p">)</span>
+<span class="p">{</span>
+
+    <span class="n">byte</span> <span class="o">*</span><span class="n">_buffer</span> <span class="o">=</span> <span class="n">streamer</span><span class="p">.</span><span class="n">getBuffer</span><span class="p">();</span>
+    <span class="n">memset</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">512</span><span class="p">);</span>                         <span class="c1">// clear out the _buffer</span>
+    <span class="n">WiThrottle</span> <span class="o">*</span><span class="n">wt</span> <span class="o">=</span> <span class="n">WiThrottle</span><span class="o">::</span><span class="n">getThrottle</span><span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span> <span class="c1">// get a throttle for the Connection; will be created if it doesn&#39;t exist</span>
+
+    <span class="n">TRC</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;WiThrottle [%x:%x] parsing: [%e]&quot;</span><span class="p">),</span> <span class="n">wt</span><span class="p">,</span> <span class="n">_buffer</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">);</span>
+
+    <span class="n">wt</span><span class="o">-&gt;</span><span class="n">parse</span><span class="p">(</span><span class="o">&amp;</span><span class="n">streamer</span><span class="p">,</span> <span class="p">(</span><span class="n">byte</span> <span class="o">*</span><span class="p">)</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">);</span> <span class="c1">// get the response; not all commands will produce a reply</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">streamer</span><span class="p">.</span><span class="n">count</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">-1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">dumpRingStreamBuffer</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="mi">512</span><span class="p">);</span>
+        <span class="n">TRC</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;UDP %x&quot;</span><span class="p">),</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">udp</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">udp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">TRC</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Sending UDP WiThrottle response ...&quot;</span><span class="p">));</span>
+            <span class="n">t</span><span class="o">-&gt;</span><span class="n">udp</span><span class="o">-&gt;</span><span class="n">beginPacket</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">udp</span><span class="o">-&gt;</span><span class="n">remoteIP</span><span class="p">(),</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">udp</span><span class="o">-&gt;</span><span class="n">remotePort</span><span class="p">());</span>
+            <span class="n">t</span><span class="o">-&gt;</span><span class="n">udp</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="n">strlen</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">_buffer</span><span class="p">));</span>
+            <span class="n">t</span><span class="o">-&gt;</span><span class="n">udp</span><span class="o">-&gt;</span><span class="n">endPacket</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">_buffer</span><span class="p">,</span> <span class="n">strlen</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">_buffer</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">streamer</span><span class="p">.</span><span class="n">resetStream</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">sendJmriToDCC</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">TransportProcessor</span> <span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">blocking</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MemStream</span> <span class="n">streamer</span><span class="p">((</span><span class="n">byte</span> <span class="o">*</span><span class="p">)</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">,</span> <span class="n">MAX_ETH_BUFFER</span><span class="p">,</span> <span class="n">MAX_ETH_BUFFER</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+
+    <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;DCC parsing: [%e]&quot;</span><span class="p">),</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">);</span>
+    <span class="c1">// as we use buffer for recv and send we have to reset the write position</span>
+    <span class="n">streamer</span><span class="p">.</span><span class="n">setBufferContentPosition</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">dccParser</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="o">&amp;</span><span class="n">streamer</span><span class="p">,</span> <span class="p">(</span><span class="n">byte</span> <span class="o">*</span><span class="p">)</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> <span class="c1">// set to true to that the execution in DCC is sync</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">streamer</span><span class="p">.</span><span class="n">available</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;No response&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">[</span><span class="n">streamer</span><span class="p">.</span><span class="n">available</span><span class="p">()]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span> <span class="c1">// mark end of buffer, so it can be used as a string later</span>
+        <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Response: %s&quot;</span><span class="p">),</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">connected</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">((</span><span class="n">byte</span> <span class="o">*</span><span class="p">)</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">,</span> <span class="n">streamer</span><span class="p">.</span><span class="n">available</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">sendToDCC</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">TransportProcessor</span> <span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">blocking</span><span class="p">)</span>
+<span class="p">{</span>
+
+    <span class="k">switch</span> <span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">p</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">WITHROTTLE</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="n">sendWiThrottleToDCC</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">blocking</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="nl">DCCEX</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="n">sendJmriToDCC</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">blocking</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="nl">N_DIAG</span><span class="p">:</span>
+    <span class="k">case</span> <span class="nl">HTTP</span><span class="p">:</span>
+    <span class="k">case</span> <span class="nl">UNKNOWN_PROTOCOL</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="c1">// we shall never get here they should have been caught before</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#else</span>
+
+<span class="kt">void</span> <span class="nf">sendReply</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">TransportProcessor</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">byte</span> <span class="n">reply</span><span class="p">[</span><span class="n">MAX_ETH_BUFFER</span><span class="p">];</span>
+    <span class="n">byte</span> <span class="o">*</span><span class="n">response</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">number</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">command</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">seqNumber</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">memset</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MAX_ETH_BUFFER</span><span class="p">);</span> <span class="c1">// reset reply</span>
+
+    <span class="c1">// This expects messages to be send with a trailing sequence number &lt;R 1 1 1:0&gt;</span>
+    <span class="c1">// as of my stress test program to verify the arrival of messages</span>
+
+    <span class="n">number</span> <span class="o">=</span> <span class="n">strrchr</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="sc">&#39;:&#39;</span><span class="p">);</span> <span class="c1">// replace the int after the last &#39;:&#39; if number != 0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">command</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">number</span><span class="p">)</span>
+        <span class="p">{</span> <span class="c1">// copy command into the reply upto the last &#39;:&#39;</span>
+            <span class="n">reply</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">strcat</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">reply</span><span class="p">,</span> <span class="s">&quot;:&quot;</span><span class="p">);</span>
+        <span class="n">itoa</span><span class="p">(</span><span class="n">_sseq</span><span class="p">[</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">],</span> <span class="n">seqNumber</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+        <span class="n">strcat</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">reply</span><span class="p">,</span> <span class="n">seqNumber</span><span class="p">);</span>
+        <span class="n">strcat</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">reply</span><span class="p">,</span> <span class="s">&quot;&gt;&quot;</span><span class="p">);</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">reply</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="p">(</span><span class="n">byte</span> <span class="o">*</span><span class="p">)</span><span class="n">command</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Response: [%e]&quot;</span><span class="p">),</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">connected</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">strlen</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">));</span>
+        <span class="n">_sseq</span><span class="p">[</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Send&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="cp">#endif</span>
+
+<span class="kt">void</span> <span class="nf">httpProcessor</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">TransportProcessor</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">httpReq</span><span class="p">.</span><span class="n">callback</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span> <span class="c1">// no callback i.e. nothing to do</span>
+    <span class="kt">uint8_t</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">ParsedRequest</span> <span class="n">preq</span><span class="p">;</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">buffer</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">l</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">httpReq</span><span class="p">.</span><span class="n">parseRequest</span><span class="p">((</span><span class="kt">char</span><span class="p">)</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">buffer</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">httpReq</span><span class="p">.</span><span class="n">endOfRequest</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">preq</span> <span class="o">=</span> <span class="n">httpReq</span><span class="p">.</span><span class="n">getParsedRequest</span><span class="p">();</span>
+        <span class="n">httpReq</span><span class="p">.</span><span class="n">callback</span><span class="p">(</span><span class="o">&amp;</span><span class="n">preq</span><span class="p">,</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="p">);</span>
+        <span class="n">httpReq</span><span class="p">.</span><span class="n">resetRequest</span><span class="p">();</span>
+    <span class="p">}</span> <span class="c1">// else do nothing and continue with the next packet</span>
+<span class="p">}</span>
+
+<span class="n">appProtocol</span> <span class="nf">setAppProtocol</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">,</span> <span class="kt">char</span> <span class="n">b</span><span class="p">,</span> <span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">appProtocol</span> <span class="n">p</span><span class="p">;</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">case</span> <span class="sc">&#39;G&#39;</span><span class="o">:</span> <span class="c1">// GET</span>
+    <span class="k">case</span> <span class="sc">&#39;C&#39;</span><span class="o">:</span> <span class="c1">// CONNECT</span>
+    <span class="k">case</span> <span class="sc">&#39;O&#39;</span><span class="o">:</span> <span class="c1">// OPTIONS</span>
+    <span class="k">case</span> <span class="sc">&#39;T&#39;</span><span class="o">:</span> <span class="c1">// TRACE</span>
+    <span class="p">{</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="sc">&#39;D&#39;</span><span class="o">:</span> <span class="c1">// DELETE or D plux hex value</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="sc">&#39;E&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">WITHROTTLE</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="sc">&#39;P&#39;</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="sc">&#39;T&#39;</span> <span class="o">||</span> <span class="n">b</span> <span class="o">==</span> <span class="sc">&#39;R&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">WITHROTTLE</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">;</span> <span class="c1">// PUT / PATCH / POST</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="sc">&#39;H&#39;</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="sc">&#39;U&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">WITHROTTLE</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">;</span> <span class="c1">// HEAD</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="sc">&#39;M&#39;</span><span class="o">:</span>
+    <span class="k">case</span> <span class="sc">&#39;*&#39;</span><span class="o">:</span>
+    <span class="k">case</span> <span class="sc">&#39;R&#39;</span><span class="o">:</span>
+    <span class="k">case</span> <span class="sc">&#39;Q&#39;</span><span class="o">:</span> <span class="c1">// That doesn&#39;t make sense as it&#39;s the Q or close on app level</span>
+    <span class="k">case</span> <span class="sc">&#39;N&#39;</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">WITHROTTLE</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="sc">&#39;&lt;&#39;</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">DCCEX</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="sc">&#39;#&#39;</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">DCCEX</span><span class="p">;</span>
+        <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Diagnostics routed to network client&quot;</span><span class="p">));</span>
+        <span class="n">NetworkDiag</span><span class="o">::</span><span class="n">setDiagOut</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+        <span class="n">diagNetwork</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">diagNetworkClient</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">default</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="c1">// here we don&#39;t know</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">UNKNOWN_PROTOCOL</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Client speaks: [%s]&quot;</span><span class="p">),</span> <span class="n">protocolName</span><span class="p">[</span><span class="n">p</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">processStream</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">TransportProcessor</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">_buffer</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">buffer</span><span class="p">;</span>
+
+    <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Buffer: [%e]&quot;</span><span class="p">),</span> <span class="n">_buffer</span><span class="p">);</span>
+    <span class="n">memset</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MAX_JMRI_CMD</span><span class="p">);</span> <span class="c1">// clear out the command</span>
+
+    <span class="c1">// copy overflow into the command</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">overflow</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// DBG(F(&quot;Copy overflow to command: %e&quot;), c-&gt;overflow);</span>
+        <span class="n">strncpy</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">,</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">overflow</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// reset the overflow</span>
+    <span class="n">memset</span><span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">overflow</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MAX_OVERFLOW</span><span class="p">);</span>
+
+    <span class="c1">// check if there is again an overflow and copy if needed</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">_buffer</span><span class="p">))</span> <span class="o">==</span> <span class="n">MAX_ETH_BUFFER</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// DBG(F(&quot;Possible overflow situation detected: %d &quot;), i);</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">_buffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">delimiter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">i</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="c1">// start of the buffer to copy</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// length to copy</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">,</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">c</span><span class="o">-&gt;</span><span class="n">overflow</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">_buffer</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="c1">// DBG(F(&quot;%d %d %d %c&quot;),k,j,i, buffer[i]);</span>
+        <span class="p">}</span>
+        <span class="n">_buffer</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span> <span class="c1">// terminate buffer just after the last &#39;&gt;&#39;</span>
+        <span class="c1">// DBG(F(&quot;New buffer: [%s] New overflow: [%s]&quot;), (char*) buffer, c-&gt;overflow );</span>
+    <span class="p">}</span>
+    <span class="c1">// breakup the buffer using its changed length</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">);</span> <span class="c1">// current length of the command buffer telling us where to start copy in</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">_buffer</span><span class="p">);</span>
+    <span class="c1">// DBG(F(&quot;Command buffer cid[%d]: [%s]:[%d:%d:%d:%x]&quot;), c-&gt;id,  t-&gt;command, i, l, k, c-&gt;delimiter );</span>
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">_startT</span> <span class="o">=</span> <span class="n">micros</span><span class="p">();</span>
+    <span class="n">_nCmds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">l</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// DBG(F(&quot;l: %d - k: %d - i: %d - %c&quot;), l, k, i, _buffer[i]);</span>
+        <span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">_buffer</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">_buffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">delimiter</span><span class="p">)</span>
+        <span class="p">{</span> <span class="c1">// closing bracket need to fix if there is none before an opening bracket ?</span>
+
+            <span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+
+            <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Command: [%d:%e]&quot;</span><span class="p">),</span> <span class="n">_rseq</span><span class="p">[</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">],</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">command</span><span class="p">);</span>
+<span class="cp">#ifdef DCCEX_ENABLED</span>
+
+            <span class="n">sendToDCC</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span> <span class="c1">// send the command into the parser and replies back to the client</span>
+<span class="cp">#else</span>
+            <span class="n">sendReply</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span> <span class="c1">// standalone version without CS-EX integration</span>
+<span class="cp">#endif</span>
+            <span class="n">_rseq</span><span class="p">[</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">_nCmds</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">_endT</span> <span class="o">=</span> <span class="n">micros</span><span class="p">();</span>
+    <span class="kt">char</span> <span class="n">time</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">ultoa</span><span class="p">(</span><span class="n">_endT</span> <span class="o">-</span> <span class="n">_startT</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;[%d] Commands processed in [%s]uS</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">),</span> <span class="n">_nCmds</span><span class="p">,</span> <span class="n">time</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">echoProcessor</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">TransportProcessor</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">byte</span> <span class="n">reply</span><span class="p">[</span><span class="n">MAX_ETH_BUFFER</span><span class="p">];</span>
+
+    <span class="n">memset</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MAX_ETH_BUFFER</span><span class="p">);</span>
+    <span class="n">sprintf</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">reply</span><span class="p">,</span> <span class="s">&quot;ERROR: malformed content in [%s]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">buffer</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">connected</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="n">strlen</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">reply</span><span class="p">));</span>
+        <span class="n">_sseq</span><span class="p">[</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="n">isProtocolDefined</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// reset the protocol to not defined so that we can recover the next time</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">jmriProcessor</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">TransportProcessor</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Processing JMRI ...&quot;</span><span class="p">));</span>
+    <span class="n">processStream</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">withrottleProcessor</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">TransportProcessor</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Processing WiThrottle ...&quot;</span><span class="p">));</span>
+    <span class="n">processStream</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">TransportProcessor</span><span class="o">::</span><span class="n">readStream</span><span class="p">(</span><span class="n">Connection</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">read</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// read bytes from a TCP client if required</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">read</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">MAX_ETH_BUFFER</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// count is the amount of data ready for reading, -1 if there is no data, 0 is the connection has been closed</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">len</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// figure out which protocol</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">isProtocolDefined</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="n">p</span> <span class="o">=</span> <span class="n">setAppProtocol</span><span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">);</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="n">isProtocolDefined</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">p</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">N_DIAG</span><span class="p">:</span>
+        <span class="k">case</span> <span class="nl">DCCEX</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="n">c</span><span class="o">-&gt;</span><span class="n">delimiter</span> <span class="o">=</span> <span class="sc">&#39;&gt;&#39;</span><span class="p">;</span>
+            <span class="n">c</span><span class="o">-&gt;</span><span class="n">appProtocolHandler</span> <span class="o">=</span> <span class="p">(</span><span class="n">appProtocolCallback</span><span class="p">)</span><span class="n">jmriProcessor</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">case</span> <span class="nl">WITHROTTLE</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="n">c</span><span class="o">-&gt;</span><span class="n">delimiter</span> <span class="o">=</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+            <span class="n">c</span><span class="o">-&gt;</span><span class="n">appProtocolHandler</span> <span class="o">=</span> <span class="p">(</span><span class="n">appProtocolCallback</span><span class="p">)</span><span class="n">withrottleProcessor</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">case</span> <span class="nl">HTTP</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="n">c</span><span class="o">-&gt;</span><span class="n">appProtocolHandler</span> <span class="o">=</span> <span class="p">(</span><span class="n">appProtocolCallback</span><span class="p">)</span><span class="n">httpProcessor</span><span class="p">;</span>
+            <span class="n">httpReq</span><span class="p">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">nwi</span><span class="o">-&gt;</span><span class="n">getHttpCallback</span><span class="p">();</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">case</span> <span class="nl">UNKNOWN_PROTOCOL</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Requests will not be handeled and packet echoed back&quot;</span><span class="p">));</span>
+            <span class="n">c</span><span class="o">-&gt;</span><span class="n">appProtocolHandler</span> <span class="o">=</span> <span class="p">(</span><span class="n">appProtocolCallback</span><span class="p">)</span><span class="n">echoProcessor</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">_pNum</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">_tPayload</span> <span class="o">=</span> <span class="n">_tPayload</span> <span class="o">+</span> <span class="n">count</span><span class="p">;</span>
+<span class="cp">#ifdef DCCEX_ENABLED</span>
+    <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Client #[%d] received packet #[%d] of size:[%d/%d]&quot;</span><span class="p">),</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">_pNum</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">_tPayload</span><span class="p">);</span>
+<span class="cp">#else</span>
+    <span class="n">IPAddress</span> <span class="n">remote</span> <span class="o">=</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">remoteIP</span><span class="p">();</span>
+    <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Client #[%d] Received packet #[%d] of size:[%d] from [%d.%d.%d.%d]&quot;</span><span class="p">),</span> <span class="n">c</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">_pNum</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">remote</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">remote</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">remote</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">remote</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+<span class="cp">#endif</span>
+    <span class="n">buffer</span><span class="p">[</span><span class="n">count</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span> <span class="c1">// terminate the string properly</span>
+    <span class="n">INFO</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Packet: [%e]&quot;</span><span class="p">),</span> <span class="n">buffer</span><span class="p">);</span>
+
+    <span class="c1">// chop the buffer into CS / WiThrottle commands || assemble command across buffer read boundaries</span>
+    <span class="n">c</span><span class="o">-&gt;</span><span class="n">appProtocolHandler</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">parse</span><span class="p">(</span><span class="n">Print</span> <span class="o">*</span><span class="n">stream</span><span class="p">,</span> <span class="n">byte</span> <span class="o">*</span><span class="n">command</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">blocking</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">DBG</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;DCC parsing: [%e]&quot;</span><span class="p">),</span> <span class="n">command</span><span class="p">);</span>
+    <span class="c1">// echo back (as mock parser )</span>
+    <span class="n">StringFormatter</span><span class="o">::</span><span class="n">send</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">F</span><span class="p">(</span><span class="s">&quot;reply to: %s&quot;</span><span class="p">),</span> <span class="n">command</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, grbba
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

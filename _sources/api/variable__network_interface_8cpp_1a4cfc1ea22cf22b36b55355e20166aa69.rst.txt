@@ -1,0 +1,13 @@
+.. _exhale_variable__network_interface_8cpp_1a4cfc1ea22cf22b36b55355e20166aa69:
+
+Variable _dccNet
+================
+
+- Defined in :ref:`file_src_NetworkInterface.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: _dccNet

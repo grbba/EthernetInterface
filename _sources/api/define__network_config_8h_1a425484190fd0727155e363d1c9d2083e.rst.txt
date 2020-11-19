@@ -1,0 +1,13 @@
+.. _exhale_define__network_config_8h_1a425484190fd0727155e363d1c9d2083e:
+
+Define MAX_WIFI_SOCK
+====================
+
+- Defined in :ref:`file_src_NetworkConfig.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: MAX_WIFI_SOCK

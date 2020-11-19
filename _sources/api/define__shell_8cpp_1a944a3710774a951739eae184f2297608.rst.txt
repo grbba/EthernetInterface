@@ -1,0 +1,13 @@
+.. _exhale_define__shell_8cpp_1a944a3710774a951739eae184f2297608:
+
+Define LINEMODE_USERNAME
+========================
+
+- Defined in :ref:`file_src_cli_Shell.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: LINEMODE_USERNAME

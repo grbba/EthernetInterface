@@ -1,0 +1,13 @@
+.. _exhale_variable__network_diag_8cpp_1a611cac484729e35cb94f29fda8924a9f:
+
+Variable _nLogLevel
+===================
+
+- Defined in :ref:`file_src_NetworkDiag.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: _nLogLevel

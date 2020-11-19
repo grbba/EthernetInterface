@@ -1,0 +1,13 @@
+.. _exhale_define__network_diag_8h_1ae31fb81e1fe3e5c44839e319a44c8c5e:
+
+Define TRC
+==========
+
+- Defined in :ref:`file_src_NetworkDiag.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: TRC

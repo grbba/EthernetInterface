@@ -1,0 +1,114 @@
+
+.. _program_listing_file_src_Transport.h:
+
+Program Listing for File Transport.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_src_Transport.h>` (``src/Transport.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    * © 2020 Gregor Baues. All rights reserved.
+    *  
+    * This is free software: you can redistribute it and/or modify it under
+    * the terms of the GNU General Public License as published by the 
+    * Free Software Foundation, either version 3 of the License, or
+    * (at your option) any later version.
+    * 
+    * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    * DEALINGS IN THE SOFTWARE.
+    * 
+    * See the GNU General Public License for more details <https://www.gnu.org/licenses/>
+    */
+   
+   #ifndef Transport_h
+   #define Transport_h
+   
+   #include <Arduino.h>
+   #include <Ethernet.h>
+   #include <WiFiEspAT.h>
+   
+   #include "NetworkConfig.h"
+   #include "NetworkInterface.h"
+   #include "TransportProcessor.h"
+   
+   
+   typedef enum
+   {
+       DCCEX,      
+       WITHROTTLE, //
+       HTTP,       
+       N_DIAG,     
+       UNKNOWN_PROTOCOL
+   } appProtocol;
+   
+   // Needed forward declarations
+   struct Connection;
+   class TransportProcessor;
+   
+   using appProtocolCallback = void (*)(Connection* c, TransportProcessor* t);
+   using loopHandler = void(*)();
+   
+   struct Connection
+   {
+       uint8_t id;                             // initalized when the pool is setup
+       Client *client;                         // idem
+       char overflow[MAX_OVERFLOW];            // idem
+       appProtocol p;                          // dynamically determined upon message reception; first message wins
+       char delimiter = '\0';                  // idem
+       bool isProtocolDefined = false;         // idem
+       appProtocolCallback appProtocolHandler; // idem
+   };
+   
+   
+   template <class S, class C, class U> class Transport: public AbstractTransport
+   {
+   
+   private:
+       C                   clients[MAX_SOCK_NUM];          
+       Connection          connections[MAX_SOCK_NUM];      
+       bool                connected = false;                          
+       TransportProcessor* t;                              
+   
+       void udpHandler(U* udp);                            
+       void tcpSessionHandler(S* server);                  
+       void connectionPool(S* server);                     
+       void connectionPool(U* udp);                        
+       Connection* cliConnection = 0;                      
+       bool cliConnected = false;                          
+      
+   public:
+   
+       uint8_t         id;
+       uint16_t        port;
+       uint8_t         protocol;               // TCP or UDP  
+       uint8_t         transport;              // WIFI or ETHERNET 
+       S*              server;                 // WiFiServer or EthernetServer 
+       U*              udp;                    // UDP socket object
+       uint8_t         maxConnections;         // number of supported connections depending on the network equipment use
+   
+       bool setup(NetworkInterface* nwi);      // we get the callbacks from the NetworkInterface 
+       void loop(); 
+   
+       bool isConnected() {
+           return connected;
+       }
+   
+       Connection getConnection(byte i){
+           return connections[i];
+       }
+   
+       Transport<S,C,U>();
+       ~Transport<S,C,U>();
+       
+   };
+   
+   #endif // !Transport_h

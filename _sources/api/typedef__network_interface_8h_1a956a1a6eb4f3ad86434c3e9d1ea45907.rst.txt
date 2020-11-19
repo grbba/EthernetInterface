@@ -1,0 +1,13 @@
+.. _exhale_typedef__network_interface_8h_1a956a1a6eb4f3ad86434c3e9d1ea45907:
+
+Typedef HttpCallback
+====================
+
+- Defined in :ref:`file_src_NetworkInterface.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: HttpCallback

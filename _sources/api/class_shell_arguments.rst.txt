@@ -1,0 +1,16 @@
+.. _exhale_class_class_shell_arguments:
+
+Class ShellArguments
+====================
+
+- Defined in :ref:`file_src_cli_Shell.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ShellArguments
+   :members:
+   :protected-members:
+   :undoc-members:

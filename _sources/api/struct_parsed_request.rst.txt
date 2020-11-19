@@ -1,0 +1,16 @@
+.. _exhale_struct_struct_parsed_request:
+
+Struct ParsedRequest
+====================
+
+- Defined in :ref:`file_src_HttpRequest.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ParsedRequest
+   :members:
+   :protected-members:
+   :undoc-members:

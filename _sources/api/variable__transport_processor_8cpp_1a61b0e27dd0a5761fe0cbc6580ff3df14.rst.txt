@@ -1,0 +1,13 @@
+.. _exhale_variable__transport_processor_8cpp_1a61b0e27dd0a5761fe0cbc6580ff3df14:
+
+Variable _rseq
+==============
+
+- Defined in :ref:`file_src_TransportProcessor.cpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: _rseq

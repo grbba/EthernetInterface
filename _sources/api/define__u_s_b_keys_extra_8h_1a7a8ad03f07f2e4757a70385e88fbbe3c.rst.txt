@@ -1,0 +1,13 @@
+.. _exhale_define__u_s_b_keys_extra_8h_1a7a8ad03f07f2e4757a70385e88fbbe3c:
+
+Define KEY_F8
+=============
+
+- Defined in :ref:`file_src_cli_USBKeysExtra.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KEY_F8
