@@ -18,6 +18,16 @@
  */
 
 #include <Arduino.h>
+#include "NetworkConfig.h"
+
+#if defined(ARDUINO_ARCH_STM32)
+#include <STM32Ethernet.h>
+#else
+#include <Ethernet.h>
+#endif
+#if WIFI_AT_ENABLED
+#include <WiFiEspAT.h>
+#endif
 
 #include "NetworkDiag.h"
 #include "NetworkInterface.h"
@@ -39,6 +49,18 @@ Shell shell;
 
 extern bool diagNetwork;
 extern uint8_t diagNetworkClient;
+
+static EthernetClient acceptClient(EthernetServer* server)
+{
+    return server->available();
+}
+
+#if WIFI_AT_ENABLED
+static WiFiClient acceptClient(WiFiServer* server)
+{
+    return server->accept();
+}
+#endif
 
 
 /**
@@ -106,7 +128,7 @@ void Transport<S, C, U>::connectionPool(S *server)
 {
     for (int i = 0; i < Transport::maxConnections; i++)
     {
-        clients[i] = server->accept();
+        clients[i] = acceptClient(server);
         connections[i].client = &clients[i];              
         memset(connections[i].overflow, 0, MAX_OVERFLOW); 
         connections[i].id = i;
@@ -168,7 +190,7 @@ template<class S, class C, class U>
 void Transport<S,C,U>::tcpSessionHandler(S* server)
 {
     // get client from the server
-    C client = server->accept();
+    C client = acceptClient(server);
     
     // check for new client 
     if (client)
@@ -237,4 +259,6 @@ Transport<S,C,U>::~Transport(){}
 
 // explicitly instatiate to get the relevant copies for ethernet / wifi build @compile time
 template class Transport<EthernetServer,EthernetClient,EthernetUDP>;
+#if WIFI_AT_ENABLED
 template class Transport<WiFiServer, WiFiClient, WiFiUDP>;
+#endif

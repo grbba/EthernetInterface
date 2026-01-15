@@ -21,7 +21,7 @@
 // Build configuration
 
 // #define DCCEX_ENABLED            // uncomment to enable CS-EX integration; Commented will operate as standalone and only echo commands as replies
-#define CLI_ENABLED                // enables the Command Line Interface either on serial or any network client; active for network clients if an interface on port 23 eists
+// #define CLI_ENABLED                // enables the Command Line Interface either on serial or any network client; active for network clients if an interface on port 23 eists
 
 // Network operational configuration
 
@@ -38,6 +38,14 @@
 #define MAX_ETH_BUFFER  128                                     //!< Maximum length read in one go from a TCP packet. 
 #define MAX_OVERFLOW    MAX_ETH_BUFFER / 2                      //!< Length of the overflow buffer to be used for a given connection to make sure we capture commands broken between two recieves 
 #define MAX_JMRI_CMD    MAX_ETH_BUFFER / 2                      //!< Maximum Length of a JMRI Command 
+
+#ifndef WIFI_AT_ENABLED
+#if defined(ARDUINO_ARCH_STM32)
+#define WIFI_AT_ENABLED 0
+#else
+#define WIFI_AT_ENABLED 1
+#endif
+#endif
 
 
 

@@ -21,7 +21,8 @@
 #ifndef HttpRequest_h
 #define HttpRequest_h
 
-#include "Ethernet.h"
+#include <Arduino.h>
+#include <Client.h>
 
 // Buffer lengths
 #define HTTP_REQ_METHOD_LENGTH 			10		//10 is enough

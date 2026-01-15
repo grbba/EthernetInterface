@@ -20,7 +20,11 @@
 #ifndef EthernetSetup_h
 #define EthernetSetup_h
 
+#if defined(ARDUINO_ARCH_STM32)
+#include <STM32Ethernet.h>
+#else
 #include <Ethernet.h>
+#endif
 #include "NetworkSetup.h"
 
 /**

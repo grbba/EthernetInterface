@@ -25,6 +25,7 @@
 
 void reverseArray(uint8_t arr[], int start, int end);
 
+#if WIFI_AT_ENABLED
 /**
  * @brief WiFi specifi setup function. Currently only for Serial1 to connect to the ESP chip.
  * 
@@ -123,7 +124,7 @@ bool WifiSetup::setup() {
 
         INFO(F("Local IP address:      [%d.%d.%d.%d]"), ip[0], ip[1], ip[2], ip[3]);
         INFO(F("Listening on port:     [%d]"), port);
-        dnsip = WiFi.dnsServer1();
+        dnsip = WiFi.dnsIP();  //   .dnsServer1();
         INFO(F("DNS server IP address: [%d.%d.%d.%d] "), dnsip[0], dnsip[1], dnsip[2], dnsip[3]);
         INFO(F("Number of connections: [%d]"), maxConnections);
         return true;
@@ -147,3 +148,20 @@ void reverseArray(uint8_t arr[], int start, int end)
 WifiSetup::WifiSetup() {}
 WifiSetup::WifiSetup(uint16_t p, protocolType pt ) { port = p; protocol = pt; }
 WifiSetup::~WifiSetup() {}
+#else
+bool WifiSetup::setup() {
+    ERR(F("WiFi AT support disabled for this build."));
+    return false;
+}
+
+void reverseArray(uint8_t arr[], int start, int end)
+{
+    (void)arr;
+    (void)start;
+    (void)end;
+}
+
+WifiSetup::WifiSetup() {}
+WifiSetup::WifiSetup(uint16_t p, protocolType pt ) { port = p; protocol = pt; }
+WifiSetup::~WifiSetup() {}
+#endif

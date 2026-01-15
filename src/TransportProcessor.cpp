@@ -483,8 +483,9 @@ void TransportProcessor::readStream(Connection *c, bool read)
 #ifdef DCCEX_ENABLED
     INFO(F("Client #[%d] received packet #[%d] of size:[%d/%d]"), c->id, _pNum, count, _tPayload);
 #else
-    IPAddress remote = c->client->remoteIP();
-    INFO(F("Client #[%d] Received packet #[%d] of size:[%d] from [%d.%d.%d.%d]"), c->id, _pNum, count, remote[0], remote[1], remote[2], remote[3]);
+    // IPAddress remote = c-> client->remoteIP();
+    INFO(F("Client #[%d] Received packet #[%d] of size:[%d]"), c->id, _pNum, count );
+    // INFO(F("Client #[%d] Received packet #[%d] of size:[%d] from [%d.%d.%d.%d]"), c->id, _pNum, count, remote[0], remote[1], remote[2], remote[3]);
 #endif
     buffer[count] = '\0'; // terminate the string properly
     INFO(F("Packet: [%e]"), buffer);

@@ -17,7 +17,7 @@
  * See the GNU General Public License for more details <https://www.gnu.org/licenses/>
  */
 
-#include "Arduino.h"
+#include <Arduino.h>
 #include "HttpRequest.h"
 #include "NetworkInterface.h"
 #include "NetworkDiag.h"

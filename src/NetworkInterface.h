@@ -25,6 +25,8 @@
 #include "NetworkConfig.h"
 #include "HttpRequest.h"
 
+
+
 typedef enum protocolType {
     TCP,             //!< TCP standard protocol for the network connection management
     UDPR,            //!< UDP clashes with a class name in the network stack need to define a namespace for that?

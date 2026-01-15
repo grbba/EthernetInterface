@@ -21,8 +21,7 @@
 #define TransportProcessor_h
 
 #include <Arduino.h>
-#include <Ethernet.h>
-#include <WiFiEspAT.h>
+#include <Udp.h>
 
 #include "Transport.h"
 #include "NetworkConfig.h"

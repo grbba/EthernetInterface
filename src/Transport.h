@@ -21,8 +21,7 @@
 #define Transport_h
 
 #include <Arduino.h>
-#include <Ethernet.h>
-#include <WiFiEspAT.h>
+#include <Client.h>
 
 #include "NetworkConfig.h"
 #include "NetworkInterface.h"

@@ -38,7 +38,9 @@
 #include "EthernetSetup.h"
 #include "WifiSetup.h"
 
+#if WIFI_AT_ENABLED
 Transport<WiFiServer, WiFiClient, WiFiUDP> *wifiTransport;
+#endif
 Transport<EthernetServer, EthernetClient, EthernetUDP> *ethernetTransport;
 
 DCCNetwork _dccNet;
@@ -49,7 +51,9 @@ void DCCNetwork::loop()
     {
 
         Transport<EthernetServer, EthernetClient, EthernetUDP> *e;
+        #if WIFI_AT_ENABLED
         Transport<WiFiServer, WiFiClient, WiFiUDP> *w;
+        #endif
 
         switch (_t[i])
         {
@@ -61,9 +65,13 @@ void DCCNetwork::loop()
             }
             case WIFI:
             {
+#if WIFI_AT_ENABLED
                 w = (Transport<WiFiServer, WiFiClient, WiFiUDP> *)transports[i];
                 w->loop();
                 break;
+#else
+                break;
+#endif
             }
         }
     }
@@ -100,6 +108,7 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
     {
     case WIFI:
     {
+#if WIFI_AT_ENABLED
         WifiSetup wSetup(port, protocol);
         if (wSetup.setup())
         {
@@ -116,6 +125,10 @@ void NetworkInterface::setup(transportType transport, protocolType protocol, uin
         } else {
             ok = false;
         }
+#else
+        ERR(F("WiFi AT support disabled for this build."));
+        ok = false;
+#endif
         break;
     };
     case ETHERNET:

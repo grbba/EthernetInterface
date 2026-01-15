@@ -20,7 +20,8 @@
 #ifndef NetworkSetup_h
 #define NetworkSetup_h
 
-#include <Ethernet.h>
+#include <Arduino.h>
+#include <IPAddress.h>
 
 #include "NetworkConfig.h"
 #include "NetworkInterface.h"

@@ -26,6 +26,8 @@
   
 #elif defined(ARDUINO_ARCH_AVR)
   Print * StringFormatter::diagSerial= &Serial;
+#elif defined(ARDUINO_ARCH_STM32)
+  Print * StringFormatter::diagSerial= &Serial;
 #elif defined(ARDUINO_ARCH_MEGAAVR)
   Print * StringFormatter::diagSerial=&Serial;
   #define __FlashStringHelper char

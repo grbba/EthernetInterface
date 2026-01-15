@@ -34,6 +34,7 @@ byte EthernetSetup::setup()
         WARN(F("Failed to configure Ethernet using DHCP ... Trying with fixed IP"));
         Ethernet.begin(mac, IPAddress(IP_ADDRESS)); // default ip address
 
+#if !defined(ARDUINO_ARCH_STM32)
         if (Ethernet.hardwareStatus() == EthernetNoHardware)
         {
             ERR(F("Ethernet shield was not found. Sorry, can't run without hardware. :("));
@@ -44,10 +45,12 @@ byte EthernetSetup::setup()
             ERR(F("Ethernet cable is not connected."));
             return 0;
         }
+#endif
     }
 
     maxConnections = MAX_SOCK_NUM;
 
+#if !defined(ARDUINO_ARCH_STM32)
     if (Ethernet.hardwareStatus() == EthernetW5100)
     {
         INFO(F("W5100 Ethernet controller detected."));
@@ -63,6 +66,7 @@ byte EthernetSetup::setup()
         INFO(F("W5500 Ethernet controller detected."));
         maxConnections = 8;
     }
+#endif
 
    INFO(F("Network Protocol: [%s]"), protocol ? "UDP" : "TCP");
     switch (protocol)
@@ -119,4 +123,3 @@ byte EthernetSetup::setup()
 EthernetSetup::EthernetSetup() {}
 EthernetSetup::EthernetSetup(uint16_t p, protocolType pt ) { port = p; protocol = pt; }
 EthernetSetup::~EthernetSetup() {}
-
