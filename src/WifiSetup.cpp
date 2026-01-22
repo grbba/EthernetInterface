@@ -40,10 +40,27 @@ void reverseArray(uint8_t arr[], int start, int end);
 bool WifiSetup::setup() {
     /**
      * @todo setup using SoftwareSerial or any other Hardware Serial port on the mega (i.e. 2 or 3);
-     * 
+     *  Serial3 for the Mega+WiFi combo no jumperds
+     *  serial6 on the nucleo with the  makerfabs jumper  
+     *  ESP_TX → D0 (so ESP transmits into STM32 RX)
+     *  ESP_RX → D1 (so ESP receives from STM32 TX)
      */
-    Serial1.begin(AT_BAUD_RATE);  
+
+
+// #include <Arduino.h>
+// #include <HardwareSerial.h>
+
+#if defined(ARDUINO_ARCH_STM32)
+    // Route the configured USART to the desired pins (defaults in NetworkConfig.h).
+    HardwareSerial ESP(WIFI_AT_USART);
+    ESP.setRx(WIFI_AT_RX_PIN);
+    ESP.setTx(WIFI_AT_TX_PIN);
+    ESP.begin(AT_BAUD_RATE);
+    WiFi.init(ESP);
+#else
+    Serial1.begin(AT_BAUD_RATE);
     WiFi.init(Serial1);
+#endif
 
     maxConnections = MAX_WIFI_SOCK;
 

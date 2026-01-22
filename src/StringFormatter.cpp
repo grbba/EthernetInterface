@@ -17,6 +17,7 @@
  *  along with CommandStation.  If not, see <https://www.gnu.org/licenses/>.
  */
 #include "StringFormatter.h"
+#include "NetworkConfig.h"
 #include <stdarg.h>
 
 #if defined(ARDUINO_ARCH_SAMD)
@@ -81,7 +82,11 @@ void StringFormatter::send2(Print * stream,const __FlashStringHelper* format, va
       case 'b': stream->print(va_arg(args, int), BIN); break;
       case 'o': stream->print(va_arg(args, int), OCT); break;
       case 'x': stream->print(va_arg(args, int), HEX); break;
-      case 'f': stream->print(va_arg(args, double), 2); break;
+      case 'f':
+#if STRINGFORMATTER_FLOATS
+        stream->print(va_arg(args, double), 2);
+#endif
+        break;
     }
   }
   va_end(args);

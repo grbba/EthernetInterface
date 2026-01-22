@@ -39,12 +39,27 @@
 #define MAX_OVERFLOW    MAX_ETH_BUFFER / 2                      //!< Length of the overflow buffer to be used for a given connection to make sure we capture commands broken between two recieves 
 #define MAX_JMRI_CMD    MAX_ETH_BUFFER / 2                      //!< Maximum Length of a JMRI Command 
 
+#ifndef STRINGFORMATTER_FLOATS
+#define STRINGFORMATTER_FLOATS 0
+#endif
+
 #ifndef WIFI_AT_ENABLED
 #if defined(ARDUINO_ARCH_STM32)
 #define WIFI_AT_ENABLED 0
 #else
 #define WIFI_AT_ENABLED 1
 #endif
+#endif
+
+// WiFi AT serial config (STM32 defaults; override per board as needed).
+#ifndef WIFI_AT_USART
+#define WIFI_AT_USART USART6
+#endif
+#ifndef WIFI_AT_RX_PIN
+#define WIFI_AT_RX_PIN PG9
+#endif
+#ifndef WIFI_AT_TX_PIN
+#define WIFI_AT_TX_PIN PG14
 #endif
 
 

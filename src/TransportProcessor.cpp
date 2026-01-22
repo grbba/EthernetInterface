@@ -211,9 +211,32 @@ void httpProcessor(Connection *c, TransportProcessor *t)
      * @todo look for jmri formatted uris and execute those if there is no callback. If no command found ignore and 
      * ev. send a 401 error back
      */
+    static const uint16_t HTTP_PARSE_MAX_BYTES = 512;
+    static const uint32_t HTTP_PARSE_TIMEOUT_MS = 2000;
+    static uint32_t httpLastByteMs = 0;
+    static uint16_t httpByteCount = 0;
+
+    const uint32_t nowMs = millis();
+    if (httpLastByteMs != 0 && (nowMs - httpLastByteMs) > HTTP_PARSE_TIMEOUT_MS)
+    {
+        httpReq.resetRequest();
+        httpByteCount = 0;
+    }
+
     uint8_t i, l = 0;
     ParsedRequest preq;
     l = strlen((char *)t->buffer);
+    if (l == 0)
+        return;
+
+    httpLastByteMs = nowMs;
+    if (httpByteCount + l > HTTP_PARSE_MAX_BYTES)
+    {
+        httpReq.resetRequest();
+        httpByteCount = 0;
+        return;
+    }
+    httpByteCount += l;
     for (i = 0; i < l; i++)
     {
         httpReq.parseRequest((char)t->buffer[i]);
@@ -223,6 +246,7 @@ void httpProcessor(Connection *c, TransportProcessor *t)
         preq = httpReq.getParsedRequest();
         httpReq.callback(&preq, c->client);
         httpReq.resetRequest();
+        httpByteCount = 0;
     } // else do nothing and continue with the next packet
 }
 
@@ -509,5 +533,4 @@ void parse(Print *stream, byte *command, bool blocking)
     // echo back (as mock parser )
     StringFormatter::send(stream, F("reply to: %s"), command);
 }
-
 
